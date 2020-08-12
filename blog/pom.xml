@@ -109,7 +109,7 @@
 
 	<!--Cấu hình build ứng dụng -->
 	<build>
-		<finalName>my-blog</finalName>
+		<finalName>Java-In-Heroku</finalName>
 		<plugins>
 			<!--Set JDK Complier Level -->
 			<plugin>
