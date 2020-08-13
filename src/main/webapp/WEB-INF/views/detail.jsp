@@ -54,11 +54,11 @@
 						<div class="col-md-7">
 							<div class="text">
 								<div class="mouse">
-									<a href="#" class="mouse-icon">
-										<div class="mouse-wheel">
+									<div class="mouse-wheel">
+										<a href="#" class="mouse-icon">
 											<span class="ion-ios-arrow-round-down"></span>
+											</a>
 										</div>
-									</a>
 								</div>
 							</div>
 						</div>
@@ -544,7 +544,9 @@
 		</div>
 	</footer>
 
-
+	<a href="#" class="cd-top"
+		style="background-image: url(https://thinhweb.com/wp-content/themes/thinhweb/images/cd-top-arrow.svg);">Back
+		To Top</a>
 
 
 	<script
@@ -577,6 +579,9 @@
 		src="${pageContext.request.contextPath}/resources/homePage/js/google-map.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/resources/homePage/js/main.js"></script>
+
+	<script
+		src="${pageContext.request.contextPath}/resources/homePage/js/backtotop.js"></script>
 
 </body>
 </html>

@@ -27,8 +27,7 @@
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a href="/blog/"
-						class="nav-link">Home</a></li>
+					<li class="nav-item active"><a href="/blog/" class="nav-link">Home</a></li>
 					<li class="nav-item"><a href="list" class="nav-link">Blogs</a></li>
 					<li class="nav-item"><a href="contact" class="nav-link">Contact</a></li>
 					<li class="nav-item"><a href="login" class="nav-link">Sign
@@ -58,11 +57,11 @@
 									Separated they live in Bookmarksgrove right at the coast of the
 									Semantics, a large language ocean.</p>
 								<div class="mouse">
-									<a href="#" class="mouse-icon">
-										<div class="mouse-wheel">
+									<div class="mouse-wheel">
+										<a href="#" class="mouse-icon">
 											<span class="ion-ios-arrow-round-down"></span>
+											</a>
 										</div>
-									</a>
 								</div>
 							</div>
 						</div>
@@ -460,6 +459,9 @@
 		</div>
 	</footer>
 
+	<a href="#" class="cd-top"
+		style="background-image: url(https://thinhweb.com/wp-content/themes/thinhweb/images/cd-top-arrow.svg);">Back
+		To Top</a>
 
 	<script
 		src="${pageContext.request.contextPath}/resources/homePage/js/jquery.min.js"></script>
@@ -491,6 +493,9 @@
 		src="${pageContext.request.contextPath}/resources/homePage/js/google-map.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/resources/homePage/js/main.js"></script>
+
+	<script
+		src="${pageContext.request.contextPath}/resources/homePage/js/backtotop.js"></script>
 
 </body>
 </html>

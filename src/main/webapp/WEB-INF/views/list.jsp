@@ -49,11 +49,11 @@
 						<div class="col-md-7">
 							<div class="text">
 								<div class="mouse">
-									<a href="#" class="mouse-icon">
-										<div class="mouse-wheel">
+									<div class="mouse-wheel">
+										<a href="#" class="mouse-icon">
 											<span class="ion-ios-arrow-round-down"></span>
+											</a>
 										</div>
-									</a>
 								</div>
 							</div>
 						</div>
@@ -70,7 +70,8 @@
 					<div
 						class="blog-entry justify-contenttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt-end">
 						<a href="detail.html" class="block-20"
-							style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_1.jpg');"> </a>
+							style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_1.jpg');">
+						</a>
 						<div class="text p-4 float-right d-block">
 							<div class="topper d-flex align-items-center">
 								<div class="one py-2 pl-3 pr-1 align-self-stretch">
@@ -92,10 +93,10 @@
 					</div>
 				</div>
 				<div class="col-md-4 d-flex ftco-animate">
-					<div
-						class="blog-entry justify-content-end">
+					<div class="blog-entry justify-content-end">
 						<a href="detail.html" class="block-20"
-							style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_2.jpg');"> </a>
+							style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_2.jpg');">
+						</a>
 						<div class="text p-4 float-right d-block">
 							<div class="topper d-flex align-items-center">
 								<div class="one py-2 pl-3 pr-1 align-self-stretch">
@@ -117,86 +118,10 @@
 					</div>
 				</div>
 				<div class="col-md-4 d-flex ftco-animate">
-					<div
-						class="blog-entry justify-content-end">
+					<div class="blog-entry justify-content-end">
 						<a href="detail.html" class="block-20"
-							style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_3.jpg');"> </a>
-						<div class="text p-4 float-right d-block">
-							<div class="topper d-flex align-items-center">
-								<div class="one py-2 pl-3 pr-1 align-self-stretch">
-									<span class="day">18</span>
-								</div>
-								<div class="two pl-0 pr-3 py-2 align-self-stretch">
-									<span class="yr">2019</span> <span class="mos">October</span>
-								</div>
-							</div>
-							<h3 class="heading mb-3">
-								<a href="#">title</a>
-							</h3>
-							<p>contenttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt</p>
-							<p>
-								<a href="#" class="btn-custom"><span
-									class="ion-ios-arrow-round-forward mr-3"></span>Read more</a>
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-4 d-flex ftco-animate">
-					<div
-						class="blog-entry justify-content-end">
-						<a href="detail.html" class="block-20"
-							style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_4.jpg');"> </a>
-						<div class="text p-4 float-right d-block">
-							<div class="topper d-flex align-items-center">
-								<div class="one py-2 pl-3 pr-1 align-self-stretch">
-									<span class="day">18</span>
-								</div>
-								<div class="two pl-0 pr-3 py-2 align-self-stretch">
-									<span class="yr">2019</span> <span class="mos">October</span>
-								</div>
-							</div>
-							<h3 class="heading mb-3">
-								<a href="#">title</a>
-							</h3>
-							<p>contenttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt</p>
-							<p>
-								<a href="#" class="btn-custom"><span
-									class="ion-ios-arrow-round-forward mr-3"></span>Read more</a>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div
-						class="blog-entry justify-content-end">
-						<a href="detail.html" class="block-20"
-							style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_5.jpg');"> </a>
-						<div class="text p-4 float-right d-block">
-							<div class="topper d-flex align-items-center">
-								<div class="one py-2 pl-3 pr-1 align-self-stretch">
-									<span class="day">18</span>
-								</div>
-								<div class="two pl-0 pr-3 py-2 align-self-stretch">
-									<span class="yr">2019</span> <span class="mos">October</span>
-								</div>
-							</div>
-							<h3 class="heading mb-3">
-								<a href="#">title</a>
-							</h3>
-							<p>contenttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt</p>
-							<p>
-								<a href="#" class="btn-custom"><span
-									class="ion-ios-arrow-round-forward mr-3"></span>Read more</a>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div
-						class="blog-entry justify-content-end">
-						<a href="detail.html" class="block-20"
-							style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_6.jpg');"> </a>
+							style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_3.jpg');">
+						</a>
 						<div class="text p-4 float-right d-block">
 							<div class="topper d-flex align-items-center">
 								<div class="one py-2 pl-3 pr-1 align-self-stretch">
@@ -219,10 +144,10 @@
 				</div>
 
 				<div class="col-md-4 d-flex ftco-animate">
-					<div
-						class="blog-entry justify-content-end">
+					<div class="blog-entry justify-content-end">
 						<a href="detail.html" class="block-20"
-							style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_7.jpg');"> </a>
+							style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_4.jpg');">
+						</a>
 						<div class="text p-4 float-right d-block">
 							<div class="topper d-flex align-items-center">
 								<div class="one py-2 pl-3 pr-1 align-self-stretch">
@@ -244,10 +169,10 @@
 					</div>
 				</div>
 				<div class="col-md-4 d-flex ftco-animate">
-					<div
-						class="blog-entry justify-content-end">
+					<div class="blog-entry justify-content-end">
 						<a href="detail.html" class="block-20"
-							style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_8.jpg');"> </a>
+							style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_5.jpg');">
+						</a>
 						<div class="text p-4 float-right d-block">
 							<div class="topper d-flex align-items-center">
 								<div class="one py-2 pl-3 pr-1 align-self-stretch">
@@ -269,10 +194,86 @@
 					</div>
 				</div>
 				<div class="col-md-4 d-flex ftco-animate">
-					<div
-						class="blog-entry justify-content-end">
+					<div class="blog-entry justify-content-end">
 						<a href="detail.html" class="block-20"
-							style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_9.jpg');"> </a>
+							style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_6.jpg');">
+						</a>
+						<div class="text p-4 float-right d-block">
+							<div class="topper d-flex align-items-center">
+								<div class="one py-2 pl-3 pr-1 align-self-stretch">
+									<span class="day">18</span>
+								</div>
+								<div class="two pl-0 pr-3 py-2 align-self-stretch">
+									<span class="yr">2019</span> <span class="mos">October</span>
+								</div>
+							</div>
+							<h3 class="heading mb-3">
+								<a href="#">title</a>
+							</h3>
+							<p>contenttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt</p>
+							<p>
+								<a href="#" class="btn-custom"><span
+									class="ion-ios-arrow-round-forward mr-3"></span>Read more</a>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 d-flex ftco-animate">
+					<div class="blog-entry justify-content-end">
+						<a href="detail.html" class="block-20"
+							style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_7.jpg');">
+						</a>
+						<div class="text p-4 float-right d-block">
+							<div class="topper d-flex align-items-center">
+								<div class="one py-2 pl-3 pr-1 align-self-stretch">
+									<span class="day">18</span>
+								</div>
+								<div class="two pl-0 pr-3 py-2 align-self-stretch">
+									<span class="yr">2019</span> <span class="mos">October</span>
+								</div>
+							</div>
+							<h3 class="heading mb-3">
+								<a href="#">title</a>
+							</h3>
+							<p>contenttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt</p>
+							<p>
+								<a href="#" class="btn-custom"><span
+									class="ion-ios-arrow-round-forward mr-3"></span>Read more</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 d-flex ftco-animate">
+					<div class="blog-entry justify-content-end">
+						<a href="detail.html" class="block-20"
+							style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_8.jpg');">
+						</a>
+						<div class="text p-4 float-right d-block">
+							<div class="topper d-flex align-items-center">
+								<div class="one py-2 pl-3 pr-1 align-self-stretch">
+									<span class="day">18</span>
+								</div>
+								<div class="two pl-0 pr-3 py-2 align-self-stretch">
+									<span class="yr">2019</span> <span class="mos">October</span>
+								</div>
+							</div>
+							<h3 class="heading mb-3">
+								<a href="#">title</a>
+							</h3>
+							<p>contenttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt</p>
+							<p>
+								<a href="#" class="btn-custom"><span
+									class="ion-ios-arrow-round-forward mr-3"></span>Read more</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 d-flex ftco-animate">
+					<div class="blog-entry justify-content-end">
+						<a href="detail.html" class="block-20"
+							style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_9.jpg');">
+						</a>
 						<div class="text p-4 float-right d-block">
 							<div class="topper d-flex align-items-center">
 								<div class="one py-2 pl-3 pr-1 align-self-stretch">
@@ -412,9 +413,13 @@
 					</div>
 				</div>
 			</div>
-			
+
 		</div>
 	</footer>
+
+	<a href="#" class="cd-top"
+		style="background-image: url(https://thinhweb.com/wp-content/themes/thinhweb/images/cd-top-arrow.svg);">Back
+		To Top</a>
 
 
 
@@ -451,6 +456,8 @@
 		src="${pageContext.request.contextPath}/resources/homePage/js/google-map.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/resources/homePage/js/main.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/homePage/js/backtotop.js"></script>
 
 </body>
 </html>

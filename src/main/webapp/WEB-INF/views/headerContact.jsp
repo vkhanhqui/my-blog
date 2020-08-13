@@ -34,3 +34,6 @@
 	href="${pageContext.request.contextPath}/resources/homePage/css/icomoon.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/homePage/css/style.css">
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/homePage/css/backtotop.css">
