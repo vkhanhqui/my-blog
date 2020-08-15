@@ -17,8 +17,6 @@
 		class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="/blog/">M<i>e</i>.
-			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#ftco-nav" aria-controls="ftco-nav"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -30,8 +28,7 @@
 					<li class="nav-item active"><a href="/blog/" class="nav-link">Home</a></li>
 					<li class="nav-item"><a href="list" class="nav-link">Blogs</a></li>
 					<li class="nav-item"><a href="contact" class="nav-link">Contact</a></li>
-					<li class="nav-item"><a href="login" class="nav-link">Sign
-							up/Log in</a></li>
+					<li class="nav-item"><a href="login" class="nav-link">Admin-login</a></li>
 				</ul>
 			</div>
 		</div>
@@ -52,17 +49,13 @@
 					<div class="row">
 						<div class="col-md-7">
 							<div class="text">
-								<p>Far far away, behind the word mountains, far from the
-									countries Vokalia and Consonantia, there live the blind texts.
-									Separated they live in Bookmarksgrove right at the coast of the
-									Semantics, a large language ocean.</p>
-								<div class="mouse">
-									<div class="mouse-wheel">
-										<a href="#" class="mouse-icon">
-											<span class="ion-ios-arrow-round-down"></span>
-											</a>
-										</div>
-								</div>
+								<p>
+									introduction<br> <br> <a href="#content"> <span
+										style="color: white;"> Click here to see more about my
+											blogs</span>
+									</a>
+								</p>
+
 							</div>
 						</div>
 					</div>
@@ -71,7 +64,7 @@
 		</div>
 	</div>
 
-	<section class="ftco-section">
+	<section class="ftco-section" id="content">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -326,6 +319,7 @@
 												class="icon-facebook"></span></a></li>
 										<li class="ftco-animate"><a href="#"><span
 												class="icon-instagram"></span></a></li>
+
 									</ul>
 									<div class="meta">
 										<p class="mb-0">
@@ -370,17 +364,17 @@
 						<ul
 							class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
 							<li class="ftco-animate"><a href="#"><span
-									class="icon-twitter"></span></a></li>
-							<li class="ftco-animate"><a href="#"><span
 									class="icon-facebook"></span></a></li>
 							<li class="ftco-animate"><a href="#"><span
-									class="icon-instagram"></span></a></li>
+									class="icon-google-plus"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span
+									class="icon-github"></span></a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-md">
 					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">latest News</h2>
+						<h2 class="ftco-heading-2">Latest News</h2>
 						<div class="block-21 mb-4 d-flex">
 							<a class="img mr-4 rounded"
 								style="background-image: url(${pageContext.request.contextPath}/resources/homePage/images/image_1.jpg);"></a>
@@ -445,8 +439,8 @@
 						<h2 class="ftco-heading-2">Have a Questions?</h2>
 						<div class="block-23 mb-3">
 							<ul>
-								<li><span class="icon icon-map-marker"></span><span
-									class="text">address</span></li>
+								<li><a href="#"><span class="icon icon-map-marker"></span><span
+										class="text">address</span></a></li>
 								<li><a href="#"><span class="icon icon-phone"></span><span
 										class="text">phone number</span></a></li>
 								<li><a href="#"><span class="icon icon-envelope"></span><span
@@ -496,7 +490,8 @@
 
 	<script
 		src="${pageContext.request.contextPath}/resources/homePage/js/backtotop.js"></script>
-
+	<script
+		src="${pageContext.request.contextPath}/resources/homePage/js/smoothscroll.js"></script>
 </body>
 </html>
 

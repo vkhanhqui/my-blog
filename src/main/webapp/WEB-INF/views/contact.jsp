@@ -15,7 +15,7 @@
 <body>
 
 	<nav
-		class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+		class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-dark"
 		id="ftco-navbar">
 		<div class="container">
 			<a class="navbar-brand" href="/blog/">M<i>e</i>.
@@ -31,45 +31,14 @@
 					<li class="nav-item active"><a href="/blog/" class="nav-link">Home</a></li>
 					<li class="nav-item"><a href="list" class="nav-link">Blogs</a></li>
 					<li class="nav-item"><a href="contact" class="nav-link">Contact</a></li>
-					<li class="nav-item"><a href="login" class="nav-link">Sign
-							up/Log in</a></li>
+					<li class="nav-item"><a href="login" class="nav-link">Admin-login</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<!-- END nav -->
 
-	<div class="hero-wrap js-fullheight"
-		style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/bg_1.jpg');"
-		data-stellar-background-ratio="0.5">
-		<div class=""></div>
-		<div class="container">
-			<div
-				class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
-				data-scrollax-parent="true">
-				<div class="col-md-12 ftco-animate">
-					<h1 class="mb-4 mb-md-0">Contact us</h1>
-					<div class="row">
-						<div class="col-md-7">
-							<div class="text">
-								<div class="mouse">
-									
-										<div class="mouse-wheel">
-										<a href="#" class="mouse-icon">
-											<span class="ion-ios-arrow-round-down"></span>
-											</a>
-										</div>
-									
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<section class="ftco-section contact-section">
+	<section class="ftco-section contact-section" id="content">
 		<div class="container">
 			<div class="row d-flex mb-5 contact-info">
 				<div class="col-md-12 mb-4">
@@ -218,8 +187,8 @@
 						<h2 class="ftco-heading-2">Have a Questions?</h2>
 						<div class="block-23 mb-3">
 							<ul>
-								<li><span class="icon icon-map-marker"></span><span
-									class="text">address</span></li>
+								<li><a href="#"><span class="icon icon-map-marker"></span><span
+									class="text">address</span></a></li>
 								<li><a href="#"><span class="icon icon-phone"></span><span
 										class="text">phone number</span></a></li>
 								<li><a href="#"><span class="icon icon-envelope"></span><span

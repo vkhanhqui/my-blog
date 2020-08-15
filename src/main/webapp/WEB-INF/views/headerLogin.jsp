@@ -10,7 +10,7 @@
 	href="${pageContext.request.contextPath}/resources/loginPage/css/util.css">
 <!--===============================================================================================-->
 <link rel="icon" type="image/png"
-	href="${pageContext.request.contextPath}/resources/loginPage/images/icons/favicon.ico">
+	href="${pageContext.request.contextPath}/resources/loginPage/images/icons/fox.ico">
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/loginPage/vendor/bootstrap/css/bootstrap.min.css">

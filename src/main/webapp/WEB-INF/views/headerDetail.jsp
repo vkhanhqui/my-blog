@@ -37,3 +37,6 @@
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/homePage/css/backtotop.css">
+	
+	<link rel="icon" type="image/png"
+	href="${pageContext.request.contextPath}/resources/loginPage/images/icons/fox.ico">
