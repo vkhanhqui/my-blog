@@ -16,7 +16,7 @@
 <body>
 
 	<nav
-		class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+		class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-dark"
 		id="ftco-navbar">
 		<div class="container">
 			<a class="navbar-brand" href="/blog/">M<i>e</i>.
@@ -29,52 +29,23 @@
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a href="/blog/" class="nav-link">Home</a></li>
+					<li class="nav-item active"><a href="/vkhanhqui.myblog/" class="nav-link">Home</a></li>
 					<li class="nav-item"><a href="list" class="nav-link">Blogs</a></li>
 					<li class="nav-item"><a href="contact" class="nav-link">Contact</a></li>
-					<li class="nav-item"><a href="login" class="nav-link">Sign
-							up/Log in</a></li>
+					<li class="nav-item"><a href="login" class="nav-link">Admin-login</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<!-- END nav -->
 
-	<div class="hero-wrap js-fullheight"
-		style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/bg_1.jpg');"
-		data-stellar-background-ratio="0.5">
-		<div class=""></div>
-		<div class="container">
-			<div
-				class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
-				data-scrollax-parent="true">
-				<div class="col-md-12 ftco-animate">
-					<h1 class="mb-4 mb-md-0">detail</h1>
-					<div class="row">
-						<div class="col-md-7">
-							<div class="text">
-								<div class="mouse">
-									<a href="#" class="mouse-icon">
-										<div class="mouse-wheel">
-											<span class="ion-ios-arrow-round-down"></span>
-										</div>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<section class="ftco-section ftco-degree-bg">
+	<section class="ftco-section ftco-degree-bg" id="content">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 ftco-animate">
 					<p class="mb-5">
 						<img
-							src="${pageContext.request.contextPath}/resources/homePage/images/image_1.jpg"
+							src="<c:url value="/resources/homePage/images/image_1.jpg" />"
 							alt="" class="img-fluid">
 					</p>
 					<h2 class="mb-3">It is a long established fact a reader be
@@ -101,7 +72,7 @@
 						reiciendis incidunt hic non? Debitis commodi aut, adipisci.</p>
 					<p class="mb-5">
 						<img
-							src="${pageContext.request.contextPath}/resources/homePage/images/image_2.jpg"
+							src="<c:url value="/resources/homePage/images/image_2.jpg" />"
 							alt="" class="img-fluid">
 					</p>
 					<p>Quisquam esse aliquam fuga distinctio, quidem delectus
@@ -142,7 +113,7 @@
 					<div class="about-author d-flex p-4 bg-light">
 						<div class="bio mr-5">
 							<img
-								src="${pageContext.request.contextPath}/resources/homePage/images/person_1.jpg"
+								src="<c:url value="/resources/homePage/images/person_1.jpg" />"
 								alt="Image placeholder" class="img-fluid mb-4">
 						</div>
 						<div class="desc">
@@ -161,7 +132,7 @@
 							<li class="comment">
 								<div class="vcard bio">
 									<img
-										src="${pageContext.request.contextPath}/resources/homePage/images/person_1.jpg"
+										src="<c:url value="/resources/homePage/images/person_1.jpg" />"
 										alt="Image placeholder">
 								</div>
 								<div class="comment-body">
@@ -180,7 +151,7 @@
 							<li class="comment">
 								<div class="vcard bio">
 									<img
-										src="${pageContext.request.contextPath}/resources/homePage/images/person_1.jpg"
+										src="<c:url value="/resources/homePage/images/person_1.jpg" />"
 										alt="Image placeholder">
 								</div>
 								<div class="comment-body">
@@ -199,7 +170,7 @@
 									<li class="comment">
 										<div class="vcard bio">
 											<img
-												src="${pageContext.request.contextPath}/resources/homePage/images/person_1.jpg"
+												src="<c:url value="/resources/homePage/images/person_1.jpg" />"
 												alt="Image placeholder">
 										</div>
 										<div class="comment-body">
@@ -219,7 +190,7 @@
 											<li class="comment">
 												<div class="vcard bio">
 													<img
-														src="${pageContext.request.contextPath}/resources/homePage/images/person_1.jpg"
+														src="<c:url value="/resources/homePage/images/person_1.jpg" />"
 														alt="Image placeholder">
 												</div>
 												<div class="comment-body">
@@ -239,7 +210,7 @@
 													<li class="comment">
 														<div class="vcard bio">
 															<img
-																src="${pageContext.request.contextPath}/resources/homePage/images/person_1.jpg"
+																src="<c:url value="/resources/homePage/images/person_1.jpg" />"
 																alt="Image placeholder">
 														</div>
 														<div class="comment-body">
@@ -265,7 +236,7 @@
 							<li class="comment">
 								<div class="vcard bio">
 									<img
-										src="${pageContext.request.contextPath}/resources/homePage/images/person_1.jpg"
+										src="<c:url value="/resources/homePage/images/person_1.jpg" />"
 										alt="Image placeholder">
 								</div>
 								<div class="comment-body">
@@ -346,7 +317,7 @@
 						<h3>Recent Blog</h3>
 						<div class="block-21 mb-4 d-flex">
 							<a class="blog-img mr-4"
-								style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_1.jpg');"></a>
+								style="background-image: url('<c:url value="/resources/homePage/images/image_1.jpg" />');"></a>
 							<div class="text">
 								<h3 class="heading">
 									<a href="#">Even the all-powerful Pointing has no control
@@ -368,7 +339,7 @@
 						</div>
 						<div class="block-21 mb-4 d-flex">
 							<a class="blog-img mr-4"
-								style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_2.jpg');"></a>
+								style="background-image: url('<c:url value="/resources/homePage/images/image_2.jpg" />');"></a>
 							<div class="text">
 								<h3 class="heading">
 									<a href="#">Even the all-powerful Pointing has no control
@@ -390,7 +361,7 @@
 						</div>
 						<div class="block-21 mb-4 d-flex">
 							<a class="blog-img mr-4"
-								style="background-image: url(${pageContext.request.contextPath}/resources/homePage/images/image_3.jpg);"></a>
+								style="background-image: url(<c:url value="/resources/homePage/images/image_3.jpg" />);"></a>
 							<div class="text">
 								<h3 class="heading">
 									<a href="#">Even the all-powerful Pointing has no control
@@ -467,7 +438,7 @@
 						<h2 class="ftco-heading-2">latest News</h2>
 						<div class="block-21 mb-4 d-flex">
 							<a class="img mr-4 rounded"
-								style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_1.jpg');"></a>
+								style="background-image: url('<c:url value="/resources/homePage/images/image_1.jpg" />');"></a>
 							<div class="text">
 								<h3 class="heading">
 									<a href="#">Even the all-powerful Pointing has no control
@@ -488,7 +459,7 @@
 						</div>
 						<div class="block-21 mb-4 d-flex">
 							<a class="img mr-4 rounded"
-								style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/image_2.jpg');"></a>
+								style="background-image: url('<c:url value="/resources/homePage/images/image_2.jpg" />');"></a>
 							<div class="text">
 								<h3 class="heading">
 									<a href="#">Even the all-powerful Pointing has no control
@@ -529,8 +500,8 @@
 						<h2 class="ftco-heading-2">Have a Questions?</h2>
 						<div class="block-23 mb-3">
 							<ul>
-								<li><span class="icon icon-map-marker"></span><span
-									class="text">address</span></li>
+								<li><a href="#"><span class="icon icon-map-marker"></span><span
+									class="text">address</span></a></li>
 								<li><a href="#"><span class="icon icon-phone"></span><span
 										class="text">phone number</span></a></li>
 								<li><a href="#"><span class="icon icon-envelope"></span><span
@@ -544,39 +515,40 @@
 		</div>
 	</footer>
 
+	<a href="#" class="cd-top"
+		style="background-image: url(https://thinhweb.com/wp-content/themes/thinhweb/images/cd-top-arrow.svg);">Back
+		To Top</a>
 
 
+	<script
+		src="<c:url value="/resources/homePage/js/jquery.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/homePage/js/jquery-migrate-3.0.1.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/homePage/js/popper.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/homePage/js/bootstrap.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/homePage/js/jquery.easing.1.3.js" />"></script>
+	<script
+		src="<c:url value="/resources/homePage/js/jquery.waypoints.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/homePage/js/jquery.stellar.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/homePage/js/owl.carousel.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/homePage/js/jquery.magnific-popup.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/homePage/js/aos.js" />"></script>
+	<script
+		src="<c:url value="/resources/homePage/js/jquery.animateNumber.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/homePage/js/scrollax.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/homePage/js/main.js" />"></script>
 
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/jquery.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/jquery-migrate-3.0.1.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/popper.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/bootstrap.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/jquery.easing.1.3.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/jquery.waypoints.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/jquery.stellar.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/owl.carousel.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/jquery.magnific-popup.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/aos.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/jquery.animateNumber.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/scrollax.min.js"></script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/google-map.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/main.js"></script>
+		src="<c:url value="/resources/homePage/js/backtotop.js" />"></script>
 
 </body>
 </html>

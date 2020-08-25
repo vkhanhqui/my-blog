@@ -17,8 +17,6 @@
 		class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="/blog/">M<i>e</i>.
-			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#ftco-nav" aria-controls="ftco-nav"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -27,12 +25,10 @@
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a href="/blog/"
-						class="nav-link">Home</a></li>
+					<li class="nav-item active"><a href="/vkhanhqui.myblog/" class="nav-link">Home</a></li>
 					<li class="nav-item"><a href="list" class="nav-link">Blogs</a></li>
 					<li class="nav-item"><a href="contact" class="nav-link">Contact</a></li>
-					<li class="nav-item"><a href="login" class="nav-link">Sign
-							up/Log in</a></li>
+					<li class="nav-item"><a href="login" class="nav-link">Admin-login</a></li>
 				</ul>
 			</div>
 		</div>
@@ -40,7 +36,7 @@
 	<!-- END nav -->
 
 	<div class="hero-wrap js-fullheight"
-		style="background-image: url('${pageContext.request.contextPath}/resources/homePage/images/bg_1.jpg');"
+		style="background-image: url('<c:url value="/resources/homePage/images/bg_1.jpg" />');"
 		data-stellar-background-ratio="0.5">
 		<div class=""></div>
 		<div class="container">
@@ -53,17 +49,13 @@
 					<div class="row">
 						<div class="col-md-7">
 							<div class="text">
-								<p>Far far away, behind the word mountains, far from the
-									countries Vokalia and Consonantia, there live the blind texts.
-									Separated they live in Bookmarksgrove right at the coast of the
-									Semantics, a large language ocean.</p>
-								<div class="mouse">
-									<a href="#" class="mouse-icon">
-										<div class="mouse-wheel">
-											<span class="ion-ios-arrow-round-down"></span>
-										</div>
+								<p>
+									introduction<br> <br> <a href="#content"> <span
+										style="color: white;"> Click here to see more about my
+											blogs</span>
 									</a>
-								</div>
+								</p>
+
 							</div>
 						</div>
 					</div>
@@ -72,7 +64,7 @@
 		</div>
 	</div>
 
-	<section class="ftco-section">
+	<section class="ftco-section" id="content">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -80,7 +72,7 @@
 						<div class="row">
 							<div class="col-md-6 col-lg-6 col-xl-8 d-flex">
 								<a href="detail" class="img w-100 mb-3 mb-md-0"
-									style="background-image: url(${pageContext.request.contextPath}/resources/homePage/images/image_1.jpg);"></a>
+									style="background-image: url(<c:url value="/resources/homePage/images/image_1.jpg" />);"></a>
 							</div>
 							<div class="col-md-6 col-lg-6 col-xl-4 d-flex">
 								<div class="text w-100 pl-md-3">
@@ -109,7 +101,7 @@
 						<div class="row">
 							<div class="col-md-6 col-lg-6 col-xl-8 d-flex">
 								<a href="detail" class="img w-100 mb-3 mb-md-0"
-									style="background-image: url(${pageContext.request.contextPath}/resources/homePage/images/image_2.jpg);"></a>
+									style="background-image: url(<c:url value="/resources/homePage/images/image_2.jpg" />);"></a>
 							</div>
 							<div class="col-md-6 col-lg-6 col-xl-4 d-flex">
 								<div class="text w-100 pl-md-3">
@@ -138,7 +130,7 @@
 						<div class="row">
 							<div class="col-md-6 col-lg-6 col-xl-8 d-flex">
 								<a href="detail" class="img w-100 mb-3 mb-md-0"
-									style="background-image: url(${pageContext.request.contextPath}/resources/homePage/images/image_3.jpg);"></a>
+									style="background-image: url(<c:url value="/resources/homePage/images/image_3.jpg" />);"></a>
 							</div>
 							<div class="col-md-6 col-lg-6 col-xl-4 d-flex">
 								<div class="text w-100 pl-md-3">
@@ -167,7 +159,7 @@
 						<div class="row">
 							<div class="col-md-6 col-lg-6 col-xl-8 d-flex">
 								<a href="detail" class="img w-100 mb-3 mb-md-0"
-									style="background-image: url(${pageContext.request.contextPath}/resources/homePage/images/image_4.jpg);"></a>
+									style="background-image: url(<c:url value="/resources/homePage/images/image_4.jpg" />);"></a>
 							</div>
 							<div class="col-md-6 col-lg-6 col-xl-4 d-flex">
 								<div class="text w-100 pl-md-3">
@@ -196,7 +188,7 @@
 						<div class="row">
 							<div class="col-md-6 col-lg-6 col-xl-8 d-flex">
 								<a href="detail" class="img w-100 mb-3 mb-md-0"
-									style="background-image: url(${pageContext.request.contextPath}/resources/homePage/images/image_5.jpg);"></a>
+									style="background-image: url(<c:url value="/resources/homePage/images/image_5.jpg" />);"></a>
 							</div>
 							<div class="col-md-6 col-lg-6 col-xl-4 d-flex">
 								<div class="text w-100 pl-md-3">
@@ -225,7 +217,7 @@
 						<div class="row">
 							<div class="col-md-6 col-lg-6 col-xl-8 d-flex">
 								<a href="detail" class="img w-100 mb-3 mb-md-0"
-									style="background-image: url(${pageContext.request.contextPath}/resources/homePage/images/image_6.jpg);"></a>
+									style="background-image: url(<c:url value="/resources/homePage/images/image_6.jpg" />);"></a>
 							</div>
 							<div class="col-md-6 col-lg-6 col-xl-4 d-flex">
 								<div class="text w-100 pl-md-3">
@@ -254,7 +246,7 @@
 						<div class="row">
 							<div class="col-md-6 col-lg-6 col-xl-8 d-flex">
 								<a href="detail" class="img w-100 mb-3 mb-md-0"
-									style="background-image: url(${pageContext.request.contextPath}/resources/homePage/images/image_7.jpg);"></a>
+									style="background-image: url(<c:url value="/resources/homePage/images/image_7.jpg" />);"></a>
 							</div>
 							<div class="col-md-6 col-lg-6 col-xl-4 d-flex">
 								<div class="text w-100 pl-md-3">
@@ -283,7 +275,7 @@
 						<div class="row">
 							<div class="col-md-6 col-lg-6 col-xl-8 d-flex">
 								<a href="detail" class="img w-100 mb-3 mb-md-0"
-									style="background-image: url(${pageContext.request.contextPath}/resources/homePage/images/image_8.jpg);"></a>
+									style="background-image: url(<c:url value="/resources/homePage/images/image_8.jpg" />);"></a>
 							</div>
 							<div class="col-md-6 col-lg-6 col-xl-4 d-flex">
 								<div class="text w-100 pl-md-3">
@@ -312,7 +304,7 @@
 						<div class="row">
 							<div class="col-md-6 col-lg-6 col-xl-8 d-flex">
 								<a href="detail" class="img w-100 mb-3 mb-md-0"
-									style="background-image: url(${pageContext.request.contextPath}/resources/homePage/images/image_9.jpg);"></a>
+									style="background-image: url(<c:url value="/resources/homePage/images/image_9.jpg" />);"></a>
 							</div>
 							<div class="col-md-6 col-lg-6 col-xl-4 d-flex">
 								<div class="text w-100 pl-md-3">
@@ -327,6 +319,7 @@
 												class="icon-facebook"></span></a></li>
 										<li class="ftco-animate"><a href="#"><span
 												class="icon-instagram"></span></a></li>
+
 									</ul>
 									<div class="meta">
 										<p class="mb-0">
@@ -371,20 +364,20 @@
 						<ul
 							class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
 							<li class="ftco-animate"><a href="#"><span
-									class="icon-twitter"></span></a></li>
-							<li class="ftco-animate"><a href="#"><span
 									class="icon-facebook"></span></a></li>
 							<li class="ftco-animate"><a href="#"><span
-									class="icon-instagram"></span></a></li>
+									class="icon-google-plus"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span
+									class="icon-github"></span></a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-md">
 					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">latest News</h2>
+						<h2 class="ftco-heading-2">Latest News</h2>
 						<div class="block-21 mb-4 d-flex">
 							<a class="img mr-4 rounded"
-								style="background-image: url(${pageContext.request.contextPath}/resources/homePage/images/image_1.jpg);"></a>
+								style="background-image: url(<c:url value="/resources/homePage/images/image_1.jpg" />);"></a>
 							<div class="text">
 								<h3 class="heading">
 									<a href="#">Even the all-powerful Pointing has no control
@@ -405,7 +398,7 @@
 						</div>
 						<div class="block-21 mb-4 d-flex">
 							<a class="img mr-4 rounded"
-								style="background-image: url(${pageContext.request.contextPath}/resources/homePage/images/image_2.jpg);"></a>
+								style="background-image: url(<c:url value="/resources/homePage/images/image_2.jpg" />);"></a>
 							<div class="text">
 								<h3 class="heading">
 									<a href="#">Even the all-powerful Pointing has no control
@@ -446,8 +439,8 @@
 						<h2 class="ftco-heading-2">Have a Questions?</h2>
 						<div class="block-23 mb-3">
 							<ul>
-								<li><span class="icon icon-map-marker"></span><span
-									class="text">address</span></li>
+								<li><a href="#"><span class="icon icon-map-marker"></span><span
+										class="text">address</span></a></li>
 								<li><a href="#"><span class="icon icon-phone"></span><span
 										class="text">phone number</span></a></li>
 								<li><a href="#"><span class="icon icon-envelope"></span><span
@@ -460,38 +453,39 @@
 		</div>
 	</footer>
 
-
+	<a href="#" class="cd-top"
+		style="background-image: url(https://thinhweb.com/wp-content/themes/thinhweb/images/cd-top-arrow.svg);">Back
+		To Top</a>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/jquery.min.js"></script>
+		src="<c:url value="/resources/homePage/js/jquery.min.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/jquery-migrate-3.0.1.min.js"></script>
+		src="<c:url value="/resources/homePage/js/jquery-migrate-3.0.1.min.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/popper.min.js"></script>
+		src="<c:url value="/resources/homePage/js/popper.min.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/bootstrap.min.js"></script>
+		src="<c:url value="/resources/homePage/js/bootstrap.min.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/jquery.easing.1.3.js"></script>
+		src="<c:url value="/resources/homePage/js/jquery.easing.1.3.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/jquery.waypoints.min.js"></script>
+		src="<c:url value="/resources/homePage/js/jquery.waypoints.min.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/jquery.stellar.min.js"></script>
+		src="<c:url value="/resources/homePage/js/jquery.stellar.min.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/owl.carousel.min.js"></script>
+		src="<c:url value="/resources/homePage/js/owl.carousel.min.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/jquery.magnific-popup.min.js"></script>
+		src="<c:url value="/resources/homePage/js/jquery.magnific-popup.min.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/aos.js"></script>
+		src="<c:url value="/resources/homePage/js/aos.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/jquery.animateNumber.min.js"></script>
+		src="<c:url value="/resources/homePage/js/jquery.animateNumber.min.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/scrollax.min.js"></script>
+		src="<c:url value="/resources/homePage/js/scrollax.min.js" />"></script>
 	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+		src="<c:url value="/resources/homePage/js/main.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/google-map.js"></script>
+		src="<c:url value="/resources/homePage/js/backtotop.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/main.js"></script>
-
+		src="<c:url value="/resources/homePage/js/smoothscroll.js" />"></script>
 </body>
 </html>
 
