@@ -28,7 +28,7 @@
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a href="/blog/" class="nav-link">Home</a></li>
+					<li class="nav-item active"><a href="/vkhanhqui.myblog/" class="nav-link">Home</a></li>
 					<li class="nav-item"><a href="list" class="nav-link">Blogs</a></li>
 					<li class="nav-item"><a href="contact" class="nav-link">Contact</a></li>
 					<li class="nav-item"><a href="login" class="nav-link">Admin-login</a></li>
@@ -125,7 +125,7 @@
 						<h2 class="ftco-heading-2">latest News</h2>
 						<div class="block-21 mb-4 d-flex">
 							<a class="img mr-4 rounded"
-								style="background-image: url(${pageContext.request.contextPath}/resources/homePage/images/image_1.jpg);"></a>
+								style="background-image: url(<c:url value="/resources/homePage/images/image_1.jpg" />);"></a>
 							<div class="text">
 								<h3 class="heading">
 									<a href="#">Even the all-powerful Pointing has no control
@@ -146,7 +146,7 @@
 						</div>
 						<div class="block-21 mb-4 d-flex">
 							<a class="img mr-4 rounded"
-								style="background-image: url(${pageContext.request.contextPath}/resources/homePage/images/image_2.jpg);"></a>
+								style="background-image: url(<c:url value="/resources/homePage/images/image_2.jpg" />);"></a>
 							<div class="text">
 								<h3 class="heading">
 									<a href="#">Even the all-powerful Pointing has no control
@@ -208,36 +208,36 @@
 
 
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/jquery.min.js"></script>
+		src="<c:url value="/resources/homePage/js/jquery.min.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/jquery-migrate-3.0.1.min.js"></script>
+		src="<c:url value="/resources/homePage/js/jquery-migrate-3.0.1.min.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/popper.min.js"></script>
+		src="<c:url value="/resources/homePage/js/popper.min.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/bootstrap.min.js"></script>
+		src="<c:url value="/resources/homePage/js/bootstrap.min.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/jquery.easing.1.3.js"></script>
+		src="<c:url value="/resources/homePage/js/jquery.easing.1.3.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/jquery.waypoints.min.js"></script>
+		src="<c:url value="/resources/homePage/js/jquery.waypoints.min.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/jquery.stellar.min.js"></script>
+		src="<c:url value="/resources/homePage/js/jquery.stellar.min.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/owl.carousel.min.js"></script>
+		src="<c:url value="/resources/homePage/js/owl.carousel.min.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/jquery.magnific-popup.min.js"></script>
+		src="<c:url value="/resources/homePage/js/jquery.magnific-popup.min.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/aos.js"></script>
+		src="<c:url value="/resources/homePage/js/aos.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/jquery.animateNumber.min.js"></script>
+		src="<c:url value="/resources/homePage/js/jquery.animateNumber.min.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/scrollax.min.js"></script>
+		src="<c:url value="/resources/homePage/js/scrollax.min.js" />"></script>
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/google-map.js"></script>
+		src="<c:url value="/resources/homePage/js/google-map.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/main.js"></script>
+		src="<c:url value="/resources/homePage/js/main.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/homePage/js/backtotop.js"></script>
+		src="<c:url value="/resources/homePage/js/backtotop.js" />"></script>
 </body>
 </html>

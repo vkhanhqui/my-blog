@@ -16,7 +16,7 @@
 
 	<div class="limiter">
 		<div class="container-login100"
-			style="background-image: url('${pageContext.request.contextPath}/resources/loginPage/images/bg-01.jpg');">
+			style="background-image: url('<c:url value="/resources/loginPage/images/bg-01.jpg" />');">
 			<div class="wrap-login100 p-t-30 p-b-50">
 				<span class="login100-form-title p-b-41"> Admin Login </span>
 				<form class="login100-form validate-form p-b-33 p-t-5" method='post'>
@@ -30,7 +30,7 @@
 
 					<div class="wrap-input100 validate-input"
 						data-validate="Enter password">
-						<input class="input100" type="password" name="pass"
+						<input class="input100" type="password" name="password"
 							placeholder="Password"> <span class="focus-input100"
 							data-placeholder="&#xe80f;"></span>
 					</div>
@@ -49,29 +49,29 @@
 
 	<!--===================================import js============================================================-->
 	<script
-		src="${pageContext.request.contextPath}/resources/loginPage/vendor/jquery/jquery-3.2.1.min.js"></script>
+		src="<c:url value="/resources/loginPage/vendor/jquery/jquery-3.2.1.min.js" />"></script>
 	<!--===============================================================================================-->
 	<script
-		src="${pageContext.request.contextPath}/resources/loginPage/vendor/animsition/js/animsition.min.js"></script>
+		src="<c:url value="/resources/loginPage/vendor/animsition/js/animsition.min.js" />"></script>
 	<!--===============================================================================================-->
 	<script
-		src="${pageContext.request.contextPath}/resources/loginPage/vendor/bootstrap/js/popper.js"></script>
+		src="<c:url value="/resources/loginPage/vendor/bootstrap/js/popper.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/loginPage/vendor/bootstrap/js/bootstrap.min.js"></script>
+		src="<c:url value="/resources/loginPage/vendor/bootstrap/js/bootstrap.min.js" />"></script>
 	<!--===============================================================================================-->
 	<script
-		src="${pageContext.request.contextPath}/resources/loginPage/vendor/select2/select2.min.js"></script>
+		src="<c:url value="/resources/loginPage/vendor/select2/select2.min.js" />"></script>
 	<!--===============================================================================================-->
 	<script
-		src="${pageContext.request.contextPath}/resources/loginPage/vendor/daterangepicker/moment.min.js"></script>
+		src="<c:url value="/resources/loginPage/vendor/daterangepicker/moment.min.js" />"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/loginPage/vendor/daterangepicker/daterangepicker.js"></script>
+		src="<c:url value="/resources/loginPage/vendor/daterangepicker/daterangepicker.js" />"></script>
 	<!--===============================================================================================-->
 	<script
-		src="${pageContext.request.contextPath}/resources/loginPage/vendor/countdowntime/countdowntime.js"></script>
+		src="<c:url value="/resources/loginPage/vendor/countdowntime/countdowntime.js" />"></script>
 	<!--===============================================================================================-->
 	<script
-		src="${pageContext.request.contextPath}/resources/loginPage/js/main.js"></script>
+		src="<c:url value="/resources/loginPage/js/main.js" />"></script>
 
 	<!--=====================================end import js==========================================================-->
 
