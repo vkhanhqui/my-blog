@@ -42,9 +42,6 @@ public class Post {
 	private String link;
 
     @ManyToMany(mappedBy = "posts", fetch = FetchType.EAGER)
-    private Set<Social> socials= new HashSet<>();
-
-    @ManyToMany(mappedBy = "posts", fetch = FetchType.EAGER)
     private Set<Tag> tags= new HashSet<>();
 
     @ManyToMany(mappedBy = "posts", fetch = FetchType.EAGER)
