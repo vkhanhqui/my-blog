@@ -1,6 +1,6 @@
 package vkhanhqui.myblog.configs;
 
-import org.springframework.web.servlet.support.*;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer{
 	
