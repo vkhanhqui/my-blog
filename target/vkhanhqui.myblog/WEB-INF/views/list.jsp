@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="tg" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
@@ -48,10 +48,9 @@
             <c:param name="p" value="~"/>
         </c:url>
         <%--     /   --%>
-        <div class="row d-flex">
+        <div id="paging" class="row d-flex">
             <%--				--%>
             <c:forEach var="post" items="${pagedListHolder.pageList}">
-
                 <div class="col-md-4 d-flex ftco-animate">
                     <div
                             class="blog-entry justify-content-end">

@@ -9,8 +9,6 @@ import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.models.repositories.PostRepositories;
 import vkhanhqui.myblog.services.PostServices;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -26,9 +24,34 @@ public class HomeControllers {
     public String getHomePage(Model model) {
 ////        ----------------------------------------------------------------
 //        List<Post> list = new ArrayList<>();
-//        for (int i = 1; i <= 46; i++) {
+//        for (int i = 1; i <= 9; i++) {
 //            list.add(new Post(i, "title", "description", "contenttttttttcontenttttttttcontenttttttttcontentttttttt"
 //                    , new Date(), "12 min read", "/resources/homePage/images/image_1.jpg"
+//                    , "detail", null, null, null));
+//        }
+//        for (int i = 10; i <= 18; i++) {
+//            list.add(new Post(i, "title", "description", "contenttttttttcontenttttttttcontenttttttttcontentttttttt"
+//                    , new Date(), "12 min read", "/resources/homePage/images/image_2.jpg"
+//                    , "detail", null, null, null));
+//        }
+//        for (int i = 19; i <= 27; i++) {
+//            list.add(new Post(i, "title", "description", "contenttttttttcontenttttttttcontenttttttttcontentttttttt"
+//                    , new Date(), "12 min read", "/resources/homePage/images/image_3.jpg"
+//                    , "detail", null, null, null));
+//        }
+//        for (int i = 28; i <= 36; i++) {
+//            list.add(new Post(i, "title", "description", "contenttttttttcontenttttttttcontenttttttttcontentttttttt"
+//                    , new Date(), "12 min read", "/resources/homePage/images/image_4.jpg"
+//                    , "detail", null, null, null));
+//        }
+//        for (int i = 37; i <= 45; i++) {
+//            list.add(new Post(i, "title", "description", "contenttttttttcontenttttttttcontenttttttttcontentttttttt"
+//                    , new Date(), "12 min read", "/resources/homePage/images/image_5.jpg"
+//                    , "detail", null, null, null));
+//        }
+//        for (int i = 46; i <= 48; i++) {
+//            list.add(new Post(i, "title", "description", "contenttttttttcontenttttttttcontenttttttttcontentttttttt"
+//                    , new Date(), "12 min read", "/resources/homePage/images/image_6.jpg"
 //                    , "detail", null, null, null));
 //        }
 //        postRepositories.saveAll(list);

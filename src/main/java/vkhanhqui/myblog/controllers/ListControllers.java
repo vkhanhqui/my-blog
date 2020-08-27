@@ -29,7 +29,7 @@ public class ListControllers {
 
     @GetMapping
     public String Paging(HttpServletRequest request, ModelMap modelMap) {
-        List<Post> posts = (List<Post>) postServices.getAllPosts();
+        List<Post> posts = postServices.getPosts();
         PagedListHolder pagedListHolder = new PagedListHolder(posts);
         int page = ServletRequestUtils.getIntParameter(request, "p", 0);
         pagedListHolder.setPage(page);

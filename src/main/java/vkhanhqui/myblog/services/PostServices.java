@@ -33,11 +33,4 @@ public class PostServices {
         postRepository.deleteById(id);
     }
 
-    public Iterable<Post> getAllPosts() {
-        return postRepository.findAll();
-    }
-
-    public Page pagingListPage(int startingPage){
-        return postRepository.findAll(PageRequest.of(startingPage,9));
-    }
 }
