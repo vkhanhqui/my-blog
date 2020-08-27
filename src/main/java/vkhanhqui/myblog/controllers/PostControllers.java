@@ -18,11 +18,11 @@ public class PostControllers {
     private static final Logger LOG = LoggerFactory.getLogger(PostControllers.class);
 
     @Autowired
-    private PostServices postService;
+    private PostServices postServices;
 
     @GetMapping("/list")
     public String listPosts(Model model) {
-        List<Post> posts = postService.getPosts();
+        List<Post> posts = postServices.getPosts();
         model.addAttribute("posts", posts);
         return "list-posts";
     }
@@ -37,21 +37,21 @@ public class PostControllers {
 
     @PostMapping("/save")
     public String savePost(@ModelAttribute("post") Post post) {
-        postService.saveAPost(post);
+        postServices.saveAPost(post);
         return "redirect:/posts/list";
     }
 
     @GetMapping("/update")
     public String showFormForUpdate(@RequestParam("postId") int id,
                                     Model model) {
-        Post post = postService.getAPost(id);
+        Post post = postServices.getAPost(id);
         model.addAttribute("post", post);
         return "post-form";
     }
 
     @GetMapping("/delete")
     public String deletePost(@RequestParam("postId") int id) {
-        postService.deleteAPost(id);
+        postServices.deleteAPost(id);
         return "redirect:/posts/list";
     }
 }
