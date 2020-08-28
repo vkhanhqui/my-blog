@@ -16,12 +16,12 @@ import java.util.Set;
 @NoArgsConstructor
 public class Post {
     @Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
 
-	@Column(name = "title")
-	private String title;
+    @Column(name = "title")
+    private String title;
 
     @Column(name = "description")
     private String description;
@@ -35,18 +35,18 @@ public class Post {
     @Column(name = "reading")
     private String reading;
 
-    @Column(name = "images")
+    @Column(name = "images", columnDefinition = "text")
     private String images;
 
-	@Column(name = "link")
-	private String link;
+    @Column(name = "link")
+    private String link;
 
     @ManyToMany(mappedBy = "posts", fetch = FetchType.EAGER)
-    private Set<Tag> tags= new HashSet<>();
+    private Set<Tag> tags = new HashSet<>();
 
     @ManyToMany(mappedBy = "posts", fetch = FetchType.EAGER)
-    private Set<Category> categories= new HashSet<>();
+    private Set<Category> categories = new HashSet<>();
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Comment> comments= new HashSet<>();
+    private Set<Comment> comments = new HashSet<>();
 }

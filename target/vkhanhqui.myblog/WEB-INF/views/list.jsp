@@ -1,6 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="tg" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,11 +40,17 @@
 <!-- END nav -->
 
 <section class="ftco-section bg-light" id="content">
-    <div class="container">
-        <div class="row d-flex">
+    <div class="container" id="paging-div1">
+        <%--        --%>
+        <jsp:useBean id="pagedListHolder" scope="request"
+                     type="org.springframework.beans.support.PagedListHolder"/>
+        <c:url value="/list" var="pagedLink">
+            <c:param name="p" value="~"/>
+        </c:url>
+        <%--     /   --%>
+        <div id="paging-div2" class="row d-flex">
             <%--				--%>
-            <c:forEach var="post" items="${posts}">
-
+            <c:forEach var="post" items="${pagedListHolder.pageList}">
                 <div class="col-md-4 d-flex ftco-animate">
                     <div
                             class="blog-entry justify-content-end">
@@ -71,18 +80,25 @@
                 </div>
 
             </c:forEach>
-            <%--				--%>
+            <%--		/		--%>
         </div>
         <div class="row mt-5">
             <div class="col text-center">
                 <div class="block-27">
                     <ul>
                         <li><a href="#">&lt;</a></li>
-                        <li class="active"><span>1</span></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
+                        <%--                        --%>
+                        <c:forEach var="i" begin="1" end="${pagedListHolder.pageCount}">
+                            <c:choose>
+                                <c:when test="${i==1}">
+                                    <li class="paging-items active"><span><a href="#">${i}</a></span></li>
+                                </c:when>
+                                <c:otherwise>
+                                    <li class="paging-items"><a href="#">${i}</a></li>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:forEach>
+                        <%--             /           --%>
                         <li><a href="#">&gt;</a></li>
                     </ul>
                 </div>
@@ -228,6 +244,7 @@
         src="<c:url value="/resources/homePage/js/main.js" />"></script>
 <script
         src="<c:url value="/resources/homePage/js/backtotop.js" />"></script>
-
+<script
+        src="<c:url value="/resources/homePage/js/paging-list-site.js" />"></script>
 </body>
 </html>

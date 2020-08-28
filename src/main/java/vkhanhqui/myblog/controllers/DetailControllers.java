@@ -1,4 +1,3 @@
-
 package vkhanhqui.myblog.controllers;
 
 import org.springframework.stereotype.Controller;
@@ -8,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("detail")
 public class DetailControllers {
-	@GetMapping
-	public String getLoginPage() {
-		return "detail";
-	}
+    @GetMapping
+    public String getLoginPage() {
+        return "detail";
+    }
 }
 

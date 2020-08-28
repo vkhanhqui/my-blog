@@ -1,6 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="tg" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -66,23 +69,30 @@
 </div>
 
 <section class="ftco-section" id="content">
-    <div class="container">
+    <div class="container" id="paging-div1">
+        <%--        --%>
+        <jsp:useBean id="pagedListHolder" scope="request"
+                     type="org.springframework.beans.support.PagedListHolder"/>
+        <c:url value="/" var="pagedLink">
+            <c:param name="p" value="~"/>
+        </c:url>
+        <%--     /   --%>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" id="paging-div2">
                 <%--				--%>
-                <c:forEach var="tempPost" items="${posts}">
+                    <c:forEach var="post" items="${pagedListHolder.pageList}">
 
                     <div class="case">
                         <div class="row">
                             <div class="col-md-6 col-lg-6 col-xl-8 d-flex">
                                 <a href="detail" class="img w-100 mb-3 mb-md-0"
-                                   style="background-image: url(<c:url value="${tempPost.images}"/>);"></a>
+                                   style="background-image: url(${post.images});"></a>
                             </div>
                             <div class="col-md-6 col-lg-6 col-xl-4 d-flex">
                                 <div class="text w-100 pl-md-3">
                                     <span class="subheading">Illustration</span>
                                     <h2>
-                                        <a href="${tempPost.link}">${tempPost.title}</a>
+                                        <a href="${post.link}">${post.title}</a>
                                     </h2>
                                         <ul class="media-social list-unstyled">
                                             <li class="ftco-animate"><a href="#"><span
@@ -94,9 +104,9 @@
                                         </ul>
                                     <div class="meta">
                                         <p class="mb-0">
-                                            <a href="#">${tempPost.date.month}/${tempPost.date.day}/${tempPost.date.year}</a>
+                                            <a href="#">${post.date.month}/${post.date.day}/${post.date.year}</a>
                                             | <a
-                                                href="#">${tempPost.reading}</a>
+                                                href="#">${post.reading}</a>
                                         </p>
                                     </div>
                                 </div>
@@ -105,7 +115,7 @@
                     </div>
 
                 </c:forEach>
-                <%--				--%>
+                <%--		/		--%>
             </div>
         </div>
         <div class="row mt-5">
@@ -113,11 +123,18 @@
                 <div class="block-27">
                     <ul>
                         <li><a href="#">&lt;</a></li>
-                        <li class="active"><span>1</span></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
+                        <%--                        --%>
+                        <c:forEach var="i" begin="1" end="${pagedListHolder.pageCount}">
+                            <c:choose>
+                                <c:when test="${i==1}">
+                                    <li class="paging-items active"><span><a href="#">${i}</a></span></li>
+                                </c:when>
+                                <c:otherwise>
+                                    <li class="paging-items"><a href="#">${i}</a></li>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:forEach>
+                        <%--             /           --%>
                         <li><a href="#">&gt;</a></li>
                     </ul>
                 </div>
@@ -262,6 +279,8 @@
         src="<c:url value="/resources/homePage/js/backtotop.js"/>"></script>
 <script
         src="<c:url value="/resources/homePage/js/smoothscroll.js"/>"></script>
+<script
+        src="<c:url value="/resources/homePage/js/paging-home-site.js" />"></script>
 </body>
 </html>
 

@@ -27,5 +27,5 @@ public class Category {
             joinColumns = @JoinColumn(name = "category_id"),
             inverseJoinColumns = @JoinColumn(name = "post_id")
     )
-    private Set<Post> posts= new HashSet<>();
+    private Set<Post> posts = new HashSet<>();
 }
