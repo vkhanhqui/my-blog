@@ -35,7 +35,7 @@ public class Post {
     @Column(name = "reading")
     private String reading;
 
-    @Column(name = "images")
+    @Column(name = "images",columnDefinition="text")
     private String images;
 
 	@Column(name = "link")

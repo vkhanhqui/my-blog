@@ -1,8 +1,6 @@
 
 
 $("body").on("click",".paging-items",function(){
-    // var pageNumber= $(this).text();
-    // var startingPage= (pageNumber -1)*9;
     var startingPage=$(this).text();
     alert(startingPage);
     $.ajax({
@@ -11,12 +9,8 @@ $("body").on("click",".paging-items",function(){
         data:{
             startingPage:startingPage
         },
-        processData: false,
-        contentType: false,
-        cache: false,
-        timeout: 1000000,
         success: function(value){
-            var paging= $("#content").find("#paging");
+            var paging= $("#paging-div1").find("#paging-div2");
             paging.empty();
             paging.append(value);
         }

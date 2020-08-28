@@ -40,7 +40,7 @@
 <!-- END nav -->
 
 <section class="ftco-section bg-light" id="content">
-    <div class="container">
+    <div class="container" id="paging-div1">
         <%--        --%>
         <jsp:useBean id="pagedListHolder" scope="request"
                      type="org.springframework.beans.support.PagedListHolder"/>
@@ -48,7 +48,7 @@
             <c:param name="p" value="~"/>
         </c:url>
         <%--     /   --%>
-        <div id="paging" class="row d-flex">
+        <div id="paging-div2" class="row d-flex">
             <%--				--%>
             <c:forEach var="post" items="${pagedListHolder.pageList}">
                 <div class="col-md-4 d-flex ftco-animate">

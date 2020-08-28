@@ -16,7 +16,7 @@ public class ApiControllers {
     @Autowired
     PostServices postServices;
 
-    @GetMapping(path="/list", produces = "text/plain; charset=utf-8")
+    @GetMapping(path = "/list", produces = "text/plain; charset=utf-8")
     @ResponseBody
     public String PagingListSite(@RequestParam int startingPage) {
         String jsp = "";
@@ -38,23 +38,22 @@ public class ApiControllers {
                 jsp += " <div class=\"col-md-4 d-flex ftco-animate\">\n" +
                         "                    <div\n" +
                         "                            class=\"blog-entry justify-content-end\">\n" +
-                        "                        <a href=\"detail\" class=\"block-20\"\n" +
-                        "                           style=\"background-image: url('<c:url value=\""+posts.get(currentElement).getImages()+"\"/>');\">\n" +
-                        "                        </a>\n" +
+                        "                        <a href=\"detail\" class=\"block-20\" style=\"background-image: url(" + posts.get(currentElement).getImages() + ");\">" +
+                        "</a>\n" +
                         "                        <div class=\"text p-4 float-right d-block\">\n" +
                         "                            <div class=\"topper d-flex align-items-center\">\n" +
                         "                                <div class=\"one py-2 pl-3 pr-1 align-self-stretch\">\n" +
-                        "                                    <span class=\"day\">"+posts.get(currentElement).getDate().getDay()+"</span>\n" +
+                        "                                    <span class=\"day\">" + posts.get(currentElement).getDate().getDay() + "</span>\n" +
                         "                                </div>\n" +
                         "                                <div class=\"two pl-0 pr-3 py-2 align-self-stretch\">\n" +
-                        "                                    <span class=\"yr\">"+posts.get(currentElement).getDate().getYear()+"</span> <span\n" +
-                        "                                        class=\"mos\">"+posts.get(currentElement).getDate().getMonth()+"</span>\n" +
+                        "                                    <span class=\"yr\">" + posts.get(currentElement).getDate().getYear() + "</span> <span\n" +
+                        "                                        class=\"mos\">" + posts.get(currentElement).getDate().getMonth() + "</span>\n" +
                         "                                </div>\n" +
                         "                            </div>\n" +
                         "                            <h3 class=\"heading mb-3\">\n" +
-                        "                                <a href=\"#\">"+posts.get(currentElement).getTitle()+"</a>\n" +
+                        "                                <a href=\"#\">" + posts.get(currentElement).getTitle() + "</a>\n" +
                         "                            </h3>\n" +
-                        "                            <p>"+posts.get(currentElement).getContent()+"</p>\n" +
+                        "                            <p>" + posts.get(currentElement).getContent() + "</p>\n" +
                         "                            <p>\n" +
                         "                                <a href=\"#\" class=\"btn-custom\"><span\n" +
                         "                                        class=\"ion-ios-arrow-round-forward mr-3\"></span>Read more</a>\n" +

@@ -11211,8 +11211,8 @@ textarea.form-control {
 }
 
 .ftco-animate {
-	opacity: 0;
-	visibility: hidden;
+	opacity: 1;
+	visibility: visible;
 }
 
 .bg-primary {
