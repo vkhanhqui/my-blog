@@ -85,17 +85,17 @@ public class ApiControllers {
 //                jsp += posts.get(currentElement).getContent() + " ";
 //                jsp += posts.get(currentElement).getImages() + " ";
 //                jsp += "<br>";
-                jsp+= " <div class=\"case\">\n" +
+                jsp += " <div class=\"case\">\n" +
                         "                        <div class=\"row\">\n" +
                         "                            <div class=\"col-md-6 col-lg-6 col-xl-8 d-flex\">\n" +
                         "                                <a href=\"detail\" class=\"img w-100 mb-3 mb-md-0\"\n" +
-                        "                                   style=\"background-image: url("+posts.get(currentElement).getImages()+");\"></a>\n" +
+                        "                                   style=\"background-image: url(" + posts.get(currentElement).getImages() + ");\"></a>\n" +
                         "                            </div>\n" +
                         "                            <div class=\"col-md-6 col-lg-6 col-xl-4 d-flex\">\n" +
                         "                                <div class=\"text w-100 pl-md-3\">\n" +
                         "                                    <span class=\"subheading\">Illustration</span>\n" +
                         "                                    <h2>\n" +
-                        "                                        <a href=\""+posts.get(currentElement).getLink()+"\">"+posts.get(currentElement).getTitle()+"</a>\n" +
+                        "                                        <a href=\"" + posts.get(currentElement).getLink() + "\">" + posts.get(currentElement).getTitle() + "</a>\n" +
                         "                                    </h2>\n" +
                         "                                        <ul class=\"media-social list-unstyled\">\n" +
                         "                                            <li class=\"ftco-animate\"><a href=\"#\"><span\n" +
@@ -107,9 +107,9 @@ public class ApiControllers {
                         "                                        </ul>\n" +
                         "                                    <div class=\"meta\">\n" +
                         "                                        <p class=\"mb-0\">\n" +
-                        "                                            <a href=\"#\">"+posts.get(currentElement).getDate().getMonth()+"/"+posts.get(currentElement).getDate().getDay()+"/"+posts.get(currentElement).getDate().getYear()+"</a>\n" +
+                        "                                            <a href=\"#\">" + posts.get(currentElement).getDate().getMonth() + "/" + posts.get(currentElement).getDate().getDay() + "/" + posts.get(currentElement).getDate().getYear() + "</a>\n" +
                         "                                            | <a\n" +
-                        "                                                href=\"#\">"+posts.get(currentElement).getReading()+"</a>\n" +
+                        "                                                href=\"#\">" + posts.get(currentElement).getReading() + "</a>\n" +
                         "                                        </p>\n" +
                         "                                    </div>\n" +
                         "                                </div>\n" +

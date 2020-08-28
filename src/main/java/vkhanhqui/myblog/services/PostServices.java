@@ -1,16 +1,11 @@
 package vkhanhqui.myblog.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.models.repositories.PostRepositories;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Transactional
@@ -19,19 +14,19 @@ public class PostServices {
     @Autowired
     private PostRepositories postRepositories;
 
-    public List<Post> getPosts(){
+    public List<Post> getPosts() {
         return postRepositories.findAll();
     }
 
-    public void saveAPost(Post post){
+    public void saveAPost(Post post) {
         postRepositories.save(post);
     }
 
-    public Post getAPost(int id){
+    public Post getAPost(int id) {
         return postRepositories.findById(id).get();
     }
 
-    public void deleteAPost(int id){
+    public void deleteAPost(int id) {
         postRepositories.deleteById(id);
     }
 

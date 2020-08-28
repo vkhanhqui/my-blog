@@ -21,64 +21,64 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@PropertySource({ "classpath:database.properties" })
-@ComponentScan({ "vkhanhqui.myblog" })
+@PropertySource({"classpath:database.properties"})
+@ComponentScan({"vkhanhqui.myblog"})
 @EnableJpaRepositories(basePackages = "vkhanhqui.myblog.models.repositories")
 public class PersistenceJPAConfig {
 
-	@Autowired
-	private Environment env;
+    @Autowired
+    private Environment env;
 
-	public PersistenceJPAConfig() {
-		super();
-	}
+    public PersistenceJPAConfig() {
+        super();
+    }
 
-	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-		final LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
-		entityManagerFactoryBean.setDataSource(dataSource());
-		entityManagerFactoryBean.setPackagesToScan(new String[] { "vkhanhqui.myblog.models" });
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+        final LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
+        entityManagerFactoryBean.setDataSource(dataSource());
+        entityManagerFactoryBean.setPackagesToScan(new String[]{"vkhanhqui.myblog.models"});
 
-		final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-		entityManagerFactoryBean.setJpaVendorAdapter(vendorAdapter);
-		entityManagerFactoryBean.setJpaProperties(additionalProperties());
+        final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        entityManagerFactoryBean.setJpaVendorAdapter(vendorAdapter);
+        entityManagerFactoryBean.setJpaProperties(additionalProperties());
 
-		return entityManagerFactoryBean;
-	}
+        return entityManagerFactoryBean;
+    }
 
-	final Properties additionalProperties() {
-		final Properties hibernateProperties = new Properties();
-		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
-		hibernateProperties.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
-		hibernateProperties.setProperty("hibernate.cache.use_second_level_cache",
-				env.getProperty("hibernate.cache.use_second_level_cache"));
-		hibernateProperties.setProperty("hibernate.cache.use_query_cache",
-				env.getProperty("hibernate.cache.use_query_cache"));
-		
-		return hibernateProperties;
-	}
+    final Properties additionalProperties() {
+        final Properties hibernateProperties = new Properties();
+        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+        hibernateProperties.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
+        hibernateProperties.setProperty("hibernate.cache.use_second_level_cache",
+                env.getProperty("hibernate.cache.use_second_level_cache"));
+        hibernateProperties.setProperty("hibernate.cache.use_query_cache",
+                env.getProperty("hibernate.cache.use_query_cache"));
 
-	@Bean
-	public DataSource dataSource() {
-		final DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
-		dataSource.setUrl(env.getProperty("jdbc.url"));
-		dataSource.setUsername(env.getProperty("jdbc.username"));		
-		dataSource.setPassword(env.getProperty("jdbc.password"));
-		
-		return dataSource;
-	}
+        return hibernateProperties;
+    }
 
-	@Bean
-	public PlatformTransactionManager transactionManager(final EntityManagerFactory emf) {
-		final JpaTransactionManager transactionManager = new JpaTransactionManager();
-		transactionManager.setEntityManagerFactory(emf);
-		
-		return transactionManager;
-	}
+    @Bean
+    public DataSource dataSource() {
+        final DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
+        dataSource.setUrl(env.getProperty("jdbc.url"));
+        dataSource.setUsername(env.getProperty("jdbc.username"));
+        dataSource.setPassword(env.getProperty("jdbc.password"));
 
-	@Bean
-	public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
-		return new PersistenceExceptionTranslationPostProcessor();
-	}
+        return dataSource;
+    }
+
+    @Bean
+    public PlatformTransactionManager transactionManager(final EntityManagerFactory emf) {
+        final JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(emf);
+
+        return transactionManager;
+    }
+
+    @Bean
+    public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
+        return new PersistenceExceptionTranslationPostProcessor();
+    }
 }

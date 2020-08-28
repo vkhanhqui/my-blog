@@ -80,7 +80,7 @@
         <div class="row">
             <div class="col-md-12" id="paging-div2">
                 <%--				--%>
-                    <c:forEach var="post" items="${pagedListHolder.pageList}">
+                <c:forEach var="post" items="${pagedListHolder.pageList}">
 
                     <div class="case">
                         <div class="row">
@@ -94,14 +94,14 @@
                                     <h2>
                                         <a href="${post.link}">${post.title}</a>
                                     </h2>
-                                        <ul class="media-social list-unstyled">
-                                            <li class="ftco-animate"><a href="#"><span
-                                                    class="icon-twitter"></span></a></li>
-                                            <li class="ftco-animate"><a href="#"><span
-                                                    class="icon-facebook"></span></a></li>
-                                            <li class="ftco-animate"><a href="#"><span
-                                                    class="icon-instagram"></span></a></li>
-                                        </ul>
+                                    <ul class="media-social list-unstyled">
+                                        <li class="ftco-animate"><a href="#"><span
+                                                class="icon-twitter"></span></a></li>
+                                        <li class="ftco-animate"><a href="#"><span
+                                                class="icon-facebook"></span></a></li>
+                                        <li class="ftco-animate"><a href="#"><span
+                                                class="icon-instagram"></span></a></li>
+                                    </ul>
                                     <div class="meta">
                                         <p class="mb-0">
                                             <a href="#">${post.date.month}/${post.date.day}/${post.date.year}</a>

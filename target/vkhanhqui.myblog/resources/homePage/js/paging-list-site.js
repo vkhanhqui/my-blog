@@ -1,7 +1,7 @@
 
 $("body").on("click",".paging-items",function(){
     var startingPage=$(this).text();
-    alert(startingPage);
+    // alert(startingPage);
     $.ajax({
         url:"/vkhanhqui_myblog_war/api/list",
         type:"GET",
