@@ -245,6 +245,6 @@
 <script
         src="<c:url value="/resources/homePage/js/backtotop.js" />"></script>
 <script
-        src="<c:url value="/resources/homePage/js/custom.js" />"></script>
+        src="<c:url value="/resources/homePage/js/paging-list-site.js" />"></script>
 </body>
 </html>
