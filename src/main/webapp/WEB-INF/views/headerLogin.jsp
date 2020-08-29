@@ -4,7 +4,7 @@
 
 <!--======================================import css=========================================================-->
 <link rel="stylesheet"
-      href="<c:url value="resources/loginPage/css/main.css" />">
+      href="<c:url value="/resources/loginPage/css/main.css" />">
 <!--===============================================================================================-->
 <link rel="stylesheet"
       href="<c:url value="/resources/loginPage/css/util.css" />">
@@ -13,7 +13,7 @@
       href="<c:url value="/resources/loginPage/images/icons/fox.ico" />">
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css"
-      href="<c:url value="/resources/loginPage/vendor/bootstrap/css/bootstrap.min.css" />">
+      href="<c:url value="/resources/css/bootstrap.min.css" />">
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css"
       href="<c:url value="/resources/loginPage/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />">

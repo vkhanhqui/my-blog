@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Information</title>
-    <link href="<c:url value="/resources/crudPost/css/bootstrap.min.css" />"
+    <link href="<c:url value="/resources/css/bootstrap.min.css" />"
           rel="stylesheet">
 </head>
 <body>
@@ -46,7 +46,7 @@
     </div>
 </div>
 
-<script src="<c:url value="/resources/crudPost/js/jquery-1.11.1.min.js" />"></script>
-<script src="<c:url value="/resources/crudPost/js/bootstrap.min.js" />"></script>
+<script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
+<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 </body>
 </html>

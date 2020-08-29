@@ -250,13 +250,13 @@
    style="background-image: url(https://thinhweb.com/wp-content/themes/thinhweb/images/cd-top-arrow.svg);">Back
     To Top</a>
 <script
-        src="<c:url value="/resources/homePage/js/jquery.min.js"/>"></script>
+        src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 <script
         src="<c:url value="/resources/homePage/js/jquery-migrate-3.0.1.min.js"/>"></script>
 <script
-        src="<c:url value="/resources/homePage/js/popper.min.js"/>"></script>
+        src="<c:url value="/resources/js/popper.min.js"/>"></script>
 <script
-        src="<c:url value="/resources/homePage/js/bootstrap.min.js"/>"></script>
+        src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 <script
         src="<c:url value="/resources/homePage/js/jquery.easing.1.3.js"/>"></script>
 <script
