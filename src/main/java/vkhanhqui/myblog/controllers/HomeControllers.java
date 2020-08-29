@@ -18,7 +18,7 @@ public class HomeControllers {
 
     @GetMapping
     public String Paging(HttpServletRequest request, ModelMap modelMap) {
-//        postServices.createPosts();
+        postServices.createPosts();
         postServices.pagingHomeSite(request, modelMap);
         return "home";
     }
