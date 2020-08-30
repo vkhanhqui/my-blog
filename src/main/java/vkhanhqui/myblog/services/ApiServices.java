@@ -36,7 +36,7 @@ public class ApiServices {
                         "                        <div class=\"row\">\n" +
                         "                            <div class=\"col-md-6 col-lg-6 col-xl-8 d-flex\">\n" +
                         "                                <a href=\"detail\" class=\"img w-100 mb-3 mb-md-0\"\n" +
-                        "                                   style=\"background-image: url(" + posts.get(currentElement).getImages() + ");\"></a>\n" +
+                        "                                   style=\"background-image: url(/vkhanhqui_myblog_war" + posts.get(currentElement).getImages() + ");\"></a>\n" +
                         "                            </div>\n" +
                         "                            <div class=\"col-md-6 col-lg-6 col-xl-4 d-flex\">\n" +
                         "                                <div class=\"text w-100 pl-md-3\">\n" +
@@ -88,7 +88,7 @@ public class ApiServices {
                 jsp += " <div class=\"col-md-4 d-flex ftco-animate\">\n" +
                         "                    <div\n" +
                         "                            class=\"blog-entry justify-content-end\">\n" +
-                        "                        <a href=\"detail\" class=\"block-20\" style=\"background-image: url(" + posts.get(currentElement).getImages() + ");\">" +
+                        "                        <a href=\"detail\" class=\"block-20\" style=\"background-image: url(/vkhanhqui_myblog_war" + posts.get(currentElement).getImages() + ");\">" +
                         "</a>\n" +
                         "                        <div class=\"text p-4 float-right d-block\">\n" +
                         "                            <div class=\"topper d-flex align-items-center\">\n" +
