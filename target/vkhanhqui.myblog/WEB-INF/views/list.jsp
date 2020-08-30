@@ -51,7 +51,7 @@
                 <div class="col-md-4 d-flex ftco-animate">
                     <div
                             class="blog-entry justify-content-end">
-                        <a href="detail" class="block-20"
+                        <a href="detail/${post.id}" class="block-20"
                            style="background-image: url('<c:url value="${post.images}"/>');">
                         </a>
                         <div class="text p-4 float-right d-block">
@@ -65,11 +65,11 @@
                                 </div>
                             </div>
                             <h3 class="heading mb-3">
-                                <a href="#">${post.title}</a>
+                                <a href="detail/${post.id}">${post.title}</a>
                             </h3>
                             <p>${post.description}</p>
                             <p>
-                                <a href="#" class="btn-custom"><span
+                                <a href="detail/${post.id}" class="btn-custom"><span
                                         class="ion-ios-arrow-round-forward mr-3"></span>Read more</a>
                             </p>
                         </div>

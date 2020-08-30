@@ -89,7 +89,7 @@
                                 <div class="text w-100 pl-md-3">
                                     <span class="subheading">Illustration</span>
                                     <h2>
-                                        <a href="detail">${post.title}</a>
+                                        <a href="detail/${post.id}">${post.title}</a>
                                     </h2>
                                     <ul class="media-social list-unstyled">
                                         <li class="ftco-animate"><a href="#"><span
@@ -101,9 +101,9 @@
                                     </ul>
                                     <div class="meta">
                                         <p class="mb-0">
-                                            <a href="#">${post.date.month}/${post.date.day}/${post.date.year}</a>
+                                            <a href="detail/${post.id}">${post.date.month}/${post.date.day}/${post.date.year}</a>
                                             | <a
-                                                href="#">${post.reading}</a>
+                                                href="detail/${post.id}">${post.reading}</a>
                                         </p>
                                     </div>
                                 </div>

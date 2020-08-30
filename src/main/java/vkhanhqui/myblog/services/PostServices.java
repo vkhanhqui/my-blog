@@ -10,8 +10,6 @@ import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.models.repositories.PostRepositories;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Transactional
@@ -28,7 +26,7 @@ public class PostServices {
         postRepositories.save(post);
     }
 
-    public Post getAPost( long id) {
+    public Post getAPost(long id) {
         return postRepositories.findById(id).get();
     }
 

@@ -21,7 +21,7 @@ public class HomeControllers {
 
     @GetMapping
     public String Paging(HttpServletRequest request, ModelMap modelMap) {
-        dataServices.createPosts();
+//        dataServices.createPosts();
         postServices.pagingHomeSite(request, modelMap);
         return "home";
     }
