@@ -6,5 +6,5 @@ import vkhanhqui.myblog.models.Post;
 
 
 @Repository("postRepository")
-public interface PostRepositories extends JpaRepository<Post, Integer> {
+public interface PostRepositories extends JpaRepository<Post, Long> {
 }

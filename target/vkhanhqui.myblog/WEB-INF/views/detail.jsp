@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +12,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
+    <%@ page isELIgnored="false" %>
 </head>
 <body>
 
@@ -254,34 +255,28 @@
                         </li>
                     </ul>
                     <!-- END comment-list -->
-
                     <div class="comment-form-wrap pt-5">
                         <h3 class="mb-5">Leave a comment</h3>
-                        <form action="#" class="p-5 bg-light">
-                            <div class="form-group">
-                                <label for="name">Name *</label> <input type="text"
-                                                                        class="form-control" id="name">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email *</label> <input type="email"
-                                                                          class="form-control" id="email">
-                            </div>
-                            <div class="form-group">
-                                <label for="website">Website</label> <input type="url"
-                                                                            class="form-control" id="website">
-                            </div>
+                        <form:form modelAttribute="comment" method="post"
+                                   action="/vkhanhqui_myblog_war/detail/save" class="p-5 bg-light">
+                            <!-- need to associate this data with post id -->
+                            <form:hidden path="id"/>
 
                             <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea name="" id="message" cols="30" rows="10"
-                                          class="form-control"></textarea>
+                                <form:label path="creator">Name *</form:label> <form:input type="text"
+                                                                                           class="form-control"
+                                                                                           path="creator"/>
+                            </div>
+                            <div class="form-group">
+                                <form:label path="content">Content *</form:label>
+                                <form:textarea path="content" cols="30" rows="10"
+                                               class="form-control"/>
                             </div>
                             <div class="form-group">
                                 <input type="submit" value="Post Comment"
                                        class="btn py-3 px-4 btn-primary">
                             </div>
-
-                        </form>
+                        </form:form>
                     </div>
                 </div>
 

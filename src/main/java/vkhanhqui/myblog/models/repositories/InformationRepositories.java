@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import vkhanhqui.myblog.models.Information;
 
 @Repository("informationRepository")
-public interface InformationRepositories extends JpaRepository<Information, Integer> {
+public interface InformationRepositories extends JpaRepository<Information, Long> {
 }

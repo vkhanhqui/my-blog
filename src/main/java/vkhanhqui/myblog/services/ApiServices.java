@@ -3,11 +3,13 @@ package vkhanhqui.myblog.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.models.repositories.PostRepositories;
 
 import java.util.List;
 
+@Transactional
 @Service
 public class ApiServices {
     @Autowired
