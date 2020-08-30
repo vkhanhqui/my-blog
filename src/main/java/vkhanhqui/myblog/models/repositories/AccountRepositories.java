@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import vkhanhqui.myblog.models.Account;
 
 @Repository("accountRepository")
-public interface AccountRepositories extends JpaRepository<Account, Integer> {
+public interface AccountRepositories extends JpaRepository<Account, Long> {
 }

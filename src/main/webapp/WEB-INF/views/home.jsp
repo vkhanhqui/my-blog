@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="tg" tagdir="/WEB-INF/tags" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -250,13 +247,13 @@
    style="background-image: url(https://thinhweb.com/wp-content/themes/thinhweb/images/cd-top-arrow.svg);">Back
     To Top</a>
 <script
-        src="<c:url value="/resources/homePage/js/jquery.min.js"/>"></script>
+        src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 <script
         src="<c:url value="/resources/homePage/js/jquery-migrate-3.0.1.min.js"/>"></script>
 <script
-        src="<c:url value="/resources/homePage/js/popper.min.js"/>"></script>
+        src="<c:url value="/resources/js/popper.min.js"/>"></script>
 <script
-        src="<c:url value="/resources/homePage/js/bootstrap.min.js"/>"></script>
+        src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 <script
         src="<c:url value="/resources/homePage/js/jquery.easing.1.3.js"/>"></script>
 <script

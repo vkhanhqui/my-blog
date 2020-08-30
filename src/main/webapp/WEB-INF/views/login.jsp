@@ -49,15 +49,15 @@
 
 <!--===================================import js============================================================-->
 <script
-        src="<c:url value="/resources/loginPage/vendor/jquery/jquery-3.2.1.min.js" />"></script>
+        src="<c:url value="/resources/js/jquery-3.2.1.min.js" />"></script>
 <!--===============================================================================================-->
 <script
         src="<c:url value="/resources/loginPage/vendor/animsition/js/animsition.min.js" />"></script>
 <!--===============================================================================================-->
 <script
-        src="<c:url value="/resources/loginPage/vendor/bootstrap/js/popper.js" />"></script>
+        src="<c:url value="/resources/js/popper.js" />"></script>
 <script
-        src="<c:url value="/resources/loginPage/vendor/bootstrap/js/bootstrap.min.js" />"></script>
+        src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 <!--===============================================================================================-->
 <script
         src="<c:url value="/resources/loginPage/vendor/select2/select2.min.js" />"></script>

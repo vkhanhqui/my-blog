@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="tg" tagdir="/WEB-INF/tags" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -80,7 +77,7 @@
         <div class="row">
             <div class="col-md-12" id="paging-div2">
                 <%--				--%>
-                    <c:forEach var="post" items="${pagedListHolder.pageList}">
+                <c:forEach var="post" items="${pagedListHolder.pageList}">
 
                     <div class="case">
                         <div class="row">
@@ -94,14 +91,14 @@
                                     <h2>
                                         <a href="${post.link}">${post.title}</a>
                                     </h2>
-                                        <ul class="media-social list-unstyled">
-                                            <li class="ftco-animate"><a href="#"><span
-                                                    class="icon-twitter"></span></a></li>
-                                            <li class="ftco-animate"><a href="#"><span
-                                                    class="icon-facebook"></span></a></li>
-                                            <li class="ftco-animate"><a href="#"><span
-                                                    class="icon-instagram"></span></a></li>
-                                        </ul>
+                                    <ul class="media-social list-unstyled">
+                                        <li class="ftco-animate"><a href="#"><span
+                                                class="icon-twitter"></span></a></li>
+                                        <li class="ftco-animate"><a href="#"><span
+                                                class="icon-facebook"></span></a></li>
+                                        <li class="ftco-animate"><a href="#"><span
+                                                class="icon-instagram"></span></a></li>
+                                    </ul>
                                     <div class="meta">
                                         <p class="mb-0">
                                             <a href="#">${post.date.month}/${post.date.day}/${post.date.year}</a>
@@ -250,13 +247,13 @@
    style="background-image: url(https://thinhweb.com/wp-content/themes/thinhweb/images/cd-top-arrow.svg);">Back
     To Top</a>
 <script
-        src="<c:url value="/resources/homePage/js/jquery.min.js"/>"></script>
+        src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 <script
         src="<c:url value="/resources/homePage/js/jquery-migrate-3.0.1.min.js"/>"></script>
 <script
-        src="<c:url value="/resources/homePage/js/popper.min.js"/>"></script>
+        src="<c:url value="/resources/js/popper.min.js"/>"></script>
 <script
-        src="<c:url value="/resources/homePage/js/bootstrap.min.js"/>"></script>
+        src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 <script
         src="<c:url value="/resources/homePage/js/jquery.easing.1.3.js"/>"></script>
 <script

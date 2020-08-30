@@ -42,7 +42,7 @@ public class PostControllers {
     }
 
     @GetMapping("/update")
-    public String showFormForUpdate(@RequestParam("postId") int id,
+    public String showFormForUpdate(@RequestParam("postId") long id,
                                     Model model) {
         Post post = postServices.getAPost(id);
         model.addAttribute("post", post);
@@ -50,7 +50,7 @@ public class PostControllers {
     }
 
     @GetMapping("/delete")
-    public String deletePost(@RequestParam("postId") int id) {
+    public String deletePost(@RequestParam("postId") long id) {
         postServices.deleteAPost(id);
         return "redirect:/posts/list";
     }
