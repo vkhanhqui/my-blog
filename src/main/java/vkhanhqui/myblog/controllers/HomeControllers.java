@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import vkhanhqui.myblog.services.DataServices;
 import vkhanhqui.myblog.services.PostServices;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,18 +16,13 @@ import javax.servlet.http.HttpServletRequest;
 public class HomeControllers {
     @Autowired
     private PostServices postServices;
+    @Autowired
+    private DataServices dataServices;
 
     @GetMapping
     public String Paging(HttpServletRequest request, ModelMap modelMap) {
-        postServices.createPosts();
+        dataServices.createPosts();
         postServices.pagingHomeSite(request, modelMap);
         return "home";
     }
-//    @GetMapping
-//    public String getHomePage(Model model) {
-//        postServices.createPosts();
-//        List<Post> posts = postServices.getPosts();
-//        model.addAttribute("posts", posts);
-//        return "home";
-//    }
 }

@@ -36,13 +36,13 @@ public class ApiServices {
                         "                        <div class=\"row\">\n" +
                         "                            <div class=\"col-md-6 col-lg-6 col-xl-8 d-flex\">\n" +
                         "                                <a href=\"detail\" class=\"img w-100 mb-3 mb-md-0\"\n" +
-                        "                                   style=\"background-image: url(" + posts.get(currentElement).getImages() + ");\"></a>\n" +
+                        "                                   style=\"background-image: url(/vkhanhqui_myblog_war" + posts.get(currentElement).getImages() + ");\"></a>\n" +
                         "                            </div>\n" +
                         "                            <div class=\"col-md-6 col-lg-6 col-xl-4 d-flex\">\n" +
                         "                                <div class=\"text w-100 pl-md-3\">\n" +
                         "                                    <span class=\"subheading\">Illustration</span>\n" +
                         "                                    <h2>\n" +
-                        "                                        <a href=\"" + posts.get(currentElement).getLink() + "\">" + posts.get(currentElement).getTitle() + "</a>\n" +
+                        "                                        <a href=\"detail\">" + posts.get(currentElement).getTitle() + "</a>\n" +
                         "                                    </h2>\n" +
                         "                                        <ul class=\"media-social list-unstyled\">\n" +
                         "                                            <li class=\"ftco-animate\"><a href=\"#\"><span\n" +
@@ -88,7 +88,7 @@ public class ApiServices {
                 jsp += " <div class=\"col-md-4 d-flex ftco-animate\">\n" +
                         "                    <div\n" +
                         "                            class=\"blog-entry justify-content-end\">\n" +
-                        "                        <a href=\"detail\" class=\"block-20\" style=\"background-image: url(" + posts.get(currentElement).getImages() + ");\">" +
+                        "                        <a href=\"detail\" class=\"block-20\" style=\"background-image: url(/vkhanhqui_myblog_war" + posts.get(currentElement).getImages() + ");\">" +
                         "</a>\n" +
                         "                        <div class=\"text p-4 float-right d-block\">\n" +
                         "                            <div class=\"topper d-flex align-items-center\">\n" +
@@ -103,7 +103,7 @@ public class ApiServices {
                         "                            <h3 class=\"heading mb-3\">\n" +
                         "                                <a href=\"#\">" + posts.get(currentElement).getTitle() + "</a>\n" +
                         "                            </h3>\n" +
-                        "                            <p>" + posts.get(currentElement).getContent() + "</p>\n" +
+                        "                            <p>" + posts.get(currentElement).getDescription() + "</p>\n" +
                         "                            <p>\n" +
                         "                                <a href=\"#\" class=\"btn-custom\"><span\n" +
                         "                                        class=\"ion-ios-arrow-round-forward mr-3\"></span>Read more</a>\n" +

@@ -26,7 +26,7 @@ public class Post {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "content")
+    @Column(name = "content", columnDefinition = "text")
     private String content;
 
     @Column(name = "date")
@@ -38,15 +38,12 @@ public class Post {
     @Column(name = "images", columnDefinition = "text")
     private String images;
 
-    @Column(name = "link")
-    private String link;
+//    @ManyToMany(mappedBy = "posts", fetch = FetchType.LAZY)
+//    private Set<Tag> tags = new HashSet<>();
+//
+//    @ManyToMany(mappedBy = "posts", fetch = FetchType.LAZY)
+//    private Set<Category> categories = new HashSet<>();
 
-    @ManyToMany(mappedBy = "posts", fetch = FetchType.LAZY)
-    private Set<Tag> tags = new HashSet<>();
-
-    @ManyToMany(mappedBy = "posts", fetch = FetchType.LAZY)
-    private Set<Category> categories = new HashSet<>();
-
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Comment> comments = new HashSet<>();
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Comment> comments;
 }
