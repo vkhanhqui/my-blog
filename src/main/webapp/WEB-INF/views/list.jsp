@@ -67,7 +67,7 @@
                             <h3 class="heading mb-3">
                                 <a href="#">${post.title}</a>
                             </h3>
-                            <p>${post.content}</p>
+                            <p>${post.description}</p>
                             <p>
                                 <a href="#" class="btn-custom"><span
                                         class="ion-ios-arrow-round-forward mr-3"></span>Read more</a>

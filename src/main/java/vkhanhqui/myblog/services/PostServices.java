@@ -28,53 +28,12 @@ public class PostServices {
         postRepositories.save(post);
     }
 
-    public Post getAPost(long id) {
+    public Post getAPost( long id) {
         return postRepositories.findById(id).get();
     }
 
     public void deleteAPost(long id) {
         postRepositories.deleteById(id);
-    }
-
-    public void createPosts() {
-        List<Post> list = new ArrayList<>();
-        for (long i = 1; i <= 9; i++) {
-            list.add(new Post(i, "title", "description", "contenttttttttcontenttttttttcontenttttttttcontentttttttt"
-                    , new Date(), "12 min read"
-                    , "/resources/homePage/images/image_1.jpg"
-                    , "detail", null, null, null));
-        }
-        for (long i = 10; i <= 18; i++) {
-            list.add(new Post(i, "title", "description", "contenttttttttcontenttttttttcontenttttttttcontentttttttt"
-                    , new Date(), "12 min read"
-                    , "/resources/homePage/images/image_2.jpg"
-                    , "detail", null, null, null));
-        }
-        for (long i = 19; i <= 27; i++) {
-            list.add(new Post(i, "title", "description", "contenttttttttcontenttttttttcontenttttttttcontentttttttt"
-                    , new Date(), "12 min read"
-                    , "/resources/homePage/images/image_3.jpg"
-                    , "detail", null, null, null));
-        }
-        for (long i = 28; i <= 36; i++) {
-            list.add(new Post(i, "title", "description", "contenttttttttcontenttttttttcontenttttttttcontentttttttt"
-                    , new Date(), "12 min read"
-                    , "/resources/homePage/images/image_4.jpg"
-                    , "detail", null, null, null));
-        }
-        for (long i = 37; i <= 45; i++) {
-            list.add(new Post(i, "title", "description", "contenttttttttcontenttttttttcontenttttttttcontentttttttt"
-                    , new Date(), "12 min read"
-                    , "/resources/homePage/images/image_5.jpg"
-                    , "detail", null, null, null));
-        }
-        for (long i = 46; i <= 48; i++) {
-            list.add(new Post(i, "title", "description", "contenttttttttcontenttttttttcontenttttttttcontentttttttt"
-                    , new Date(), "12 min read"
-                    , "/resources/homePage/images/image_6.jpg"
-                    , "detail", null, null, null));
-        }
-        postRepositories.saveAll(list);
     }
 
     public void pagingHomeSite(HttpServletRequest request, ModelMap modelMap) {

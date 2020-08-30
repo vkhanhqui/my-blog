@@ -2,24 +2,31 @@ package vkhanhqui.myblog.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 import vkhanhqui.myblog.models.Comment;
+import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.services.CommentServices;
+import vkhanhqui.myblog.services.PostServices;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("detail")
 public class DetailControllers {
 
     @Autowired
+    PostServices postServices;
+    @Autowired
     CommentServices commentServices;
 
-    @GetMapping
-    public String getDetailSite(Model model) {
-        model.addAttribute("comment", new Comment());
+    @GetMapping("/{id}")
+    public String getDetailSite(@PathVariable long id , ModelMap modelMap) {
+        Post post = postServices.getAPost(id);
+        modelMap.addAttribute("post",post);
+        modelMap.addAttribute("comment", new Comment());
         return "detail";
     }
 

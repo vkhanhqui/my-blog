@@ -32,7 +32,7 @@ public class Comment {
     @JoinColumn(name = "post_id")
     private Post post;
 
-    @OneToMany(mappedBy = "comment", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "comment", cascade = CascadeType.ALL)
     @OrderBy("date")
     private List<Reply> replies;
 }

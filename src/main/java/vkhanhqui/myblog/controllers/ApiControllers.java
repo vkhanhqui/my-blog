@@ -7,7 +7,6 @@ import vkhanhqui.myblog.services.ApiServices;
 
 @Controller
 @RequestMapping("api")
-@SessionAttributes({"post"})
 public class ApiControllers {
     @Autowired
     ApiServices apiServices;
