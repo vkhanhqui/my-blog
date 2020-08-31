@@ -9,6 +9,8 @@ import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.services.CommentServices;
 import vkhanhqui.myblog.services.PostServices;
 
+import java.util.Date;
+
 @Controller
 @RequestMapping("detail")
 public class DetailControllers {
@@ -26,10 +28,11 @@ public class DetailControllers {
         return "detail";
     }
 
-    @PostMapping("/save")
-    public String savePost(@ModelAttribute("comment") Comment comment) {
+    @PostMapping("/{id}/save")
+    public String savePost(@PathVariable long id,@ModelAttribute("comment") Comment comment) {
+        comment.setDate(new Date());
         commentServices.saveAComment(comment);
-        return "redirect:/detail";
+        return "redirect:/detail/"+id;
     }
 }
 
