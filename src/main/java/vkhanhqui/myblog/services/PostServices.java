@@ -10,6 +10,7 @@ import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.models.repositories.PostRepositories;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @Transactional
@@ -34,13 +35,37 @@ public class PostServices {
         postRepositories.deleteById(id);
     }
 
-    public void pagingHomeSite(HttpServletRequest request, ModelMap modelMap) {
+    public void pagingHomeSite(int currentPage, ModelMap modelMap) {
+        currentPage -= 1;
         List<Post> posts = postRepositories.findAll();
         PagedListHolder pagedListHolder = new PagedListHolder(posts);
-        int page = ServletRequestUtils.getIntParameter(request, "p", 0);
-        pagedListHolder.setPage(page);
         pagedListHolder.setPageSize(5);
-        modelMap.put("pagedListHolder", pagedListHolder);
+        int minPage = currentPage - 2;
+        if (currentPage - 2 < 0) {
+            minPage = 0;
+        }
+        int maxPage = currentPage + 3;
+        if (currentPage + 3 > pagedListHolder.getPageCount() - 1) {
+            maxPage = pagedListHolder.getPageCount();
+        }
+        modelMap.addAttribute("minPage", minPage);
+        modelMap.addAttribute("maxPage", maxPage);
+        modelMap.addAttribute("currentPage", currentPage);
+        modelMap.addAttribute("pagedListHolder", pagedListHolder);
+        List<Integer> listElement = new ArrayList<>();
+        currentPage += 1;
+        for (int i = 1; i < 6; i++) {
+            int currentElement = 5 * currentPage - 6 + i;
+            if (currentPage >= pagedListHolder.getPageCount())
+                currentElement = 5 * pagedListHolder.getPageCount() - 6 + i;
+            else if (currentPage < 1)
+                currentElement = 5 - 6 + i;
+            if (currentElement < posts.size()) {
+                listElement.add(currentElement);
+            }
+        }
+        modelMap.addAttribute("listElement", listElement);
+        modelMap.addAttribute("posts", posts);
     }
 
     public void pagingListSite(HttpServletRequest request, ModelMap modelMap) {

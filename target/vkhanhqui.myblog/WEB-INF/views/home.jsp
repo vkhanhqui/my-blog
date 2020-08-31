@@ -67,29 +67,27 @@
 
 <section class="ftco-section" id="content">
     <div class="container" id="paging-div1">
-        <%--        --%>
+        <%--            --%>
         <jsp:useBean id="pagedListHolder" scope="request"
                      type="org.springframework.beans.support.PagedListHolder"/>
-        <c:url value="/" var="pagedLink">
-            <c:param name="p" value="~"/>
-        </c:url>
+
         <%--     /   --%>
         <div class="row">
             <div class="col-md-12" id="paging-div2">
                 <%--				--%>
-                <c:forEach var="post" items="${pagedListHolder.pageList}">
+                <c:forEach var="i" items="${listElement}">
 
                     <div class="case">
                         <div class="row">
                             <div class="col-md-6 col-lg-6 col-xl-8 d-flex">
-                                <a href="detail/${post.id}" class="img w-100 mb-3 mb-md-0"
-                                   style="background-image: url('<c:url value="${post.images}"/>');"></a>
+                                <a href="detail/${posts.get(i).id}" class="img w-100 mb-3 mb-md-0"
+                                   style="background-image: url('<c:url value="${posts.get(i).images}"/>');"></a>
                             </div>
                             <div class="col-md-6 col-lg-6 col-xl-4 d-flex">
                                 <div class="text w-100 pl-md-3">
                                     <span class="subheading">Illustration</span>
                                     <h2>
-                                        <a href="detail/${post.id}">${post.title}</a>
+                                        <a href="detail/${posts.get(i).id}">${posts.get(i).title}</a>
                                     </h2>
                                     <ul class="media-social list-unstyled">
                                         <li class="ftco-animate"><a href="#"><span
@@ -101,9 +99,9 @@
                                     </ul>
                                     <div class="meta">
                                         <p class="mb-0">
-                                            <a href="detail/${post.id}">${post.date.month}/${post.date.day}/${post.date.year}</a>
+                                            <a href="detail/${posts.get(i).id}">${posts.get(i).date.month}/${posts.get(i).date.day}/${posts.get(i).date.year}</a>
                                             | <a
-                                                href="detail/${post.id}">${post.reading}</a>
+                                                href="detail/${posts.get(i).id}">${posts.get(i).reading}</a>
                                         </p>
                                     </div>
                                 </div>
@@ -119,20 +117,22 @@
             <div class="col text-center">
                 <div class="block-27">
                     <ul>
-                        <li><a href="#">&lt;</a></li>
+                        <li><a href="/vkhanhqui_myblog_war/">&lt;</a></li>
                         <%--                        --%>
-                        <c:forEach var="i" begin="1" end="${pagedListHolder.pageCount}">
+                        <c:forEach var="i" begin="${minPage}" end="${maxPage-1}">
                             <c:choose>
-                                <c:when test="${i==1}">
-                                    <li class="paging-items active"><span><a href="#">${i}</a></span></li>
+                                <c:when test="${i==currentPage}">
+                                    <li class="paging-items active">
+                                        <a href="/vkhanhqui_myblog_war/${i+1}">${i+1}</a>
+                                    </li>
                                 </c:when>
                                 <c:otherwise>
-                                    <li class="paging-items"><a href="#">${i}</a></li>
+                                    <li class="paging-items"><a href="/vkhanhqui_myblog_war/${i+1}">${i+1}</a></li>
                                 </c:otherwise>
                             </c:choose>
                         </c:forEach>
                         <%--             /           --%>
-                        <li><a href="#">&gt;</a></li>
+                        <li><a href="/vkhanhqui_myblog_war/${pagedListHolder.pageCount}">&gt;</a></li>
                     </ul>
                 </div>
             </div>
@@ -276,8 +276,8 @@
         src="<c:url value="/resources/homePage/js/backtotop.js"/>"></script>
 <script
         src="<c:url value="/resources/homePage/js/smoothscroll.js"/>"></script>
-<script
-        src="<c:url value="/resources/homePage/js/paging-home-site.js" />"></script>
+<%--<script--%>
+<%--        src="<c:url value="/resources/homePage/js/paging-home-site.js" />"></script>--%>
 </body>
 </html>
 
