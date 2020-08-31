@@ -1,4 +1,6 @@
 $("body").on("click", ".paging-items", function () {
+    $(".paging-items").removeClass("active");
+    $(this).addClass("active");
     var startingPage = $(this).text();
     $.ajax({
         url: "/vkhanhqui_myblog_war/api/list",
