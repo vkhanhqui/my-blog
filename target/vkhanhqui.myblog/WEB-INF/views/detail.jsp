@@ -184,7 +184,7 @@
                     <div class="comment-form-wrap pt-5">
                         <h3 class="mb-5">Leave a comment</h3>
                         <form:form modelAttribute="comment" method="post"
-                                   action="/vkhanhqui_myblog_war/detail/save" class="p-5 bg-light">
+                                   action="/vkhanhqui_myblog_war/detail/${post.id}/save" class="p-5 bg-light">
                             <!-- need to associate this data with comment id -->
                             <form:hidden path="id"/>
 

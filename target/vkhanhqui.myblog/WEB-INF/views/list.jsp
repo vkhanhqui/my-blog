@@ -27,9 +27,9 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active"><a href="/vkhanhqui_myblog_war/" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="list" class="nav-link">Blogs</a></li>
-                <li class="nav-item"><a href="contact" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="login" class="nav-link">Admin-login</a></li>
+                <li class="nav-item"><a href="/vkhanhqui_myblog_war/list" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="/vkhanhqui_myblog_war/contact" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="/vkhanhqui_myblog_war/login" class="nav-link">Admin-login</a></li>
             </ul>
         </div>
     </div>
@@ -38,38 +38,31 @@
 
 <section class="ftco-section bg-light" id="content">
     <div class="container" id="paging-div1">
-        <%--        --%>
-        <jsp:useBean id="pagedListHolder" scope="request"
-                     type="org.springframework.beans.support.PagedListHolder"/>
-        <c:url value="/list" var="pagedLink">
-            <c:param name="p" value="~"/>
-        </c:url>
-        <%--     /   --%>
         <div id="paging-div2" class="row d-flex">
             <%--				--%>
-            <c:forEach var="post" items="${pagedListHolder.pageList}">
+            <c:forEach var="i" items="${listElement}">
                 <div class="col-md-4 d-flex ftco-animate">
                     <div
                             class="blog-entry justify-content-end">
-                        <a href="detail/${post.id}" class="block-20"
-                           style="background-image: url('<c:url value="${post.images}"/>');">
+                        <a href="detail/${posts.get(i).id}" class="block-20"
+                           style="background-image: url('<c:url value="${posts.get(i).images}"/>');">
                         </a>
                         <div class="text p-4 float-right d-block">
                             <div class="topper d-flex align-items-center">
                                 <div class="one py-2 pl-3 pr-1 align-self-stretch">
-                                    <span class="day">${post.date.day}</span>
+                                    <span class="day">${posts.get(i).date.day}</span>
                                 </div>
                                 <div class="two pl-0 pr-3 py-2 align-self-stretch">
-                                    <span class="yr">${post.date.year}</span> <span
-                                        class="mos">${post.date.month}</span>
+                                    <span class="yr">${posts.get(i).date.year}</span> <span
+                                        class="mos">${posts.get(i).date.month}</span>
                                 </div>
                             </div>
                             <h3 class="heading mb-3">
-                                <a href="detail/${post.id}">${post.title}</a>
+                                <a href="detail/${posts.get(i).id}">${posts.get(i).title}</a>
                             </h3>
-                            <p>${post.description}</p>
+                            <p>${posts.get(i).description}</p>
                             <p>
-                                <a href="detail/${post.id}" class="btn-custom"><span
+                                <a href="detail/${posts.get(i).id}" class="btn-custom"><span
                                         class="ion-ios-arrow-round-forward mr-3"></span>Read more</a>
                             </p>
                         </div>
@@ -83,20 +76,22 @@
             <div class="col text-center">
                 <div class="block-27">
                     <ul>
-                        <li><a href="#">&lt;</a></li>
+                        <li><a href="/vkhanhqui_myblog_war/list/1">&lt;</a></li>
                         <%--                        --%>
-                        <c:forEach var="i" begin="1" end="${pagedListHolder.pageCount}">
+                        <c:forEach var="i" begin="${minPage}" end="${maxPage-1}">
                             <c:choose>
-                                <c:when test="${i==1}">
-                                    <li class="paging-items active"><span><a href="#">${i}</a></span></li>
+                                <c:when test="${i==currentPage}">
+                                    <li class="paging-items active">
+                                        <a href="/vkhanhqui_myblog_war/list/${i+1}">${i+1}</a>
+                                    </li>
                                 </c:when>
                                 <c:otherwise>
-                                    <li class="paging-items"><a href="#">${i}</a></li>
+                                    <li class="paging-items"><a href="/vkhanhqui_myblog_war/list/${i+1}">${i+1}</a></li>
                                 </c:otherwise>
                             </c:choose>
                         </c:forEach>
                         <%--             /           --%>
-                        <li><a href="#">&gt;</a></li>
+                        <li><a href="/vkhanhqui_myblog_war/list/${pagedListHolder.pageCount}">&gt;</a></li>
                     </ul>
                 </div>
             </div>
@@ -241,7 +236,5 @@
         src="<c:url value="/resources/homePage/js/main.js" />"></script>
 <script
         src="<c:url value="/resources/homePage/js/backtotop.js" />"></script>
-<script
-        src="<c:url value="/resources/homePage/js/paging-list-site.js" />"></script>
 </body>
 </html>

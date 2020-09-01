@@ -4,12 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.ServletRequestUtils;
 import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.models.repositories.PostRepositories;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @Transactional
@@ -34,21 +32,35 @@ public class PostServices {
         postRepositories.deleteById(id);
     }
 
-    public void pagingHomeSite(HttpServletRequest request, ModelMap modelMap) {
-        List<Post> posts = postRepositories.findAll();
-        PagedListHolder pagedListHolder = new PagedListHolder(posts);
-        int page = ServletRequestUtils.getIntParameter(request, "p", 0);
-        pagedListHolder.setPage(page);
-        pagedListHolder.setPageSize(5);
-        modelMap.put("pagedListHolder", pagedListHolder);
+    public List<Integer> pagingPageNumbersOfHomeSite(int currentPage, PagedListHolder pagedListHolder, List<Post> posts) {
+        List<Integer> listElement = new ArrayList<>();
+        currentPage += 1;
+        for (int i = 1; i < 6; i++) {
+            int currentElement = 5 * currentPage - 6 + i;
+            if (currentPage >= pagedListHolder.getPageCount())
+                currentElement = 5 * pagedListHolder.getPageCount() - 6 + i;
+            else if (currentPage < 1)
+                currentElement = 5 - 6 + i;
+            if (currentElement < posts.size()) {
+                listElement.add(currentElement);
+            }
+        }
+        return listElement;
     }
 
-    public void pagingListSite(HttpServletRequest request, ModelMap modelMap) {
-        List<Post> posts = postRepositories.findAll();
-        PagedListHolder pagedListHolder = new PagedListHolder(posts);
-        int page = ServletRequestUtils.getIntParameter(request, "p", 0);
-        pagedListHolder.setPage(page);
-        pagedListHolder.setPageSize(9);
-        modelMap.put("pagedListHolder", pagedListHolder);
+    public List<Integer> pagingPageNumbersOfListSite(int currentPage, PagedListHolder pagedListHolder, List<Post> posts) {
+        List<Integer> listElement = new ArrayList<>();
+        currentPage += 1;
+        for (int i = 1; i < 7; i++) {
+            int currentElement = 6 * currentPage - 7 + i;
+            if (currentPage >= pagedListHolder.getPageCount())
+                currentElement = 6 * pagedListHolder.getPageCount() - 7 + i;
+            else if (currentPage < 1)
+                currentElement = 6 - 7 + i;
+            if (currentElement < posts.size()) {
+                listElement.add(currentElement);
+            }
+        }
+        return listElement;
     }
 }
