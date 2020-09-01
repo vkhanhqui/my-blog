@@ -64,14 +64,8 @@
         </div>
     </div>
 </div>
-
 <section class="ftco-section" id="content">
     <div class="container" id="paging-div1">
-        <%--            --%>
-        <jsp:useBean id="pagedListHolder" scope="request"
-                     type="org.springframework.beans.support.PagedListHolder"/>
-
-        <%--     /   --%>
         <div class="row">
             <div class="col-md-12" id="paging-div2">
                 <%--				--%>
@@ -276,8 +270,6 @@
         src="<c:url value="/resources/homePage/js/backtotop.js"/>"></script>
 <script
         src="<c:url value="/resources/homePage/js/smoothscroll.js"/>"></script>
-<%--<script--%>
-<%--        src="<c:url value="/resources/homePage/js/paging-home-site.js" />"></script>--%>
 </body>
 </html>
 

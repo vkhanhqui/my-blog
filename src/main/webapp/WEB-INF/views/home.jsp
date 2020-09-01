@@ -64,14 +64,8 @@
         </div>
     </div>
 </div>
-
 <section class="ftco-section" id="content">
     <div class="container" id="paging-div1">
-        <%--            --%>
-        <jsp:useBean id="pagedListHolder" scope="request"
-                     type="org.springframework.beans.support.PagedListHolder"/>
-
-        <%--     /   --%>
         <div class="row">
             <div class="col-md-12" id="paging-div2">
                 <%--				--%>

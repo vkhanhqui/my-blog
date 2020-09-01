@@ -34,24 +34,7 @@ public class PostServices {
     public void deleteAPost(long id) {
         postRepositories.deleteById(id);
     }
-
-    public void pagingHomeSite(int currentPage, ModelMap modelMap) {
-        currentPage -= 1;
-        List<Post> posts = postRepositories.findAll();
-        PagedListHolder pagedListHolder = new PagedListHolder(posts);
-        pagedListHolder.setPageSize(5);
-        int minPage = currentPage - 2;
-        if (currentPage - 2 < 0) {
-            minPage = 0;
-        }
-        int maxPage = currentPage + 3;
-        if (currentPage + 3 > pagedListHolder.getPageCount() - 1) {
-            maxPage = pagedListHolder.getPageCount();
-        }
-        modelMap.addAttribute("minPage", minPage);
-        modelMap.addAttribute("maxPage", maxPage);
-        modelMap.addAttribute("currentPage", currentPage);
-        modelMap.addAttribute("pagedListHolder", pagedListHolder);
+    public List<Integer> pagingPageNumbers( int currentPage, PagedListHolder pagedListHolder, List<Post> posts){
         List<Integer> listElement = new ArrayList<>();
         currentPage += 1;
         for (int i = 1; i < 6; i++) {
@@ -64,10 +47,8 @@ public class PostServices {
                 listElement.add(currentElement);
             }
         }
-        modelMap.addAttribute("listElement", listElement);
-        modelMap.addAttribute("posts", posts);
+        return listElement;
     }
-
     public void pagingListSite(HttpServletRequest request, ModelMap modelMap) {
         List<Post> posts = postRepositories.findAll();
         PagedListHolder pagedListHolder = new PagedListHolder(posts);
