@@ -32,14 +32,13 @@ public class ListControllers {
 
     @GetMapping
     public String PagingList(ModelMap modelMap) {
-        int currentPage = 0;
         List<Post> posts = postServices.getPosts();
         PagedListHolder pagedListHolder = new PagedListHolder(posts);
         pagedListHolder.setPageSize(6);
         int minPage = 0;
-        int maxPage = currentPage + 5;
-        addMinMaxCurrent(modelMap, minPage, maxPage, currentPage, pagedListHolder);
-        List<Integer> listElement = postServices.pagingPageNumbersOfListSite(currentPage, pagedListHolder, posts);
+        int maxPage = 5;
+        addMinMaxCurrent(modelMap, minPage, maxPage, 0, pagedListHolder);
+        List<Integer> listElement = postServices.pagingPageNumbersOfListSite(0, pagedListHolder, posts);
         addListOfPosts(modelMap, listElement, posts);
         return "list";
     }
