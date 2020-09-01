@@ -4,7 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import vkhanhqui.myblog.models.Comment;
+import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.models.repositories.CommentRepositories;
+
+import java.util.Date;
 
 @Transactional
 @Service
@@ -12,7 +15,10 @@ public class CommentServices {
     @Autowired
     CommentRepositories commentRepositories;
 
-    public void saveAComment(Comment comment) {
+    public void saveAComment(Post post, Comment comment) {
+        comment.setPost(post);
+        comment.setDate(new Date());
+        comment.setParentId((long) 0);
         commentRepositories.save(comment);
     }
 }

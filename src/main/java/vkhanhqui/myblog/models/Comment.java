@@ -1,8 +1,6 @@
 package vkhanhqui.myblog.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -28,11 +26,13 @@ public class Comment {
     @Column(name = "date")
     private Date date;
 
-    @ManyToOne
-    @JoinColumn(name = "post_id")
-    private Post post;
+    @Column(name = "parent_id")
+    private Long parentId;
 
-    @OneToMany(mappedBy = "comment", cascade = CascadeType.ALL)
-    @OrderBy("date")
-    private List<Reply> replies;
+    // Many to One Có nhiều người ở 1 địa điểm.
+    @ManyToOne
+    @JoinColumn(name = "post_id") // thông qua khóa ngoại address_id
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Post post;
 }
