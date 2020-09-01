@@ -44,7 +44,7 @@ public class HomeControllers {
         int minPage = 0;
         int maxPage = currentPage + 5;
         addMinMaxCurrent(modelMap, minPage, maxPage, currentPage, pagedListHolder);
-        List<Integer> listElement = postServices.pagingPageNumbers(currentPage, pagedListHolder, posts);
+        List<Integer> listElement = postServices.pagingPageNumbersOfHomeSite(currentPage, pagedListHolder, posts);
         addListOfPosts(modelMap, listElement, posts);
         return "home";
     }
@@ -58,15 +58,15 @@ public class HomeControllers {
         int minPage = 0, maxPage;
         if (currentPage == 0) {
             maxPage = currentPage + 5;
-        }
-        else if (currentPage == 1) {
+        } else if (currentPage == 1) {
             maxPage = currentPage + 4;
-        }
-        else if (currentPage == pagedListHolder.getPageCount()-2 || currentPage == pagedListHolder.getPageCount()-1) {
-            minPage = currentPage -4;
-            maxPage = currentPage+1;
-        }
-        else {
+        } else if (currentPage == pagedListHolder.getPageCount() - 2) {
+            minPage = currentPage - 3;
+            maxPage = currentPage + 2;
+        } else if (currentPage == pagedListHolder.getPageCount() - 1) {
+            minPage = currentPage - 4;
+            maxPage = currentPage + 1;
+        } else {
             minPage = currentPage - 2;
             if (currentPage - 2 < 0) {
                 minPage = 0;
@@ -77,7 +77,7 @@ public class HomeControllers {
             }
         }
         addMinMaxCurrent(modelMap, minPage, maxPage, currentPage, pagedListHolder);
-        List<Integer> listElement = postServices.pagingPageNumbers(currentPage, pagedListHolder, posts);
+        List<Integer> listElement = postServices.pagingPageNumbersOfHomeSite(currentPage, pagedListHolder, posts);
         addListOfPosts(modelMap, listElement, posts);
         return "home";
     }
