@@ -26,7 +26,7 @@
                         <form:form modelAttribute="reply" method="post"
                                    action="/vkhanhqui_myblog_war/detail/comments/reply/${parent.id}" class="p-5 bg-light">
                             <!-- need to associate this data with comment id -->
-                            <span>Reply To:<span style="padding-left: 2em">${parent.creator}</span></span><br>
+                            <span>Reply To:<span style="padding-left: 1em">${parent.creator}</span></span><br>
                             <form:hidden path="id"/>
                             <div class="form-group">
                                 <form:label path="creator">Name *</form:label> <form:input type="text"

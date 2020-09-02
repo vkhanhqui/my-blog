@@ -11,6 +11,8 @@ import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.services.CommentServices;
 import vkhanhqui.myblog.services.PostServices;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("detail")
 public class DetailControllers {
@@ -24,6 +26,8 @@ public class DetailControllers {
     public String getDetailSite(@PathVariable long id, ModelMap modelMap) {
         Post post = postServices.getAPost(id);
         modelMap.addAttribute("post", post);
+        List<Comment> comments=commentServices.findAllCommentsByPostIdAndParentIsNull(post.getId());
+        modelMap.addAttribute("comments", comments);
         modelMap.addAttribute("comment", new Comment());
         return "detail";
     }

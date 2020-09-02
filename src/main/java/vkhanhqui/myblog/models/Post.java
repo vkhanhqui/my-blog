@@ -45,5 +45,6 @@ public class Post {
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.EAGER )
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
+    @OrderBy("date ASC")
     private List<Comment> comments;
 }

@@ -57,7 +57,8 @@
                 <div class="pt-5 mt-5">
                     <h3 class="mb-5">${post.comments.size()} Comments</h3>
                     <ul class="comment-list">
-                        <c:forEach var="oneComment" items="${post.comments}">
+                        <%--                        --%>
+                        <c:forEach var="oneComment" items="${comments}">
                             <li class="comment">
                                 <div class="vcard bio">
                                     <img
@@ -69,11 +70,34 @@
                                     <div class="meta mb-3">${oneComment.date}</div>
                                     <p>${oneComment.content}</p>
                                     <p>
-                                        <a href="/vkhanhqui_myblog_war/detail/comments/reply/${oneComment.id}" class="reply">Reply</a>
+                                        <a href="/vkhanhqui_myblog_war/detail/comments/reply/${oneComment.id}"
+                                           class="reply">Reply</a>
                                     </p>
                                 </div>
                             </li>
+                            <%--                            --%>
+                            <c:forEach var="child" items="${oneComment.children}">
+                                <ul class="children">
+                                    <li class="comment">
+                                        <div class="vcard bio">
+                                            <img src="<c:url value="/resources/homePage/images/person_1.jpg" />"
+                                                 alt="Image placeholder">
+                                        </div>
+                                        <div class="comment-body">
+                                            <h3>Reply to:<span style="padding-left: 1em">${child.replyTo}</span></h3>
+                                            <br>
+                                            <h3>${child.creator}</h3>
+                                            <div class="meta mb-3">${child.date}</div>
+                                            <p>${child.content}</p>
+                                            <p><a href="/vkhanhqui_myblog_war/detail/comments/reply/${child.id}"
+                                                  class="reply">Reply</a></p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </c:forEach>
+                            <%--           /         --%>
                         </c:forEach>
+                            <%--           /         --%>
                     </ul>
                     <!-- END comment-list -->
                     <div class="comment-form-wrap pt-5">

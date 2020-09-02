@@ -20,14 +20,26 @@ public class Comment {
     @Column(name = "creator")
     private String creator;
 
+    @Column(name = "replay_to")
+    private String replyTo;
+
     @Column(name = "content", columnDefinition = "text")
     private String content;
 
     @Column(name = "date")
     private Date date;
 
-    @Column(name = "parent_id")
-    private Long parentId;
+    @ManyToOne
+    @JoinColumn(name = "parent_id")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Comment parent;
+
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, fetch = FetchType.EAGER )
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @OrderBy("date ASC")
+    private List<Comment> children;
 
     @ManyToOne
     @JoinColumn(name = "post_id")
