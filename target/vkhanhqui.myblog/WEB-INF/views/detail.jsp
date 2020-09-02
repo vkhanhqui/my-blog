@@ -30,10 +30,10 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="/vkhanhqui.myblog/" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="list" class="nav-link">Blogs</a></li>
-                <li class="nav-item"><a href="contact" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="login" class="nav-link">Admin-login</a></li>
+                <li class="nav-item"><a href="/vkhanhqui_myblog_war/" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="/vkhanhqui_myblog_war/list" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="/vkhanhqui_myblog_war/contact" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="/vkhanhqui_myblog_war/login" class="nav-link">Admin-login</a></li>
             </ul>
         </div>
     </div>
@@ -69,7 +69,7 @@
                                     <div class="meta mb-3">${oneComment.date}</div>
                                     <p>${oneComment.content}</p>
                                     <p>
-                                        <a href="#" class="reply">Reply</a>
+                                        <a href="/vkhanhqui_myblog_war/detail/comments/reply/${oneComment.id}" class="reply">Reply</a>
                                     </p>
                                 </div>
                             </li>
@@ -79,7 +79,7 @@
                     <div class="comment-form-wrap pt-5">
                         <h3 class="mb-5">Leave a comment</h3>
                         <form:form modelAttribute="comment" method="post"
-                                   action="/vkhanhqui_myblog_war/detail/comment/${post.id}" class="p-5 bg-light">
+                                   action="/vkhanhqui_myblog_war/detail/comments/${post.id}" class="p-5 bg-light">
                             <!-- need to associate this data with comment id -->
                             <form:hidden path="id"/>
                             <div class="form-group">

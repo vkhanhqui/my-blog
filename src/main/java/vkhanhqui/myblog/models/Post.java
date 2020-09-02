@@ -43,7 +43,7 @@ public class Post {
 //    private Set<Category> categories = new HashSet<>();
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.EAGER )
-    @EqualsAndHashCode.Exclude // không sử dụng trường này trong equals và hashcode
-    @ToString.Exclude // Khoonhg sử dụng trong toString()
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private List<Comment> comments;
 }

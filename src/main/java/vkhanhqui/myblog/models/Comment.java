@@ -29,9 +29,8 @@ public class Comment {
     @Column(name = "parent_id")
     private Long parentId;
 
-    // Many to One Có nhiều người ở 1 địa điểm.
     @ManyToOne
-    @JoinColumn(name = "post_id") // thông qua khóa ngoại address_id
+    @JoinColumn(name = "post_id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Post post;

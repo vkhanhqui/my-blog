@@ -13,12 +13,23 @@ import java.util.Date;
 @Service
 public class CommentServices {
     @Autowired
+    PostServices postServices;
+    @Autowired
     CommentRepositories commentRepositories;
 
-    public void saveAComment(Post post, Comment comment) {
+    public Comment getAComment(long id){
+        return commentRepositories.findById(id).get();
+    }
+    public void saveAComment(Post post, long parentId, Comment comment) {
         comment.setPost(post);
         comment.setDate(new Date());
-        comment.setParentId((long) 0);
+        comment.setParentId(parentId);
+        commentRepositories.save(comment);
+    }
+    public void saveAReply(long parentId, Comment comment) {
+        comment.setPost(commentRepositories.findById(parentId).get().getPost());
+        comment.setDate(new Date());
+        comment.setParentId(parentId);
         commentRepositories.save(comment);
     }
 }
