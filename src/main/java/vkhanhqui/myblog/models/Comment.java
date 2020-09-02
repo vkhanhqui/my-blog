@@ -1,8 +1,6 @@
 package vkhanhqui.myblog.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -22,6 +20,9 @@ public class Comment {
     @Column(name = "creator")
     private String creator;
 
+    @Column(name = "replay_to")
+    private String replyTo;
+
     @Column(name = "content", columnDefinition = "text")
     private String content;
 
@@ -29,10 +30,20 @@ public class Comment {
     private Date date;
 
     @ManyToOne
-    @JoinColumn(name = "post_id")
-    private Post post;
+    @JoinColumn(name = "parent_id")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Comment parent;
 
-    @OneToMany(mappedBy = "comment", cascade = CascadeType.ALL)
-    @OrderBy("date")
-    private List<Reply> replies;
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, fetch = FetchType.EAGER )
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @OrderBy("date ASC")
+    private List<Comment> children;
+
+    @ManyToOne
+    @JoinColumn(name = "post_id")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Post post;
 }

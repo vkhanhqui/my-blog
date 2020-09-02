@@ -16,9 +16,7 @@ public class DataServices {
     @Autowired
     private PostRepositories postRepositories;
 
-
     public void createPosts() {
-
         List<Post> list = new ArrayList<>();
         for (long i = 1; i <= 9; i++) {
             list.add(new Post(i, "title", "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"

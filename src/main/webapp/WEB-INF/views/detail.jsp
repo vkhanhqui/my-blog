@@ -30,10 +30,10 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="/vkhanhqui.myblog/" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="list" class="nav-link">Blogs</a></li>
-                <li class="nav-item"><a href="contact" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="login" class="nav-link">Admin-login</a></li>
+                <li class="nav-item"><a href="/vkhanhqui_myblog_war/" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="/vkhanhqui_myblog_war/list" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="/vkhanhqui_myblog_war/contact" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="/vkhanhqui_myblog_war/login" class="nav-link">Admin-login</a></li>
             </ul>
         </div>
     </div>
@@ -55,139 +55,57 @@
                     </div>
                 </div>
                 <div class="pt-5 mt-5">
-                    <h3 class="mb-5">6 Comments</h3>
+                    <h3 class="mb-5">${post.comments.size()} Comments</h3>
                     <ul class="comment-list">
-                        <li class="comment">
-                            <div class="vcard bio">
-                                <img
-                                        src="<c:url value="/resources/homePage/images/person_1.jpg" />"
-                                        alt="Image placeholder">
-                            </div>
-                            <div class="comment-body">
-                                <h3>John Doe</h3>
-                                <div class="meta mb-3">November 13, 2019 at 2:21pm</div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing
-                                    elit. Pariatur quidem laborum necessitatibus, ipsam impedit
-                                    vitae autem, eum officia, fugiat saepe enim sapiente iste
-                                    iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                <p>
-                                    <a href="#" class="reply">Reply</a>
-                                </p>
-                            </div>
-                        </li>
-
-                        <li class="comment">
-                            <div class="vcard bio">
-                                <img
-                                        src="<c:url value="/resources/homePage/images/person_1.jpg" />"
-                                        alt="Image placeholder">
-                            </div>
-                            <div class="comment-body">
-                                <h3>John Doe</h3>
-                                <div class="meta mb-3">November 13, 2019 at 2:21pm</div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing
-                                    elit. Pariatur quidem laborum necessitatibus, ipsam impedit
-                                    vitae autem, eum officia, fugiat saepe enim sapiente iste
-                                    iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                <p>
-                                    <a href="#" class="reply">Reply</a>
-                                </p>
-                            </div>
-
-                            <ul class="children">
-                                <li class="comment">
-                                    <div class="vcard bio">
-                                        <img
-                                                src="<c:url value="/resources/homePage/images/person_1.jpg" />"
-                                                alt="Image placeholder">
-                                    </div>
-                                    <div class="comment-body">
-                                        <h3>John Doe</h3>
-                                        <div class="meta mb-3">November 13, 2019 at 2:21pm</div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing
-                                            elit. Pariatur quidem laborum necessitatibus, ipsam impedit
-                                            vitae autem, eum officia, fugiat saepe enim sapiente iste
-                                            iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                        <p>
-                                            <a href="#" class="reply">Reply</a>
-                                        </p>
-                                    </div>
-
-
-                                    <ul class="children">
-                                        <li class="comment">
-                                            <div class="vcard bio">
-                                                <img
-                                                        src="<c:url value="/resources/homePage/images/person_1.jpg" />"
-                                                        alt="Image placeholder">
-                                            </div>
-                                            <div class="comment-body">
-                                                <h3>John Doe</h3>
-                                                <div class="meta mb-3">November 13, 2019 at 2:21pm</div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                    elit. Pariatur quidem laborum necessitatibus, ipsam
-                                                    impedit vitae autem, eum officia, fugiat saepe enim
-                                                    sapiente iste iure! Quam voluptas earum impedit
-                                                    necessitatibus, nihil?</p>
-                                                <p>
-                                                    <a href="#" class="reply">Reply</a>
-                                                </p>
-                                            </div>
-
-                                            <ul class="children">
-                                                <li class="comment">
-                                                    <div class="vcard bio">
-                                                        <img
-                                                                src="<c:url value="/resources/homePage/images/person_1.jpg" />"
-                                                                alt="Image placeholder">
-                                                    </div>
-                                                    <div class="comment-body">
-                                                        <h3>John Doe</h3>
-                                                        <div class="meta mb-3">November 13, 2019 at 2:21pm</div>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur
-                                                            adipisicing elit. Pariatur quidem laborum
-                                                            necessitatibus, ipsam impedit vitae autem, eum officia,
-                                                            fugiat saepe enim sapiente iste iure! Quam voluptas
-                                                            earum impedit necessitatibus, nihil?</p>
-                                                        <p>
-                                                            <a href="#" class="reply">Reply</a>
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="comment">
-                            <div class="vcard bio">
-                                <img
-                                        src="<c:url value="/resources/homePage/images/person_1.jpg" />"
-                                        alt="Image placeholder">
-                            </div>
-                            <div class="comment-body">
-                                <h3>John Doe</h3>
-                                <div class="meta mb-3">November 13, 2019 at 2:21pm</div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing
-                                    elit. Pariatur quidem laborum necessitatibus, ipsam impedit
-                                    vitae autem, eum officia, fugiat saepe enim sapiente iste
-                                    iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                <p>
-                                    <a href="#" class="reply">Reply</a>
-                                </p>
-                            </div>
-                        </li>
+                        <%--                        --%>
+                        <c:forEach var="oneComment" items="${comments}">
+                            <li class="comment">
+                                <div class="vcard bio">
+                                    <img
+                                            src="<c:url value="/resources/homePage/images/person_1.jpg" />"
+                                            alt="Image placeholder">
+                                </div>
+                                <div class="comment-body">
+                                    <h3>${oneComment.creator}</h3>
+                                    <div class="meta mb-3">${oneComment.date}</div>
+                                    <p>${oneComment.content}</p>
+                                    <p>
+                                        <a href="/vkhanhqui_myblog_war/detail/comments/reply/${oneComment.id}"
+                                           class="reply">Reply</a>
+                                    </p>
+                                </div>
+                            </li>
+                            <%--                            --%>
+                            <c:forEach var="child" items="${oneComment.children}">
+                                <ul class="children">
+                                    <li class="comment">
+                                        <div class="vcard bio">
+                                            <img src="<c:url value="/resources/homePage/images/person_1.jpg" />"
+                                                 alt="Image placeholder">
+                                        </div>
+                                        <div class="comment-body">
+                                            <h3>Reply to:<span style="padding-left: 1em">${child.replyTo}</span></h3>
+                                            <br>
+                                            <h3>${child.creator}</h3>
+                                            <div class="meta mb-3">${child.date}</div>
+                                            <p>${child.content}</p>
+                                            <p><a href="/vkhanhqui_myblog_war/detail/comments/reply/${child.id}"
+                                                  class="reply">Reply</a></p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </c:forEach>
+                            <%--           /         --%>
+                        </c:forEach>
+                            <%--           /         --%>
                     </ul>
                     <!-- END comment-list -->
                     <div class="comment-form-wrap pt-5">
                         <h3 class="mb-5">Leave a comment</h3>
                         <form:form modelAttribute="comment" method="post"
-                                   action="/vkhanhqui_myblog_war/detail/${post.id}/save" class="p-5 bg-light">
+                                   action="/vkhanhqui_myblog_war/detail/comments/${post.id}" class="p-5 bg-light">
                             <!-- need to associate this data with comment id -->
                             <form:hidden path="id"/>
-
                             <div class="form-group">
                                 <form:label path="creator">Name *</form:label> <form:input type="text"
                                                                                            class="form-control"

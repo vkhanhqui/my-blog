@@ -36,15 +36,14 @@ public class HomeControllers {
 
     @GetMapping
     public String pagingHome(ModelMap modelMap) {
-//        dataServices.createPosts();
-        int currentPage = 0;
+        dataServices.createPosts();
         List<Post> posts = postServices.getPosts();
         PagedListHolder pagedListHolder = new PagedListHolder(posts);
         pagedListHolder.setPageSize(5);
         int minPage = 0;
-        int maxPage = currentPage + 5;
-        addMinMaxCurrent(modelMap, minPage, maxPage, currentPage, pagedListHolder);
-        List<Integer> listElement = postServices.pagingPageNumbersOfHomeSite(currentPage, pagedListHolder, posts);
+        int maxPage = 5;
+        addMinMaxCurrent(modelMap, minPage, maxPage, 0, pagedListHolder);
+        List<Integer> listElement = postServices.pagingPageNumbersOfHomeSite(0, pagedListHolder, posts);
         addListOfPosts(modelMap, listElement, posts);
         return "home";
     }

@@ -1,11 +1,10 @@
 package vkhanhqui.myblog.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -43,6 +42,9 @@ public class Post {
 //    @ManyToMany(mappedBy = "posts", fetch = FetchType.LAZY)
 //    private Set<Category> categories = new HashSet<>();
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Comment> comments;
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.EAGER )
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @OrderBy("date ASC")
+    private List<Comment> comments;
 }
