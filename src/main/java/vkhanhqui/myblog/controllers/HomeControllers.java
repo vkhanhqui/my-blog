@@ -39,7 +39,7 @@ public class HomeControllers {
         dataServices.createPosts();
         List<Post> posts = postServices.getPosts();
         PagedListHolder pagedListHolder = new PagedListHolder(posts);
-        pagedListHolder.setPageSize(5);
+        pagedListHolder.setPageSize(3);
         int minPage = 0;
         int maxPage = 5;
         addMinMaxCurrent(modelMap, minPage, maxPage, 0, pagedListHolder);
@@ -52,7 +52,7 @@ public class HomeControllers {
     public String pagingPageNumbers(@PathVariable int currentPage, ModelMap modelMap) {
         List<Post> posts = postServices.getPosts();
         PagedListHolder pagedListHolder = new PagedListHolder(posts);
-        pagedListHolder.setPageSize(5);
+        pagedListHolder.setPageSize(3);
         currentPage -= 1;
         int minPage = 0, maxPage;
         if (currentPage == 0) {

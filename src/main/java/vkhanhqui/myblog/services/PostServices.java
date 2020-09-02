@@ -35,12 +35,12 @@ public class PostServices {
     public List<Integer> pagingPageNumbersOfHomeSite(int currentPage, PagedListHolder pagedListHolder, List<Post> posts) {
         List<Integer> listElement = new ArrayList<>();
         currentPage += 1;
-        for (int i = 1; i < 6; i++) {
-            int currentElement = 5 * currentPage - 6 + i;
+        for (int i = 1; i < 4; i++) {
+            int currentElement = 3 * currentPage - 4 + i;
             if (currentPage >= pagedListHolder.getPageCount())
-                currentElement = 5 * pagedListHolder.getPageCount() - 6 + i;
+                currentElement = 3 * pagedListHolder.getPageCount() - 4 + i;
             else if (currentPage < 1)
-                currentElement = 5 - 6 + i;
+                currentElement = 3 - 4 + i;
             if (currentElement < posts.size()) {
                 listElement.add(currentElement);
             }
