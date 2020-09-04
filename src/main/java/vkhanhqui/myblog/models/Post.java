@@ -1,11 +1,12 @@
 package vkhanhqui.myblog.models;
 
 import lombok.*;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "post")
@@ -36,13 +37,19 @@ public class Post {
     @Column(name = "images", columnDefinition = "text")
     private String images;
 
-//    @ManyToMany(mappedBy = "posts", fetch = FetchType.LAZY)
-//    private Set<Tag> tags = new HashSet<>();
-//
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "post_tag",
+            joinColumns = @JoinColumn(name = "post_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id"))
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private List<Tag> tags;
+
 //    @ManyToMany(mappedBy = "posts", fetch = FetchType.LAZY)
 //    private Set<Category> categories = new HashSet<>();
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.EAGER )
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @OrderBy("date ASC")

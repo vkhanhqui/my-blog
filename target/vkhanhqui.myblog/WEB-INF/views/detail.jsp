@@ -20,7 +20,7 @@
         class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-dark"
         id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="/blog/">M<i>e</i>.
+        <a class="navbar-brand" href="/vkhanhqui_myblog_war/">M<i>e</i>.
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#ftco-nav" aria-controls="ftco-nav"
@@ -47,11 +47,9 @@
                 ${post.content}
                 <div class="tag-widget post-tag-container mb-5 mt-5">
                     <div class="tagcloud">
-                        <a href="#" class="tag-cloud-link">Life</a> <a href="#"
-                                                                       class="tag-cloud-link">Sport</a> <a href="#"
-                                                                                                           class="tag-cloud-link">Tech</a>
-                        <a href="#"
-                           class="tag-cloud-link">Travel</a>
+                        <c:forEach var="oneTag" items="${post.tags}">
+                            <a href="/vkhanhqui_myblog_war/tags/${oneTag.name}" class="tag-cloud-link">${oneTag.name}</a>
+                        </c:forEach>
                     </div>
                 </div>
                 <div class="pt-5 mt-5">

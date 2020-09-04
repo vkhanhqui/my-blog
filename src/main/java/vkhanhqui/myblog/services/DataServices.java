@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import vkhanhqui.myblog.models.Post;
+import vkhanhqui.myblog.models.Tag;
 import vkhanhqui.myblog.models.repositories.PostRepositories;
+import vkhanhqui.myblog.models.repositories.TagRepositories;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,11 +17,18 @@ import java.util.List;
 public class DataServices {
     @Autowired
     private PostRepositories postRepositories;
+    @Autowired
+    TagRepositories tagRepositories;
 
     public void createPosts() {
+        List<Tag> listTags1 = new ArrayList<>();
+        Tag tag1 = new Tag();
+        tag1.setId((long) 1);
+        tag1.setName("LIFE");
+        listTags1.add(0,tag1);
         List<Post> list = new ArrayList<>();
         for (long i = 1; i <= 9; i++) {
-            list.add(new Post(i, "title", "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+            list.add(new Post(i, "title"+i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
                     , "<p class=\"mb-5\">\n" +
                     "                    <img\n" +
                     "                            src=\"/vkhanhqui_myblog_war/resources/homePage/images/image_1.jpg\"\n" +
@@ -80,10 +89,15 @@ public class DataServices {
                     "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/homePage/images/image_1.jpg"
-                    , null));
+                    , listTags1,null));
         }
+        List<Tag> listTags2 = new ArrayList<>();
+        Tag tag2 = new Tag();
+        tag2.setId((long) 2);
+        tag2.setName("SPORT");
+        listTags2.add(0,tag2);
         for (long i = 10; i <= 18; i++) {
-            list.add(new Post(i, "title", "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+            list.add(new Post(i, "title"+i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
                     , "<p class=\"mb-5\">\n" +
                     "                    <img\n" +
                     "                            src=\"/vkhanhqui_myblog_war/resources/homePage/images/image_2.jpg\"\n" +
@@ -144,10 +158,15 @@ public class DataServices {
                     "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/homePage/images/image_2.jpg"
-                    , null));
+                    , listTags2, null));
         }
+        List<Tag> listTags3 = new ArrayList<>();
+        Tag tag3 = new Tag();
+        tag3.setId((long) 3);
+        tag3.setName("TECH");
+        listTags3.add(0,tag3);
         for (long i = 19; i <= 27; i++) {
-            list.add(new Post(i, "title", "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+            list.add(new Post(i, "title"+i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
                     , "<p class=\"mb-5\">\n" +
                     "                    <img\n" +
                     "                            src=\"/vkhanhqui_myblog_war/resources/homePage/images/image_3.jpg\"\n" +
@@ -208,10 +227,15 @@ public class DataServices {
                     "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/homePage/images/image_3.jpg"
-                    , null));
+                    , listTags3, null));
         }
+        List<Tag> listTags4 = new ArrayList<>();
+        Tag tag4 = new Tag();
+        tag4.setId((long) 4);
+        tag4.setName("SOCIAL");
+        listTags4.add(0,tag4);
         for (long i = 28; i <= 36; i++) {
-            list.add(new Post(i, "title", "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+            list.add(new Post(i, "title"+i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
                     , "<p class=\"mb-5\">\n" +
                     "                    <img\n" +
                     "                            src=\"/vkhanhqui_myblog_war/resources/homePage/images/image_4.jpg\"\n" +
@@ -272,10 +296,15 @@ public class DataServices {
                     "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/homePage/images/image_4.jpg"
-                    , null));
+                    , listTags4, null));
         }
+        List<Tag> listTags5 = new ArrayList<>();
+        Tag tag5 = new Tag();
+        tag5.setId((long) 5);
+        tag5.setName("TRAVEL");
+        listTags5.add(0,tag5);
         for (long i = 37; i <= 45; i++) {
-            list.add(new Post(i, "title", "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+            list.add(new Post(i, "title"+i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
                     , "<p class=\"mb-5\">\n" +
                     "                    <img\n" +
                     "                            src=\"/vkhanhqui_myblog_war/resources/homePage/images/image_5.jpg\"\n" +
@@ -336,10 +365,15 @@ public class DataServices {
                     "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/homePage/images/image_5.jpg"
-                    , null));
+                    , listTags5, null));
         }
+        List<Tag> listTags6 = new ArrayList<>();
+        Tag tag6 = new Tag();
+        tag6.setId((long) 6);
+        tag6.setName("GAME");
+        listTags6.add(0,tag6);
         for (long i = 46; i <= 48; i++) {
-            list.add(new Post(i, "title", "descriptionnnnnnnnnnnnnnnnnnnnnnnn"
+            list.add(new Post(i, "title"+i, "descriptionnnnnnnnnnnnnnnnnnnnnnnn"
                     , "<p class=\"mb-5\">\n" +
                     "                    <img\n" +
                     "                            src=\"/vkhanhqui_myblog_war/resources/homePage/images/image_6.jpg\"\n" +
@@ -400,7 +434,7 @@ public class DataServices {
                     "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/homePage/images/image_6.jpg"
-                    , null));
+                    , listTags6, null));
         }
         postRepositories.saveAll(list);
     }
