@@ -32,6 +32,10 @@ public class PostServices {
         postRepositories.deleteById(id);
     }
 
+    public void deleteAllPost() {
+        postRepositories.deleteAll();
+    }
+
     public List<Integer> pagingPageNumbersOfHomeSite(int currentPage, PagedListHolder pagedListHolder, List<Post> posts) {
         List<Integer> listElement = new ArrayList<>();
         currentPage += 1;

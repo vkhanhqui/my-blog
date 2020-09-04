@@ -372,6 +372,9 @@ public class DataServices {
         tag6.setId((long) 6);
         tag6.setName("GAME");
         listTags6.add(0,tag6);
+        listTags6.add(1,tag5);
+        listTags6.add(2,tag4);
+        listTags6.add(3,tag3);
         for (long i = 46; i <= 48; i++) {
             list.add(new Post(i, "title"+i, "descriptionnnnnnnnnnnnnnnnnnnnnnnn"
                     , "<p class=\"mb-5\">\n" +
