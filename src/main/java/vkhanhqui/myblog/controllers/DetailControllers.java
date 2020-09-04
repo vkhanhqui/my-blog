@@ -26,7 +26,7 @@ public class DetailControllers {
     public String getDetailSite(@PathVariable long id, ModelMap modelMap) {
         Post post = postServices.getAPost(id);
         modelMap.addAttribute("post", post);
-        List<Comment> comments=commentServices.findAllCommentsByPostIdAndParentIsNull(post.getId());
+        List<Comment> comments=commentServices.getParentComment(post.getId());
         modelMap.addAttribute("comments", comments);
         modelMap.addAttribute("comment", new Comment());
         return "detail";
