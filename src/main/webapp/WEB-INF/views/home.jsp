@@ -26,10 +26,10 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="/vkhanhqui_myblog_war/" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="/vkhanhqui_myblog_war/list" class="nav-link">Blogs</a></li>
-                <li class="nav-item"><a href="/vkhanhqui_myblog_war/contact" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="/vkhanhqui_myblog_war/login" class="nav-link">Admin-login</a></li>
+                <li class="nav-item active"><a href="/vkhanhqui.myblog/" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="list/1" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="contact" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="login" class="nav-link">Admin-login</a></li>
             </ul>
         </div>
     </div>
@@ -69,19 +69,19 @@
         <div class="row">
             <div class="col-md-12" id="paging-div2">
                 <%--				--%>
-                <c:forEach var="i" items="${listElement}">
+                <c:forEach var="onePost" items="${pagedListPost.pageList}">
 
                     <div class="case">
                         <div class="row">
                             <div class="col-md-6 col-lg-6 col-xl-8 d-flex">
-                                <a href="detail/${posts.get(i).id}" class="img w-100 mb-3 mb-md-0"
-                                   style="background-image: url('<c:url value="${posts.get(i).images}"/>');"></a>
+                                <a href="detail/${onePost.id}" class="img w-100 mb-3 mb-md-0"
+                                   style="background-image: url('<c:url value="${onePost.images}"/>');"></a>
                             </div>
                             <div class="col-md-6 col-lg-6 col-xl-4 d-flex">
                                 <div class="text w-100 pl-md-3">
                                     <span class="subheading">Illustration</span>
                                     <h2>
-                                        <a href="detail/${posts.get(i).id}">${posts.get(i).title}</a>
+                                        <a href="detail/${onePost.id}">${onePost.title}</a>
                                     </h2>
                                     <ul class="media-social list-unstyled">
                                         <li class="ftco-animate"><a href="#"><span
@@ -93,9 +93,9 @@
                                     </ul>
                                     <div class="meta">
                                         <p class="mb-0">
-                                            <a href="detail/${posts.get(i).id}">${posts.get(i).date.month}/${posts.get(i).date.day}/${posts.get(i).date.year}</a>
+                                            <a href="detail/${onePost.id}">${onePost.date.month}/${onePost.date.day}/${onePost.date.year}</a>
                                             | <a
-                                                href="detail/${posts.get(i).id}">${posts.get(i).reading}</a>
+                                                href="detail/${onePost.id}">${onePost.reading}</a>
                                         </p>
                                     </div>
                                 </div>
@@ -111,22 +111,25 @@
             <div class="col text-center">
                 <div class="block-27">
                     <ul>
-                        <li><a href="/vkhanhqui_myblog_war/">&lt;</a></li>
+                    	<li><a href="/vkhanhqui.myblog/1">&lt;&lt;</a></li>
+                        <li><a href="/vkhanhqui.myblog/${currentPage-3}">&lt;</a></li>
                         <%--                        --%>
-                        <c:forEach var="i" begin="${minPage}" end="${maxPage-1}">
+                        <c:forEach var="i" items="${pagedListNumber.pageList}">
                             <c:choose>
                                 <c:when test="${i==currentPage}">
-                                    <li class="paging-items active">
-                                        <a href="/vkhanhqui_myblog_war/${i+1}">${i+1}</a>
+                                    <li class="active">
+                                        <a href="/vkhanhqui.myblog/${i}">${i}</a>
                                     </li>
                                 </c:when>
                                 <c:otherwise>
-                                    <li class="paging-items"><a href="/vkhanhqui_myblog_war/${i+1}">${i+1}</a></li>
+                                    <li><a
+                                            href="/vkhanhqui.myblog/${i}">${i}</a></li>
                                 </c:otherwise>
                             </c:choose>
                         </c:forEach>
                         <%--             /           --%>
-                        <li><a href="/vkhanhqui_myblog_war/${pagedListHolder.pageCount}">&gt;</a></li>
+                        <li><a href="/vkhanhqui.myblog/${currentPage+3}">&gt;</a></li>
+                        <li><a href="/vkhanhqui.myblog/${pagedListPost.pageCount}">&gt;&gt;</a></li>
                     </ul>
                 </div>
             </div>

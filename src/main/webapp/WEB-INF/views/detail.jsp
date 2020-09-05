@@ -48,7 +48,8 @@
                 <div class="tag-widget post-tag-container mb-5 mt-5">
                     <div class="tagcloud">
                         <c:forEach var="oneTag" items="${post.tags}">
-                            <a href="/vkhanhqui_myblog_war/tags/${oneTag.name}" class="tag-cloud-link">${oneTag.name}</a>
+                            <a href="/vkhanhqui_myblog_war/tags/${oneTag.name}"
+                               class="tag-cloud-link">${oneTag.name}</a>
                         </c:forEach>
                     </div>
                 </div>
@@ -138,16 +139,10 @@
                     <div class="categories">
                         <h3>Categories</h3>
                         <ul class="navbar-nav ml-auto">
-                            <li><a href="#">Illustration <span
-                                    class="ion-ios-arrow-forward"></span></a></li>
-                            <li><a href="#">Branding <span
-                                    class="ion-ios-arrow-forward"></span></a></li>
-                            <li><a href="#">Application <span
-                                    class="ion-ios-arrow-forward"></span></a></li>
-                            <li><a href="#">Design <span
-                                    class="ion-ios-arrow-forward"></span></a></li>
-                            <li><a href="#">Marketing <span
-                                    class="ion-ios-arrow-forward"></span></a></li>
+                            <c:forEach var="oneCategory" items="${post.categories}">
+                                <li><a href="/vkhanhqui_myblog_war/categories/${oneCategory.name}">${oneCategory.name} <span
+                                        class="ion-ios-arrow-forward"></span></a></li>
+                            </c:forEach>
                         </ul>
                     </div>
                 </div>

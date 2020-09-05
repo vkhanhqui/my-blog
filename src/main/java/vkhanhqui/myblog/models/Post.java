@@ -46,8 +46,14 @@ public class Post {
     @ToString.Exclude
     private List<Tag> tags;
 
-//    @ManyToMany(mappedBy = "posts", fetch = FetchType.LAZY)
-//    private Set<Category> categories = new HashSet<>();
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "post_category",
+            joinColumns = @JoinColumn(name = "post_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private List<Category> categories;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @EqualsAndHashCode.Exclude

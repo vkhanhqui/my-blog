@@ -5,8 +5,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Home</title>
-    <jsp:include page="headerHome.jsp"/>
+    <title>Tag</title>
+    <jsp:include page="headerList.jsp"/>
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,48 +36,41 @@
 </nav>
 <!-- END nav -->
 
-<section class="ftco-section" id="content">
+<section class="ftco-section bg-light" id="content">
     <div class="container" id="paging-div1">
-        <div class="row">
-            <div class="col-md-12" id="paging-div2">
-                <%--				--%>
-                <c:forEach var="i" items="${listElement}">
-
-                    <div class="case">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-6 col-xl-8 d-flex">
-                                <a href="/vkhanhqui_myblog_war/detail/${posts.get(i).id}" class="img w-100 mb-3 mb-md-0"
-                                   style="background-image: url('<c:url value="${posts.get(i).images}"/>');"></a>
-                            </div>
-                            <div class="col-md-6 col-lg-6 col-xl-4 d-flex">
-                                <div class="text w-100 pl-md-3">
-                                    <span class="subheading">Illustration</span>
-                                    <h2>
-                                        <a href="/vkhanhqui_myblog_war/detail/${posts.get(i).id}">${posts.get(i).title}</a>
-                                    </h2>
-                                    <ul class="media-social list-unstyled">
-                                        <li class="ftco-animate"><a href="#"><span
-                                                class="icon-twitter"></span></a></li>
-                                        <li class="ftco-animate"><a href="#"><span
-                                                class="icon-facebook"></span></a></li>
-                                        <li class="ftco-animate"><a href="#"><span
-                                                class="icon-instagram"></span></a></li>
-                                    </ul>
-                                    <div class="meta">
-                                        <p class="mb-0">
-                                            <a href="/vkhanhqui_myblog_war/detail/${posts.get(i).id}">${posts.get(i).date.month}/${posts.get(i).date.day}/${posts.get(i).date.year}</a>
-                                            | <a
-                                                href="/vkhanhqui_myblog_war/detail/${posts.get(i).id}">${posts.get(i).reading}</a>
-                                        </p>
-                                    </div>
+        <div id="paging-div2" class="row d-flex">
+            <%--				--%>
+            <c:forEach var="i" items="${listElement}">
+                <div class="col-md-4 d-flex ftco-animate">
+                    <div
+                            class="blog-entry justify-content-end">
+                        <a href="/vkhanhqui_myblog_war/detail/${posts.get(i).id}" class="block-20"
+                           style="background-image: url('<c:url value="${posts.get(i).images}"/>');">
+                        </a>
+                        <div class="text p-4 float-right d-block">
+                            <div class="topper d-flex align-items-center">
+                                <div class="one py-2 pl-3 pr-1 align-self-stretch">
+                                    <span class="day">${posts.get(i).date.day}</span>
+                                </div>
+                                <div class="two pl-0 pr-3 py-2 align-self-stretch">
+                                    <span class="yr">${posts.get(i).date.year}</span> <span
+                                        class="mos">${posts.get(i).date.month}</span>
                                 </div>
                             </div>
+                            <h3 class="heading mb-3">
+                                <a href="/vkhanhqui_myblog_war/detail/${posts.get(i).id}">${posts.get(i).title}</a>
+                            </h3>
+                            <p>${posts.get(i).description}</p>
+                            <p>
+                                <a href="/vkhanhqui_myblog_war/detail/${posts.get(i).id}" class="btn-custom"><span
+                                        class="ion-ios-arrow-round-forward mr-3"></span>Read more</a>
+                            </p>
                         </div>
                     </div>
+                </div>
 
-                </c:forEach>
-                <%--		/		--%>
-            </div>
+            </c:forEach>
+            <%--		/		--%>
         </div>
         <div class="row mt-5">
             <div class="col text-center">
