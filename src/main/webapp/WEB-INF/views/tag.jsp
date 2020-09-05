@@ -76,7 +76,7 @@
             <div class="col text-center">
                 <div class="block-27">
                     <ul>
-                    	<li><a href="/vkhanhqui_myblog_war/tags/${nameTag}/1">&lt;&lt;</a></li>
+                        <li><a href="/vkhanhqui_myblog_war/tags/${nameTag}/1">&lt;&lt;</a></li>
                         <li><a href="/vkhanhqui_myblog_war/tags/${nameTag}/${currentPage-3}">&lt;</a></li>
                         <%--                        --%>
                         <c:forEach var="i" items="${pagedListNumber.pageList}">

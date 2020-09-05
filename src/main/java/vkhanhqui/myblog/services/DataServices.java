@@ -29,7 +29,7 @@ public class DataServices {
         Tag tag1 = new Tag();
         tag1.setId((long) 1);
         tag1.setName("LIFE");
-        listTags1.add(0,tag1);
+        listTags1.add(0, tag1);
 //        ---------------------------
         Category category1 = new Category();
         category1.setId((long) 1);
@@ -54,7 +54,7 @@ public class DataServices {
 //      ---------------------------
         List<Post> list = new ArrayList<>();
         for (long i = 1; i <= 9; i++) {
-            list.add(new Post(i, "title"+i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+            list.add(new Post(i, "title" + i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
                     , "<p class=\"mb-5\">\n" +
                     "                    <img\n" +
                     "                            src=\"/vkhanhqui_myblog_war/resources/homePage/images/image_1.jpg\"\n" +
@@ -115,15 +115,15 @@ public class DataServices {
                     "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/homePage/images/image_1.jpg"
-                    , listTags1, category1,null));
+                    , listTags1, category1, null));
         }
         List<Tag> listTags2 = new ArrayList<>();
         Tag tag2 = new Tag();
         tag2.setId((long) 2);
         tag2.setName("SPORT");
-        listTags2.add(0,tag2);
+        listTags2.add(0, tag2);
         for (long i = 10; i <= 18; i++) {
-            list.add(new Post(i, "title"+i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+            list.add(new Post(i, "title" + i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
                     , "<p class=\"mb-5\">\n" +
                     "                    <img\n" +
                     "                            src=\"/vkhanhqui_myblog_war/resources/homePage/images/image_2.jpg\"\n" +
@@ -184,16 +184,16 @@ public class DataServices {
                     "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/homePage/images/image_2.jpg"
-                    , listTags2,category2, null));
+                    , listTags2, category2, null));
         }
         List<Tag> listTags3 = new ArrayList<>();
         Tag tag3 = new Tag();
         tag3.setId((long) 3);
         tag3.setName("TECH");
-        listTags3.add(0,tag3);
+        listTags3.add(0, tag3);
 
         for (long i = 19; i <= 27; i++) {
-            list.add(new Post(i, "title"+i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+            list.add(new Post(i, "title" + i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
                     , "<p class=\"mb-5\">\n" +
                     "                    <img\n" +
                     "                            src=\"/vkhanhqui_myblog_war/resources/homePage/images/image_3.jpg\"\n" +
@@ -260,11 +260,11 @@ public class DataServices {
         Tag tag4 = new Tag();
         tag4.setId((long) 4);
         tag4.setName("SOCIAL");
-        listTags4.add(0,tag4);
+        listTags4.add(0, tag4);
 
-        
+
         for (long i = 28; i <= 36; i++) {
-            list.add(new Post(i, "title"+i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+            list.add(new Post(i, "title" + i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
                     , "<p class=\"mb-5\">\n" +
                     "                    <img\n" +
                     "                            src=\"/vkhanhqui_myblog_war/resources/homePage/images/image_4.jpg\"\n" +
@@ -325,16 +325,16 @@ public class DataServices {
                     "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/homePage/images/image_4.jpg"
-                    , listTags4,category4, null));
+                    , listTags4, category4, null));
         }
         List<Tag> listTags5 = new ArrayList<>();
         Tag tag5 = new Tag();
         tag5.setId((long) 5);
         tag5.setName("TRAVEL");
-        listTags5.add(0,tag5);
-        
+        listTags5.add(0, tag5);
+
         for (long i = 37; i <= 45; i++) {
-            list.add(new Post(i, "title"+i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+            list.add(new Post(i, "title" + i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
                     , "<p class=\"mb-5\">\n" +
                     "                    <img\n" +
                     "                            src=\"/vkhanhqui_myblog_war/resources/homePage/images/image_5.jpg\"\n" +
@@ -395,7 +395,7 @@ public class DataServices {
                     "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/homePage/images/image_5.jpg"
-                    , listTags5,category5, null));
+                    , listTags5, category5, null));
         }
         postRepositories.saveAll(list);
     }

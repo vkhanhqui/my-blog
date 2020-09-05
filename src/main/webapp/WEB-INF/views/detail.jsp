@@ -139,8 +139,9 @@
                         <h3>Categories</h3>
                         <ul class="navbar-nav ml-auto">
                             <c:forEach var="oneCategory" items="${listCategories}">
-                                <li><a href="/vkhanhqui_myblog_war/categories/${oneCategory.name}/1">${oneCategory.name} <span
-                                        class="ion-ios-arrow-forward"></span></a></li>
+                                <li><a href="/vkhanhqui_myblog_war/categories/${oneCategory.name}/1">${oneCategory.name}
+                                    <span
+                                            class="ion-ios-arrow-forward"></span></a></li>
                             </c:forEach>
                         </ul>
                     </div>
@@ -229,7 +230,7 @@
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="logo">
-                        <a href="#">Read<span>it</span>.
+                        <a href="#">M<span>E</span>.
                         </a>
                     </h2>
                     <p>Far far away, behind the word mountains, far from the
@@ -247,7 +248,7 @@
             </div>
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">latest News</h2>
+                    <h2 class="ftco-heading-2">Latest News</h2>
                     <div class="block-21 mb-4 d-flex">
                         <a class="img mr-4 rounded"
                            style="background-image: url('<c:url

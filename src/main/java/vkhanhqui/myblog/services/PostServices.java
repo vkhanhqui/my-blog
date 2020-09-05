@@ -37,17 +37,17 @@ public class PostServices {
     }
 
     public PagedListHolder pagingSite(int currentPage
-    		, PagedListHolder pagedListPost) {
-        if(currentPage<2)
-        	currentPage=1;
-        else if(currentPage>pagedListPost.getPageCount())
-        	currentPage=pagedListPost.getPageCount();
-        pagedListPost.setPage(currentPage-1);
+            , PagedListHolder pagedListPost) {
+        if (currentPage < 2)
+            currentPage = 1;
+        else if (currentPage > pagedListPost.getPageCount())
+            currentPage = pagedListPost.getPageCount();
+        pagedListPost.setPage(currentPage - 1);
         List<Integer> numbers = new ArrayList<Integer>();
-        for(int i=currentPage; i<=pagedListPost.getPageCount();i++) {
-        	numbers.add(i);
+        for (int i = currentPage; i <= pagedListPost.getPageCount(); i++) {
+            numbers.add(i);
         }
-        PagedListHolder pagedListNumber =new PagedListHolder(numbers);
+        PagedListHolder pagedListNumber = new PagedListHolder(numbers);
         pagedListNumber.setPageSize(5);
         return pagedListNumber;
     }

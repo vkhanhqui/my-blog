@@ -18,9 +18,9 @@ public class CommentControllers {
     CommentServices commentServices;
 
     @GetMapping("/reply/{parentId}")
-    public String getDetailSite( @PathVariable long parentId, ModelMap modelMap) {
+    public String getDetailSite(@PathVariable long parentId, ModelMap modelMap) {
         Comment parent = commentServices.getAComment(parentId);
-        modelMap.addAttribute("parent",parent);
+        modelMap.addAttribute("parent", parent);
         modelMap.addAttribute("reply", new Comment());
         return "reply";
     }
@@ -32,7 +32,7 @@ public class CommentControllers {
     }
 
     @PostMapping("/reply/{parentId}")
-    public String saveReply( @PathVariable long parentId, @ModelAttribute("comment") Comment comment) {
+    public String saveReply(@PathVariable long parentId, @ModelAttribute("comment") Comment comment) {
         commentServices.saveAReply(parentId, comment);
         return "redirect:/detail/" + comment.getPost().getId();
     }

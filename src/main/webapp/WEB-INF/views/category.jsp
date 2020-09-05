@@ -76,7 +76,7 @@
             <div class="col text-center">
                 <div class="block-27">
                     <ul>
-                    	<li><a href="/vkhanhqui_myblog_war/categories/${nameCategory}/1">&lt;&lt;</a></li>
+                        <li><a href="/vkhanhqui_myblog_war/categories/${nameCategory}/1">&lt;&lt;</a></li>
                         <li><a href="/vkhanhqui_myblog_war/categories/${nameCategory}/${currentPage-3}">&lt;</a></li>
                         <%--                        --%>
                         <c:forEach var="i" items="${pagedListNumber.pageList}">
@@ -94,7 +94,8 @@
                         </c:forEach>
                         <%--             /           --%>
                         <li><a href="/vkhanhqui_myblog_war/categories/${nameCategory}/${currentPage+3}">&gt;</a></li>
-                        <li><a href="/vkhanhqui_myblog_war/categories/${nameCategory}/${pagedListPost.pageCount}">&gt;&gt;</a></li>
+                        <li><a href="/vkhanhqui_myblog_war/categories/${nameCategory}/${pagedListPost.pageCount}">&gt;&gt;</a>
+                        </li>
                     </ul>
                 </div>
             </div>

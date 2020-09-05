@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.services.PostServices;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -21,13 +20,13 @@ public class ListControllers {
 
     @GetMapping("/{currentPage}")
     public String pagingPageNumbers(@PathVariable int currentPage, ModelMap modelMap) {
-    	List<Post> posts = postServices.getPosts();
+        List<Post> posts = postServices.getPosts();
         PagedListHolder pagedListPost = new PagedListHolder(posts);
-    	pagedListPost.setPageSize(6);
+        pagedListPost.setPageSize(6);
         PagedListHolder pagedListNumber = postServices.pagingSite(currentPage, pagedListPost);
-        modelMap.addAttribute("currentPage", pagedListPost.getPage()+1);
-        modelMap.addAttribute("pagedListPost",pagedListPost);
-        modelMap.addAttribute("pagedListNumber",pagedListNumber);
+        modelMap.addAttribute("currentPage", pagedListPost.getPage() + 1);
+        modelMap.addAttribute("pagedListPost", pagedListPost);
+        modelMap.addAttribute("pagedListNumber", pagedListNumber);
         return "list";
     }
 }

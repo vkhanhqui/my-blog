@@ -18,7 +18,7 @@ public class CommentServices {
     @Autowired
     CommentRepositories commentRepositories;
 
-    public Comment getAComment(long id){
+    public Comment getAComment(long id) {
         return commentRepositories.findById(id).get();
     }
 
@@ -29,20 +29,22 @@ public class CommentServices {
         comment.setParent(null);
         commentRepositories.save(comment);
     }
+
     public void saveAReply(long parentId, Comment comment) {
         comment.setDate(new Date());
-        Post postOfParent =commentRepositories.findById(parentId).get().getPost();
+        Post postOfParent = commentRepositories.findById(parentId).get().getPost();
         comment.setPost(postOfParent);
         Comment parent = commentRepositories.findById(parentId).get();
         comment.setReplyTo(parent.getCreator());
         Comment parentOfParent = parent.getParent();
-        if(parentOfParent !=null)
+        if (parentOfParent != null)
             comment.setParent(parentOfParent);
         else
             comment.setParent(parent);
         commentRepositories.save(comment);
     }
-    public List<Comment> getParentComment(long postId){
+
+    public List<Comment> getParentComment(long postId) {
         return commentRepositories.findAllByPost_IdAndParentIsNull(postId);
     }
 }

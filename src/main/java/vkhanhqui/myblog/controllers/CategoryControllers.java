@@ -25,11 +25,11 @@ public class CategoryControllers {
     public String pagingPageNumbers(@PathVariable String nameCategory, @PathVariable int currentPage, ModelMap modelMap) {
         List<Post> posts = categoryServices.getPosts(nameCategory);
         PagedListHolder pagedListPost = new PagedListHolder(posts);
-    	pagedListPost.setPageSize(6);
+        pagedListPost.setPageSize(6);
         PagedListHolder pagedListNumber = postServices.pagingSite(currentPage, pagedListPost);
-        modelMap.addAttribute("currentPage", pagedListPost.getPage()+1);
-        modelMap.addAttribute("pagedListPost",pagedListPost);
-        modelMap.addAttribute("pagedListNumber",pagedListNumber);
+        modelMap.addAttribute("currentPage", pagedListPost.getPage() + 1);
+        modelMap.addAttribute("pagedListPost", pagedListPost);
+        modelMap.addAttribute("pagedListNumber", pagedListNumber);
         modelMap.addAttribute("nameCategory", nameCategory);
         return "category";
     }
