@@ -46,14 +46,11 @@ public class Post {
     @ToString.Exclude
     private List<Tag> tags;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "post_category",
-            joinColumns = @JoinColumn(name = "post_id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id"))
-    @LazyCollection(LazyCollectionOption.FALSE)
+    @ManyToOne
+    @JoinColumn(name = "category_id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private List<Category> categories;
+    private Category category;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @EqualsAndHashCode.Exclude

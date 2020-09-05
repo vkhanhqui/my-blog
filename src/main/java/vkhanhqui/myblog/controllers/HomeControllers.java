@@ -25,7 +25,7 @@ public class HomeControllers {
     @GetMapping
     public String pagingHome(ModelMap modelMap) {
 //        postServices.deleteAllPost();
-//        dataServices.createPosts();
+        dataServices.createPosts();
     	List<Post> posts = postServices.getPosts();
         PagedListHolder pagedListPost = new PagedListHolder(posts);
     	pagedListPost.setPageSize(3);

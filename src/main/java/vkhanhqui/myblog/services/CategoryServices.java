@@ -19,4 +19,7 @@ public class CategoryServices {
         Category category = categoryRepositories.findByName(nameTag);
         return category.getPosts();
     }
+    public List<Category> getCategories(){
+    	return categoryRepositories.findAll();
+    }
 }

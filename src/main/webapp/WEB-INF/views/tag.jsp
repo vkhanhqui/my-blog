@@ -44,7 +44,7 @@
                 <div class="col-md-4 d-flex ftco-animate">
                     <div
                             class="blog-entry justify-content-end">
-                        <a href="/vkhanhqui.myblog/detail/${onePost.id}" class="block-20"
+                        <a href="/vkhanhqui_myblog_war/detail/${onePost.id}" class="block-20"
                            style="background-image: url('<c:url value="${onePost.images}"/>');">
                         </a>
                         <div class="text p-4 float-right d-block">
@@ -58,11 +58,11 @@
                                 </div>
                             </div>
                             <h3 class="heading mb-3">
-                                <a href="/vkhanhqui.myblog/detail/${onePost.id}">${onePost.title}</a>
+                                <a href="/vkhanhqui_myblog_war/detail/${onePost.id}">${onePost.title}</a>
                             </h3>
                             <p>${onePost.description}</p>
                             <p>
-                                <a href="/vkhanhqui.myblog/detail/${onePost.id}" class="btn-custom"><span
+                                <a href="/vkhanhqui_myblog_war/detail/${onePost.id}" class="btn-custom"><span
                                         class="ion-ios-arrow-round-forward mr-3"></span>Read more</a>
                             </p>
                         </div>
@@ -76,25 +76,25 @@
             <div class="col text-center">
                 <div class="block-27">
                     <ul>
-                    	<li><a href="/vkhanhqui.myblog/tags/1">&lt;&lt;</a></li>
-                        <li><a href="/vkhanhqui.myblog/tags/${currentPage-3}">&lt;</a></li>
+                    	<li><a href="/vkhanhqui_myblog_war/tags/${nameTag}/1">&lt;&lt;</a></li>
+                        <li><a href="/vkhanhqui_myblog_war/tags/${nameTag}/${currentPage-3}">&lt;</a></li>
                         <%--                        --%>
                         <c:forEach var="i" items="${pagedListNumber.pageList}">
                             <c:choose>
                                 <c:when test="${i==currentPage}">
                                     <li class="active">
-                                        <a href="/vkhanhqui.myblog/tags/${i}">${i}</a>
+                                        <a href="/vkhanhqui_myblog_war/tags/${nameTag}/${i}">${i}</a>
                                     </li>
                                 </c:when>
                                 <c:otherwise>
                                     <li><a
-                                            href="/vkhanhqui.myblog/tages/${i}">${i}</a></li>
+                                            href="/vkhanhqui_myblog_war/tags/${nameTag}/${i}">${i}</a></li>
                                 </c:otherwise>
                             </c:choose>
                         </c:forEach>
                         <%--             /           --%>
-                        <li><a href="/vkhanhqui.myblog/tags/${currentPage+3}">&gt;</a></li>
-                        <li><a href="/vkhanhqui.myblog/tags/${nameCategory}/${pagedListPost.pageCount}">&gt;&gt;</a></li>
+                        <li><a href="/vkhanhqui_myblog_war/tags/${nameTag}/${currentPage+3}">&gt;</a></li>
+                        <li><a href="/vkhanhqui_myblog_war/tags/${nameTag}/${pagedListPost.pageCount}">&gt;&gt;</a></li>
                     </ul>
                 </div>
             </div>

@@ -21,8 +21,7 @@ public class Category {
     @Column(name = "name", unique = true)
     private String name;
 
-    @ManyToMany(mappedBy = "categories", cascade = CascadeType.ALL)
-    @LazyCollection(LazyCollectionOption.FALSE)
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private List<Post> posts;

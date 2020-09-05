@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import vkhanhqui.myblog.models.Category;
 import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.models.Tag;
+import vkhanhqui.myblog.models.repositories.CategoryRepositories;
 import vkhanhqui.myblog.models.repositories.PostRepositories;
 import vkhanhqui.myblog.models.repositories.TagRepositories;
 
@@ -19,7 +20,9 @@ public class DataServices {
     @Autowired
     private PostRepositories postRepositories;
     @Autowired
-    TagRepositories tagRepositories;
+    private TagRepositories tagRepositories;
+    @Autowired
+    private CategoryRepositories categoryRepositories;
 
     public void createPosts() {
         List<Tag> listTags1 = new ArrayList<>();
@@ -27,11 +30,28 @@ public class DataServices {
         tag1.setId((long) 1);
         tag1.setName("LIFE");
         listTags1.add(0,tag1);
-        List<Category> listCategory1 = new ArrayList<>();
+//        ---------------------------
         Category category1 = new Category();
         category1.setId((long) 1);
         category1.setName("Illustration");
-        listCategory1.add(0,category1);
+        categoryRepositories.save(category1);
+        Category category2 = new Category();
+        category2.setId((long) 2);
+        category2.setName("Branding");
+        categoryRepositories.save(category2);
+        Category category3 = new Category();
+        category3.setId((long) 3);
+        category3.setName("Application");
+        categoryRepositories.save(category3);
+        Category category4 = new Category();
+        category4.setId((long) 4);
+        category4.setName("Design");
+        categoryRepositories.save(category4);
+        Category category5 = new Category();
+        category5.setId((long) 5);
+        category5.setName("Marketing");
+        categoryRepositories.save(category5);
+//      ---------------------------
         List<Post> list = new ArrayList<>();
         for (long i = 1; i <= 9; i++) {
             list.add(new Post(i, "title"+i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
@@ -95,19 +115,13 @@ public class DataServices {
                     "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/homePage/images/image_1.jpg"
-                    , listTags1, listCategory1,null));
+                    , listTags1, category1,null));
         }
         List<Tag> listTags2 = new ArrayList<>();
         Tag tag2 = new Tag();
         tag2.setId((long) 2);
         tag2.setName("SPORT");
         listTags2.add(0,tag2);
-
-        List<Category> listCategory2 = new ArrayList<>();
-        Category category2 = new Category();
-        category2.setId((long) 2);
-        category2.setName("Branding");
-        listCategory2.add(0,category2);
         for (long i = 10; i <= 18; i++) {
             list.add(new Post(i, "title"+i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
                     , "<p class=\"mb-5\">\n" +
@@ -170,7 +184,7 @@ public class DataServices {
                     "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/homePage/images/image_2.jpg"
-                    , listTags2,listCategory2, null));
+                    , listTags2,category2, null));
         }
         List<Tag> listTags3 = new ArrayList<>();
         Tag tag3 = new Tag();
@@ -178,11 +192,6 @@ public class DataServices {
         tag3.setName("TECH");
         listTags3.add(0,tag3);
 
-        List<Category> listCategory3 = new ArrayList<>();
-        Category category3 = new Category();
-        category3.setId((long) 3);
-        category3.setName("Application");
-        listCategory3.add(0,category3);
         for (long i = 19; i <= 27; i++) {
             list.add(new Post(i, "title"+i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
                     , "<p class=\"mb-5\">\n" +
@@ -245,7 +254,7 @@ public class DataServices {
                     "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/homePage/images/image_3.jpg"
-                    , listTags3, listCategory3, null));
+                    , listTags3, category3, null));
         }
         List<Tag> listTags4 = new ArrayList<>();
         Tag tag4 = new Tag();
@@ -253,11 +262,7 @@ public class DataServices {
         tag4.setName("SOCIAL");
         listTags4.add(0,tag4);
 
-        List<Category> listCategory4 = new ArrayList<>();
-        Category category4 = new Category();
-        category4.setId((long) 4);
-        category4.setName("Design");
-        listCategory4.add(0,category4);
+        
         for (long i = 28; i <= 36; i++) {
             list.add(new Post(i, "title"+i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
                     , "<p class=\"mb-5\">\n" +
@@ -320,19 +325,14 @@ public class DataServices {
                     "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/homePage/images/image_4.jpg"
-                    , listTags4,listCategory4, null));
+                    , listTags4,category4, null));
         }
         List<Tag> listTags5 = new ArrayList<>();
         Tag tag5 = new Tag();
         tag5.setId((long) 5);
         tag5.setName("TRAVEL");
         listTags5.add(0,tag5);
-
-        List<Category> listCategory5 = new ArrayList<>();
-        Category category5 = new Category();
-        category5.setId((long) 5);
-        category5.setName("Marketing ");
-        listCategory5.add(0,category5);
+        
         for (long i = 37; i <= 45; i++) {
             list.add(new Post(i, "title"+i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
                     , "<p class=\"mb-5\">\n" +
@@ -395,7 +395,7 @@ public class DataServices {
                     "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/homePage/images/image_5.jpg"
-                    , listTags5,listCategory5, null));
+                    , listTags5,category5, null));
         }
         postRepositories.saveAll(list);
     }

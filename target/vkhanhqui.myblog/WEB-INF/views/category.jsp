@@ -27,7 +27,7 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="/vkhanhqui_myblog_war/" class="nav-link">Home</a></li>
-                <li class="nav-item active"><a href="/vkhanhqui_myblog_war/list" class="nav-link">Blogs</a></li>
+                <li class="nav-item active"><a href="/vkhanhqui_myblog_war/list/1" class="nav-link">Blogs</a></li>
                 <li class="nav-item"><a href="/vkhanhqui_myblog_war/contact" class="nav-link">Contact</a></li>
                 <li class="nav-item"><a href="/vkhanhqui_myblog_war/login" class="nav-link">Admin-login</a></li>
             </ul>
@@ -76,23 +76,25 @@
             <div class="col text-center">
                 <div class="block-27">
                     <ul>
-                        <li><a href="/vkhanhqui_myblog_war/categories/${nameCategory}">&lt;</a></li>
+                    	<li><a href="/vkhanhqui_myblog_war/categories/${nameCategory}/1">&lt;&lt;</a></li>
+                        <li><a href="/vkhanhqui_myblog_war/categories/${nameCategory}/${currentPage-3}">&lt;</a></li>
                         <%--                        --%>
-                        <c:forEach var="i" begin="1" end="${pagedListPost.pageCount}">
+                        <c:forEach var="i" items="${pagedListNumber.pageList}">
                             <c:choose>
-                                <c:when test="${i==currentPage || pagedListPost.firstLinkedPage<1}">
-                                    <li class="paging-items active">
+                                <c:when test="${i==currentPage}">
+                                    <li class="active">
                                         <a href="/vkhanhqui_myblog_war/categories/${nameCategory}/${i}">${i}</a>
                                     </li>
                                 </c:when>
                                 <c:otherwise>
-                                    <li class="paging-items"><a
+                                    <li><a
                                             href="/vkhanhqui_myblog_war/categories/${nameCategory}/${i}">${i}</a></li>
                                 </c:otherwise>
                             </c:choose>
                         </c:forEach>
                         <%--             /           --%>
-                        <li><a href="/vkhanhqui_myblog_war/categories/${nameCategory}/${pagedListPost.pageCount}">&gt;</a></li>
+                        <li><a href="/vkhanhqui_myblog_war/categories/${nameCategory}/${currentPage+3}">&gt;</a></li>
+                        <li><a href="/vkhanhqui_myblog_war/categories/${nameCategory}/${pagedListPost.pageCount}">&gt;&gt;</a></li>
                     </ul>
                 </div>
             </div>

@@ -31,7 +31,7 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="/vkhanhqui_myblog_war/" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="/vkhanhqui_myblog_war/list" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="/vkhanhqui_myblog_war/list/1" class="nav-link">Blogs</a></li>
                 <li class="nav-item"><a href="/vkhanhqui_myblog_war/contact" class="nav-link">Contact</a></li>
                 <li class="nav-item"><a href="/vkhanhqui_myblog_war/login" class="nav-link">Admin-login</a></li>
             </ul>
@@ -48,7 +48,7 @@
                 <div class="tag-widget post-tag-container mb-5 mt-5">
                     <div class="tagcloud">
                         <c:forEach var="oneTag" items="${post.tags}">
-                            <a href="/vkhanhqui_myblog_war/tags/${oneTag.name}"
+                            <a href="/vkhanhqui_myblog_war/tags/${oneTag.name}/1"
                                class="tag-cloud-link">${oneTag.name}</a>
                         </c:forEach>
                     </div>
@@ -84,7 +84,6 @@
                                         </div>
                                         <div class="comment-body">
                                             <h3>Reply to:<span style="padding-left: 1em">${child.replyTo}</span></h3>
-                                            <br>
                                             <h3>${child.creator}</h3>
                                             <div class="meta mb-3">${child.date}</div>
                                             <p>${child.content}</p>
@@ -139,8 +138,8 @@
                     <div class="categories">
                         <h3>Categories</h3>
                         <ul class="navbar-nav ml-auto">
-                            <c:forEach var="oneCategory" items="${post.categories}">
-                                <li><a href="/vkhanhqui_myblog_war/categories/${oneCategory.name}">${oneCategory.name} <span
+                            <c:forEach var="oneCategory" items="${listCategories}">
+                                <li><a href="/vkhanhqui_myblog_war/categories/${oneCategory.name}/1">${oneCategory.name} <span
                                         class="ion-ios-arrow-forward"></span></a></li>
                             </c:forEach>
                         </ul>
