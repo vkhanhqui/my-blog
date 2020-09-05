@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="/vkhanhqui_myblog_war/" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="/vkhanhqui_myblog_war/list" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="/vkhanhqui_myblog_war/list/1" class="nav-link">Blogs</a></li>
                 <li class="nav-item active"><a href="/vkhanhqui_myblog_war/contact" class="nav-link">Contact</a></li>
                 <li class="nav-item"><a href="/vkhanhqui_myblog_war/login" class="nav-link">Admin-login</a></li>
             </ul>
@@ -198,7 +198,16 @@
                 </div>
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                    All rights reserved | This template is made with <i class="icon-heart color-danger"
+                                                                        aria-hidden="true"></i> by <a
+                            href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            </div>
+        </div>
     </div>
 </footer>
 

@@ -6,4 +6,5 @@ import vkhanhqui.myblog.models.Category;
 
 @Repository("categoryRepository")
 public interface CategoryRepositories extends JpaRepository<Category, Long> {
+    Category findByName(String nameCategory);
 }

@@ -32,35 +32,23 @@ public class PostServices {
         postRepositories.deleteById(id);
     }
 
-    public List<Integer> pagingPageNumbersOfHomeSite(int currentPage, PagedListHolder pagedListHolder, List<Post> posts) {
-        List<Integer> listElement = new ArrayList<>();
-        currentPage += 1;
-        for (int i = 1; i < 6; i++) {
-            int currentElement = 5 * currentPage - 6 + i;
-            if (currentPage >= pagedListHolder.getPageCount())
-                currentElement = 5 * pagedListHolder.getPageCount() - 6 + i;
-            else if (currentPage < 1)
-                currentElement = 5 - 6 + i;
-            if (currentElement < posts.size()) {
-                listElement.add(currentElement);
-            }
-        }
-        return listElement;
+    public void deleteAllPost() {
+        postRepositories.deleteAll();
     }
 
-    public List<Integer> pagingPageNumbersOfListSite(int currentPage, PagedListHolder pagedListHolder, List<Post> posts) {
-        List<Integer> listElement = new ArrayList<>();
-        currentPage += 1;
-        for (int i = 1; i < 7; i++) {
-            int currentElement = 6 * currentPage - 7 + i;
-            if (currentPage >= pagedListHolder.getPageCount())
-                currentElement = 6 * pagedListHolder.getPageCount() - 7 + i;
-            else if (currentPage < 1)
-                currentElement = 6 - 7 + i;
-            if (currentElement < posts.size()) {
-                listElement.add(currentElement);
-            }
+    public PagedListHolder pagingSite(int currentPage
+    		, PagedListHolder pagedListPost) {
+        if(currentPage<2)
+        	currentPage=1;
+        else if(currentPage>pagedListPost.getPageCount())
+        	currentPage=pagedListPost.getPageCount();
+        pagedListPost.setPage(currentPage-1);
+        List<Integer> numbers = new ArrayList<Integer>();
+        for(int i=currentPage; i<=pagedListPost.getPageCount();i++) {
+        	numbers.add(i);
         }
-        return listElement;
+        PagedListHolder pagedListNumber =new PagedListHolder(numbers);
+        pagedListNumber.setPageSize(5);
+        return pagedListNumber;
     }
 }

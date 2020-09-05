@@ -6,4 +6,5 @@ import vkhanhqui.myblog.models.Tag;
 
 @Repository("tagRepository")
 public interface TagRepositories extends JpaRepository<Tag, Long> {
+    Tag findByName(String nameTag);
 }

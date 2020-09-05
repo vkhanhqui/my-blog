@@ -42,7 +42,7 @@ public class CommentServices {
             comment.setParent(parent);
         commentRepositories.save(comment);
     }
-    public List<Comment> findAllCommentsByPostIdAndParentIsNull(long postId){
+    public List<Comment> getParentComment(long postId){
         return commentRepositories.findAllByPost_IdAndParentIsNull(postId);
     }
 }

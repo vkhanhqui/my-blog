@@ -20,7 +20,7 @@
         class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-dark"
         id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="/blog/">M<i>e</i>.
+        <a class="navbar-brand" href="/vkhanhqui_myblog_war/">M<i>e</i>.
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#ftco-nav" aria-controls="ftco-nav"
@@ -31,7 +31,7 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="/vkhanhqui_myblog_war/" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="/vkhanhqui_myblog_war/list" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="/vkhanhqui_myblog_war/list/1" class="nav-link">Blogs</a></li>
                 <li class="nav-item"><a href="/vkhanhqui_myblog_war/contact" class="nav-link">Contact</a></li>
                 <li class="nav-item"><a href="/vkhanhqui_myblog_war/login" class="nav-link">Admin-login</a></li>
             </ul>
@@ -47,11 +47,10 @@
                 ${post.content}
                 <div class="tag-widget post-tag-container mb-5 mt-5">
                     <div class="tagcloud">
-                        <a href="#" class="tag-cloud-link">Life</a> <a href="#"
-                                                                       class="tag-cloud-link">Sport</a> <a href="#"
-                                                                                                           class="tag-cloud-link">Tech</a>
-                        <a href="#"
-                           class="tag-cloud-link">Travel</a>
+                        <c:forEach var="oneTag" items="${post.tags}">
+                            <a href="/vkhanhqui_myblog_war/tags/${oneTag.name}/1"
+                               class="tag-cloud-link">${oneTag.name}</a>
+                        </c:forEach>
                     </div>
                 </div>
                 <div class="pt-5 mt-5">
@@ -85,7 +84,6 @@
                                         </div>
                                         <div class="comment-body">
                                             <h3>Reply to:<span style="padding-left: 1em">${child.replyTo}</span></h3>
-                                            <br>
                                             <h3>${child.creator}</h3>
                                             <div class="meta mb-3">${child.date}</div>
                                             <p>${child.content}</p>
@@ -97,7 +95,7 @@
                             </c:forEach>
                             <%--           /         --%>
                         </c:forEach>
-                            <%--           /         --%>
+                        <%--           /         --%>
                     </ul>
                     <!-- END comment-list -->
                     <div class="comment-form-wrap pt-5">
@@ -140,16 +138,10 @@
                     <div class="categories">
                         <h3>Categories</h3>
                         <ul class="navbar-nav ml-auto">
-                            <li><a href="#">Illustration <span
-                                    class="ion-ios-arrow-forward"></span></a></li>
-                            <li><a href="#">Branding <span
-                                    class="ion-ios-arrow-forward"></span></a></li>
-                            <li><a href="#">Application <span
-                                    class="ion-ios-arrow-forward"></span></a></li>
-                            <li><a href="#">Design <span
-                                    class="ion-ios-arrow-forward"></span></a></li>
-                            <li><a href="#">Marketing <span
-                                    class="ion-ios-arrow-forward"></span></a></li>
+                            <c:forEach var="oneCategory" items="${listCategories}">
+                                <li><a href="/vkhanhqui_myblog_war/categories/${oneCategory.name}/1">${oneCategory.name} <span
+                                        class="ion-ios-arrow-forward"></span></a></li>
+                            </c:forEach>
                         </ul>
                     </div>
                 </div>
@@ -226,7 +218,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
@@ -334,7 +325,17 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
 
+                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                    All rights reserved | This template is made with <i class="icon-heart color-danger"
+                                                                        aria-hidden="true"></i> by <a
+                            href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            </div>
+        </div>
     </div>
 </footer>
 
