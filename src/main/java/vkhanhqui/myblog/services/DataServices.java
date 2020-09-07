@@ -54,7 +54,7 @@ public class DataServices {
 //      ---------------------------
         List<Post> list = new ArrayList<>();
         for (long i = 1; i <= 9; i++) {
-            list.add(new Post(i, "title" + i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+            list.add(new Post(i, "All you want to know about industrial laws" + i, "A small river named Duden flows by their place and supplies it with the necessary regelialia.nnnnnn"
                     , "<p class=\"mb-5\">\n" +
                     "                    <img\n" +
                     "                            src=\"/vkhanhqui_myblog_war/resources/homePage/images/image_1.jpg\"\n" +
@@ -114,7 +114,7 @@ public class DataServices {
                     "                    doloremque aut ratione. Harum voluptates mollitia illo minus\n" +
                     "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
-                    , "/resources/homePage/images/image_1.jpg"
+                    , "/resources/homePage/images/image_1.jpg",(long) 0
                     , listTags1, category1, null));
         }
         List<Tag> listTags2 = new ArrayList<>();
@@ -123,7 +123,7 @@ public class DataServices {
         tag2.setName("SPORT");
         listTags2.add(0, tag2);
         for (long i = 10; i <= 18; i++) {
-            list.add(new Post(i, "title" + i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+            list.add(new Post(i, "All you want to know about industrial laws" + i, "A small river named Duden flows by their place and supplies it with the necessary regelialia.nn"
                     , "<p class=\"mb-5\">\n" +
                     "                    <img\n" +
                     "                            src=\"/vkhanhqui_myblog_war/resources/homePage/images/image_2.jpg\"\n" +
@@ -183,7 +183,7 @@ public class DataServices {
                     "                    doloremque aut ratione. Harum voluptates mollitia illo minus\n" +
                     "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
-                    , "/resources/homePage/images/image_2.jpg"
+                    , "/resources/homePage/images/image_2.jpg",(long) 0
                     , listTags2, category2, null));
         }
         List<Tag> listTags3 = new ArrayList<>();
@@ -193,7 +193,7 @@ public class DataServices {
         listTags3.add(0, tag3);
 
         for (long i = 19; i <= 27; i++) {
-            list.add(new Post(i, "title" + i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+            list.add(new Post(i, "All you want to know about industrial laws" + i, "A small river named Duden flows by their place and supplies it with the necessary regelialia.n"
                     , "<p class=\"mb-5\">\n" +
                     "                    <img\n" +
                     "                            src=\"/vkhanhqui_myblog_war/resources/homePage/images/image_3.jpg\"\n" +
@@ -253,7 +253,7 @@ public class DataServices {
                     "                    doloremque aut ratione. Harum voluptates mollitia illo minus\n" +
                     "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
-                    , "/resources/homePage/images/image_3.jpg"
+                    , "/resources/homePage/images/image_3.jpg",(long) 0
                     , listTags3, category3, null));
         }
         List<Tag> listTags4 = new ArrayList<>();
@@ -264,7 +264,7 @@ public class DataServices {
 
 
         for (long i = 28; i <= 36; i++) {
-            list.add(new Post(i, "title" + i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+            list.add(new Post(i, "All you want to know about industrial laws" + i, "A small river named Duden flows by their place and supplies it with the necessary regelialia."
                     , "<p class=\"mb-5\">\n" +
                     "                    <img\n" +
                     "                            src=\"/vkhanhqui_myblog_war/resources/homePage/images/image_4.jpg\"\n" +
@@ -324,7 +324,7 @@ public class DataServices {
                     "                    doloremque aut ratione. Harum voluptates mollitia illo minus\n" +
                     "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
-                    , "/resources/homePage/images/image_4.jpg"
+                    , "/resources/homePage/images/image_4.jpg",(long) 0
                     , listTags4, category4, null));
         }
         List<Tag> listTags5 = new ArrayList<>();
@@ -334,7 +334,7 @@ public class DataServices {
         listTags5.add(0, tag5);
 
         for (long i = 37; i <= 45; i++) {
-            list.add(new Post(i, "title" + i, "descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+            list.add(new Post(i, "All you want to know about industrial laws" + i, "A small river named Duden flows by their place and supplies it with the necessary regelialia."
                     , "<p class=\"mb-5\">\n" +
                     "                    <img\n" +
                     "                            src=\"/vkhanhqui_myblog_war/resources/homePage/images/image_5.jpg\"\n" +
@@ -394,7 +394,7 @@ public class DataServices {
                     "                    doloremque aut ratione. Harum voluptates mollitia illo minus\n" +
                     "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
-                    , "/resources/homePage/images/image_5.jpg"
+                    , "/resources/homePage/images/image_5.jpg",(long) 0
                     , listTags5, category5, null));
         }
         postRepositories.saveAll(list);

@@ -25,7 +25,10 @@ public class PostServices {
     }
 
     public Post getAPost(long id) {
-        return postRepositories.findById(id).get();
+        Post post =postRepositories.findById(id).get();
+        post.setViews(post.getViews()+1);
+        postRepositories.save(post);
+        return post;
     }
 
     public void deleteAPost(long id) {
@@ -50,5 +53,13 @@ public class PostServices {
         PagedListHolder pagedListNumber = new PagedListHolder(numbers);
         pagedListNumber.setPageSize(5);
         return pagedListNumber;
+    }
+
+    public List<Post> mostViewedPost(){
+        List<Post> posts = new ArrayList<>();
+        for(int i=0; i<3; i++){
+            posts.add(i,postRepositories.findAll().get(i));
+        }
+        return posts;
     }
 }

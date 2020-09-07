@@ -45,7 +45,7 @@
                     <div
                             class="blog-entry justify-content-end">
                         <a href="/vkhanhqui_myblog_war/detail/${onePost.id}" class="block-20"
-                           style="background-image: url('<c:url value="${onePost.images}"/>');">
+                           style="background-image: url('<c:url value="${onePost.avatar}"/>');">
                         </a>
                         <div class="text p-4 float-right d-block">
                             <div class="topper d-flex align-items-center">
@@ -76,7 +76,7 @@
             <div class="col text-center">
                 <div class="block-27">
                     <ul>
-                    	<li><a href="/vkhanhqui_myblog_war/list/1">&lt;&lt;</a></li>
+                        <li><a href="/vkhanhqui_myblog_war/list/1">&lt;&lt;</a></li>
                         <li><a href="/vkhanhqui_myblog_war/list/${currentPage-3}">&lt;</a></li>
                         <%--                        --%>
                         <c:forEach var="i" items="${pagedListNumber.pageList}">
@@ -108,7 +108,7 @@
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="logo">
-                        <a href="#">Read<span>it</span>.
+                        <a href="#">M<span>E</span>.
                         </a>
                     </h2>
                     <p>Far far away, behind the word mountains, far from the
@@ -126,7 +126,7 @@
             </div>
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">latest News</h2>
+                    <h2 class="ftco-heading-2">Latest News</h2>
                     <div class="block-21 mb-4 d-flex">
                         <a class="img mr-4 rounded"
                            style="background-image: url(<c:url value="/resources/homePage/images/image_1.jpg"/>);"></a>

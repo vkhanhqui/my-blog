@@ -24,7 +24,8 @@
                     <div class="comment-form-wrap pt-5" style="padding-top: unset">
                         <h3 class="mb-5" style="padding-top: 0;text-align: center">Reply a comment</h3>
                         <form:form modelAttribute="reply" method="post"
-                                   action="/vkhanhqui_myblog_war/detail/comments/reply/${parent.id}" class="p-5 bg-light">
+                                   action="/vkhanhqui_myblog_war/detail/comments/reply/${parent.id}"
+                                   class="p-5 bg-light">
                             <!-- need to associate this data with comment id -->
                             <span>Reply To:<span style="padding-left: 1em">${parent.creator}</span></span><br>
                             <form:hidden path="id"/>

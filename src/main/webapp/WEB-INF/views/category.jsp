@@ -45,7 +45,7 @@
                     <div
                             class="blog-entry justify-content-end">
                         <a href="/vkhanhqui_myblog_war/detail/${onePost.id}" class="block-20"
-                           style="background-image: url('<c:url value="${onePost.images}"/>');">
+                           style="background-image: url('<c:url value="${onePost.avatar}"/>');">
                         </a>
                         <div class="text p-4 float-right d-block">
                             <div class="topper d-flex align-items-center">
