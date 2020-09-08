@@ -150,7 +150,7 @@
                     <h3>Most Viewed</h3>
                     <c:forEach var="onePost" items="${mostViewed}">
                         <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4"
+                            <a href="/vkhanhqui_myblog_war/detail/${onePost.id}" class="blog-img mr-4"
                                style="background-image: url('<c:url value="${onePost.avatar}"/>');"></a>
                             <div class="text">
                                 <h3 class="heading">

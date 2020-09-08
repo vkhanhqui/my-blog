@@ -58,7 +58,7 @@ public class PostServices {
     public List<Post> mostViewedPost(){
         List<Post> posts = new ArrayList<>();
         for(int i=0; i<3; i++){
-            posts.add(i,postRepositories.findAll().get(i));
+            posts.add(i,postRepositories.findAllByOrderByViewsDesc().get(i));
         }
         return posts;
     }
