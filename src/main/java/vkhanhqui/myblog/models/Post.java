@@ -31,11 +31,15 @@ public class Post {
     @Column(name = "date")
     private Date date;
 
-    @Column(name = "reading")
+    @Column(name = "reading_time")
     private String reading;
 
-    @Column(name = "images", columnDefinition = "text")
-    private String images;
+    @Column(name = "avatar", columnDefinition = "text")
+    private String avatar;
+
+    @Column(name = "views")
+    @OrderBy("views ASC")
+    private Long views;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "post_tag",

@@ -45,7 +45,7 @@
                     <div
                             class="blog-entry justify-content-end">
                         <a href="/vkhanhqui_myblog_war/detail/${onePost.id}" class="block-20"
-                           style="background-image: url('<c:url value="${onePost.images}"/>');">
+                           style="background-image: url('<c:url value="${onePost.avatar}"/>');">
                         </a>
                         <div class="text p-4 float-right d-block">
                             <div class="topper d-flex align-items-center">
@@ -76,7 +76,7 @@
             <div class="col text-center">
                 <div class="block-27">
                     <ul>
-                    	<li><a href="/vkhanhqui_myblog_war/tags/${nameTag}/1">&lt;&lt;</a></li>
+                        <li><a href="/vkhanhqui_myblog_war/tags/${nameTag}/1">&lt;&lt;</a></li>
                         <li><a href="/vkhanhqui_myblog_war/tags/${nameTag}/${currentPage-3}">&lt;</a></li>
                         <%--                        --%>
                         <c:forEach var="i" items="${pagedListNumber.pageList}">

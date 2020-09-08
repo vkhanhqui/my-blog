@@ -139,15 +139,40 @@
                         <h3>Categories</h3>
                         <ul class="navbar-nav ml-auto">
                             <c:forEach var="oneCategory" items="${listCategories}">
-                                <li><a href="/vkhanhqui_myblog_war/categories/${oneCategory.name}/1">${oneCategory.name} <span
-                                        class="ion-ios-arrow-forward"></span></a></li>
+                                <li><a href="/vkhanhqui_myblog_war/categories/${oneCategory.name}/1">${oneCategory.name}
+                                    <span
+                                            class="ion-ios-arrow-forward"></span></a></li>
                             </c:forEach>
                         </ul>
                     </div>
                 </div>
-
                 <div class="sidebar-box ftco-animate">
-                    <h3>Recent Blog</h3>
+                    <h3>Most Viewed</h3>
+                    <c:forEach var="onePost" items="${mostViewed}">
+                        <div class="block-21 mb-4 d-flex">
+                            <a class="blog-img mr-4"
+                               style="background-image: url('<c:url value="${onePost.avatar}"/>');"></a>
+                            <div class="text">
+                                <h3 class="heading">
+                                    <a href="/vkhanhqui_myblog_war/detail/${onePost.id}">${onePost.description}</a>
+                                </h3>
+                                <div class="meta">
+                                    <div>
+                                        <a href="/vkhanhqui_myblog_war/detail/${onePost.id}"><span class="icon-calendar"></span> ${onePost.date}</a>
+                                    </div>
+                                    <div>
+                                        <a href="/vkhanhqui_myblog_war/detail/${onePost.id}"><span class="icon-person"></span> Admin</a>
+                                    </div>
+                                    <div>
+                                        <a href="/vkhanhqui_myblog_war/detail/${onePost.id}"><span class="icon-chat"></span> ${onePost.reading}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
+                <div class="sidebar-box ftco-animate">
+                    <h3>Latest Blog</h3>
                     <div class="block-21 mb-4 d-flex">
                         <a class="blog-img mr-4"
                            style="background-image: url('<c:url
@@ -229,7 +254,7 @@
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="logo">
-                        <a href="#">Read<span>it</span>.
+                        <a href="#">M<span>E</span>.
                         </a>
                     </h2>
                     <p>Far far away, behind the word mountains, far from the
@@ -247,7 +272,7 @@
             </div>
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">latest News</h2>
+                    <h2 class="ftco-heading-2">Latest News</h2>
                     <div class="block-21 mb-4 d-flex">
                         <a class="img mr-4 rounded"
                            style="background-image: url('<c:url
