@@ -126,13 +126,14 @@
             <!-- .col-md-8 -->
             <div class="col-lg-4 sidebar pl-lg-5 ftco-animate">
                 <div class="sidebar-box">
-                    <form action="#" class="search-form">
+                    <form:form action="/vkhanhqui_myblog_war/keywords" class="search-form" method="get" modelAttribute="keyword">
                         <div class="form-group">
-                            <a href="#"><span class="icon icon-search"></span></a> <input type="text"
-                                                                          class="form-control"
-                                                                          placeholder="Type a keyword and hit enter">
+                            <span class="icon icon-search"></span>
+                            <form:input type="text"
+                                        class="form-control"
+                                        placeholder="Type a keyword and hit enter" path="title"/>
                         </div>
-                    </form>
+                    </form:form>
                 </div>
                 <div class="sidebar-box ftco-animate">
                     <div class="categories">
@@ -158,13 +159,16 @@
                                 </h3>
                                 <div class="meta">
                                     <div>
-                                        <a href="/vkhanhqui_myblog_war/detail/${onePost.id}"><span class="icon-calendar"></span> ${onePost.date}</a>
+                                        <a href="/vkhanhqui_myblog_war/detail/${onePost.id}"><span
+                                                class="icon-calendar"></span> ${onePost.date}</a>
                                     </div>
                                     <div>
-                                        <a href="/vkhanhqui_myblog_war/detail/${onePost.id}"><span class="icon-person"></span> Admin</a>
+                                        <a href="/vkhanhqui_myblog_war/detail/${onePost.id}"><span
+                                                class="icon-person"></span> Admin</a>
                                     </div>
                                     <div>
-                                        <a href="/vkhanhqui_myblog_war/detail/${onePost.id}"><span class="icon-chat"></span> ${onePost.reading}</a>
+                                        <a href="/vkhanhqui_myblog_war/detail/${onePost.id}"><span
+                                                class="icon-chat"></span> ${onePost.reading}</a>
                                     </div>
                                 </div>
                             </div>

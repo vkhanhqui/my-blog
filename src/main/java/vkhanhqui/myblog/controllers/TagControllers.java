@@ -22,11 +22,11 @@ public class TagControllers {
     private PostServices postServices;
 
     @GetMapping("/{nameTag}/{currentPage}")
-    public String pagingPageNumbers(@PathVariable String nameTag, @PathVariable int currentPage, ModelMap modelMap) {
+    public String getTagSite(@PathVariable String nameTag, @PathVariable int currentPage, ModelMap modelMap) {
         List<Post> posts = tagServices.getPosts(nameTag);
         PagedListHolder pagedListPost = new PagedListHolder(posts);
         pagedListPost.setPageSize(6);
-        PagedListHolder pagedListNumber = postServices.pagingSite(currentPage, pagedListPost);
+        PagedListHolder pagedListNumber = postServices.getPagingSite(currentPage, pagedListPost);
         modelMap.addAttribute("currentPage", pagedListPost.getPage() + 1);
         modelMap.addAttribute("pagedListPost", pagedListPost);
         modelMap.addAttribute("pagedListNumber", pagedListNumber);

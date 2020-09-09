@@ -30,7 +30,7 @@
                                                class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="list/1" class="nav-link">Blogs</a></li>
                 <li class="nav-item"><a href="contact" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="login" class="nav-link">Admin-login</a></li>
+                <li class="nav-item"><a href="login" class="nav-link">Sign in/Sign up</a></li>
             </ul>
         </div>
     </div>

@@ -9,6 +9,7 @@ import vkhanhqui.myblog.models.repositories.PostRepositories;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Transactional
 @Service
@@ -25,8 +26,8 @@ public class PostServices {
     }
 
     public Post getAPost(long id) {
-        Post post =postRepositories.findById(id).get();
-        post.setViews(post.getViews()+1);
+        Post post = postRepositories.findById(id).get();
+        post.setViews(post.getViews() + 1);
         postRepositories.save(post);
         return post;
     }
@@ -39,7 +40,7 @@ public class PostServices {
         postRepositories.deleteAll();
     }
 
-    public PagedListHolder pagingSite(int currentPage
+    public PagedListHolder getPagingSite(int currentPage
             , PagedListHolder pagedListPost) {
         if (currentPage < 2)
             currentPage = 1;
@@ -55,11 +56,21 @@ public class PostServices {
         return pagedListNumber;
     }
 
-    public List<Post> mostViewedPost(){
+    public List<Post> getTheMostViewedPost() {
         List<Post> posts = new ArrayList<>();
-        for(int i=0; i<3; i++){
-            posts.add(i,postRepositories.findAllByOrderByViewsDesc().get(i));
+        for (int i = 0; i < 3; i++) {
+            Optional<List<Post>> optionalPosts = postRepositories.findAllByOrderByViewsDesc();
+            if (optionalPosts.isPresent())
+                posts.add(i, optionalPosts.get().get(i));
         }
+        return posts;
+    }
+
+    public List<Post> getPostsByRelatedWords(String keyword) {
+        List<Post> posts = new ArrayList<>();
+        Optional<List<Post>> optionalPosts = postRepositories.findAllByTitleContaining(keyword);
+        if(optionalPosts.isPresent())
+            posts= optionalPosts.get();
         return posts;
     }
 }

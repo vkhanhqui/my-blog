@@ -19,11 +19,11 @@ public class ListControllers {
     private PostServices postServices;
 
     @GetMapping("/{currentPage}")
-    public String pagingPageNumbers(@PathVariable int currentPage, ModelMap modelMap) {
+    public String getListSite(@PathVariable int currentPage, ModelMap modelMap) {
         List<Post> posts = postServices.getPosts();
         PagedListHolder pagedListPost = new PagedListHolder(posts);
         pagedListPost.setPageSize(6);
-        PagedListHolder pagedListNumber = postServices.pagingSite(currentPage, pagedListPost);
+        PagedListHolder pagedListNumber = postServices.getPagingSite(currentPage, pagedListPost);
         modelMap.addAttribute("currentPage", pagedListPost.getPage() + 1);
         modelMap.addAttribute("pagedListPost", pagedListPost);
         modelMap.addAttribute("pagedListNumber", pagedListNumber);

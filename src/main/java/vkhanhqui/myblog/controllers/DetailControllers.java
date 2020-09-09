@@ -35,8 +35,9 @@ public class DetailControllers {
         List<Comment> comments = commentServices.getParentComment(post.getId());
         modelMap.addAttribute("comments", comments);
         modelMap.addAttribute("comment", new Comment());
-        List<Post> mostViewed = postServices.mostViewedPost();
+        List<Post> mostViewed = postServices.getTheMostViewedPost();
         modelMap.addAttribute("mostViewed", mostViewed);
+        modelMap.addAttribute("keyword", new Post());
         return "detail";
     }
 }
