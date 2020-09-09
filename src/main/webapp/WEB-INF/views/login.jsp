@@ -1,79 +1,115 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login</title>
-
-    <jsp:include page="headerLogin.jsp"/>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" type="image/png"
+          href="<c:url value="/resources/loginPage/images/icons/fox.ico" />">
+    <link rel="stylesheet" href="<c:url value="/resources/loginPage/css/style.css" />"/>
+    <title>Sign in/Sign up</title>
 </head>
 <body>
-
-<div class="limiter">
-    <div class="container-login100"
-         style="background-image: url('<c:url value="/resources/loginPage/images/bg-01.jpg"/>');">
-        <div class="wrap-login100 p-t-30 p-b-50">
-            <span class="login100-form-title p-b-41"> Admin Login </span>
-            <form class="login100-form validate-form p-b-33 p-t-5" method='post'>
-
-                <div class="wrap-input100 validate-input"
-                     data-validate="Enter username">
-                    <input class="input100" type="text" name="username"
-                           placeholder="User name"> <span class="focus-input100"
-                                                          data-placeholder="&#xe82a;"></span>
+<div class="container">
+    <div class="forms-container">
+        <div class="signin-signup">
+            <form action="#" class="sign-in-form">
+                <h2 class="title">Sign in</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Username"/>
                 </div>
-
-                <div class="wrap-input100 validate-input"
-                     data-validate="Enter password">
-                    <input class="input100" type="password" name="password"
-                           placeholder="Password"> <span class="focus-input100"
-                                                         data-placeholder="&#xe80f;"></span>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password"/>
                 </div>
-
-                <div class="container-login100-form-btn m-t-32">
-                    <button class="login100-form-btn">Login</button>
+                <input type="submit" value="Login" class="btn solid"/>
+                <p class="social-text">Or Sign in with social platforms</p>
+                <div class="social-media">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
                 </div>
-
             </form>
+            <form action="#" class="sign-up-form">
+                <h2 class="title">Sign up</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Username"/>
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Email"/>
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password"/>
+                </div>
+                <input type="submit" class="btn" value="Sign up"/>
+                <p class="social-text">Or Sign up with social platforms</p>
+                <div class="social-media">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="panels-container">
+        <div class="panel left-panel">
+            <div class="content">
+                <h3>New here ?</h3>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
+                    ex ratione. Aliquid!
+                </p>
+                <button class="btn transparent" id="sign-up-btn">
+                    Sign up
+                </button>
+            </div>
+            <img src="<c:url value="/resources/loginPage/images/log.svg" />" class="image" alt=""/>
+        </div>
+        <div class="panel right-panel">
+            <div class="content">
+                <h3>One of us ?</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+                    laboriosam ad deleniti.
+                </p>
+                <button class="btn transparent" id="sign-in-btn">
+                    Sign in
+                </button>
+            </div>
+            <img src="<c:url value="/resources/loginPage/images/register.svg" />" class="image" alt=""/>
         </div>
     </div>
 </div>
 
-
-<div id="dropDownSelect1"></div>
-
-<!--===================================import js============================================================-->
 <script
-        src="<c:url value="/resources/js/jquery-3.2.1.min.js" />"></script>
-<!--===============================================================================================-->
+        src="<c:url value="/resources/loginPage/js/font-awesome.js" />" crossorigin="anonymous"></script>
 <script
-        src="<c:url value="/resources/loginPage/vendor/animsition/js/animsition.min.js" />"></script>
-<!--===============================================================================================-->
-<script
-        src="<c:url value="/resources/js/popper.js" />"></script>
-<script
-        src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-<!--===============================================================================================-->
-<script
-        src="<c:url value="/resources/loginPage/vendor/select2/select2.min.js" />"></script>
-<!--===============================================================================================-->
-<script
-        src="<c:url value="/resources/loginPage/vendor/daterangepicker/moment.min.js" />"></script>
-<script
-        src="<c:url value="/resources/loginPage/vendor/daterangepicker/daterangepicker.js" />"></script>
-<!--===============================================================================================-->
-<script
-        src="<c:url value="/resources/loginPage/vendor/countdowntime/countdowntime.js" />"></script>
-<!--===============================================================================================-->
-<script
-        src="<c:url value="/resources/loginPage/js/main.js" />"></script>
-
-<!--=====================================end import js==========================================================-->
-
+        src="<c:url value="/resources/loginPage/js/app.js" />"></script>
 </body>
 </html>

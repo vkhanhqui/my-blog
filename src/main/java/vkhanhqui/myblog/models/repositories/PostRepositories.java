@@ -5,9 +5,11 @@ import org.springframework.stereotype.Repository;
 import vkhanhqui.myblog.models.Post;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Repository("postRepository")
 public interface PostRepositories extends JpaRepository<Post, Long> {
-    List<Post> findAllByOrderByViewsDesc();
+    Optional<List<Post>> findAllByOrderByViewsDesc();
+    Optional<List<Post>> findAllByTitleContaining(String keyword);
 }

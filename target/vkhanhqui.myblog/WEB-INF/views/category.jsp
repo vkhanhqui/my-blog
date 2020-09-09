@@ -29,7 +29,7 @@
                 <li class="nav-item"><a href="/vkhanhqui_myblog_war/" class="nav-link">Home</a></li>
                 <li class="nav-item active"><a href="/vkhanhqui_myblog_war/list/1" class="nav-link">Blogs</a></li>
                 <li class="nav-item"><a href="/vkhanhqui_myblog_war/contact" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="/vkhanhqui_myblog_war/login" class="nav-link">Admin-login</a></li>
+                <li class="nav-item"><a href="/vkhanhqui_myblog_war/login" class="nav-link">Sign in/Sign up</a></li>
             </ul>
         </div>
     </div>
@@ -127,7 +127,7 @@
             </div>
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">latest News</h2>
+                    <h2 class="ftco-heading-2">Latest News</h2>
                     <div class="block-21 mb-4 d-flex">
                         <a class="img mr-4 rounded"
                            style="background-image: url(<c:url value="/resources/homePage/images/image_1.jpg"/>);"></a>
