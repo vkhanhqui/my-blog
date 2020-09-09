@@ -33,7 +33,7 @@
                 <li class="nav-item"><a href="/vkhanhqui_myblog_war/" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="/vkhanhqui_myblog_war/list/1" class="nav-link">Blogs</a></li>
                 <li class="nav-item"><a href="/vkhanhqui_myblog_war/contact" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="/vkhanhqui_myblog_war/login" class="nav-link">Admin-login</a></li>
+                <li class="nav-item"><a href="/vkhanhqui_myblog_war/login" class="nav-link">Sign in/Sign up</a></li>
             </ul>
         </div>
     </div>
@@ -128,7 +128,7 @@
                 <div class="sidebar-box">
                     <form action="#" class="search-form">
                         <div class="form-group">
-                            <span class="icon icon-search"></span> <input type="text"
+                            <a href="#"><span class="icon icon-search"></span></a> <input type="text"
                                                                           class="form-control"
                                                                           placeholder="Type a keyword and hit enter">
                         </div>

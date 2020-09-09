@@ -127,7 +127,7 @@
             </div>
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">latest News</h2>
+                    <h2 class="ftco-heading-2">Latest News</h2>
                     <div class="block-21 mb-4 d-flex">
                         <a class="img mr-4 rounded"
                            style="background-image: url(<c:url value="/resources/homePage/images/image_1.jpg"/>);"></a>
