@@ -41,15 +41,6 @@ public class Post {
     @OrderBy("views ASC")
     private Long views;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "post_tag",
-            joinColumns = @JoinColumn(name = "post_id"),
-            inverseJoinColumns = @JoinColumn(name = "tag_id"))
-    @LazyCollection(LazyCollectionOption.FALSE)
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
-    private List<Tag> tags;
-
     @ManyToOne
     @JoinColumn(name = "category_id")
     @EqualsAndHashCode.Exclude

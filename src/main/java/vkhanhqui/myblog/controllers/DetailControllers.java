@@ -16,7 +16,7 @@ import vkhanhqui.myblog.services.PostServices;
 import java.util.List;
 
 @Controller
-@RequestMapping("detail")
+@RequestMapping("single")
 public class DetailControllers {
 
     @Autowired
@@ -28,9 +28,10 @@ public class DetailControllers {
 
     @GetMapping("/{id}")
     public String getDetailSite(@PathVariable long id, ModelMap modelMap) {
+
+        List<Category> listOfCategories = categoryServices.getCategories();
+        modelMap.addAttribute("listOfCategories", listOfCategories);
         Post post = postServices.getAPost(id);
-        List<Category> listCategories = categoryServices.getCategories();
-        modelMap.addAttribute("listCategories", listCategories);
         modelMap.addAttribute("post", post);
         List<Comment> comments = commentServices.getParentComment(post.getId());
         modelMap.addAttribute("comments", comments);
@@ -38,7 +39,7 @@ public class DetailControllers {
         List<Post> mostViewed = postServices.getTheMostViewedPost();
         modelMap.addAttribute("mostViewed", mostViewed);
         modelMap.addAttribute("keyword", new Post());
-        return "detail";
+        return "single";
     }
 }
 

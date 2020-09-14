@@ -7,6 +7,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import vkhanhqui.myblog.models.Category;
 import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.PostServices;
@@ -21,16 +22,22 @@ public class CategoryControllers {
     @Autowired
     private PostServices postServices;
 
-    @GetMapping("/{nameCategory}/{currentPage}")
-    public String getCategorySite(@PathVariable String nameCategory, @PathVariable int currentPage, ModelMap modelMap) {
-        List<Post> posts = categoryServices.getPosts(nameCategory);
+    @GetMapping("/{nameOfCategory}/{currentPage}")
+    public String getCategorySite(@PathVariable String nameOfCategory, @PathVariable int currentPage, ModelMap modelMap) {
+        List<Category> listOfCategories = categoryServices.getCategories();
+        modelMap.addAttribute("listOfCategories", listOfCategories);
+        List<Post> mostViewed = postServices.getTheMostViewedPost();
+        modelMap.addAttribute("mostViewed", mostViewed);
+
+        List<Post> posts = categoryServices.getPosts(nameOfCategory);
         PagedListHolder pagedListPost = new PagedListHolder(posts);
         pagedListPost.setPageSize(6);
         PagedListHolder pagedListNumber = postServices.getPagingSite(currentPage, pagedListPost);
         modelMap.addAttribute("currentPage", pagedListPost.getPage() + 1);
         modelMap.addAttribute("pagedListPost", pagedListPost);
         modelMap.addAttribute("pagedListNumber", pagedListNumber);
-        modelMap.addAttribute("nameCategory", nameCategory);
-        return "category";
+        modelMap.addAttribute("nameOfCategory", nameOfCategory);
+        modelMap.addAttribute("keyword", new Post());
+        return "category-site";
     }
 }

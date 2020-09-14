@@ -15,8 +15,8 @@ public class CategoryServices {
     @Autowired
     CategoryRepositories categoryRepositories;
 
-    public List<Post> getPosts(String nameTag) {
-        Category category = categoryRepositories.findByName(nameTag);
+    public List<Post> getPosts(String nameOfCategory) {
+        Category category = categoryRepositories.findByName(nameOfCategory);
         return category.getPosts();
     }
 

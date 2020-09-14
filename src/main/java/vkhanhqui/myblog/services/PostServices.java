@@ -65,6 +65,15 @@ public class PostServices {
         }
         return posts;
     }
+    public List<Post> getTopFiveViewedPost() {
+        List<Post> posts = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            Optional<List<Post>> optionalPosts = postRepositories.findAllByOrderByViewsDesc();
+            if (optionalPosts.isPresent())
+                posts.add(i, optionalPosts.get().get(i));
+        }
+        return posts;
+    }
 
     public List<Post> getPostsByRelatedWords(String keyword) {
         List<Post> posts = new ArrayList<>();

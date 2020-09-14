@@ -139,7 +139,7 @@
                     <div class="categories">
                         <h3>Categories</h3>
                         <ul class="navbar-nav ml-auto">
-                            <c:forEach var="oneCategory" items="${listCategories}">
+                            <c:forEach var="oneCategory" items="${listOfCategories}">
                                 <li><a href="/vkhanhqui_myblog_war/categories/${oneCategory.name}/1">${oneCategory.name}
                                     <span
                                             class="ion-ios-arrow-forward"></span></a></li>
