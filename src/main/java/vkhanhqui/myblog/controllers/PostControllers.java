@@ -39,7 +39,7 @@ public class PostControllers {
 
     @GetMapping("/update")
     public String getFormToUpdate(@RequestParam("postId") long id,
-                                    Model model) {
+                                  Model model) {
         Post post = postServices.getAPost(id);
         model.addAttribute("post", post);
         return "post-form";

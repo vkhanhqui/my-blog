@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,11 +29,11 @@
 <!-- header -->
 <header>
     <div class="logo">
-			<h1 class="logo-text"><a href="/vkhanhqui_myblog_war/"><span>Khanh</span>Qui</a></h1>
-		</div>
-		<i class="fa fa-bars menu-toggle"></i>
-		<ul class="nav">
-			<li><a href="/vkhanhqui_myblog_war/">Home</a></li>
+        <h1 class="logo-text"><a href="/vkhanhqui_myblog_war/"><span>Khanh</span>Qui</a></h1>
+    </div>
+    <i class="fa fa-bars menu-toggle"></i>
+    <ul class="nav">
+        <li><a href="/vkhanhqui_myblog_war/">Home</a></li>
         <li><a href="/vkhanhqui_myblog_war/list/1">Posts</a></li>
         <li><a href="/vkhanhqui_myblog_war/contact">About</a></li>
         <li><a href="/vkhanhqui_myblog_war/login">Sign in/Sign up</a></li>
@@ -137,11 +137,11 @@
             <div class="section">
                 <h2 class="section-title">Search</h2>
                 <form:form action="/vkhanhqui_myblog_war/keywords" method="get"
-						modelAttribute="keyword">
+                           modelAttribute="keyword">
 
-						<form:input type="text" name="search-term" class="text-input"
-							placeholder="Search..." path="title" />
-					</form:form>
+                    <form:input type="text" name="search-term" class="text-input"
+                                placeholder="Search..." path="title"/>
+                </form:form>
             </div>
 
             <div class="section popular">
