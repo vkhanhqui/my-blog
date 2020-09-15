@@ -24,11 +24,6 @@ public class CategoryControllers {
 
     @GetMapping("/{nameOfCategory}/{currentPage}")
     public String getCategorySite(@PathVariable String nameOfCategory, @PathVariable int currentPage, ModelMap modelMap) {
-        List<Category> listOfCategories = categoryServices.getCategories();
-        modelMap.addAttribute("listOfCategories", listOfCategories);
-        List<Post> mostViewed = postServices.getTheMostViewedPost();
-        modelMap.addAttribute("mostViewed", mostViewed);
-
         List<Post> posts = categoryServices.getPosts(nameOfCategory);
         PagedListHolder pagedListPost = new PagedListHolder(posts);
         pagedListPost.setPageSize(6);
@@ -38,6 +33,10 @@ public class CategoryControllers {
         modelMap.addAttribute("pagedListNumber", pagedListNumber);
         modelMap.addAttribute("nameOfCategory", nameOfCategory);
         modelMap.addAttribute("keyword", new Post());
+        List<Category> listOfCategories = categoryServices.getCategories();
+        modelMap.addAttribute("listOfCategories", listOfCategories);
+        List<Post> mostViewed = postServices.getTheMostViewedPost();
+        modelMap.addAttribute("mostViewed", mostViewed);
         return "category-site";
     }
 }

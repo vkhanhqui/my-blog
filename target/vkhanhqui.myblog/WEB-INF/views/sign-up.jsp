@@ -51,7 +51,7 @@
 <!-- /header -->
 
 <div class="auth-content">
-    <form action="#" method="post">
+    <form:form action="#" modelAttribute="member" method="post">
         <h2 class="form-title">Sign up</h2>
 
         <!--    <div class="msg success">
@@ -60,25 +60,25 @@
 
         <div>
             <label>Username</label>
-            <input type="text" name="username" class="text-input">
+            <form:input type="text" name="username" class="text-input" path="username" />
         </div>
         <div>
             <label>Email</label>
-            <input type="text" name="email" class="text-input">
+            <form:input type="text" name="email" class="text-input" path="email" />
         </div>
         <div>
             <label>Password</label>
-            <input type="password" name="password" class="text-input">
+            <form:input type="password" name="password" class="text-input" path="password" />
         </div>
-        <div>
-            <label>Password Confirmation</label>
-            <input type="password" name="passwordConfirmation" class="text-input">
-        </div>
+<%--        <div>--%>
+<%--            <label>Password Confirmation</label>--%>
+<%--            <form:input type="password" name="passwordConfirmation" class="text-input" />--%>
+<%--        </div>--%>
         <div>
             <button type="submit" name="register-btn" class="btn btn-big">Register</button>
         </div>
-        <p>Or <a href="sign-in.html">Sign In</a></p>
-    </form>
+        <p>Or <a href="/vkhanhqui_myblog_war/sign-in">Sign In</a></p>
+    </form:form>
 </div>
 
 <!-- jquery -->

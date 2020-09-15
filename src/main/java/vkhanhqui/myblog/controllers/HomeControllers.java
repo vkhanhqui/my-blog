@@ -7,13 +7,18 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
+
 import vkhanhqui.myblog.models.Category;
+import vkhanhqui.myblog.models.Member;
 import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.DataServices;
 import vkhanhqui.myblog.services.PostServices;
 
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 
 @Controller
@@ -27,15 +32,14 @@ public class HomeControllers {
     CategoryServices categoryServices;
 
     @GetMapping
-    public String getHomeSite(ModelMap modelMap) {
+    public String getHomeSite(ModelMap modelMap, HttpSession httpSession) {
 //        postServices.deleteAllPost();
 //        dataServices.createPosts();
-
-        List<Category> listOfCategories = categoryServices.getCategories();
-        modelMap.addAttribute("listOfCategories", listOfCategories);
+    	if(httpSession.getAttribute("member") !=null) {
+    		Member member = (Member) httpSession.getAttribute("member");
+    		modelMap.addAttribute("member",member);
+    	}
         List<Post> posts = postServices.getPosts();
-        List<Post> mostViewed = postServices.getTheMostViewedPost();
-        modelMap.addAttribute("mostViewed", mostViewed);
         PagedListHolder pagedListPost = new PagedListHolder(posts);
         pagedListPost.setPageSize(3);
         PagedListHolder pagedListNumber = postServices.getPagingSite(1, pagedListPost);
@@ -43,6 +47,10 @@ public class HomeControllers {
         modelMap.addAttribute("pagedListPost", pagedListPost);
         modelMap.addAttribute("pagedListNumber", pagedListNumber);
         modelMap.addAttribute("keyword", new Post());
+        List<Category> listOfCategories = categoryServices.getCategories();
+        modelMap.addAttribute("listOfCategories", listOfCategories);
+        List<Post> mostViewed = postServices.getTheMostViewedPost();
+        modelMap.addAttribute("mostViewed", mostViewed);
         List<Post> topFiveViewedPost = postServices.getTopFiveViewedPost();
         modelMap.addAttribute("topFiveViewedPost", topFiveViewedPost);
         return "index";
@@ -50,12 +58,6 @@ public class HomeControllers {
 
     @GetMapping("/{currentPage}")
     public String getPagingHomeSite(@PathVariable int currentPage, ModelMap modelMap) {
-
-        List<Category> listOfCategories = categoryServices.getCategories();
-        modelMap.addAttribute("listOfCategories", listOfCategories);
-
-        List<Post> mostViewed = postServices.getTheMostViewedPost();
-        modelMap.addAttribute("mostViewed", mostViewed);
         List<Post> posts = postServices.getPosts();
         PagedListHolder pagedListPost = new PagedListHolder(posts);
         pagedListPost.setPageSize(3);
@@ -64,6 +66,10 @@ public class HomeControllers {
         modelMap.addAttribute("pagedListPost", pagedListPost);
         modelMap.addAttribute("pagedListNumber", pagedListNumber);
         modelMap.addAttribute("keyword", new Post());
+        List<Category> listOfCategories = categoryServices.getCategories();
+        modelMap.addAttribute("listOfCategories", listOfCategories);
+        List<Post> mostViewed = postServices.getTheMostViewedPost();
+        modelMap.addAttribute("mostViewed", mostViewed);
         List<Post> topFiveViewedPost = postServices.getTopFiveViewedPost();
         modelMap.addAttribute("topFiveViewedPost", topFiveViewedPost);
         return "index";
