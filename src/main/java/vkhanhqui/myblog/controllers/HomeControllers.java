@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import vkhanhqui.myblog.models.Category;
-import vkhanhqui.myblog.models.Member;
 import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.DataServices;
@@ -37,9 +36,9 @@ public class HomeControllers {
     public String getHomeSite(ModelMap modelMap, HttpSession httpSession) {
 //        postServices.deleteAllPost();
 //        dataServices.createPosts();
-    	if(httpSession.getAttribute("member") !=null) {
-    		Member member = (Member) httpSession.getAttribute("member");
-    		modelMap.addAttribute("member",member);
+    	if(httpSession.getAttribute("username") !=null) {
+    		String username = (String) httpSession.getAttribute("username");
+    		modelMap.addAttribute("username", username);
     	}
         List<Post> posts = postServices.getPosts();
         PagedListHolder pagedListPost = new PagedListHolder(posts);
@@ -58,7 +57,12 @@ public class HomeControllers {
     }
 
     @GetMapping("/{currentPage}")
-    public String getPagingHomeSite(@PathVariable int currentPage, ModelMap modelMap) {
+    public String getPagingHomeSite(@PathVariable int currentPage, ModelMap modelMap
+    		, HttpSession httpSession) {
+    	if(httpSession.getAttribute("username") !=null) {
+    		String username = (String) httpSession.getAttribute("username");
+    		modelMap.addAttribute("username", username);
+    	}
         List<Post> posts = postServices.getPosts();
         PagedListHolder pagedListPost = new PagedListHolder(posts);
         pagedListPost.setPageSize(3);

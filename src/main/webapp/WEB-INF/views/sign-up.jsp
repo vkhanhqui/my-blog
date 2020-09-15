@@ -35,17 +35,6 @@
         <li><a href="/vkhanhqui_myblog_war/list/1">Posts</a></li>
         <li><a href="/vkhanhqui_myblog_war/contact">About</a></li>
         <li><a href="/vkhanhqui_myblog_war/login">Sign in/Sign up</a></li>
-        <li>
-            <a href="#">
-                <i class="fa fa-user"></i>
-                Khanh Qui
-                <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
-            </a>
-            <ul>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#" class="logout">Logout</a></li>
-            </ul>
-        </li>
     </ul>
 </header>
 <!-- /header -->

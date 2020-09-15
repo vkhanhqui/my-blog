@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,17 +41,17 @@
 			<li><a href="/vkhanhqui_myblog_war/list/1">Posts</a></li>
 			<li><a href="/vkhanhqui_myblog_war/contact">About</a></li>
 			<c:choose>
-				<c:when test="${member==null}">
+				<c:when test="${username==null}">
 					<li><a href="/vkhanhqui_myblog_war/sign-in">Sign in/Sign
 							up</a></li>
 				</c:when>
 				<c:otherwise>
-					<li><a href="#"> <i class="fa fa-user"></i> ${member.username} <i
+					<li><a href="#"> <i class="fa fa-user"></i> ${username} <i
 							class="fa fa-chevron-down" style="font-size: .8em;"></i>
 					</a>
 						<ul>
 							<li><a href="#">Dashboard</a></li>
-							<li><a href="#" class="logout">Logout</a></li>
+							<li><a href="/vkhanhqui_myblog_war/logout" class="logout">Logout</a></li>
 						</ul></li>
 				</c:otherwise>
 			</c:choose>

@@ -14,6 +14,8 @@ import vkhanhqui.myblog.services.PostServices;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("categories")
 public class CategoryControllers {
@@ -23,7 +25,12 @@ public class CategoryControllers {
     private PostServices postServices;
 
     @GetMapping("/{nameOfCategory}/{currentPage}")
-    public String getCategorySite(@PathVariable String nameOfCategory, @PathVariable int currentPage, ModelMap modelMap) {
+    public String getCategorySite(@PathVariable String nameOfCategory, @PathVariable int currentPage
+    		, ModelMap modelMap, HttpSession httpSession) {
+    	if(httpSession.getAttribute("username") !=null) {
+    		String username = (String) httpSession.getAttribute("username");
+    		modelMap.addAttribute("username", username);
+    	}
         List<Post> posts = categoryServices.getPosts(nameOfCategory);
         PagedListHolder pagedListPost = new PagedListHolder(posts);
         pagedListPost.setPageSize(6);

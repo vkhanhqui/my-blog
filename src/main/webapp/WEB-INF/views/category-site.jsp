@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,30 +26,35 @@
 
 <body>
 <!-- header -->
-<header>
-    <div class="logo">
-        <h1 class="logo-text"><a href="/vkhanhqui_myblog_war/"><span>Khanh</span>Qui</a></h1>
-    </div>
-    <i class="fa fa-bars menu-toggle"></i>
-    <ul class="nav">
-        <li><a href="/vkhanhqui_myblog_war/">Home</a></li>
-        <li><a href="/vkhanhqui_myblog_war/list/1">Posts</a></li>
-        <li><a href="/vkhanhqui_myblog_war/contact">About</a></li>
-        <li><a href="/vkhanhqui_myblog_war/login">Sign in/Sign up</a></li>
-        <li>
-            <a href="#">
-                <i class="fa fa-user"></i>
-                Khanh Qui
-                <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
-            </a>
-            <ul>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#" class="logout">Logout</a></li>
-            </ul>
-        </li>
-    </ul>
-</header>
-<!-- /header -->
+	<header>
+		<div class="logo">
+			<h1 class="logo-text">
+				<a href="/vkhanhqui_myblog_war/"><span>Khanh</span>Qui</a>
+			</h1>
+		</div>
+		<i class="fa fa-bars menu-toggle"></i>
+		<ul class="nav">
+			<li><a href="/vkhanhqui_myblog_war/">Home</a></li>
+			<li><a href="/vkhanhqui_myblog_war/list/1">Posts</a></li>
+			<li><a href="/vkhanhqui_myblog_war/contact">About</a></li>
+			<c:choose>
+				<c:when test="${username==null}">
+					<li><a href="/vkhanhqui_myblog_war/sign-in">Sign in/Sign
+							up</a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="#"> <i class="fa fa-user"></i> ${username} <i
+							class="fa fa-chevron-down" style="font-size: .8em;"></i>
+					</a>
+						<ul>
+							<li><a href="#">Dashboard</a></li>
+							<li><a href="/vkhanhqui_myblog_war/logout" class="logout">Logout</a></li>
+						</ul></li>
+				</c:otherwise>
+			</c:choose>
+		</ul>
+	</header>
+	<!-- /header -->
 <!-- page wrapper -->
 <div class="page-wrapper">
     <!-- content -->
