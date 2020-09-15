@@ -7,7 +7,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
 
 import vkhanhqui.myblog.models.Category;
 import vkhanhqui.myblog.models.Member;
@@ -24,10 +23,13 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/")
 public class HomeControllers {
+	
     @Autowired
     private PostServices postServices;
+    
     @Autowired
     private DataServices dataServices;
+    
     @Autowired
     CategoryServices categoryServices;
 
@@ -46,7 +48,6 @@ public class HomeControllers {
         modelMap.addAttribute("currentPage", pagedListPost.getPage() + 1);
         modelMap.addAttribute("pagedListPost", pagedListPost);
         modelMap.addAttribute("pagedListNumber", pagedListNumber);
-        modelMap.addAttribute("keyword", new Post());
         List<Category> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
         List<Post> mostViewed = postServices.getTheMostViewedPost();
@@ -65,7 +66,6 @@ public class HomeControllers {
         modelMap.addAttribute("currentPage", pagedListPost.getPage() + 1);
         modelMap.addAttribute("pagedListPost", pagedListPost);
         modelMap.addAttribute("pagedListNumber", pagedListNumber);
-        modelMap.addAttribute("keyword", new Post());
         List<Category> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
         List<Post> mostViewed = postServices.getTheMostViewedPost();

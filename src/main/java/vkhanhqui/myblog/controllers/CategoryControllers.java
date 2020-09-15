@@ -32,7 +32,6 @@ public class CategoryControllers {
         modelMap.addAttribute("pagedListPost", pagedListPost);
         modelMap.addAttribute("pagedListNumber", pagedListNumber);
         modelMap.addAttribute("nameOfCategory", nameOfCategory);
-        modelMap.addAttribute("keyword", new Post());
         List<Category> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
         List<Post> mostViewed = postServices.getTheMostViewedPost();

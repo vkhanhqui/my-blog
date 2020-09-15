@@ -51,22 +51,22 @@
 <!-- /header -->
 
 <div class="auth-content">
-    <form:form action="/vkhanhqui_myblog_war/sign-in" modelAttribute="member" method="post">
+    <form action="/vkhanhqui_myblog_war/sign-in" method="post">
         <h2 class="form-title">Sign in</h2>
-
+			${error}
         <div>
             <label>Username</label>
-            <form:input type="text" name="username" class="text-input" path="username" />
+            <input type="text" name="username" class="text-input" />
         </div>
         <div>
             <label>Password</label>
-            <form:input type="password" name="password" class="text-input" path="password" />
+            <input type="password" name="password" class="text-input" />
         </div>
         <div>
             <button type="submit" name="login-btn" class="btn btn-big">Login</button>
         </div>
         <p>Or <a href="/vkhanhqui_myblog_war/sign-up">Sign up</a></p>
-    </form:form>
+    </form>
 
 </div>
 

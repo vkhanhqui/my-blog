@@ -6,6 +6,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import vkhanhqui.myblog.models.Category;
 import vkhanhqui.myblog.models.Comment;
 import vkhanhqui.myblog.models.Post;
@@ -37,7 +38,6 @@ public class SingleControllers {
         modelMap.addAttribute("mostViewed", mostViewed);
         List<Category> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
-        modelMap.addAttribute("keyword", new Post());
         return "single";
     }
 }

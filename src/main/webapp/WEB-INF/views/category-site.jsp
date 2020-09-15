@@ -135,14 +135,16 @@
         <!-- sidebar -->
         <div class="sidebar single">
             <div class="section">
-                <h2 class="section-title">Search</h2>
-                <form:form action="/vkhanhqui_myblog_war/keywords" method="get"
-                           modelAttribute="keyword">
+					<h2 class="section-title">Search</h2>
+					<form action="/vkhanhqui_myblog_war/keywords/" method="post">
 
-                    <form:input type="text" name="search-term" class="text-input"
-                                placeholder="Search..." path="title"/>
-                </form:form>
-            </div>
+						<input type="text" class="text-input" name="keywords"
+							placeholder="Search..." />
+						<div>
+							<button type="submit" name="register-btn" class="btn btn-big">Find</button>
+						</div>
+					</form>
+				</div>
 
             <div class="section popular">
                 <h2 class="section-title">Popular</h2>

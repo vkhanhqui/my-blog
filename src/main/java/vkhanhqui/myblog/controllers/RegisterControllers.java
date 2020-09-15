@@ -2,15 +2,12 @@ package vkhanhqui.myblog.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import vkhanhqui.myblog.models.Member;
 import vkhanhqui.myblog.services.MemberServices;
 
 @Controller
@@ -42,12 +39,12 @@ public class RegisterControllers {
     	}
     	else if(!memberServices.isEmail(email)) {
     		error = "<div class=\"msg error\">\r\n" + 
-    				"               <li>Email is wrong</li>\r\n" + 
+    				"               <li>Email is incorrect</li>\r\n" + 
     				"           </div>";
     	}
     	else if(!password.equals(passwordConfirmation)) {
     		error = "<div class=\"msg error\">\r\n" + 
-    				"               <li>Password confirmation is wrong</li>\r\n" + 
+    				"               <li>Password confirmation is incorrect</li>\r\n" + 
     				"           </div>";
     	}
     	else {
