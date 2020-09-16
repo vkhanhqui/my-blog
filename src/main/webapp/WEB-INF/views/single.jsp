@@ -51,7 +51,7 @@
 					</a>
 						<ul>
 							<li><a href="#">Dashboard</a></li>
-							<li><a href="/vkhanhqui_myblog_war/logout" class="logout">Logout</a></li>
+							<li><a href="/vkhanhqui_myblog_war/sign-in/logout" class="logout">Logout</a></li>
 						</ul></li>
 				</c:otherwise>
 			</c:choose>

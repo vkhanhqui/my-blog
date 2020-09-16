@@ -32,7 +32,6 @@ import vkhanhqui.myblog.services.UserServices;
 @SessionAttributes({ "currentUser" })
 public class LoginControllers {
 	
-	private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
 	private void validatePrinciple(Object principal) {
         if (!(principal instanceof UserDetailsDTO)) {
@@ -59,7 +58,6 @@ public class LoginControllers {
     
     @GetMapping("loginFailed")
     public String loginError(Model model) {
-        log.info("Login attempt failed");
         model.addAttribute("error", "true");
         return "sign-in";
     }
@@ -69,7 +67,7 @@ public class LoginControllers {
         SecurityContextHolder.getContext().setAuthentication(null);
         session.setComplete();
 
-        return new ModelAndView("login");
+        return new ModelAndView("redirect:/");
     }
 
 
