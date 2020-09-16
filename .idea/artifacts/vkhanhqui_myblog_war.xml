@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="vkhanhqui.myblog_war.war">
+    <root id="archive" name="vkhanhqui.myblog.war">
       <element id="artifact" artifact-name="vkhanhqui.myblog:war exploded" />
     </root>
   </artifact>

@@ -35,50 +35,35 @@
         <li><a href="/vkhanhqui_myblog_war/list/1">Posts</a></li>
         <li><a href="/vkhanhqui_myblog_war/contact">About</a></li>
         <li><a href="/vkhanhqui_myblog_war/login">Sign in/Sign up</a></li>
-        <li>
-            <a href="#">
-                <i class="fa fa-user"></i>
-                Khanh Qui
-                <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
-            </a>
-            <ul>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#" class="logout">Logout</a></li>
-            </ul>
-        </li>
     </ul>
 </header>
 <!-- /header -->
 
 <div class="auth-content">
-    <form:form action="#" modelAttribute="member" method="post">
+    <form action="#" method="post" >
         <h2 class="form-title">Sign up</h2>
-
-        <!--    <div class="msg success">
-               <li>Username required</li>
-           </div> -->
-
+			${error}${success}
         <div>
             <label>Username</label>
-            <form:input type="text" name="username" class="text-input" path="username" />
+            <input type="text" name="username" class="text-input" />
         </div>
         <div>
             <label>Email</label>
-            <form:input type="text" name="email" class="text-input" path="email" />
+            <input type="text" name="email" class="text-input" />
         </div>
         <div>
             <label>Password</label>
-            <form:input type="password" name="password" class="text-input" path="password" />
+            <input type="password" name="password" class="text-input" />
         </div>
-<%--        <div>--%>
-<%--            <label>Password Confirmation</label>--%>
-<%--            <form:input type="password" name="passwordConfirmation" class="text-input" />--%>
-<%--        </div>--%>
+        <div>
+            <label>Password Confirmation</label>
+            <input type="password" name="passwordConfirmation" class="text-input"/>
+        </div>
         <div>
             <button type="submit" name="register-btn" class="btn btn-big">Register</button>
         </div>
         <p>Or <a href="/vkhanhqui_myblog_war/sign-in">Sign In</a></p>
-    </form:form>
+    </form>
 </div>
 
 <!-- jquery -->

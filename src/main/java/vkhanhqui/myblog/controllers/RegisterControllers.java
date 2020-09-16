@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import vkhanhqui.myblog.services.MemberServices;
+import vkhanhqui.myblog.services.UserServices;
 
 @Controller
 @RequestMapping("sign-up")
 public class RegisterControllers {
     @Autowired
-    MemberServices memberServices;
+    UserServices userServices;
 
     @GetMapping
     public String getRegisterSite(ModelMap modelMap) {
@@ -37,7 +37,7 @@ public class RegisterControllers {
     				"               <li>Username is required</li>\r\n" + 
     				"           </div>";
     	}
-    	else if(!memberServices.isEmail(email)) {
+    	else if(!userServices.isEmail(email)) {
     		error = "<div class=\"msg error\">\r\n" + 
     				"               <li>Email is incorrect</li>\r\n" + 
     				"           </div>";
@@ -48,7 +48,7 @@ public class RegisterControllers {
     				"           </div>";
     	}
     	else {
-    		memberServices.createMember(username,email,password);
+    		userServices.createMember(username,email,password);
 			String success="<div class=\"msg success\">\r\n" + 
     				"               <li>Sign up successfully</li>\r\n" + 
     				"           </div>";

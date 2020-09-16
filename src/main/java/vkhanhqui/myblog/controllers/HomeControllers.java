@@ -14,6 +14,7 @@ import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.DataServices;
 import vkhanhqui.myblog.services.PostServices;
 
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -33,12 +34,12 @@ public class HomeControllers {
     CategoryServices categoryServices;
 
     @GetMapping
-    public String getHomeSite(ModelMap modelMap, HttpSession httpSession) {
+    public String getHomeSite(ModelMap modelMap, Principal principal) {
 //        postServices.deleteAllPost();
 //        dataServices.createPosts();
-    	if(httpSession.getAttribute("username") !=null) {
-    		String username = (String) httpSession.getAttribute("username");
-    		modelMap.addAttribute("username", username);
+    	if(principal!=null) {
+        	String username = principal.getName();
+        	modelMap.addAttribute("username", username);
     	}
         List<Post> posts = postServices.getPosts();
         PagedListHolder pagedListPost = new PagedListHolder(posts);
