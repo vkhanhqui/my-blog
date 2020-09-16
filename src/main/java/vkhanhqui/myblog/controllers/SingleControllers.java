@@ -14,6 +14,7 @@ import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.CommentServices;
 import vkhanhqui.myblog.services.PostServices;
 
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -30,11 +31,11 @@ public class SingleControllers {
     CategoryServices categoryServices;
 
     @GetMapping("/{id}")
-    public String getDetailSite(@PathVariable long id, ModelMap modelMap, HttpSession httpSession) {
-    	if(httpSession.getAttribute("username") !=null) {
-    		String username = (String) httpSession.getAttribute("username");
-    		modelMap.addAttribute("username", username);
-    	}
+    public String getDetailSite(@PathVariable long id, ModelMap modelMap, Principal principal) {
+        	if(principal!=null) {
+            	String username = principal.getName();
+            	modelMap.addAttribute("username", username);
+        	}
         Post post = postServices.getAPost(id);
         modelMap.addAttribute("post", post);
         List<Comment> comments = commentServices.getParentComment(post.getId());

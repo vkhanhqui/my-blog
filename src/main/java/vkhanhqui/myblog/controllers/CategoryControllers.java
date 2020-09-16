@@ -12,6 +12,7 @@ import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.PostServices;
 
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -26,10 +27,10 @@ public class CategoryControllers {
 
     @GetMapping("/{nameOfCategory}/{currentPage}")
     public String getCategorySite(@PathVariable String nameOfCategory, @PathVariable int currentPage
-    		, ModelMap modelMap, HttpSession httpSession) {
-    	if(httpSession.getAttribute("username") !=null) {
-    		String username = (String) httpSession.getAttribute("username");
-    		modelMap.addAttribute("username", username);
+    		, ModelMap modelMap, Principal principal) {
+    	if(principal!=null) {
+        	String username = principal.getName();
+        	modelMap.addAttribute("username", username);
     	}
         List<Post> posts = categoryServices.getPosts(nameOfCategory);
         PagedListHolder pagedListPost = new PagedListHolder(posts);

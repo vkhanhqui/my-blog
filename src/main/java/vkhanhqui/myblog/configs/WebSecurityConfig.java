@@ -36,15 +36,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     protected void configure(HttpSecurity http) throws Exception {
 
-    	http.authorizeRequests()
-		.antMatchers("/customer/**").hasAnyRole("ADMIN", "USER")			
+    	http.authorizeRequests()		
 		.antMatchers("/vkhanhqui_myblog_war/**", "/resource/**").permitAll()
 		.and().formLogin().loginPage("/sign-in")
 		.usernameParameter("username").passwordParameter("password")
 		.loginProcessingUrl("/sign-in").permitAll()			
-		.failureUrl("/sign-in/loginFailed").and().logout().logoutUrl("/sign-in/doLogout")
-		.logoutSuccessUrl("/sign-in/logout").permitAll()
+		.failureUrl("/sign-in/loginFailed").and().logout().logoutSuccessUrl("/sign-in/logout").permitAll()
 		.and().csrf().disable();
+    	http.authorizeRequests().antMatchers("/admin/posts/index","/admin/posts/create"
+    			,"/admin/users/index","/admin/users/create").authenticated();
 
     }
 }
