@@ -79,10 +79,6 @@ public class DataServices {
         user2.setPassword(passwordEncoder.encode("2"));
         userRepositories.save(user2);
 //      ---------------------------
-        List<User> users = new ArrayList<User>();
-        users.add(0,user1);
-        users.add(1,user2);
-//              ---------------------------
         List<Post> list = new ArrayList<>();
         for (long i = 1; i <= 9; i++) {
             list.add(new Post(i, "All you want to know about industrial laws" + i, "A small river named Duden flows by their place and supplies it with the necessary regelialia"
@@ -137,7 +133,7 @@ public class DataServices {
                             "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/images/image_1.jpg", (long) 0
-                    , category1, null, users));
+                    , category1, null, user1));
         }
         for (long i = 10; i <= 18; i++) {
             list.add(new Post(i, "All you want to know about industrial laws" + i, "A small river named Duden flows by their place and supplies it with the necessary regelialia"
@@ -192,7 +188,7 @@ public class DataServices {
                             "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/images/image_2.jpg", (long) 0
-                    , category2, null, users));
+                    , category2, null, user1));
         }
 
         for (long i = 19; i <= 27; i++) {
@@ -248,7 +244,7 @@ public class DataServices {
                             "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/images/image_3.jpg", (long) 0
-                    , category3, null, users));
+                    , category3, null, user1));
         }
 
 
@@ -305,7 +301,7 @@ public class DataServices {
                             "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/images/image_4.jpg", (long) 0
-                    , category4, null, users));
+                    , category4, null, user1));
         }
 
         for (long i = 37; i <= 45; i++) {
@@ -361,7 +357,7 @@ public class DataServices {
                             "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/images/image_5.jpg", (long) 0
-                    , category5, null, users));
+                    , category5, null, user1));
         }
         postRepositories.saveAll(list);
     }

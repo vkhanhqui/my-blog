@@ -50,8 +50,9 @@
 							class="fa fa-chevron-down" style="font-size: .8em;"></i>
 					</a>
 						<ul>
-							<li><a href="#">Dashboard</a></li>
-							<li><a href="/vkhanhqui_myblog_war/logout" class="logout">Logout</a></li>
+							<li><a href="/vkhanhqui_myblog_war/${role}/posts/index">Dashboard</a></li>
+							<li><a href="/vkhanhqui_myblog_war/sign-in/logout"
+								class="logout">Logout</a></li>
 						</ul></li>
 				</c:otherwise>
 			</c:choose>
@@ -88,7 +89,7 @@
 					<c:forEach var="one" items="${mostViewed}">
 						<div class="post clearfix">
 							<a href="/vkhanhqui_myblog_war/single/${one.id}"> <img
-								src="<c:url value="${one.avatar}"/>" alt="" class="post-image">
+								src="<c:url value="${one.thumbnail}"/>" alt="" class="post-image">
 							</a> <a href="/vkhanhqui_myblog_war/single/${one.id}" class="title"><h4>${one.description}</h4></a>
 						</div>
 					</c:forEach>

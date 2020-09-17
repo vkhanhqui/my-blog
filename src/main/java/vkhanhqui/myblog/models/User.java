@@ -38,9 +38,8 @@ public class User {
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Set<Role> roles;
-    
-    @ManyToMany(mappedBy = "users", cascade = CascadeType.ALL)
-    @LazyCollection(LazyCollectionOption.FALSE)
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private List<Post> posts;

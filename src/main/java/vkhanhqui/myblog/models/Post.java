@@ -55,13 +55,10 @@ public class Post {
     @ToString.Exclude
     @OrderBy("date ASC")
     private List<Comment> comments;
-    
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "post_user",
-            joinColumns = @JoinColumn(name = "post_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
-    @LazyCollection(LazyCollectionOption.FALSE)
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private List<User> users;
+    private User user;
 }
