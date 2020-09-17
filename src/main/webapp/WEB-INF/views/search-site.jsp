@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,27 +30,36 @@
 
 <body>
 <!-- header -->
-<header>
-    <div class="logo">
-        <h1 class="logo-text"><a href="/vkhanhqui_myblog_war/"><span>Khanh</span>Qui</a></h1>
-    </div>
-    <i class="fa fa-bars menu-toggle"></i>
-    <ul class="nav">
-        <li><a href="/vkhanhqui_myblog_war/">Home</a></li>
-        <li><a href="/vkhanhqui_myblog_war/list/1">Posts</a></li>
-        <li><a href="/vkhanhqui_myblog_war/contact">About</a></li>
-        <li><a href="/vkhanhqui_myblog_war/login">Sign in/Sign up</a></li>
-        <li><a href="#"> <i class="fa fa-user"></i> Khanh Qui <i
-                class="fa fa-chevron-down" style="font-size: .8em;"></i>
-        </a>
-            <ul>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#" class="logout">Logout</a></li>
-            </ul>
-        </li>
-    </ul>
-</header>
-<!-- /header -->
+	<header>
+		<div class="logo">
+			<h1 class="logo-text">
+				<a href="/vkhanhqui_myblog_war/"><span>Khanh</span>Qui</a>
+			</h1>
+		</div>
+		<i class="fa fa-bars menu-toggle"></i>
+		<ul class="nav">
+			<li><a href="/vkhanhqui_myblog_war/">Home</a></li>
+			<li><a href="/vkhanhqui_myblog_war/list/1">Posts</a></li>
+			<li><a href="/vkhanhqui_myblog_war/contact">About</a></li>
+			<c:choose>
+				<c:when test="${username==null}">
+					<li><a href="/vkhanhqui_myblog_war/sign-in">Sign in/Sign
+							up</a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="#"> <i class="fa fa-user"></i> ${username} <i
+							class="fa fa-chevron-down" style="font-size: .8em;"></i>
+					</a>
+						<ul>
+							<li><a href="/vkhanhqui_myblog_war/${role}/posts/index">Dashboard</a></li>
+							<li><a href="/vkhanhqui_myblog_war/sign-in/logout"
+								class="logout">Logout</a></li>
+						</ul></li>
+				</c:otherwise>
+			</c:choose>
+		</ul>
+	</header>
+	<!-- /header -->
 <!-- page wrapper -->
 <div class="page-wrapper">
     <!-- content -->
@@ -61,10 +69,10 @@
             <h1 class="recent-post-title">Related Posts</h1>
 
             <div class="pagination">
-                <a href="/vkhanhqui_myblog_war/keywords/${keyword}/1"
+                <a href="/vkhanhqui_myblog_war/keywords/${keywords}/1"
                    class="btn-paginate prev"><i class="fa fa-chevron-left"><i
                         class="fa fa-chevron-left"></i></i></a> <a
-                    href="/vkhanhqui_myblog_war/keywords/${keyword}/${currentPage-3}"
+                    href="/vkhanhqui_myblog_war/keywords/${keywords}/${currentPage-3}"
                     class="btn-paginate prev"><i class="fa fa-chevron-left"></i></a>
                 <ul class="paginate">
                     <%--                        --%>
@@ -72,21 +80,21 @@
                         <c:choose>
                             <c:when test="${i==currentPage}">
                                 <li><a class="active"
-                                       href="/vkhanhqui_myblog_war/keywords/${keyword}/${i}/${i}">${i}</a></li>
+                                       href="/vkhanhqui_myblog_war/keywords/${keywords}/${i}">${i}</a></li>
                             </c:when>
                             <c:otherwise>
                                 <li><a
-                                        href="/vkhanhqui_myblog_war/keywords/${keyword}/${i}">${i}</a></li>
+                                        href="/vkhanhqui_myblog_war/keywords/${keywords}/${i}">${i}</a></li>
                             </c:otherwise>
                         </c:choose>
                     </c:forEach>
                     <%--             /           --%>
                 </ul>
                 <a
-                        href="/vkhanhqui_myblog_war/keywords/${keyword}/${currentPage+3}"
+                        href="/vkhanhqui_myblog_war/keywords/${keywords}/${currentPage+3}"
                         class=" btn-paginate prev"><i class="fa fa-chevron-right"></i></a>
                 <a
-                        href="/vkhanhqui_myblog_war/keywords/${keyword}/${pagedListPost.pageCount}"
+                        href="/vkhanhqui_myblog_war/keywords/${keywords}/${pagedListPost.pageCount}"
                         class="btn-paginate prev"><i class="fa fa-chevron-right"><i
                         class="fa fa-chevron-right"></i></i></a>
             </div>
@@ -94,7 +102,7 @@
             <c:forEach var="one" items="${pagedListPost.pageList}">
                 <div class="post">
                     <a href="/vkhanhqui_myblog_war/single/${one.id}"> <img
-                            src="<c:url value="${one.avatar}"/>" alt="" class="post-image"></a>
+                            src="<c:url value="${one.thumbnail}"/>" alt="" class="post-image"></a>
                     <div class="post-preview">
                         <h2>
                             <a href="/vkhanhqui_myblog_war/single/${one.id}">${one.title}</a>
@@ -109,10 +117,10 @@
             </c:forEach>
             <%--		/		--%>
             <div class="pagination">
-                <a href="/vkhanhqui_myblog_war/keywords/${keyword}/1"
+                <a href="/vkhanhqui_myblog_war/keywords/${keywords}/1"
                    class="btn-paginate prev"><i class="fa fa-chevron-left"><i
                         class="fa fa-chevron-left"></i></i></a> <a
-                    href="/vkhanhqui_myblog_war/keywords/${keyword}/${currentPage-3}"
+                    href="/vkhanhqui_myblog_war/keywords/${keywords}/${currentPage-3}"
                     class="btn-paginate prev"><i class="fa fa-chevron-left"></i></a>
                 <ul class="paginate">
                     <%--                        --%>
@@ -120,11 +128,11 @@
                         <c:choose>
                             <c:when test="${i==currentPage}">
                                 <li><a class="active"
-                                       href="/vkhanhqui_myblog_war/keywords/${keyword}/${i}/${i}">${i}</a></li>
+                                       href="/vkhanhqui_myblog_war/keywords/${keywords}/${i}">${i}</a></li>
                             </c:when>
                             <c:otherwise>
                                 <li><a
-                                        href="/vkhanhqui_myblog_war/keywords/${keyword}/${i}">${i}</a></li>
+                                        href="/vkhanhqui_myblog_war/keywords/${keywords}/${i}">${i}</a></li>
                             </c:otherwise>
                         </c:choose>
                     </c:forEach>
@@ -144,21 +152,23 @@
         <!-- sidebar -->
         <div class="sidebar single">
             <div class="section">
-                <h2 class="section-title">Search</h2>
-                <form:form action="/vkhanhqui_myblog_war/keywords" method="get"
-                           modelAttribute="newKeyword">
+					<h2 class="section-title">Search</h2>
+					<form action="/vkhanhqui_myblog_war/keywords/" method="post">
 
-                    <form:input type="text" name="search-term" class="text-input"
-                                placeholder="Search..." path="title"/>
-                </form:form>
-            </div>
+						<input type="text" class="text-input" name="keywords"
+							placeholder="Search..." />
+						<div>
+							<button type="submit" name="register-btn" class="btn btn-big">Find</button>
+						</div>
+					</form>
+				</div>
 
             <div class="section popular">
                 <h2 class="section-title">Popular</h2>
                 <c:forEach var="one" items="${mostViewed}">
                     <div class="post clearfix">
                         <a href="/vkhanhqui_myblog_war/single/${one.id}">
-                            <img src="<c:url value="${one.avatar}"/>" alt="" class="post-image">
+                            <img src="<c:url value="${one.thumbnail}"/>" alt="" class="post-image">
                         </a>
                         <a href="/vkhanhqui_myblog_war/single/${one.id}" class="title"><h4>${one.description}</h4></a>
                     </div>

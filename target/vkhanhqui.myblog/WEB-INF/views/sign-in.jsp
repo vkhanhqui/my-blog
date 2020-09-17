@@ -35,38 +35,28 @@
         <li><a href="/vkhanhqui_myblog_war/list/1">Posts</a></li>
         <li><a href="/vkhanhqui_myblog_war/contact">About</a></li>
         <li><a href="/vkhanhqui_myblog_war/login">Sign in/Sign up</a></li>
-        <li>
-            <a href="#">
-                <i class="fa fa-user"></i>
-                Khanh Qui
-                <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
-            </a>
-            <ul>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#" class="logout">Logout</a></li>
-            </ul>
-        </li>
     </ul>
 </header>
 <!-- /header -->
 
 <div class="auth-content">
-    <form action="#" method="post">
+    <form action="/vkhanhqui_myblog_war/sign-in" method="post">
         <h2 class="form-title">Sign in</h2>
-
+			${error}
         <div>
             <label>Username</label>
-            <input type="text" name="username" class="text-input">
+            <input type="text" name="username" class="text-input" />
         </div>
         <div>
             <label>Password</label>
-            <input type="password" name="password" class="text-input">
+            <input type="password" name="password" class="text-input" />
         </div>
         <div>
             <button type="submit" name="login-btn" class="btn btn-big">Login</button>
         </div>
-        <p>Or <a href="sign-up.html">Sign up</a></p>
+        <p>Or <a href="/vkhanhqui_myblog_war/sign-up">Sign up</a></p>
     </form>
+
 </div>
 
 <!-- jquery -->

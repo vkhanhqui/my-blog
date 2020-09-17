@@ -12,7 +12,10 @@ import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.PostServices;
 
+import java.security.Principal;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("categories")
@@ -23,12 +26,14 @@ public class CategoryControllers {
     private PostServices postServices;
 
     @GetMapping("/{nameOfCategory}/{currentPage}")
-    public String getCategorySite(@PathVariable String nameOfCategory, @PathVariable int currentPage, ModelMap modelMap) {
-        List<Category> listOfCategories = categoryServices.getCategories();
-        modelMap.addAttribute("listOfCategories", listOfCategories);
-        List<Post> mostViewed = postServices.getTheMostViewedPost();
-        modelMap.addAttribute("mostViewed", mostViewed);
-
+    public String getCategorySite(@PathVariable String nameOfCategory, @PathVariable int currentPage
+    		, ModelMap modelMap, Principal principal, HttpSession httpSession) {
+    	if(principal!=null) {
+        	String username = principal.getName();
+        	modelMap.addAttribute("username", username);
+        	String role = httpSession.getAttribute("role").toString();
+        	modelMap.addAttribute("role",role);
+    	}
         List<Post> posts = categoryServices.getPosts(nameOfCategory);
         PagedListHolder pagedListPost = new PagedListHolder(posts);
         pagedListPost.setPageSize(6);
@@ -37,7 +42,10 @@ public class CategoryControllers {
         modelMap.addAttribute("pagedListPost", pagedListPost);
         modelMap.addAttribute("pagedListNumber", pagedListNumber);
         modelMap.addAttribute("nameOfCategory", nameOfCategory);
-        modelMap.addAttribute("keyword", new Post());
+        List<Category> listOfCategories = categoryServices.getCategories();
+        modelMap.addAttribute("listOfCategories", listOfCategories);
+        List<Post> mostViewed = postServices.getTheMostViewedPost();
+        modelMap.addAttribute("mostViewed", mostViewed);
         return "category-site";
     }
 }

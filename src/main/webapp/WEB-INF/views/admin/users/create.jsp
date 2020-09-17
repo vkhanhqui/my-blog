@@ -1,64 +1,74 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- icon -->
-    <link rel="icon" type="image/png"
-          href="images/icons/fox.ico"/>
-    <!-- font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css"/>
-    <!-- google font -->
-    <link href="https://fonts.googleapis.com/css?family=Candal|Lora" rel="stylesheet">
-    <!-- custom style -->
-    <link rel="stylesheet" href="../../css/style.css">
-    <!-- custom style -->
-    <link rel="stylesheet" href="../../css/admin.css">
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- icon -->
+<link rel="icon" type="image/png"
+	href="<c:url value="/resources/images/icons/fox.ico" />">
+<!-- font awesome -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" />
+<!-- google font -->
+<link href="https://fonts.googleapis.com/css?family=Candal|Lora"
+	rel="stylesheet">
+<!-- custom style -->
+<link rel="stylesheet" href="<c:url value="/resources/css/admin.css" />">
     <title>Add Users</title>
+<%@ page isELIgnored="false"%>
 </head>
 
 <body>
-<!-- header -->
-<header>
-    <div class="logo">
-        <h1 class="logo-text"><span>Khanh</span>Qui</h1>
-    </div>
-    <i class="fa fa-bars menu-toggle"></i>
-    <ul class="nav">
-        <li>
-            <a href="#">Home</a>
-        </li>
-        <li><a href="#">Posts</a></li>
-        <li><a href="#">About</a></li>
-        <li>
-            <a href="#">
-                <i class="fa fa-user"></i>
-                Khanh Qui
-                <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
-            </a>
-            <ul>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#" class="logout">Logout</a></li>
-            </ul>
-        </li>
-    </ul>
-</header>
-<!-- /header -->
+	<!-- header -->
+	<header>
+		<div class="logo">
+			<h1 class="logo-text">
+				<a href="/vkhanhqui_myblog_war/"><span>Khanh</span>Qui</a>
+			</h1>
+		</div>
+		<i class="fa fa-bars menu-toggle"></i>
+		<ul class="nav">
+			<li><a href="/vkhanhqui_myblog_war/">Home</a></li>
+			<li><a href="/vkhanhqui_myblog_war/list/1">Posts</a></li>
+			<li><a href="/vkhanhqui_myblog_war/contact">About</a></li>
+			<c:choose>
+				<c:when test="${username==null}">
+					<li><a href="/vkhanhqui_myblog_war/sign-in">Sign in/Sign
+							up</a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="#"> <i class="fa fa-user"></i> ${username} <i
+							class="fa fa-chevron-down" style="font-size: .8em;"></i>
+					</a>
+						<ul>
+							<li><a href="/vkhanhqui_myblog_war/admin/posts/index">Dashboard</a></li>
+							<li><a href="/vkhanhqui_myblog_war/sign-in/logout"
+								class="logout">Logout</a></li>
+						</ul></li>
+				</c:otherwise>
+			</c:choose>
+		</ul>
+	</header>
+	<!-- /header -->
 <!-- admin page wrapper -->
 <div class="admin-wrapper">
     <div class="left-sidebar">
         <ul>
-            <li><a href="../posts/index.html">Manage Posts</a></li>
-            <li><a href="index.html">Manage Users</a></li>
+            <li><a href="/vkhanhqui_myblog_war/admin/posts/index">Manage Posts</a></li>
+            <li><a href="/vkhanhqui_myblog_war/admin/users/index">Manage Users</a></li>
         </ul>
     </div>
 
     <div class="admin-content">
         <div class="button-group">
-            <a href="create.html" class="btn btn-big">Add User</a>
-            <a href="index.html" class="btn btn-big">Manage User</a>
-        </div>
+				<a href="/vkhanhqui_myblog_war/admin/users/create" class="btn btn-big">Add User</a> <a
+					href="/vkhanhqui_myblog_war/admin/users/index" class="btn btn-big">Manage Users</a>
+			</div>
 
         <div class="content">
             <h2 class="page-title">Create User</h2>
@@ -97,10 +107,11 @@
 <!-- /admin page wrapper -->
 
 
-<!-- jquery -->
-<script src="../../js/jquery-3.2.1.min.js"></script>
-<!-- custom js -->
-<script src="../../js/custom.js"></script>
+
+	<!-- jquery -->
+	<script src="<c:url value="/resources/js/jquery-3.2.1.min.js"/>"></script>
+	<!-- custom js -->
+	<script src="<c:url value="/resources/js/custom.js"/>"></script>
 </body>
 
 </html>

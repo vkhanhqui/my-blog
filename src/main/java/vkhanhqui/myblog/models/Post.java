@@ -3,8 +3,13 @@ package vkhanhqui.myblog.models;
 import lombok.*;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "post")
@@ -32,8 +37,8 @@ public class Post {
     @Column(name = "reading_time")
     private String reading;
 
-    @Column(name = "avatar", columnDefinition = "text")
-    private String avatar;
+    @Column(name = "thumbnail", columnDefinition = "text")
+    private String thumbnail;
 
     @Column(name = "views")
     @OrderBy("views ASC")
@@ -50,4 +55,13 @@ public class Post {
     @ToString.Exclude
     @OrderBy("date ASC")
     private List<Comment> comments;
+    
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "post_user",
+            joinColumns = @JoinColumn(name = "post_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private List<User> users;
 }
