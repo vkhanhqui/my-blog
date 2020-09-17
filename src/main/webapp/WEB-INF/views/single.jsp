@@ -89,7 +89,7 @@
 					<c:forEach var="one" items="${mostViewed}">
 						<div class="post clearfix">
 							<a href="/vkhanhqui_myblog_war/single/${one.id}"> <img
-								src="<c:url value="${one.avatar}"/>" alt="" class="post-image">
+								src="<c:url value="${one.thumbnail}"/>" alt="" class="post-image">
 							</a> <a href="/vkhanhqui_myblog_war/single/${one.id}" class="title"><h4>${one.description}</h4></a>
 						</div>
 					</c:forEach>

@@ -94,7 +94,7 @@
             <c:forEach var="one" items="${pagedListPost.pageList}">
                 <div class="post">
                     <a href="/vkhanhqui_myblog_war/single/${one.id}">
-                        <img src="<c:url value="${one.avatar}"/>" alt="" class="post-image"></a>
+                        <img src="<c:url value="${one.thumbnail}"/>" alt="" class="post-image"></a>
                     <div class="post-preview">
                         <h2><a href="/vkhanhqui_myblog_war/single/${one.id}">${one.title}</a></h2>
                         <i class="far fa-user">Khanh Qui</i>
@@ -156,7 +156,7 @@
                 <c:forEach var="one" items="${mostViewed}">
                     <div class="post clearfix">
                         <a href="/vkhanhqui_myblog_war/single/${one.id}">
-                            <img src="<c:url value="${one.avatar}"/>" alt="" class="post-image">
+                            <img src="<c:url value="${one.thumbnail}"/>" alt="" class="post-image">
                         </a>
                         <a href="/vkhanhqui_myblog_war/single/${one.id}" class="title"><h4>${one.description}</h4></a>
                     </div>

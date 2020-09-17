@@ -8,6 +8,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -37,5 +38,11 @@ public class User {
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Set<Role> roles;
+    
+    @ManyToMany(mappedBy = "users", cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private List<Post> posts;
 
 }

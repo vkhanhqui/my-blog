@@ -1,24 +1,37 @@
 package vkhanhqui.myblog.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import vkhanhqui.myblog.models.Category;
 import vkhanhqui.myblog.models.Post;
+import vkhanhqui.myblog.models.Role;
+import vkhanhqui.myblog.models.User;
 import vkhanhqui.myblog.models.repositories.CategoryRepositories;
 import vkhanhqui.myblog.models.repositories.PostRepositories;
+import vkhanhqui.myblog.models.repositories.UserRepositories;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Transactional
 @Service
 public class DataServices {
     @Autowired
     private PostRepositories postRepositories;
+    
     @Autowired
     private CategoryRepositories categoryRepositories;
+    
+    @Autowired
+    UserRepositories userRepositories;
+    
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public void createPosts() {
         Category category1 = new Category();
@@ -42,6 +55,34 @@ public class DataServices {
         category5.setName("Marketing");
         categoryRepositories.save(category5);
 //      ---------------------------
+        User user1 = new User();
+        user1.setUsername("1");
+        user1.setEmail("1@gmail.com");
+        user1.setEnabled(true);
+        Role role1 = new Role();
+        role1.setAuthority("ROLE_MEMBER");
+        Set<Role> roles1 = new HashSet<Role>();
+        roles1.add(role1);
+        user1.setRoles(roles1);
+        user1.setPassword(passwordEncoder.encode("1"));
+        userRepositories.save(user1);
+//      ---------------------------
+        User user2 = new User();
+        user2.setUsername("2");
+        user2.setEmail("2@gmail.com");
+        user2.setEnabled(true);
+        Role role2 = new Role();
+        role2.setAuthority("ROLE_ADMIN");
+        Set<Role> roles2 = new HashSet<Role>();
+        roles2.add(role2);
+        user2.setRoles(roles2);
+        user2.setPassword(passwordEncoder.encode("2"));
+        userRepositories.save(user2);
+//      ---------------------------
+        List<User> users = new ArrayList<User>();
+        users.add(0,user1);
+        users.add(1,user2);
+//              ---------------------------
         List<Post> list = new ArrayList<>();
         for (long i = 1; i <= 9; i++) {
             list.add(new Post(i, "All you want to know about industrial laws" + i, "A small river named Duden flows by their place and supplies it with the necessary regelialia"
@@ -96,7 +137,7 @@ public class DataServices {
                             "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/images/image_1.jpg", (long) 0
-                    , category1, null));
+                    , category1, null, users));
         }
         for (long i = 10; i <= 18; i++) {
             list.add(new Post(i, "All you want to know about industrial laws" + i, "A small river named Duden flows by their place and supplies it with the necessary regelialia"
@@ -151,7 +192,7 @@ public class DataServices {
                             "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/images/image_2.jpg", (long) 0
-                    , category2, null));
+                    , category2, null, users));
         }
 
         for (long i = 19; i <= 27; i++) {
@@ -207,7 +248,7 @@ public class DataServices {
                             "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/images/image_3.jpg", (long) 0
-                    , category3, null));
+                    , category3, null, users));
         }
 
 
@@ -264,7 +305,7 @@ public class DataServices {
                             "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/images/image_4.jpg", (long) 0
-                    , category4, null));
+                    , category4, null, users));
         }
 
         for (long i = 37; i <= 45; i++) {
@@ -320,7 +361,7 @@ public class DataServices {
                             "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/images/image_5.jpg", (long) 0
-                    , category5, null));
+                    , category5, null, users));
         }
         postRepositories.saveAll(list);
     }
