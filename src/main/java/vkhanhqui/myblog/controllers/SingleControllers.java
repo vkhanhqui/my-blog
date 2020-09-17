@@ -39,7 +39,7 @@ public class SingleControllers {
             	String role = httpSession.getAttribute("role").toString();
             	modelMap.addAttribute("role",role);
         	}
-        Post post = postServices.getAPost(id);
+        Post post = postServices.getPost(id);
         modelMap.addAttribute("post", post);
         List<Comment> comments = commentServices.getParentComment(post.getId());
         modelMap.addAttribute("comments", comments);

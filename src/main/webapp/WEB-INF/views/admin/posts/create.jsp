@@ -59,8 +59,8 @@
 <div class="admin-wrapper">
     <div class="left-sidebar">
         <ul>
-            <li><a href="/vkhanhqui_myblog_war/admin/posts/index">Magage Posts</a></li>
-            <li><a href="/vkhanhqui_myblog_war/admin/users/index">Magage Users</a></li>
+            <li><a href="/vkhanhqui_myblog_war/admin/posts/index">Manage Posts</a></li>
+            <li><a href="/vkhanhqui_myblog_war/admin/users/index">Manage Users</a></li>
         </ul>
     </div>
 

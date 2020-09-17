@@ -4,12 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import vkhanhqui.myblog.models.Role;
 import vkhanhqui.myblog.models.User;
 import vkhanhqui.myblog.models.repositories.UserRepositories;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -55,5 +57,11 @@ public class UserServices {
     		}
     	}
     	return supremeRole;
+    }
+    public void deleteUser(String username) {
+    	userRepositories.deleteById(username);
+	}
+    public List<User> getAllUsersExceptCurrentUser(String username){
+    	return userRepositories.findAllByUsernameNotIn(username);
     }
 }

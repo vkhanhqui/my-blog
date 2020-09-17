@@ -11,6 +11,6 @@ import java.util.Optional;
 @Repository("postRepository")
 public interface PostRepositories extends JpaRepository<Post, Long> {
     Optional<List<Post>> findAllByOrderByViewsDesc();
-
     Optional<List<Post>> findAllByTitleContaining(String keyword);
+    Optional<List<Post>> findAllByUserUsername(String username);
 }

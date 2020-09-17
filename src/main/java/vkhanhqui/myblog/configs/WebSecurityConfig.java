@@ -47,8 +47,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/admin/posts/index"
                     ,"/admin/posts/create"
                     ,"/admin/users/index"
-                    ,"/admin/users/create")
-            	.hasRole("ADMIN")
+                    ,"/admin/users/create"
+                    ,"/manage/delete-user/**")
+            		.hasRole("ADMIN")
+            .antMatchers("/manage/delete-post/**")
+            		.hasAnyRole("MEMBER","ADMIN")
             		.and()
             .formLogin()
         		.loginPage("/sign-in")

@@ -41,15 +41,15 @@ public class HomeControllers {
 
     @GetMapping
     public String getHomeSite(ModelMap modelMap, Principal principal) {
-//        postServices.deleteAllPost();
-//        dataServices.createPosts();
+//        postServices.deleteAllPosts();
+        dataServices.createPosts();
     	if(principal!=null) {
         	String username = principal.getName();
         	modelMap.addAttribute("username", username);
         	String role = userServices.findSupremeRole(username);
         	modelMap.addAttribute("role",role);
     	}
-        List<Post> posts = postServices.getPosts();
+        List<Post> posts = postServices.getAllPosts();
         PagedListHolder pagedListPost = new PagedListHolder(posts);
         pagedListPost.setPageSize(3);
         PagedListHolder pagedListNumber = postServices.getPagingSite(1, pagedListPost);
@@ -74,7 +74,7 @@ public class HomeControllers {
         	String role = httpSession.getAttribute("role").toString();
         	modelMap.addAttribute("role",role);
     	}
-        List<Post> posts = postServices.getPosts();
+        List<Post> posts = postServices.getAllPosts();
         PagedListHolder pagedListPost = new PagedListHolder(posts);
         pagedListPost.setPageSize(3);
         PagedListHolder pagedListNumber = postServices.getPagingSite(currentPage, pagedListPost);

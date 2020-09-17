@@ -19,26 +19,26 @@ public class PostServices{
     @Autowired
     private PostRepositories postRepositories;
 
-    public List<Post> getPosts() {
+    public List<Post> getAllPosts() {
         return postRepositories.findAll();
     }
 
-    public void saveAPost(Post post) {
+    public void savePost(Post post) {
         postRepositories.save(post);
     }
 
-    public Post getAPost(long id) {
+    public Post getPost(long id) {
         Post post = postRepositories.findById(id).get();
         post.setViews(post.getViews() + 1);
         postRepositories.save(post);
         return post;
     }
 
-    public void deleteAPost(long id) {
+    public void deletePost(long id) {
         postRepositories.deleteById(id);
     }
 
-    public void deleteAllPost() {
+    public void deleteAllPosts() {
         postRepositories.deleteAll();
     }
 
@@ -84,5 +84,11 @@ public class PostServices{
         if (optionalPosts.isPresent())
             posts = optionalPosts.get();
         return posts;
+    }
+    public List<Post> getAllPostsOfCurrentUser(String username){
+    	List<Post> posts = new ArrayList<Post>();
+    	if(postRepositories.findAllByUserUsername(username).isPresent())
+    		posts = postRepositories.findAllByUserUsername(username).get();
+    	return posts;
     }
 }
