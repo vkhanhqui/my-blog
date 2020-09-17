@@ -17,13 +17,12 @@ public class UserDetailsDTO implements UserDetails {
 
     private User user;
 
-    
     @Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return user.getRoles().stream()
-				.map(authority -> new SimpleGrantedAuthority(authority.getAuthority().toString()))
-				.collect(Collectors.toList());
-	}
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return user.getRoles().stream()
+                .map(authority -> new SimpleGrantedAuthority(authority.getAuthority().toString()))
+                .collect(Collectors.toList());
+    }
 
     @Override
     public String getPassword() {

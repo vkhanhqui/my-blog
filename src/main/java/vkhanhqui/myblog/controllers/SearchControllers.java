@@ -34,10 +34,12 @@ public class SearchControllers {
 
 	@GetMapping("/{keywords}/{currentPage}")
 	public String getKeywordSite(@PathVariable String keywords, @PathVariable int currentPage
-			, ModelMap modelMap, Principal principal) {
+			, ModelMap modelMap, Principal principal, HttpSession httpSession) {
     	if(principal!=null) {
         	String username = principal.getName();
         	modelMap.addAttribute("username", username);
+        	String role = httpSession.getAttribute("role").toString();
+        	modelMap.addAttribute("role",role);
     	}
 		List<Post> posts = postServices.getPostsByRelatedWords(keywords);
 		PagedListHolder pagedListPost = new PagedListHolder(posts);

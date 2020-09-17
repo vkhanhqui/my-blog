@@ -47,7 +47,7 @@
 							class="fa fa-chevron-down" style="font-size: .8em;"></i>
 					</a>
 						<ul>
-							<li><a href="/vkhanhqui_myblog_war/admin/posts/index">Dashboard</a></li>
+							<li><a href="/vkhanhqui_myblog_war/${role}/posts/index">Dashboard</a></li>
 							<li><a href="/vkhanhqui_myblog_war/sign-in/logout"
 								class="logout">Logout</a></li>
 						</ul></li>

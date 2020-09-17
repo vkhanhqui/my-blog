@@ -4,10 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import vkhanhqui.myblog.models.Role;
 import vkhanhqui.myblog.models.User;
 import vkhanhqui.myblog.models.repositories.UserRepositories;
 
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 @Transactional
@@ -30,7 +34,26 @@ public class UserServices {
         user.setUsername(username);
         user.setEmail(email);
         user.setEnabled(true);
+        Role role = new Role();
+        role.setAuthority("ROLE_MEMBER");
+        Set<Role> roles = new HashSet<Role>();
+        roles.add(role);
+        user.setRoles(roles);
         user.setPassword(passwordEncoder.encode(password));
         userRepositories.save(user);
+    }
+    public String findSupremeRole(String username) {
+    	String supremeRole = null;
+    	Optional<User> optionalUser = userRepositories.findById(username);
+    	if(optionalUser.isPresent()) {
+    		Set<Role> roles = optionalUser.get().getRoles();
+    		for(Role one : roles) {
+    			if(one.getAuthority().equals("ROLE_ADMIN"))
+    				supremeRole = "admin";
+    			else if(one.getAuthority().equals("ROLE_MEMBER"))
+    				supremeRole = "member";
+    		}
+    	}
+    	return supremeRole;
     }
 }

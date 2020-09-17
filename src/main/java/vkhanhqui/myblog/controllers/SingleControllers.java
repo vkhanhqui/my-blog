@@ -31,10 +31,13 @@ public class SingleControllers {
     CategoryServices categoryServices;
 
     @GetMapping("/{id}")
-    public String getDetailSite(@PathVariable long id, ModelMap modelMap, Principal principal) {
+    public String getDetailSite(@PathVariable long id, ModelMap modelMap
+    		, Principal principal, HttpSession httpSession) {
         	if(principal!=null) {
             	String username = principal.getName();
             	modelMap.addAttribute("username", username);
+            	String role = httpSession.getAttribute("role").toString();
+            	modelMap.addAttribute("role",role);
         	}
         Post post = postServices.getAPost(id);
         modelMap.addAttribute("post", post);

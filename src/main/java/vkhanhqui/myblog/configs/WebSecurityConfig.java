@@ -19,7 +19,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
-    };
+    }
+
+    ;
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
@@ -35,16 +37,34 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     protected void configure(HttpSecurity http) throws Exception {
-
-    	http.authorizeRequests()		
-		.antMatchers("/vkhanhqui_myblog_war/**", "/resource/**").permitAll()
-		.and().formLogin().loginPage("/sign-in")
-		.usernameParameter("username").passwordParameter("password")
-		.loginProcessingUrl("/sign-in").permitAll()			
-		.failureUrl("/sign-in/loginFailed").and().logout().logoutSuccessUrl("/sign-in/logout").permitAll()
-		.and().csrf().disable();
-    	http.authorizeRequests().antMatchers("/admin/posts/index","/admin/posts/create"
-    			,"/admin/users/index","/admin/users/create").authenticated();
-
+    	
+        http
+        .authorizeRequests()
+        	.antMatchers("/vkhanhqui_myblog_war/**", "/resource/**").permitAll()
+        	.antMatchers("/member/posts/index"
+                    ,"/member/posts/create")
+        		.hasRole("MEMBER")
+            .antMatchers("/admin/posts/index"
+                    ,"/admin/posts/create"
+                    ,"/admin/users/index"
+                    ,"/admin/users/create")
+            	.hasRole("ADMIN")
+            		.and()
+            .formLogin()
+        		.loginPage("/sign-in")
+        		.usernameParameter("username")
+        		.passwordParameter("password")
+        		.loginProcessingUrl("/sign-in")
+        		.defaultSuccessUrl("/")
+        		.failureUrl("/sign-in/loginFailed")
+        		.and()
+        	.exceptionHandling()
+        		.accessDeniedPage("/sign-in")
+        		.and()
+        	.logout()
+        		.logoutSuccessUrl("/sign-in/logout").permitAll()
+        		.and()
+        	.csrf()
+        		.disable();
     }
 }
