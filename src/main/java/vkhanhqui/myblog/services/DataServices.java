@@ -79,6 +79,18 @@ public class DataServices {
         user2.setPassword(passwordEncoder.encode("2"));
         userRepositories.save(user2);
 //      ---------------------------
+        User user3 = new User();
+        user3.setUsername("3");
+        user3.setEmail("3@gmail.com");
+        user3.setEnabled(true);
+        Role role3 = new Role();
+        role3.setAuthority("ROLE_MEMBER");
+        Set<Role> roles3 = new HashSet<Role>();
+        roles3.add(role3);
+        user3.setRoles(roles3);
+        user3.setPassword(passwordEncoder.encode("3"));
+        userRepositories.save(user3);
+//      ---------------------------
         List<Post> list = new ArrayList<>();
         for (long i = 1; i <= 9; i++) {
             list.add(new Post(i, "All you want to know about industrial laws" + i, "A small river named Duden flows by their place and supplies it with the necessary regelialia"
@@ -133,7 +145,7 @@ public class DataServices {
                             "                    praesentium, rerum ipsa debitis, inventore?</p>"
                     , new Date(), "12 min read"
                     , "/resources/images/image_1.jpg", (long) 0
-                    , category1, null, user1));
+                    , category1, null, user3));
         }
         for (long i = 10; i <= 18; i++) {
             list.add(new Post(i, "All you want to know about industrial laws" + i, "A small river named Duden flows by their place and supplies it with the necessary regelialia"

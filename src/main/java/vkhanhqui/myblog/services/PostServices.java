@@ -33,7 +33,7 @@ public class PostServices{
         postRepositories.save(post);
         return post;
     }
-
+    
     public void deletePost(long id) {
         postRepositories.deleteById(id);
     }

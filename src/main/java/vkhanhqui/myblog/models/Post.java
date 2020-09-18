@@ -56,8 +56,9 @@ public class Post {
     @OrderBy("date ASC")
     private List<Comment> comments;
 
-    @ManyToOne
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
+    @LazyCollection(LazyCollectionOption.FALSE)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private User user;

@@ -58,6 +58,8 @@ public class UserServices {
     	}
     	return supremeRole;
     }
+    
+    @Transactional
     public void deleteUser(String username) {
     	userRepositories.deleteById(username);
 	}

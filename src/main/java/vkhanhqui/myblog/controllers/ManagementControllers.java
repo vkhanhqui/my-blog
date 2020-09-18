@@ -28,7 +28,7 @@ public class ManagementControllers {
 	}
 	
 	@GetMapping("delete-post/{id}")
-	public String deletePostofAdminSite(@PathVariable long id, HttpSession httpSession){
+	public String deletePost(@PathVariable long id, HttpSession httpSession){
 		postServices.deletePost(id);
     	String role = httpSession.getAttribute("role").toString();
     	if(role.equals("admin"))
