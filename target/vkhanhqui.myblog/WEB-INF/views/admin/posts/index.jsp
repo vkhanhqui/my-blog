@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +19,7 @@
 	rel="stylesheet">
 <!-- custom style -->
 <link rel="stylesheet" href="<c:url value="/resources/css/admin.css" />">
-    <title>Manage Posts</title>
+<title>Manage Posts</title>
 <%@ page isELIgnored="false"%>
 </head>
 
@@ -55,61 +55,52 @@
 		</ul>
 	</header>
 	<!-- /header -->
-<!-- admin page wrapper -->
-<div class="admin-wrapper">
-    <div class="left-sidebar">
-        <ul>
-            <li><a href="/vkhanhqui_myblog_war/admin/posts/index">Magage Posts</a></li>
-            <li><a href="/vkhanhqui_myblog_war/admin/users/index">Magage Users</a></li>
-        </ul>
-    </div>
+	<!-- admin page wrapper -->
+	<div class="admin-wrapper">
+		<div class="left-sidebar">
+			<ul>
+				<li><a href="/vkhanhqui_myblog_war/admin/posts/index">Manage
+						Posts</a></li>
+				<li><a href="/vkhanhqui_myblog_war/admin/users/index">Manage
+						Users</a></li>
+			</ul>
+		</div>
 
-    <div class="admin-content">
-        <div class="button-group">
-            <a href="/vkhanhqui_myblog_war/admin/posts/create" class="btn btn-big">Add Post</a>
-            <a href="/vkhanhqui_myblog_war/admin/posts/index" class="btn btn-big">Manage Posts</a>
-        </div>
+		<div class="admin-content">
+			<div class="button-group">
+				<a href="/vkhanhqui_myblog_war/admin/posts/create"
+					class="btn btn-big">Add Post</a> <a
+					href="/vkhanhqui_myblog_war/admin/posts/index" class="btn btn-big">Manage
+					Posts</a>
+			</div>
 
-        <div class="content">
-            <h2 class="page-title">Manage Posts</h2>
-            <table>
-                <thead>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Creator</th>
-                <th colspan="3">Action</th>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>this is the first post</td>
-                    <td>Khanh Qui</td>
-                    <td><a href="#" class="edit">edit</a></td>
-                    <td><a href="#" class="delete">delete</a></td>
-                    <td><a href="#" class="publish">publish</a></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>this is the second post</td>
-                    <td>Khanh Qui</td>
-                    <td><a href="#" class="edit">edit</a></td>
-                    <td><a href="#" class="delete">delete</a></td>
-                    <td><a href="#" class="publish">publish</a></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>this is the third post</td>
-                    <td>Khanh Qui</td>
-                    <td><a href="#" class="edit">edit</a></td>
-                    <td><a href="#" class="delete">delete</a></td>
-                    <td><a href="#" class="publish">publish</a></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-<!-- /admin page wrapper -->
+			<div class="content">
+				<h2 class="page-title">Manage Posts</h2>
+				<table>
+					<thead>
+						<th>ID</th>
+						<th>Title</th>
+						<th>Creator</th>
+						<th colspan="3">Action</th>
+					</thead>
+					<tbody>
+						<c:forEach var="one" items="${posts}">
+							<tr>
+								<td>${one.id}</td>
+								<td>${one.title}</td>
+								<td>${one.user.username}</td>
+								<td><a href="#" class="edit">edit</a></td>
+								<td><a
+									href="/vkhanhqui_myblog_war/manage/delete-post/${one.id}"
+									class="delete">delete</a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<!-- /admin page wrapper -->
 
 
 	<!-- jquery -->

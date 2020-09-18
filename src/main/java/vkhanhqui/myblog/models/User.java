@@ -40,10 +40,11 @@ public class User {
     @ToString.Exclude
     private Set<Role> roles;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user"
+    		, cascade = {CascadeType.REMOVE}, orphanRemoval = true)
     @LazyCollection(LazyCollectionOption.FALSE)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private List<Post> posts;
+    private List<Post> posts= new ArrayList<>();
 
 }

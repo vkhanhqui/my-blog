@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import vkhanhqui.myblog.models.Post;
+import vkhanhqui.myblog.models.User;
 import vkhanhqui.myblog.models.repositories.PostRepositories;
+import vkhanhqui.myblog.models.repositories.UserRepositories;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,9 @@ import java.util.Optional;
 public class PostServices{
     @Autowired
     private PostRepositories postRepositories;
+    
+    @Autowired
+    UserRepositories userRepositories;
 
     public List<Post> getAllPosts() {
         return postRepositories.findAll();
@@ -35,7 +40,11 @@ public class PostServices{
     }
     
     public void deletePost(long id) {
-        postRepositories.deleteById(id);
+    	Post post = postRepositories.findById(id).get();
+    	User user = post.getUser();
+    	user.getPosts().remove(post);
+    	userRepositories.save(user);
+        postRepositories.delete(post);
     }
 
     public void deleteAllPosts() {

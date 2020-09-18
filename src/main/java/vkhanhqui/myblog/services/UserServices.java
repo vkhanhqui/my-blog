@@ -59,8 +59,10 @@ public class UserServices {
     	return supremeRole;
     }
     
-    @Transactional
     public void deleteUser(String username) {
+    	User user =userRepositories.findById(username).get();
+    	user.getPosts().clear();
+    	userRepositories.save(user);
     	userRepositories.deleteById(username);
 	}
     public List<User> getAllUsersExceptCurrentUser(String username){

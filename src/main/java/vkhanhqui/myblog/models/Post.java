@@ -3,6 +3,7 @@ package vkhanhqui.myblog.models;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
@@ -56,10 +57,10 @@ public class Post {
     @OrderBy("date ASC")
     private List<Comment> comments;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "user_id")
-    @LazyCollection(LazyCollectionOption.FALSE)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private User user;
+    
 }
