@@ -42,7 +42,7 @@
 <div class="auth-content">
     <form action="#" method="post" >
         <h2 class="form-title">Sign up</h2>
-			${error}${success}
+			${message}
         <div>
             <label>Username</label>
             <input type="text" name="username" class="text-input" />

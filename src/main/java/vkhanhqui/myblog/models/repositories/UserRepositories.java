@@ -15,5 +15,8 @@ public interface UserRepositories extends JpaRepository<User, String> {
     List<User> findAllByUsernameNotIn(String username);
     @Modifying
     @Query(value = "delete from User where username = ?1", nativeQuery = true)
-    void customDeletingByUsername(String username);
+    void customDeletingUserByUsername(String username);
+    @Modifying
+    @Query(value ="delete from user_role where user_id = ?1", nativeQuery = true)
+    void customDeletingUserIdInUserRole(String user_id);
 }

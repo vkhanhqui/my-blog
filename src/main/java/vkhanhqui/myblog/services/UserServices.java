@@ -20,57 +20,100 @@ import java.util.Set;
 @Service
 @Transactional
 public class UserServices {
-    @Autowired
-    UserRepositories userRepositories;
+	@Autowired
+	UserRepositories userRepositories;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
-    @Autowired
-    private PostRepositories postRepositories;
-    
-    public Optional<User> getOptionalMember(String username, String password){
-        return userRepositories.findByUsernameAndPassword(username,password);
-    }
+	@Autowired
+	private PostRepositories postRepositories;
 
-    public boolean isEmail(String email) {
-        String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
-        return email.matches(regex);
-    }
-    public void createMember(String username, String email, String password){
-    	User user = new User();
-        user.setUsername(username);
-        user.setEmail(email);
-        user.setEnabled(true);
-        Role role = new Role();
-        role.setAuthority("ROLE_MEMBER");
-        Set<Role> roles = new HashSet<Role>();
-        roles.add(role);
-        user.setRoles(roles);
-        user.setPassword(passwordEncoder.encode(password));
-        userRepositories.save(user);
-    }
-    public String findSupremeRole(String username) {
-    	String supremeRole = null;
-    	Optional<User> optionalUser = userRepositories.findById(username);
-    	if(optionalUser.isPresent()) {
-    		Set<Role> roles = optionalUser.get().getRoles();
-    		for(Role one : roles) {
-    			if(one.getAuthority().equals("ROLE_ADMIN"))
-    				supremeRole = "admin";
-    			else if(one.getAuthority().equals("ROLE_MEMBER"))
-    				supremeRole = "member";
-    		}
-    	}
-    	return supremeRole;
-    }
-    
-    public void deleteUser(String username) {
-    	postRepositories.customDeletingPostByUserId(username);
-    	userRepositories.customDeletingByUsername(username);
+	public Optional<User> getOptionalMember(String username, String password) {
+		return userRepositories.findByUsernameAndPassword(username, password);
 	}
-    
-    public List<User> getAllUsersExceptCurrentUser(String username){
-    	return userRepositories.findAllByUsernameNotIn(username);
-    }
+
+	public boolean isEmail(String email) {
+		String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+		return email.matches(regex);
+	}
+
+	public void createMember(String username, String email, String password) {
+		User user = new User();
+		user.setUsername(username);
+		user.setEmail(email);
+		user.setEnabled(true);
+		Role role = new Role();
+		role.setAuthority("ROLE_MEMBER");
+		Set<Role> roles = new HashSet<Role>();
+		roles.add(role);
+		user.setRoles(roles);
+		user.setPassword(passwordEncoder.encode(password));
+		userRepositories.save(user);
+	}
+
+	public String findSupremeRole(String username) {
+		String supremeRole = null;
+		Optional<User> optionalUser = userRepositories.findById(username);
+		if (optionalUser.isPresent()) {
+			Set<Role> roles = optionalUser.get().getRoles();
+			for (Role one : roles) {
+				if (one.getAuthority().equals("ROLE_ADMIN"))
+					supremeRole = "admin";
+				else if (one.getAuthority().equals("ROLE_MEMBER"))
+					supremeRole = "member";
+			}
+		}
+		return supremeRole;
+	}
+
+	public void deleteUser(String username) {
+		postRepositories.customDeletingPostByUserId(username);
+		userRepositories.customDeletingUserByUsername(username);
+		userRepositories.customDeletingUserIdInUserRole(username);
+	}
+
+	public List<User> getAllUsersExceptCurrentUser(String username) {
+		return userRepositories.findAllByUsernameNotIn(username);
+	}
+	
+	public void createUser(String username, String email, String password, String roleName) {
+		User user = new User();
+		if(userRepositories.findById(username).isPresent()) {
+			user = userRepositories.findById(username).get();
+		}
+		else
+			user.setUsername(username);
+		user.setEmail(email);
+		user.setEnabled(true);
+		Role role = new Role();
+		role.setAuthority("ROLE_"+roleName);
+		Set<Role> roles = new HashSet<Role>();
+		if(user.getRoles().size()>0)
+			roles =user.getRoles();
+		roles.add(role);
+		user.setRoles(roles);
+		user.setPassword(passwordEncoder.encode(password));
+		userRepositories.save(user);
+	}
+	
+	public String checkSignUp(String username, String email, String password, String passwordConfirmation, String role) {
+		String error = "";
+		if (username.equals("")) {
+			error = "<div class=\"msg error\">\r\n" + "               <li>Username is required</li>\r\n"
+					+ "           </div>";
+		} else if (!isEmail(email)) {
+			error = "<div class=\"msg error\">\r\n" + "               <li>Email is incorrect</li>\r\n"
+					+ "           </div>";
+		} else if (!password.equals(passwordConfirmation)) {
+			error = "<div class=\"msg error\">\r\n" + "               <li>Password confirmation is incorrect</li>\r\n"
+					+ "           </div>";
+		} else {
+			String success = "<div class=\"msg success\">\r\n" + "               <li>Successfully</li>\r\n"
+					+ "           </div>";
+			createUser(username,email,password, role);
+			return success;
+		}
+		return error;
+	}
 }

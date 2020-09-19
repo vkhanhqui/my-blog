@@ -19,7 +19,7 @@
 	rel="stylesheet">
 <!-- custom style -->
 <link rel="stylesheet" href="<c:url value="/resources/css/admin.css" />">
-    <title>Add Users</title>
+    <title>Alter Users</title>
 <%@ page isELIgnored="false"%>
 </head>
 
@@ -71,13 +71,9 @@
 			</div>
 
         <div class="content">
-            <h2 class="page-title">Create User</h2>
+            <h2 class="page-title">Alter User</h2>
             ${message}
-            <form action="/vkhanhqui_myblog_war/admin/users/create" method="post">
-                <div>
-                    <label>Username</label>
-                    <input type="text" name="username" class="text-input">
-                </div>
+            <form action="/vkhanhqui_myblog_war/admin/users/alter/${userId}" method="post">
                 <div>
                     <label>Email</label>
                     <input type="text" name="email" class="text-input">
@@ -91,14 +87,14 @@
                     <input type="password" name="passwordConfirmation" class="text-input">
                 </div>
                 <div>
-                    <label>Role</label>
+                    <label>Add Role</label>
                     <select name="role" class="text-input">
                         <option value="MEMBER">MEMBER</option>
                         <option value="ADMIN">ADMIN</option>
                     </select>
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-big">Add User</button>
+                    <button type="submit" class="btn btn-big">Alter User</button>
                 </div>
 
             </form>

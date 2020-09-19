@@ -9,6 +9,7 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -38,7 +39,7 @@ public class User {
     @LazyCollection(LazyCollectionOption.FALSE)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private Set<Role> roles;
+    private Set<Role> roles= new HashSet<Role>();
 
     @OneToMany(cascade = CascadeType.ALL,
             mappedBy = "user", orphanRemoval = true)

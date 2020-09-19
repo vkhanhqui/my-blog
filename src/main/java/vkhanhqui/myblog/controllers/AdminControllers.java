@@ -7,7 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.models.User;
@@ -60,6 +63,45 @@ public class AdminControllers {
         	String username = principal.getName();
         	modelMap.addAttribute("username", username);
     	}
+		String message="";
+		modelMap.addAttribute("message",message);
 		return "admin/users/create";
 	}
+	
+	@PostMapping("users/create")
+    public String createMember(@RequestParam String username
+    		, @RequestParam String email
+    		, @RequestParam String password
+    		, @RequestParam String passwordConfirmation
+    		, @RequestParam String role
+    		, ModelMap modelMap) {
+    	String message=userServices.checkSignUp(username, email, password, passwordConfirmation, role);
+		modelMap.addAttribute("message",message);
+		return "admin/users/create";
+    }
+	
+	@GetMapping("users/alter/{userId}")
+	public String getAlternativeUserSite(@PathVariable String userId
+    		,ModelMap modelMap,Principal principal) {
+		if(principal!=null) {
+        	String username = principal.getName();
+        	modelMap.addAttribute("username", username);
+    	}
+		modelMap.addAttribute("userId",userId);
+		String message="";
+		modelMap.addAttribute("message",message);
+		return "admin/users/alter";
+	}
+	
+	@PostMapping("users/alter/{username}")
+    public String alterUser(@PathVariable String username
+    		, @RequestParam String email
+    		, @RequestParam String password
+    		, @RequestParam String passwordConfirmation
+    		, @RequestParam String role
+    		, ModelMap modelMap) {
+    	String message=userServices.checkSignUp(username, email, password, passwordConfirmation, role);
+		modelMap.addAttribute("message",message);
+		return "admin/users/alter";
+    }
 }
