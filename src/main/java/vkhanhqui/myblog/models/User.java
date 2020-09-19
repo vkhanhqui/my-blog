@@ -19,7 +19,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class User {
 	@Id
-    @Column(name= "username", columnDefinition = "VARCHAR(20) NOT NULL")
+    @Column(name= "username", columnDefinition = "VARCHAR(20)")
     private String username;
 
     @Column(name = "password")
@@ -40,11 +40,21 @@ public class User {
     @ToString.Exclude
     private Set<Role> roles;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user"
-    		, cascade = {CascadeType.REMOVE}, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL,
+            mappedBy = "user", orphanRemoval = true)
     @LazyCollection(LazyCollectionOption.FALSE)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private List<Post> posts= new ArrayList<>();
+    
+    public void addPost(Post post) {
+        post.setUser(this);
+        posts.add(post);
+    }
+
+    public void removePost(Post post) {
+        posts.remove(post);
+        post.setUser(null);
+    }
 
 }

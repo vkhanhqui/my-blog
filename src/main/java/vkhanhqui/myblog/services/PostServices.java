@@ -42,9 +42,9 @@ public class PostServices{
     public void deletePost(long id) {
     	Post post = postRepositories.findById(id).get();
     	User user = post.getUser();
-    	user.getPosts().remove(post);
+    	user.removePost(post);
     	userRepositories.save(user);
-        postRepositories.delete(post);
+    	postRepositories.deleteById(id);
     }
 
     public void deleteAllPosts() {

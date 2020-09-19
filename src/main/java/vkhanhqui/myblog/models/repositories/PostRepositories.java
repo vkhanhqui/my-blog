@@ -3,6 +3,7 @@ package vkhanhqui.myblog.models.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import vkhanhqui.myblog.models.Post;
+import vkhanhqui.myblog.models.User;
 
 import java.util.List;
 import java.util.Optional;

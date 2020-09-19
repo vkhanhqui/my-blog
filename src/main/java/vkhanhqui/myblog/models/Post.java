@@ -58,7 +58,7 @@ public class Post {
     private List<Comment> comments;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name="user_id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private User user;

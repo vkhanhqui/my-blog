@@ -6,8 +6,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.models.Role;
 import vkhanhqui.myblog.models.User;
+import vkhanhqui.myblog.models.repositories.PostRepositories;
 import vkhanhqui.myblog.models.repositories.UserRepositories;
 
 import java.util.HashSet;
@@ -20,8 +22,12 @@ import java.util.Set;
 public class UserServices {
     @Autowired
     UserRepositories userRepositories;
+
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private PostRepositories postRepositories;
     
     public Optional<User> getOptionalMember(String username, String password){
         return userRepositories.findByUsernameAndPassword(username,password);
