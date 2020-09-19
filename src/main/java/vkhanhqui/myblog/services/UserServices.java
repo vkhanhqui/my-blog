@@ -66,10 +66,7 @@ public class UserServices {
     }
     
     public void deleteUser(String username) {
-    	User user =userRepositories.findById(username).get();
-    	user.getPosts().clear();
-    	userRepositories.save(user);
-    	userRepositories.deleteById(username);
+    	userRepositories.customDeletingByUsername(username);
 	}
     public List<User> getAllUsersExceptCurrentUser(String username){
     	return userRepositories.findAllByUsernameNotIn(username);

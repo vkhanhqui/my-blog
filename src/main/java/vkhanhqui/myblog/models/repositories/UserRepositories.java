@@ -1,6 +1,8 @@
 package vkhanhqui.myblog.models.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import vkhanhqui.myblog.models.User;
 
@@ -11,4 +13,7 @@ import java.util.Optional;
 public interface UserRepositories extends JpaRepository<User, String> {
     Optional<User> findByUsernameAndPassword(String username, String password);
     List<User> findAllByUsernameNotIn(String username);
+    @Modifying
+    @Query(value = "delete from User where username = ?1", nativeQuery = true)
+    void customDeletingByUsername(String username);
 }
