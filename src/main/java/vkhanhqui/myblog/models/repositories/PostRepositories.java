@@ -1,6 +1,8 @@
 package vkhanhqui.myblog.models.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.models.User;
@@ -14,4 +16,7 @@ public interface PostRepositories extends JpaRepository<Post, Long> {
     Optional<List<Post>> findAllByOrderByViewsDesc();
     Optional<List<Post>> findAllByTitleContaining(String keyword);
     Optional<List<Post>> findAllByUserUsername(String username);
+    @Modifying
+    @Query(value = "delete from Post where user_id = ?1", nativeQuery = true)
+    void customDeletingPostByUserId(String user_id);
 }
