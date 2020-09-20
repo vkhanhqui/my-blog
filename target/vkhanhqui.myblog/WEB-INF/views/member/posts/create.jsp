@@ -78,13 +78,14 @@
                 </div>
                 <div>
                     <label>Body</label>
-                    <textarea name="body" id="body"></textarea>
+                    <textarea name="content" id="content" class="form-control ckeditor"></textarea>
                 </div>
                 <div>
                     <label>Category</label>
-                    <select name="topic" class="text-input">
-                        <option value="Poetry">Poetry</option>
-                        <option value="Life Lessons">Life Lessons</option>
+                    <select name="Category" class="text-input">
+                        <c:forEach var="one" items="${listOfCategories}">
+                        <option value="${one.name}">${one.name}</option>
+						</c:forEach>
                     </select>
                 </div>
                 <div>
@@ -101,7 +102,7 @@
 
 	<!-- jquery -->
 	<script src="<c:url value="/resources/js/jquery-3.2.1.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/ckeditor.js"/>"></script>
+	<script src="http://cdn.ckeditor.com/4.6.2/standard-all/ckeditor.js"></script>
 	<!-- custom js -->
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
 </body>

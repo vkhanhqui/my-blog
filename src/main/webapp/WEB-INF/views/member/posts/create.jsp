@@ -70,38 +70,42 @@
         </div>
 
         <div class="content">
-            <h2 class="page-title">Create Post</h2>
-            <form action="#" method="post">
-                <div>
-                    <label>Title</label>
-                    <input type="text" name="title" class="text-input">
-                </div>
-                <div>
-                    <label>Body</label>
-                    <textarea name="body" id="body"></textarea>
-                </div>
-                <div>
-                    <label>Category</label>
-                    <select name="topic" class="text-input">
-                        <option value="Poetry">Poetry</option>
-                        <option value="Life Lessons">Life Lessons</option>
-                    </select>
-                </div>
-                <div>
-                    <button type="submit" class="btn btn-big">Add post</button>
-                </div>
+				<h2 class="page-title">Create Post</h2>
+				<form action="#" method="post">
+					<div>
+						<label>Title</label> <input type="text" name="title"
+							class="text-input">
+					</div>
+					<div>
+						<label>Category</label> <select name="Category" class="text-input">
+							<c:forEach var="one" items="${listOfCategories}">
+								<option value="${one.name}">${one.name}</option>
+							</c:forEach>
+						</select>
+					</div>
+					<div>
+						<label>Thumbnail</label> <br>
+						<input type="file" name="thumbnail" accept="image/*">
+					</div>
+					<div>
+						<label>Content</label>
+						<textarea name="content" id="content"></textarea>
+					</div>
+					<div>
+						<button type="submit" class="btn btn-big">Add post</button>
+					</div>
 
-            </form>
-        </div>
-    </div>
-</div>
-<!-- /user page wrapper -->
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- /admin page wrapper -->
 
 
 
 	<!-- jquery -->
 	<script src="<c:url value="/resources/js/jquery-3.2.1.min.js"/>"></script>
-	<script src="https://cdn.ckeditor.com/ckeditor5/22.0.0/classic/ckeditor.js"></script>
+	<script src="<c:url value="/resources/ckeditor/ckeditor.js"/>"></script>
 	<!-- custom js -->
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
 </body>

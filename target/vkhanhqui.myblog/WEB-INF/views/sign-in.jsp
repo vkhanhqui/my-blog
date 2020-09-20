@@ -38,7 +38,7 @@
 			<li><a href="/vkhanhqui_myblog_war/">Home</a></li>
 			<li><a href="/vkhanhqui_myblog_war/list/1">Posts</a></li>
 			<li><a href="/vkhanhqui_myblog_war/contact">About</a></li>
-			<li><a href="/vkhanhqui_myblog_war/login">Sign in/Sign up</a></li>
+			<li><a href="/vkhanhqui_myblog_war/sign-in">Sign in/Sign up</a></li>
 		</ul>
 	</header>
 	<!-- /header -->

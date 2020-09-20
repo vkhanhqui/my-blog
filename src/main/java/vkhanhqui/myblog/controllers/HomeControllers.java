@@ -22,7 +22,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/")
-@SessionAttributes("role")
+@SessionAttributes({"role","username"})
 public class HomeControllers {
 
     @Autowired

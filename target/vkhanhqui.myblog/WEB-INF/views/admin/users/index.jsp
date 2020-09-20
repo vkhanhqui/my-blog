@@ -85,7 +85,7 @@
 						<c:forEach var="one" items="${users}">
 							<tr>
 								<td>${one.username}</td>
-								<td><a href="#" class="edit">edit</a></td>
+								<td><a href="/vkhanhqui_myblog_war/admin/users/alter/${one.username}" class="edit">edit</a></td>
 								<td><a
 									href="/vkhanhqui_myblog_war/manage/delete-user/${one.username}"
 									class="delete">delete</a></td>

@@ -229,21 +229,11 @@
 				<h2>Quick Links</h2>
 				<br>
 				<ul>
-					<a href="#">
-						<li>Events</li>
-					</a>
-					<a href="#">
-						<li>Team</li>
-					</a>
-					<a href="#">
-						<li>Mentores</li>
-					</a>
-					<a href="#">
-						<li>Gallery</li>
-					</a>
-					<a href="#">
-						<li>Terms and Conditions</li>
-					</a>
+					<li><a href="#"> Events </a></li>
+					<li><a href="#"> Team </a></li>
+					<li><a href="#"> Mentores </a></li>
+					<li><a href="#"> Gallery </a></li>
+					<li><a href="#"> Terms and Conditions </a></li>
 				</ul>
 			</div>
 			<div class="footer-section contact-form">

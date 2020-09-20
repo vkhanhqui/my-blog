@@ -4,8 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+
+import vkhanhqui.myblog.models.Category;
 import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.models.User;
+import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.PostServices;
 import vkhanhqui.myblog.services.UserServices;
 
@@ -20,6 +23,9 @@ public class AdminControllers {
 
     @Autowired
     PostServices postServices;
+    
+    @Autowired
+    CategoryServices categoryServices;
 
     @GetMapping("posts/index")
     public String getPostManagementSite(ModelMap modelMap, Principal principal) {
@@ -38,6 +44,8 @@ public class AdminControllers {
             String username = principal.getName();
             modelMap.addAttribute("username", username);
         }
+        List<Category> listOfCategories = categoryServices.getCategories();
+        modelMap.addAttribute("listOfCategories", listOfCategories);
         return "admin/posts/create";
     }
 

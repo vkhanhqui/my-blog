@@ -72,7 +72,8 @@
 
         <div class="content">
             <h2 class="page-title">Create User</h2>
-            <form action="#" method="post">
+            ${message}
+            <form action="/vkhanhqui_myblog_war/admin/users/create" method="post">
                 <div>
                     <label>Username</label>
                     <input type="text" name="username" class="text-input">
@@ -92,8 +93,8 @@
                 <div>
                     <label>Role</label>
                     <select name="role" class="text-input">
-                        <option value="Creator">Creator</option>
-                        <option value="Admin">Admin</option>
+                        <option value="MEMBER">MEMBER</option>
+                        <option value="ADMIN">ADMIN</option>
                     </select>
                 </div>
                 <div>
