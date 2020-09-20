@@ -40,7 +40,7 @@ public class HomeControllers {
     @GetMapping
     public String getHomeSite(ModelMap modelMap, Principal principal) {
 //        postServices.deleteAllPosts();
-        dataServices.createPosts();
+//        dataServices.createPosts();
         if (principal != null) {
             String username = principal.getName();
             modelMap.addAttribute("username", username);

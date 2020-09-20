@@ -139,13 +139,14 @@
                     <%--             /           --%>
                 </ul>
                 <a
-                        href="/vkhanhqui_myblog_war/keywords/${keyword}/${currentPage+3}"
+                        href="/vkhanhqui_myblog_war/keywords/${keywords}/${currentPage+3}"
                         class=" btn-paginate prev"><i class="fa fa-chevron-right"></i></a>
                 <a
-                        href="/vkhanhqui_myblog_war/keywords/${keyword}/${pagedListPost.pageCount}"
+                        href="/vkhanhqui_myblog_war/keywords/${keywords}/${pagedListPost.pageCount}"
                         class="btn-paginate prev"><i class="fa fa-chevron-right"><i
                         class="fa fa-chevron-right"></i></i></a>
             </div>
+            <%--				--%>
         </div>
         <!-- /main content -->
 

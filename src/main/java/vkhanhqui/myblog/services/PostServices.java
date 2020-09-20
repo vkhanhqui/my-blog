@@ -4,12 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import vkhanhqui.myblog.models.Category;
 import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.models.User;
+import vkhanhqui.myblog.models.repositories.CategoryRepositories;
 import vkhanhqui.myblog.models.repositories.PostRepositories;
 import vkhanhqui.myblog.models.repositories.UserRepositories;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,12 +26,22 @@ public class PostServices {
 
     @Autowired
     UserRepositories userRepositories;
+    
+    @Autowired
+    CategoryRepositories categoryRepositories;
 
     public List<Post> getAllPosts() {
         return postRepositories.findAll();
     }
 
-    public void savePost(Post post) {
+    public void savePost(String username, Post post, long categoryId) {
+    	Category category =categoryRepositories.findById(categoryId).get();
+    	post.setCategory(category);
+    	post.setComments(null);
+    	post.setDate(new Date());
+    	post.setUser(userRepositories.findById(username).get());
+    	post.setReading("12 min read");
+    	post.setViews((long)0);
         postRepositories.save(post);
     }
 

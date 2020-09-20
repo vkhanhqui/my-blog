@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -76,31 +77,39 @@
 
 			<div class="content">
 				<h2 class="page-title">Create Post</h2>
-				<form action="#" method="post">
+				${message}
+				<form:form
+					action="/vkhanhqui_myblog_war/admin/posts/create"
+					method="post" modelAttribute="post">
 					<div>
-						<label>Title</label> <input type="text" name="title"
-							class="text-input">
+						<label>Title</label>
+						<form:input type="text" name="title" class="text-input" path="title"/>
 					</div>
 					<div>
-						<label>Category</label> <select name="Category" class="text-input">
+						<label>Category</label>
+						<select name="categoryId" class="text-input" >
 							<c:forEach var="one" items="${listOfCategories}">
-								<option value="${one.name}">${one.name}</option>
+								<option value="${one.id}">${one.name}</option>
 							</c:forEach>
 						</select>
 					</div>
 					<div>
-						<label>Thumbnail</label> <br>
-						<input type="file" name="thumbnail" accept="image/*">
+						<label>Thumbnail</label> <br> <form:input type="file"
+							name="thumbnail" accept="image/*" path="thumbnail" />
+					</div>
+					<div>
+						<label>Description</label> <form:input type="text" name="description"
+							class="text-input" path="description" />
 					</div>
 					<div>
 						<label>Content</label>
-						<textarea name="content" id="content"></textarea>
+						<form:textarea name="content" id="content" path="content"></form:textarea>
 					</div>
 					<div>
 						<button type="submit" class="btn btn-big">Add post</button>
 					</div>
 
-				</form>
+				</form:form>
 			</div>
 		</div>
 	</div>
