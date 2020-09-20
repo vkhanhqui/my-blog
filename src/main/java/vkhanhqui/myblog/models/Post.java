@@ -3,14 +3,8 @@ package vkhanhqui.myblog.models;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.Valid;
-
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
-
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "post")
@@ -58,9 +52,9 @@ public class Post {
     private List<Comment> comments;
 
     @ManyToOne
-    @JoinColumn(name="user_id")
+    @JoinColumn(name = "user_id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private User user;
-    
+
 }

@@ -20,7 +20,7 @@ public class UserDetailsDTO implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return user.getRoles().stream()
-                .map(authority -> new SimpleGrantedAuthority(authority.getAuthority().toString()))
+                .map(authority -> new SimpleGrantedAuthority(authority.getAuthority()))
                 .collect(Collectors.toList());
     }
 

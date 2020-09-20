@@ -12,24 +12,20 @@ import vkhanhqui.myblog.models.repositories.CategoryRepositories;
 import vkhanhqui.myblog.models.repositories.PostRepositories;
 import vkhanhqui.myblog.models.repositories.UserRepositories;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Transactional
 @Service
 public class DataServices {
     @Autowired
     private PostRepositories postRepositories;
-    
+
     @Autowired
     private CategoryRepositories categoryRepositories;
-    
+
     @Autowired
     UserRepositories userRepositories;
-    
+
     @Autowired
     private PasswordEncoder passwordEncoder;
 

@@ -12,11 +12,14 @@ import java.util.Optional;
 @Repository("userRepository")
 public interface UserRepositories extends JpaRepository<User, String> {
     Optional<User> findByUsernameAndPassword(String username, String password);
+
     List<User> findAllByUsernameNotIn(String username);
+
     @Modifying
-    @Query(value = "delete from User where username = ?1", nativeQuery = true)
+    @Query(value = "delete p, u, ur\r\n" + 
+    		"      from post p\r\n" + 
+    		"      join user u ON p.user_id = u.username\r\n" + 
+    		"      join user_role ur on ur.user_id=u.username\r\n" + 
+    		"     where username= ?1", nativeQuery = true)
     void customDeletingUserByUsername(String username);
-    @Modifying
-    @Query(value ="delete from user_role where user_id = ?1", nativeQuery = true)
-    void customDeletingUserIdInUserRole(String user_id);
 }

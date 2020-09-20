@@ -5,7 +5,6 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import vkhanhqui.myblog.models.Post;
-import vkhanhqui.myblog.models.User;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,9 +13,13 @@ import java.util.Optional;
 @Repository("postRepository")
 public interface PostRepositories extends JpaRepository<Post, Long> {
     Optional<List<Post>> findAllByOrderByViewsDesc();
+
     Optional<List<Post>> findAllByTitleContaining(String keyword);
+
     Optional<List<Post>> findAllByUserUsername(String username);
+    
     @Modifying
-    @Query(value = "delete from Post where user_id = ?1", nativeQuery = true)
-    void customDeletingPostByUserId(String user_id);
+    @Query(value = "delete from post where id = ?1", nativeQuery = true)
+    void customDeletingPostById(long id);
+
 }

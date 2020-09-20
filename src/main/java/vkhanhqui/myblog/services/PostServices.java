@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.models.User;
 import vkhanhqui.myblog.models.repositories.PostRepositories;
@@ -17,10 +16,10 @@ import java.util.Optional;
 
 @Transactional
 @Service
-public class PostServices{
+public class PostServices {
     @Autowired
     private PostRepositories postRepositories;
-    
+
     @Autowired
     UserRepositories userRepositories;
 
@@ -38,13 +37,9 @@ public class PostServices{
         postRepositories.save(post);
         return post;
     }
-    
+
     public void deletePost(long id) {
-    	Post post = postRepositories.findById(id).get();
-    	User user = post.getUser();
-    	user.removePost(post);
-    	userRepositories.save(user);
-    	postRepositories.deleteById(id);
+        postRepositories.customDeletingPostById(id);
     }
 
     public void deleteAllPosts() {
@@ -94,10 +89,11 @@ public class PostServices{
             posts = optionalPosts.get();
         return posts;
     }
-    public List<Post> getAllPostsOfCurrentUser(String username){
-    	List<Post> posts = new ArrayList<Post>();
-    	if(postRepositories.findAllByUserUsername(username).isPresent())
-    		posts = postRepositories.findAllByUserUsername(username).get();
-    	return posts;
+
+    public List<Post> getAllPostsOfCurrentUser(String username) {
+        List<Post> posts = new ArrayList<Post>();
+        if (postRepositories.findAllByUserUsername(username).isPresent())
+            posts = postRepositories.findAllByUserUsername(username).get();
+        return posts;
     }
 }

@@ -1,13 +1,10 @@
 package vkhanhqui.myblog.models;
 
 import lombok.*;
-
-import javax.persistence.*;
-
-import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -19,8 +16,8 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-	@Id
-    @Column(name= "username", columnDefinition = "VARCHAR(20)")
+    @Id
+    @Column(name = "username", columnDefinition = "VARCHAR(20) NOT NULL")
     private String username;
 
     @Column(name = "password")
@@ -39,23 +36,13 @@ public class User {
     @LazyCollection(LazyCollectionOption.FALSE)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private Set<Role> roles= new HashSet<Role>();
+    private Set<Role> roles = new HashSet<Role>();
 
     @OneToMany(cascade = CascadeType.ALL,
             mappedBy = "user", orphanRemoval = true)
     @LazyCollection(LazyCollectionOption.FALSE)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private List<Post> posts= new ArrayList<>();
-    
-    public void addPost(Post post) {
-        post.setUser(this);
-        posts.add(post);
-    }
-
-    public void removePost(Post post) {
-        posts.remove(post);
-        post.setUser(null);
-    }
+    private List<Post> posts = new ArrayList<>();
 
 }
