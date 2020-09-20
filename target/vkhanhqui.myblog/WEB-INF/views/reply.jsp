@@ -51,35 +51,7 @@
 </section>
 <!-- .section -->
 
-<script
-        src="<c:url value="/resources/js/jquery.min.js" />"></script>
-<script
-        src="<c:url value="/resources/homePage/js/jquery-migrate-3.0.1.min.js" />"></script>
-<script
-        src="<c:url value="/resources/js/popper.min.js" />"></script>
-<script
-        src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-<script
-        src="<c:url value="/resources/homePage/js/jquery.easing.1.3.js" />"></script>
-<script
-        src="<c:url value="/resources/homePage/js/jquery.waypoints.min.js" />"></script>
-<script
-        src="<c:url value="/resources/homePage/js/jquery.stellar.min.js" />"></script>
-<script
-        src="<c:url value="/resources/homePage/js/owl.carousel.min.js" />"></script>
-<script
-        src="<c:url value="/resources/homePage/js/jquery.magnific-popup.min.js" />"></script>
-<script
-        src="<c:url value="/resources/homePage/js/aos.js" />"></script>
-<script
-        src="<c:url value="/resources/homePage/js/jquery.animateNumber.min.js" />"></script>
-<script
-        src="<c:url value="/resources/homePage/js/scrollax.min.js" />"></script>
-<script
-        src="<c:url value="/resources/homePage/js/main.js" />"></script>
 
-<script
-        src="<c:url value="/resources/homePage/js/backtotop.js" />"></script>
 
 </body>
 </html>

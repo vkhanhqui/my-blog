@@ -26,14 +26,14 @@
 <!-- header -->
 <header>
     <div class="logo">
-        <h1 class="logo-text"><a href="/vkhanhqui_myblog_war/"><span>Khanh</span>Qui</a></h1>
+        <h1 class="logo-text"><a href="/vkhanhqui_myblog_war_exploded/"><span>Khanh</span>Qui</a></h1>
     </div>
     <i class="fa fa-bars menu-toggle"></i>
     <ul class="nav">
-        <li><a href="/vkhanhqui_myblog_war/">Home</a></li>
-        <li><a href="/vkhanhqui_myblog_war/list/1">Posts</a></li>
-        <li><a href="/vkhanhqui_myblog_war/contact">About</a></li>
-        <li><a href="/vkhanhqui_myblog_war/sign-in">Sign in/Sign up</a></li>
+        <li><a href="/vkhanhqui_myblog_war_exploded/">Home</a></li>
+        <li><a href="/vkhanhqui_myblog_war_exploded/list/1">Posts</a></li>
+        <li><a href="/vkhanhqui_myblog_war_exploded/contact">About</a></li>
+        <li><a href="/vkhanhqui_myblog_war_exploded/sign-in">Sign in/Sign up</a></li>
     </ul>
 </header>
 <!-- /header -->
@@ -61,7 +61,7 @@
         <div>
             <button type="submit" name="register-btn" class="btn btn-big">Register</button>
         </div>
-        <p>Or <a href="/vkhanhqui_myblog_war/sign-in">Sign In</a></p>
+        <p>Or <a href="/vkhanhqui_myblog_war_exploded/sign-in">Sign In</a></p>
     </form>
 </div>
 

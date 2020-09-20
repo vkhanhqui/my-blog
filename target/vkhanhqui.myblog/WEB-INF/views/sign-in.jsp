@@ -30,21 +30,21 @@
 	<header>
 		<div class="logo">
 			<h1 class="logo-text">
-				<a href="/vkhanhqui_myblog_war/"><span>Khanh</span>Qui</a>
+				<a href="/vkhanhqui_myblog_war_exploded/"><span>Khanh</span>Qui</a>
 			</h1>
 		</div>
 		<i class="fa fa-bars menu-toggle"></i>
 		<ul class="nav">
-			<li><a href="/vkhanhqui_myblog_war/">Home</a></li>
-			<li><a href="/vkhanhqui_myblog_war/list/1">Posts</a></li>
-			<li><a href="/vkhanhqui_myblog_war/contact">About</a></li>
-			<li><a href="/vkhanhqui_myblog_war/sign-in">Sign in/Sign up</a></li>
+			<li><a href="/vkhanhqui_myblog_war_exploded/">Home</a></li>
+			<li><a href="/vkhanhqui_myblog_war_exploded/list/1">Posts</a></li>
+			<li><a href="/vkhanhqui_myblog_war_exploded/contact">About</a></li>
+			<li><a href="/vkhanhqui_myblog_war_exploded/sign-in">Sign in/Sign up</a></li>
 		</ul>
 	</header>
 	<!-- /header -->
 
 	<div class="auth-content">
-		<form action="/vkhanhqui_myblog_war/sign-in" method="post">
+		<form action="/vkhanhqui_myblog_war_exploded/sign-in" method="post">
 			<h2 class="form-title">Sign in</h2>
 			<c:if test="${error==true}">
 				<spring:message
@@ -62,7 +62,7 @@
 				<button type="submit" name="login-btn" class="btn btn-big">Login</button>
 			</div>
 			<p>
-				Or <a href="/vkhanhqui_myblog_war/sign-up">Sign up</a>
+				Or <a href="/vkhanhqui_myblog_war_exploded/sign-up">Sign up</a>
 			</p>
 		</form>
 

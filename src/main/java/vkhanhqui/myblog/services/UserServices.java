@@ -61,6 +61,7 @@ public class UserServices {
     }
 
     public void deleteUser(String username) {
+        //bug
         userRepositories.customDeletingUserByUsername(username);
     }
 

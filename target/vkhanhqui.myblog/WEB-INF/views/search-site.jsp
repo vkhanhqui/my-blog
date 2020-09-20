@@ -33,17 +33,17 @@
 	<header>
 		<div class="logo">
 			<h1 class="logo-text">
-				<a href="/vkhanhqui_myblog_war/"><span>Khanh</span>Qui</a>
+				<a href="/vkhanhqui_myblog_war_exploded/"><span>Khanh</span>Qui</a>
 			</h1>
 		</div>
 		<i class="fa fa-bars menu-toggle"></i>
 		<ul class="nav">
-			<li><a href="/vkhanhqui_myblog_war/">Home</a></li>
-			<li><a href="/vkhanhqui_myblog_war/list/1">Posts</a></li>
-			<li><a href="/vkhanhqui_myblog_war/contact">About</a></li>
+			<li><a href="/vkhanhqui_myblog_war_exploded/">Home</a></li>
+			<li><a href="/vkhanhqui_myblog_war_exploded/list/1">Posts</a></li>
+			<li><a href="/vkhanhqui_myblog_war_exploded/contact">About</a></li>
 			<c:choose>
 				<c:when test="${username==null}">
-					<li><a href="/vkhanhqui_myblog_war/sign-in">Sign in/Sign
+					<li><a href="/vkhanhqui_myblog_war_exploded/sign-in">Sign in/Sign
 							up</a></li>
 				</c:when>
 				<c:otherwise>
@@ -51,8 +51,8 @@
 							class="fa fa-chevron-down" style="font-size: .8em;"></i>
 					</a>
 						<ul>
-							<li><a href="/vkhanhqui_myblog_war/${role}/posts/index">Dashboard</a></li>
-							<li><a href="/vkhanhqui_myblog_war/sign-in/logout"
+							<li><a href="/vkhanhqui_myblog_war_exploded/${role}/posts/index">Dashboard</a></li>
+							<li><a href="/vkhanhqui_myblog_war_exploded/sign-in/logout"
 								class="logout">Logout</a></li>
 						</ul></li>
 				</c:otherwise>
@@ -69,10 +69,10 @@
             <h1 class="recent-post-title">Related Posts</h1>
 
             <div class="pagination">
-                <a href="/vkhanhqui_myblog_war/keywords/${keywords}/1"
+                <a href="/vkhanhqui_myblog_war_exploded/keywords/${keywords}/1"
                    class="btn-paginate prev"><i class="fa fa-chevron-left"><i
                         class="fa fa-chevron-left"></i></i></a> <a
-                    href="/vkhanhqui_myblog_war/keywords/${keywords}/${currentPage-3}"
+                    href="/vkhanhqui_myblog_war_exploded/keywords/${keywords}/${currentPage-3}"
                     class="btn-paginate prev"><i class="fa fa-chevron-left"></i></a>
                 <ul class="paginate">
                     <%--                        --%>
@@ -80,47 +80,47 @@
                         <c:choose>
                             <c:when test="${i==currentPage}">
                                 <li><a class="active"
-                                       href="/vkhanhqui_myblog_war/keywords/${keywords}/${i}">${i}</a></li>
+                                       href="/vkhanhqui_myblog_war_exploded/keywords/${keywords}/${i}">${i}</a></li>
                             </c:when>
                             <c:otherwise>
                                 <li><a
-                                        href="/vkhanhqui_myblog_war/keywords/${keywords}/${i}">${i}</a></li>
+                                        href="/vkhanhqui_myblog_war_exploded/keywords/${keywords}/${i}">${i}</a></li>
                             </c:otherwise>
                         </c:choose>
                     </c:forEach>
                     <%--             /           --%>
                 </ul>
                 <a
-                        href="/vkhanhqui_myblog_war/keywords/${keywords}/${currentPage+3}"
+                        href="/vkhanhqui_myblog_war_exploded/keywords/${keywords}/${currentPage+3}"
                         class=" btn-paginate prev"><i class="fa fa-chevron-right"></i></a>
                 <a
-                        href="/vkhanhqui_myblog_war/keywords/${keywords}/${pagedListPost.pageCount}"
+                        href="/vkhanhqui_myblog_war_exploded/keywords/${keywords}/${pagedListPost.pageCount}"
                         class="btn-paginate prev"><i class="fa fa-chevron-right"><i
                         class="fa fa-chevron-right"></i></i></a>
             </div>
             <%--				--%>
             <c:forEach var="one" items="${pagedListPost.pageList}">
                 <div class="post">
-                    <a href="/vkhanhqui_myblog_war/single/${one.id}"> <img
+                    <a href="/vkhanhqui_myblog_war_exploded/single/${one.id}"> <img
                             src="<c:url value="${one.thumbnail}"/>" alt="" class="post-image"></a>
                     <div class="post-preview">
                         <h2>
-                            <a href="/vkhanhqui_myblog_war/single/${one.id}">${one.title}</a>
+                            <a href="/vkhanhqui_myblog_war_exploded/single/${one.id}">${one.title}</a>
                         </h2>
                         <i class="far fa-user">Khanh Qui</i> &nbsp; <i
                             class="far calendar">Sep 13, 2020</i>
                         <p class="preview-text">${one.description}</p>
-                        <a href="/vkhanhqui_myblog_war/single/${one.id}"
+                        <a href="/vkhanhqui_myblog_war_exploded/single/${one.id}"
                            class="btn read-more">Read More</a>
                     </div>
                 </div>
             </c:forEach>
             <%--		/		--%>
             <div class="pagination">
-                <a href="/vkhanhqui_myblog_war/keywords/${keywords}/1"
+                <a href="/vkhanhqui_myblog_war_exploded/keywords/${keywords}/1"
                    class="btn-paginate prev"><i class="fa fa-chevron-left"><i
                         class="fa fa-chevron-left"></i></i></a> <a
-                    href="/vkhanhqui_myblog_war/keywords/${keywords}/${currentPage-3}"
+                    href="/vkhanhqui_myblog_war_exploded/keywords/${keywords}/${currentPage-3}"
                     class="btn-paginate prev"><i class="fa fa-chevron-left"></i></a>
                 <ul class="paginate">
                     <%--                        --%>
@@ -128,24 +128,25 @@
                         <c:choose>
                             <c:when test="${i==currentPage}">
                                 <li><a class="active"
-                                       href="/vkhanhqui_myblog_war/keywords/${keywords}/${i}">${i}</a></li>
+                                       href="/vkhanhqui_myblog_war_exploded/keywords/${keywords}/${i}">${i}</a></li>
                             </c:when>
                             <c:otherwise>
                                 <li><a
-                                        href="/vkhanhqui_myblog_war/keywords/${keywords}/${i}">${i}</a></li>
+                                        href="/vkhanhqui_myblog_war_exploded/keywords/${keywords}/${i}">${i}</a></li>
                             </c:otherwise>
                         </c:choose>
                     </c:forEach>
                     <%--             /           --%>
                 </ul>
                 <a
-                        href="/vkhanhqui_myblog_war/keywords/${keyword}/${currentPage+3}"
+                        href="/vkhanhqui_myblog_war_exploded/keywords/${keywords}/${currentPage+3}"
                         class=" btn-paginate prev"><i class="fa fa-chevron-right"></i></a>
                 <a
-                        href="/vkhanhqui_myblog_war/keywords/${keyword}/${pagedListPost.pageCount}"
+                        href="/vkhanhqui_myblog_war_exploded/keywords/${keywords}/${pagedListPost.pageCount}"
                         class="btn-paginate prev"><i class="fa fa-chevron-right"><i
                         class="fa fa-chevron-right"></i></i></a>
             </div>
+            <%--				--%>
         </div>
         <!-- /main content -->
 
@@ -153,7 +154,7 @@
         <div class="sidebar single">
             <div class="section">
 					<h2 class="section-title">Search</h2>
-					<form action="/vkhanhqui_myblog_war/keywords/" method="post">
+					<form action="/vkhanhqui_myblog_war_exploded/keywords/" method="post">
 
 						<input type="text" class="text-input" name="keywords"
 							placeholder="Search..." />
@@ -167,10 +168,10 @@
                 <h2 class="section-title">Popular</h2>
                 <c:forEach var="one" items="${mostViewed}">
                     <div class="post clearfix">
-                        <a href="/vkhanhqui_myblog_war/single/${one.id}">
+                        <a href="/vkhanhqui_myblog_war_exploded/single/${one.id}">
                             <img src="<c:url value="${one.thumbnail}"/>" alt="" class="post-image">
                         </a>
-                        <a href="/vkhanhqui_myblog_war/single/${one.id}" class="title"><h4>${one.description}</h4></a>
+                        <a href="/vkhanhqui_myblog_war_exploded/single/${one.id}" class="title"><h4>${one.description}</h4></a>
                     </div>
                 </c:forEach>
             </div>
@@ -179,7 +180,7 @@
                 <h2 class="section-title">Categories</h2>
                 <ul>
                     <c:forEach var="one" items="${listOfCategories}">
-                        <li><a href="/vkhanhqui_myblog_war/categories/${one.name}/1">${one.name}</a></li>
+                        <li><a href="/vkhanhqui_myblog_war_exploded/categories/${one.name}/1">${one.name}</a></li>
                     </c:forEach>
                 </ul>
             </div>
