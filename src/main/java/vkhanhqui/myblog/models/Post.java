@@ -3,13 +3,8 @@ package vkhanhqui.myblog.models;
 import lombok.*;
 
 import javax.persistence.*;
-
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
-
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "post")
@@ -61,4 +56,5 @@ public class Post {
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private User user;
+
 }

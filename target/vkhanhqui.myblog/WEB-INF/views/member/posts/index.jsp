@@ -28,17 +28,17 @@
 	<header>
 		<div class="logo">
 			<h1 class="logo-text">
-				<a href="/vkhanhqui_myblog_war/"><span>Khanh</span>Qui</a>
+				<a href="/vkhanhqui_myblog_war_exploded/"><span>Khanh</span>Qui</a>
 			</h1>
 		</div>
 		<i class="fa fa-bars menu-toggle"></i>
 		<ul class="nav">
-			<li><a href="/vkhanhqui_myblog_war/">Home</a></li>
-			<li><a href="/vkhanhqui_myblog_war/list/1">Posts</a></li>
-			<li><a href="/vkhanhqui_myblog_war/contact">About</a></li>
+			<li><a href="/vkhanhqui_myblog_war_exploded/">Home</a></li>
+			<li><a href="/vkhanhqui_myblog_war_exploded/list/1">Posts</a></li>
+			<li><a href="/vkhanhqui_myblog_war_exploded/contact">About</a></li>
 			<c:choose>
 				<c:when test="${username==null}">
-					<li><a href="/vkhanhqui_myblog_war/sign-in">Sign in/Sign
+					<li><a href="/vkhanhqui_myblog_war_exploded/sign-in">Sign in/Sign
 							up</a></li>
 				</c:when>
 				<c:otherwise>
@@ -46,8 +46,8 @@
 							class="fa fa-chevron-down" style="font-size: .8em;"></i>
 					</a>
 						<ul>
-							<li><a href="/vkhanhqui_myblog_war/member/posts/index">Dashboard</a></li>
-							<li><a href="/vkhanhqui_myblog_war/sign-in/logout"
+							<li><a href="/vkhanhqui_myblog_war_exploded/member/posts/index">Dashboard</a></li>
+							<li><a href="/vkhanhqui_myblog_war_exploded/sign-in/logout"
 								class="logout">Logout</a></li>
 						</ul></li>
 				</c:otherwise>
@@ -59,52 +59,39 @@
 <div class="admin-wrapper">
     <div class="left-sidebar">
         <ul>
-            <li><a href="/vkhanhqui_myblog_war/member/posts/index">Manage Posts</a></li>
+            <li><a href="/vkhanhqui_myblog_war_exploded/member/posts/index">Manage Posts</a></li>
         </ul>
     </div>
 
     <div class="admin-content">
         <div class="button-group">
-            <a href="/vkhanhqui_myblog_war/member/posts/create" class="btn btn-big">Add Post</a>
-            <a href="/vkhanhqui_myblog_war/member/posts/index" class="btn btn-big">Manage Posts</a>
+            <a href="/vkhanhqui_myblog_war_exploded/member/posts/create" class="btn btn-big">Add Post</a>
+            <a href="/vkhanhqui_myblog_war_exploded/member/posts/index" class="btn btn-big">Manage Posts</a>
         </div>
 
         <div class="content">
             <h2 class="page-title">Manage Posts</h2>
             <table>
-                <thead>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Creator</th>
-                <th colspan="3">Action</th>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>this is the first post</td>
-                    <td>Khanh Qui</td>
-                    <td><a href="#" class="edit">edit</a></td>
-                    <td><a href="#" class="delete">delete</a></td>
-                    <td><a href="#" class="publish">publish</a></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>this is the second post</td>
-                    <td>Khanh Qui</td>
-                    <td><a href="#" class="edit">edit</a></td>
-                    <td><a href="#" class="delete">delete</a></td>
-                    <td><a href="#" class="publish">publish</a></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>this is the third post</td>
-                    <td>Khanh Qui</td>
-                    <td><a href="#" class="edit">edit</a></td>
-                    <td><a href="#" class="delete">delete</a></td>
-                    <td><a href="#" class="publish">publish</a></td>
-                </tr>
-                </tbody>
-            </table>
+					<thead>
+						<th>ID</th>
+						<th>Title</th>
+						<th>Creator</th>
+						<th colspan="3">Action</th>
+					</thead>
+					<tbody>
+						<c:forEach var="one" items="${posts}">
+							<tr>
+								<td>${one.id}</td>
+								<td>${one.title}</td>
+								<td>${one.user.username}</td>
+								<td><a href="/vkhanhqui_myblog_war_exploded/member/posts/edit/${one.id}" class="edit">edit</a></td>
+								<td><a
+									href="/vkhanhqui_myblog_war_exploded/manage/delete-post/${one.id}"
+									class="delete">delete</a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
         </div>
     </div>
 </div>

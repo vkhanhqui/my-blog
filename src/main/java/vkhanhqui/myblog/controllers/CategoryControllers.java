@@ -12,10 +12,9 @@ import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.PostServices;
 
+import javax.servlet.http.HttpSession;
 import java.security.Principal;
 import java.util.List;
-
-import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("categories")
@@ -27,13 +26,13 @@ public class CategoryControllers {
 
     @GetMapping("/{nameOfCategory}/{currentPage}")
     public String getCategorySite(@PathVariable String nameOfCategory, @PathVariable int currentPage
-    		, ModelMap modelMap, Principal principal, HttpSession httpSession) {
-    	if(principal!=null) {
-        	String username = principal.getName();
-        	modelMap.addAttribute("username", username);
-        	String role = httpSession.getAttribute("role").toString();
-        	modelMap.addAttribute("role",role);
-    	}
+            , ModelMap modelMap, Principal principal, HttpSession httpSession) {
+        if (principal != null) {
+            String username = principal.getName();
+            modelMap.addAttribute("username", username);
+            String role = httpSession.getAttribute("role").toString();
+            modelMap.addAttribute("role", role);
+        }
         List<Post> posts = categoryServices.getPosts(nameOfCategory);
         PagedListHolder pagedListPost = new PagedListHolder(posts);
         pagedListPost.setPageSize(6);

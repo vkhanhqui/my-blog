@@ -27,7 +27,7 @@ public class CommentControllers {
 
     @PostMapping("/{postId}")
     public String saveComment(@PathVariable long postId, @ModelAttribute("comment") Comment comment) {
-        commentServices.saveAComment(postServices.getAPost(postId), comment);
+        commentServices.saveAComment(postServices.getPost(postId), comment);
         return "redirect:/detail/" + postId;
     }
 

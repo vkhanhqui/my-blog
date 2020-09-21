@@ -32,17 +32,17 @@
 	<header>
 		<div class="logo">
 			<h1 class="logo-text">
-				<a href="/vkhanhqui_myblog_war/"><span>Khanh</span>Qui</a>
+				<a href="/vkhanhqui_myblog_war_exploded/"><span>Khanh</span>Qui</a>
 			</h1>
 		</div>
 		<i class="fa fa-bars menu-toggle"></i>
 		<ul class="nav">
-			<li><a href="/vkhanhqui_myblog_war/">Home</a></li>
-			<li><a href="/vkhanhqui_myblog_war/list/1">Posts</a></li>
-			<li><a href="/vkhanhqui_myblog_war/contact">About</a></li>
+			<li><a href="/vkhanhqui_myblog_war_exploded/">Home</a></li>
+			<li><a href="/vkhanhqui_myblog_war_exploded/list/1">Posts</a></li>
+			<li><a href="/vkhanhqui_myblog_war_exploded/contact">About</a></li>
 			<c:choose>
 				<c:when test="${username==null}">
-					<li><a href="/vkhanhqui_myblog_war/sign-in">Sign in/Sign
+					<li><a href="/vkhanhqui_myblog_war_exploded/sign-in">Sign in/Sign
 							up</a></li>
 				</c:when>
 				<c:otherwise>
@@ -50,8 +50,8 @@
 							class="fa fa-chevron-down" style="font-size: .8em;"></i>
 					</a>
 						<ul>
-							<li><a href="/vkhanhqui_myblog_war/${role}/posts/index">Dashboard</a></li>
-							<li><a href="/vkhanhqui_myblog_war/sign-in/logout"
+							<li><a href="/vkhanhqui_myblog_war_exploded/${role}/posts/index">Dashboard</a></li>
+							<li><a href="/vkhanhqui_myblog_war_exploded/sign-in/logout"
 								class="logout">Logout</a></li>
 						</ul></li>
 				</c:otherwise>
@@ -74,7 +74,7 @@
 			<div class="sidebar single">
 				<div class="section">
 					<h2 class="section-title">Search</h2>
-					<form action="/vkhanhqui_myblog_war/keywords/" method="post">
+					<form action="/vkhanhqui_myblog_war_exploded/keywords/" method="post">
 
 						<input type="text" class="text-input" name="keywords"
 							placeholder="Search..." />
@@ -88,9 +88,9 @@
 					<h2 class="section-title">Popular</h2>
 					<c:forEach var="one" items="${mostViewed}">
 						<div class="post clearfix">
-							<a href="/vkhanhqui_myblog_war/single/${one.id}"> <img
+							<a href="/vkhanhqui_myblog_war_exploded/single/${one.id}"> <img
 								src="<c:url value="${one.thumbnail}"/>" alt="" class="post-image">
-							</a> <a href="/vkhanhqui_myblog_war/single/${one.id}" class="title"><h4>${one.description}</h4></a>
+							</a> <a href="/vkhanhqui_myblog_war_exploded/single/${one.id}" class="title"><h4>${one.description}</h4></a>
 						</div>
 					</c:forEach>
 				</div>
@@ -99,7 +99,7 @@
 					<h2 class="section-title">Categories</h2>
 					<ul>
 						<c:forEach var="one" items="${listOfCategories}">
-							<li><a href="/vkhanhqui_myblog_war/categories/${one.name}/1">${one.name}</a></li>
+							<li><a href="/vkhanhqui_myblog_war_exploded/categories/${one.name}/1">${one.name}</a></li>
 						</c:forEach>
 					</ul>
 				</div>
@@ -134,21 +134,11 @@
 				<h2>Quick Links</h2>
 				<br>
 				<ul>
-					<a href="#">
-						<li>Events</li>
-					</a>
-					<a href="#">
-						<li>Team</li>
-					</a>
-					<a href="#">
-						<li>Mentores</li>
-					</a>
-					<a href="#">
-						<li>Gallery</li>
-					</a>
-					<a href="#">
-						<li>Terms and Conditions</li>
-					</a>
+					<li><a href="#"> Events </a></li>
+					<li><a href="#"> Team </a></li>
+					<li><a href="#"> Mentores </a></li>
+					<li><a href="#"> Gallery </a></li>
+					<li><a href="#"> Terms and Conditions </a></li>
 				</ul>
 			</div>
 			<div class="footer-section contact-form">
