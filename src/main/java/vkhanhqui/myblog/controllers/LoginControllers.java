@@ -53,10 +53,12 @@ public class LoginControllers {
     }
 
     @GetMapping("logout")
-    public ModelAndView logoutPage(SessionStatus session) {
+    public ModelAndView logoutPage(SessionStatus session, HttpSession httpSession) {
         SecurityContextHolder.getContext().setAuthentication(null);
         session.setComplete();
-
+        httpSession.removeAttribute("username");
+        httpSession.removeAttribute("role");
+        httpSession.removeAttribute("currentUser");
         return new ModelAndView("redirect:/");
     }
 
