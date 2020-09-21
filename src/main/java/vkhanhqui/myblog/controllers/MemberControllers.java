@@ -3,12 +3,7 @@ package vkhanhqui.myblog.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.annotation.*;
 import vkhanhqui.myblog.models.Category;
 import vkhanhqui.myblog.models.MyUploadForm;
 import vkhanhqui.myblog.models.Post;
@@ -21,6 +16,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("member")
+@SessionAttributes({"postId"})
 public class MemberControllers {
 
     @Autowired
@@ -28,11 +24,11 @@ public class MemberControllers {
 
     @Autowired
     CategoryServices categoryServices;
-    
+
     @GetMapping("posts/index")
     public String getPostManagementSite(ModelMap modelMap, Principal principal) {
-    	String username = principal.getName();
-    	modelMap.addAttribute("username", username);
+        String username = principal.getName();
+        modelMap.addAttribute("username", username);
         List<Post> posts = postServices.getAllPostsOfCurrentUser(username);
         modelMap.addAttribute("posts", posts);
         return "member/posts/index";
@@ -45,10 +41,10 @@ public class MemberControllers {
         List<Category> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
         modelMap.addAttribute("post", new Post());
-        String message =  "";
+        String message = "";
         modelMap.addAttribute("message", message);
         modelMap.addAttribute("myUploadForm", new MyUploadForm());
-        modelMap.addAttribute("thumbnail",null);
+        modelMap.addAttribute("thumbnail", null);
         return "member/posts/create";
     }
 
@@ -65,4 +61,32 @@ public class MemberControllers {
         return "redirect:/member/posts/index";
     }
 
+    @GetMapping("posts/edit/{postId}")
+    public String getUpdatingPostSite(ModelMap modelMap, Principal principal
+            , @PathVariable long postId) {
+        String username = principal.getName();
+        modelMap.addAttribute("username", username);
+        List<Category> listOfCategories = categoryServices.getCategories();
+        modelMap.addAttribute("listOfCategories", listOfCategories);
+        String message = "";
+        modelMap.addAttribute("message", message);
+        modelMap.addAttribute("post", new Post());
+        modelMap.addAttribute("postId", postId);
+        modelMap.addAttribute("myUploadForm", new MyUploadForm());
+        modelMap.addAttribute("thumbnail", null);
+        return "member/posts/edit";
+    }
+
+    @PostMapping("posts/edit")
+    public String updatePost(ModelMap modelMap, @ModelAttribute("post") Post post
+            , @RequestParam long categoryId
+            , HttpSession httpSession) {
+        String thumbnail = httpSession.getAttribute("thumbnail").toString();
+        long postId = (long) httpSession.getAttribute("postId");
+        String message = postServices.editPost(postId, post, categoryId, thumbnail);
+        modelMap.addAttribute("message", message);
+        httpSession.removeAttribute("thumbnail");
+        httpSession.removeAttribute("postId");
+        return "redirect:/member/posts/index";
+    }
 }

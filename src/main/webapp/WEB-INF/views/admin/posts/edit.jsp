@@ -21,7 +21,7 @@
           rel="stylesheet">
     <!-- custom style -->
     <link rel="stylesheet" href="<c:url value="/resources/css/admin.css" />">
-    <title>Add Posts</title>
+    <title>Edit Posts</title>
     <%@ page isELIgnored="false" %>
 </head>
 

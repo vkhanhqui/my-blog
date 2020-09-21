@@ -37,7 +37,6 @@ public class MyFileUploadController {
         String address = "redirect:/admin/posts/create";
         if(httpSession.getAttribute("postId")!=null){
             address = "redirect:/admin/posts/edit/"+httpSession.getAttribute("postId").toString();
-
         }
         return address;
     }

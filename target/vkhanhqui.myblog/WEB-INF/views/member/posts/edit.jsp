@@ -48,7 +48,7 @@
                         class="fa fa-chevron-down" style="font-size: .8em;"></i>
                 </a>
                     <ul>
-                        <li><a href="/vkhanhqui_myblog_war_exploded/admin/posts/index">Dashboard</a></li>
+                        <li><a href="/vkhanhqui_myblog_war_exploded/member/posts/index">Dashboard</a></li>
                         <li><a href="/vkhanhqui_myblog_war_exploded/sign-in/logout"
                                class="logout">Logout</a></li>
                     </ul>
@@ -58,22 +58,20 @@
     </ul>
 </header>
 <!-- /header -->
-<!-- admin page wrapper -->
+<!-- member page wrapper -->
 <div class="admin-wrapper">
     <div class="left-sidebar">
         <ul>
-            <li><a href="/vkhanhqui_myblog_war_exploded/admin/posts/index">Manage
+            <li><a href="/vkhanhqui_myblog_war_exploded/member/posts/index">Manage
                 Posts</a></li>
-            <li><a href="/vkhanhqui_myblog_war_exploded/admin/users/index">Manage
-                Users</a></li>
         </ul>
     </div>
 
     <div class="admin-content">
         <div class="button-group">
-            <a href="/vkhanhqui_myblog_war_exploded/admin/posts/create"
+            <a href="/vkhanhqui_myblog_war_exploded/member/posts/create"
                class="btn btn-big">Add Post</a> <a
-                href="/vkhanhqui_myblog_war_exploded/admin/posts/index" class="btn btn-big">Manage
+                href="/vkhanhqui_myblog_war_exploded/member/posts/index" class="btn btn-big">Manage
             Posts</a>
         </div>
 
@@ -95,7 +93,7 @@
                     </form:form>
                 </c:when>
                 <c:otherwise>
-                    <form:form action="/vkhanhqui_myblog_war_exploded/admin/posts/edit/"
+                    <form:form action="/vkhanhqui_myblog_war_exploded/member/posts/edit/"
                                method="post" modelAttribute="post">
                         <div>
                             <label>Title</label>
@@ -128,7 +126,7 @@
         </div>
     </div>
 </div>
-<!-- /admin page wrapper -->
+<!-- /member page wrapper -->
 
 
 <!-- jquery -->
