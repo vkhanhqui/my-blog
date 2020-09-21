@@ -83,7 +83,7 @@
             <c:choose>
                 <c:when test="${thumbnail==null}">
                     <form:form modelAttribute="myUploadForm" method="post"
-                               action="/vkhanhqui_myblog_war_exploded/file/uploadOneFile"
+                               action="/vkhanhqui_myblog_war_exploded/file/uploadFile"
                                enctype="multipart/form-data">
                         <div>
                             <label>Thumbnail</label> <br>

@@ -21,6 +21,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("admin")
+@SessionAttributes({"postId"})
 public class AdminControllers {
     @Autowired
     UserServices userServices;
@@ -43,7 +44,7 @@ public class AdminControllers {
     }
 
     @GetMapping("posts/create")
-    public String getCreatingPostSite(ModelMap modelMap, Principal principal, HttpSession httpSession) {
+    public String getCreatingPostSite(ModelMap modelMap, Principal principal) {
         String username = principal.getName();
         modelMap.addAttribute("username", username);
         List<Category> listOfCategories = categoryServices.getCategories();
@@ -66,6 +67,35 @@ public class AdminControllers {
         String message = postServices.savePost(username, post, categoryId, thumbnail);
         modelMap.addAttribute("message", message);
         httpSession.removeAttribute("thumbnail");
+        return "redirect:/admin/posts/index";
+    }
+
+    @GetMapping("posts/edit/{postId}")
+    public String getUpdatingPostSite(ModelMap modelMap, Principal principal
+            , @PathVariable long postId) {
+        String username = principal.getName();
+        modelMap.addAttribute("username", username);
+        List<Category> listOfCategories = categoryServices.getCategories();
+        modelMap.addAttribute("listOfCategories", listOfCategories);
+        String message =  "";
+        modelMap.addAttribute("message", message);
+        modelMap.addAttribute("post", new Post());
+        modelMap.addAttribute("postId", postId);
+        modelMap.addAttribute("myUploadForm", new MyUploadForm());
+        modelMap.addAttribute("thumbnail",null);
+        return "admin/posts/edit";
+    }
+
+    @PostMapping("posts/edit")
+    public String updatePost(ModelMap modelMap, @ModelAttribute("post") Post post
+            , @RequestParam long categoryId
+            , HttpSession httpSession) {
+        String thumbnail = httpSession.getAttribute("thumbnail").toString();
+        long postId = (long) httpSession.getAttribute("postId");
+        String message = postServices.editPost(postId, post, categoryId, thumbnail);
+        modelMap.addAttribute("message", message);
+        httpSession.removeAttribute("thumbnail");
+        httpSession.removeAttribute("postId");
         return "redirect:/admin/posts/index";
     }
 

@@ -58,6 +58,27 @@ public class PostServices {
         return message;
     }
 
+    public String editPost(long id, Post post, long categoryId, String thumbnail) {
+        Post postNeedToUpdate= postRepositories.findById(id).get();
+        Category category = categoryRepositories.findById(categoryId).get();
+        postNeedToUpdate.setCategory(category);
+        postNeedToUpdate.setDate(new Date());
+        postNeedToUpdate.setThumbnail(thumbnail);
+        postNeedToUpdate.setTitle(post.getTitle());
+        postNeedToUpdate.setContent(post.getContent());
+        postNeedToUpdate.setDescription(post.getDescription());
+        String message ="<div class=\"msg success\">\r\n" + "               <li>Successfully</li>\r\n"
+                + "           </div>";
+        try {
+            postRepositories.save(postNeedToUpdate);
+        }
+        catch (Exception e){
+            message= "<div class=\"msg error\">\r\n" + "               <li>Something is incorrect</li>\r\n"
+                    + "           </div>";
+        }
+        return message;
+    }
+
     public Post getPost(long id) {
         Post post = postRepositories.findById(id).get();
         post.setViews(post.getViews() + 1);

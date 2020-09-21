@@ -9,6 +9,8 @@ import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 import vkhanhqui.myblog.models.MyUploadForm;
 import vkhanhqui.myblog.services.PostServices;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("file")
 @SessionAttributes({"thumbnail"})
@@ -27,11 +29,16 @@ public class MyFileUploadController {
         }
     }
 
-    @PostMapping("uploadOneFile")
-    public String uploadOneFileHandlerPOST(@ModelAttribute("myUploadForm") MyUploadForm myUploadForm
-            , ModelMap modelMap) {
+    @PostMapping("uploadFile")
+    public String uploadFile(@ModelAttribute("myUploadForm") MyUploadForm myUploadForm
+            , ModelMap modelMap, HttpSession httpSession) {
         String thumbnail = postServices.uploadFile(myUploadForm);
         modelMap.addAttribute("thumbnail", thumbnail);
-        return "redirect:/admin/posts/create";
+        String address = "redirect:/admin/posts/create";
+        if(httpSession.getAttribute("postId")!=null){
+            address = "redirect:/admin/posts/edit/"+httpSession.getAttribute("postId").toString();
+
+        }
+        return address;
     }
 }

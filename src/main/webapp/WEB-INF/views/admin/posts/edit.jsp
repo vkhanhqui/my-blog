@@ -78,7 +78,7 @@
         </div>
 
         <div class="content">
-            <h2 class="page-title">Create Post</h2>
+            <h2 class="page-title">Edit Post</h2>
             ${message}
             <c:choose>
                 <c:when test="${thumbnail==null}">
@@ -95,7 +95,7 @@
                     </form:form>
                 </c:when>
                 <c:otherwise>
-                    <form:form action="/vkhanhqui_myblog_war_exploded/admin/posts/create"
+                    <form:form action="/vkhanhqui_myblog_war_exploded/admin/posts/edit/"
                                method="post" modelAttribute="post">
                         <div>
                             <label>Title</label>
