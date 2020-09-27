@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import vkhanhqui.myblog.models.Post;
+import vkhanhqui.myblog.models.dtos.PostAdminSiteDTO;
 import vkhanhqui.myblog.models.dtos.PostDTO;
 
 import java.util.List;
@@ -16,24 +17,28 @@ import java.util.Optional;
 public interface PostRepositories extends JpaRepository<Post, Long> {
 
     @Query(value = "select new vkhanhqui.myblog.models.dtos.PostDTO(id, title, description" +
-            ", null, date, reading_time, thumbnail, views, user) " +
+            ", date, reading_time, thumbnail, views) " +
             "from Post")
     List<PostDTO> findAllPosts();
 
     @Query(value = "select new vkhanhqui.myblog.models.dtos.PostDTO(id, title, description" +
-            ", null, null, null, thumbnail, views, null) " +
+            ", date, reading_time, thumbnail, views) " +
             "from Post ORDER BY views DESC")
     List<PostDTO> findTop3ByOrderByViewsDesc(Pageable pageable);
 
     @Query(value = "select new vkhanhqui.myblog.models.dtos.PostDTO(id, title, description" +
-            ", null, null, null, thumbnail, views, null) " +
+            ", date, reading_time, thumbnail, views) " +
             "from Post ORDER BY views DESC")
     List<PostDTO> findTop5ByOrderByViewsDesc(Pageable pageable);
 
     @Query(value = "select new vkhanhqui.myblog.models.dtos.PostDTO(p.id, p.title, p.description" +
-            ", null, p.date, p.reading_time, p.thumbnail, p.views, null) " +
+            ", p.date, p.reading_time, p.thumbnail, p.views) " +
             "from Post p where p.category.name like ?1")
     List<PostDTO> findAllByCategoryName(String nameOfCategory);
+
+    @Query(value = "select new vkhanhqui.myblog.models.dtos.PostAdminSiteDTO(id, title, user) " +
+            "from Post")
+    List<PostAdminSiteDTO> findAllPostsAdminSite();
 
     Optional<List<Post>> findAllByTitleContaining(String keyword);
 

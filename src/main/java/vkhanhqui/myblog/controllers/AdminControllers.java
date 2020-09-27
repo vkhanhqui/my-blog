@@ -8,7 +8,7 @@ import vkhanhqui.myblog.models.MyUploadForm;
 import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.models.User;
 import vkhanhqui.myblog.models.dtos.CategoryDTO;
-import vkhanhqui.myblog.models.dtos.PostDTO;
+import vkhanhqui.myblog.models.dtos.PostAdminSiteDTO;
 import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.PostServices;
 import vkhanhqui.myblog.services.UserServices;
@@ -33,7 +33,7 @@ public class AdminControllers {
     public String getPostManagementSite(ModelMap modelMap, HttpSession httpSession) {
         String username = httpSession.getAttribute("username").toString();
         modelMap.addAttribute("username", username);
-        List<PostDTO> posts = postServices.getAllPosts();
+        List<PostAdminSiteDTO> posts = postServices.getAllPostsAdminSite();
         modelMap.addAttribute("posts", posts);
         return "admin/posts/index";
     }

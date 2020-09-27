@@ -9,6 +9,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import vkhanhqui.myblog.models.Category;
 import vkhanhqui.myblog.models.MyUploadForm;
 import vkhanhqui.myblog.models.Post;
+import vkhanhqui.myblog.models.dtos.PostAdminSiteDTO;
 import vkhanhqui.myblog.models.dtos.PostDTO;
 import vkhanhqui.myblog.models.repositories.CategoryRepositories;
 import vkhanhqui.myblog.models.repositories.PostRepositories;
@@ -82,8 +83,12 @@ public class PostServices {
         post.setViews(post.getViews()+1);
         postRepositories.save(post);
         return new PostDTO(post.getId(),post.getTitle(),post.getDescription()
-                ,post.getContent(),post.getDate(),post.getReading_time(),post.getThumbnail(),post.getViews(),post.getUser()
+                ,post.getDate(),post.getReading_time(),post.getThumbnail(),post.getViews()
         );
+    }
+
+    public List<PostAdminSiteDTO> getAllPostsAdminSite(){
+        return postRepositories.findAllPostsAdminSite();
     }
 
     public void deletePost(long id) {
