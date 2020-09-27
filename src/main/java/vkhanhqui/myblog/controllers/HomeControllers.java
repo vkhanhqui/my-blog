@@ -3,12 +3,11 @@ package vkhanhqui.myblog.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
+import vkhanhqui.myblog.controllers.exception.ResourceNotFoundException;
 import vkhanhqui.myblog.models.Category;
 import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.models.dtos.CategoryDTO;
@@ -39,6 +38,17 @@ public class HomeControllers {
 
     @Autowired
     UserServices userServices;
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public String handleResourceNotFoundException(ModelMap modelMap
+            , HttpSession httpSession) {
+        if(httpSession.getAttribute("username")!=null){
+            String username = httpSession.getAttribute("username").toString();
+            modelMap.addAttribute("username", username);
+        }
+        return "notfound";
+    }
 
     @GetMapping
     public String getHomeSite(ModelMap modelMap, Principal principal) {
