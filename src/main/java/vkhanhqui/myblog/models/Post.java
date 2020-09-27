@@ -30,7 +30,7 @@ public class Post {
     private Date date;
 
     @Column(name = "reading_time")
-    private String reading;
+    private String reading_time;
 
     @Column(name = "thumbnail", columnDefinition = "text")
     private String thumbnail;
@@ -39,22 +39,16 @@ public class Post {
     @OrderBy("views ASC")
     private Long views;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
     private Category category;
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     @OrderBy("date ASC")
     private List<Comment> comments;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
     private User user;
 
 }

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import vkhanhqui.myblog.models.Category;
 import vkhanhqui.myblog.models.MyUploadForm;
 import vkhanhqui.myblog.models.Post;
+import vkhanhqui.myblog.models.dtos.CategoryDTO;
 import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.PostServices;
 
@@ -38,7 +39,7 @@ public class MemberControllers {
     public String getCreatingPostSite(ModelMap modelMap, Principal principal, HttpSession httpSession) {
         String username = principal.getName();
         modelMap.addAttribute("username", username);
-        List<Category> listOfCategories = categoryServices.getCategories();
+        List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
         modelMap.addAttribute("post", new Post());
         String message = "";
@@ -66,7 +67,7 @@ public class MemberControllers {
             , @PathVariable long postId) {
         String username = principal.getName();
         modelMap.addAttribute("username", username);
-        List<Category> listOfCategories = categoryServices.getCategories();
+        List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
         String message = "";
         modelMap.addAttribute("message", message);

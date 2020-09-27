@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import vkhanhqui.myblog.models.Category;
 import vkhanhqui.myblog.models.Post;
+import vkhanhqui.myblog.models.dtos.CategoryDTO;
+import vkhanhqui.myblog.models.dtos.PostDTO;
 import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.PostServices;
 
@@ -33,7 +35,7 @@ public class CategoryControllers {
             String role = httpSession.getAttribute("role").toString();
             modelMap.addAttribute("role", role);
         }
-        List<Post> posts = categoryServices.getPosts(nameOfCategory);
+        List<PostDTO> posts = categoryServices.getPosts(nameOfCategory);
         PagedListHolder pagedListPost = new PagedListHolder(posts);
         pagedListPost.setPageSize(6);
         PagedListHolder pagedListNumber = postServices.getPagingSite(currentPage, pagedListPost);
@@ -41,9 +43,9 @@ public class CategoryControllers {
         modelMap.addAttribute("pagedListPost", pagedListPost);
         modelMap.addAttribute("pagedListNumber", pagedListNumber);
         modelMap.addAttribute("nameOfCategory", nameOfCategory);
-        List<Category> listOfCategories = categoryServices.getCategories();
+        List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
-        List<Post> mostViewed = postServices.getTheMostViewedPost();
+        List<PostDTO> mostViewed = postServices.getTop3ViewedPost();
         modelMap.addAttribute("mostViewed", mostViewed);
         return "category-site";
     }

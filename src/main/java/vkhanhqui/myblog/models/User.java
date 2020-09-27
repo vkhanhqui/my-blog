@@ -33,16 +33,10 @@ public class User {
     @JoinTable(name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    @LazyCollection(LazyCollectionOption.FALSE)
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
     private Set<Role> roles = new HashSet<Role>();
 
     @OneToMany(cascade = CascadeType.ALL,
             mappedBy = "user", orphanRemoval = true)
-    @LazyCollection(LazyCollectionOption.FALSE)
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
     private List<Post> posts = new ArrayList<>();
 
 }

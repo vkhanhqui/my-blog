@@ -7,6 +7,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import vkhanhqui.myblog.models.Category;
 import vkhanhqui.myblog.models.Post;
+import vkhanhqui.myblog.models.dtos.CategoryDTO;
+import vkhanhqui.myblog.models.dtos.PostDTO;
 import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.PostServices;
 
@@ -44,9 +46,9 @@ public class SearchControllers {
         modelMap.addAttribute("pagedListPost", pagedListPost);
         modelMap.addAttribute("pagedListNumber", pagedListNumber);
         modelMap.addAttribute("keywords", keywords);
-        List<Category> listOfCategories = categoryServices.getCategories();
+        List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
-        List<Post> mostViewed = postServices.getTheMostViewedPost();
+        List<PostDTO> mostViewed = postServices.getTop3ViewedPost();
         modelMap.addAttribute("mostViewed", mostViewed);
         return "search-site";
     }

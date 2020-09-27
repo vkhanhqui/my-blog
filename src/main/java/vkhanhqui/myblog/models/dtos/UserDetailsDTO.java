@@ -1,4 +1,4 @@
-package vkhanhqui.myblog.models;
+package vkhanhqui.myblog.models.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import vkhanhqui.myblog.models.User;
 
 import java.util.Collection;
 import java.util.stream.Collectors;

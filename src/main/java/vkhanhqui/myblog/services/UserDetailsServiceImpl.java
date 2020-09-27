@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import vkhanhqui.myblog.models.User;
-import vkhanhqui.myblog.models.UserDetailsDTO;
+import vkhanhqui.myblog.models.dtos.UserDetailsDTO;
 import vkhanhqui.myblog.models.repositories.UserRepositories;
 
 @Service("userDetailsService")

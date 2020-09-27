@@ -3,14 +3,11 @@ package vkhanhqui.myblog.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
-import vkhanhqui.myblog.models.Category;
-import vkhanhqui.myblog.models.MyUploadForm;
-import vkhanhqui.myblog.models.Post;
-import vkhanhqui.myblog.models.User;
+import vkhanhqui.myblog.models.*;
+import vkhanhqui.myblog.models.dtos.CategoryDTO;
+import vkhanhqui.myblog.models.dtos.PostDTO;
 import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.PostServices;
 import vkhanhqui.myblog.services.UserServices;
@@ -37,7 +34,7 @@ public class AdminControllers {
         if (principal != null) {
             String username = principal.getName();
             modelMap.addAttribute("username", username);
-            List<Post> posts = postServices.getAllPosts();
+            List<PostDTO> posts = postServices.getAllPosts();
             modelMap.addAttribute("posts", posts);
         }
         return "admin/posts/index";
@@ -47,7 +44,7 @@ public class AdminControllers {
     public String getCreatingPostSite(ModelMap modelMap, Principal principal) {
         String username = principal.getName();
         modelMap.addAttribute("username", username);
-        List<Category> listOfCategories = categoryServices.getCategories();
+        List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
         modelMap.addAttribute("post", new Post());
         String message =  "";
@@ -75,7 +72,7 @@ public class AdminControllers {
             , @PathVariable long postId) {
         String username = principal.getName();
         modelMap.addAttribute("username", username);
-        List<Category> listOfCategories = categoryServices.getCategories();
+        List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
         String message =  "";
         modelMap.addAttribute("message", message);
