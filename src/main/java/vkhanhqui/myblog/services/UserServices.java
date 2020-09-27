@@ -22,27 +22,9 @@ public class UserServices {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public Optional<User> getOptionalMember(String username, String password) {
-        return userRepositories.findByUsernameAndPassword(username, password);
-    }
-
     public boolean isEmail(String email) {
         String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
         return email.matches(regex);
-    }
-
-    public void createMember(String username, String email, String password) {
-        User user = new User();
-        user.setUsername(username);
-        user.setEmail(email);
-        user.setEnabled(true);
-        Role role = new Role();
-        role.setAuthority("ROLE_MEMBER");
-        Set<Role> roles = new HashSet<Role>();
-        roles.add(role);
-        user.setRoles(roles);
-        user.setPassword(passwordEncoder.encode(password));
-        userRepositories.save(user);
     }
 
     public String findSupremeRole(String username) {

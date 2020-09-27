@@ -5,13 +5,13 @@ import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import vkhanhqui.myblog.models.Category;
 import vkhanhqui.myblog.models.Post;
+import vkhanhqui.myblog.models.dtos.CategoryDTO;
+import vkhanhqui.myblog.models.dtos.PostDTO;
 import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.PostServices;
 
 import javax.servlet.http.HttpSession;
-import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -29,12 +29,10 @@ public class SearchControllers {
 
     @GetMapping("/{keywords}/{currentPage}")
     public String getKeywordSite(@PathVariable String keywords, @PathVariable int currentPage
-            , ModelMap modelMap, Principal principal, HttpSession httpSession) {
-        if (principal != null) {
-            String username = principal.getName();
+            , ModelMap modelMap, HttpSession httpSession) {
+        if (httpSession.getAttribute("username") != null) {
+            String username = httpSession.getAttribute("username").toString();
             modelMap.addAttribute("username", username);
-            String role = httpSession.getAttribute("role").toString();
-            modelMap.addAttribute("role", role);
         }
         List<Post> posts = postServices.getPostsByRelatedWords(keywords);
         PagedListHolder pagedListPost = new PagedListHolder(posts);
@@ -44,9 +42,9 @@ public class SearchControllers {
         modelMap.addAttribute("pagedListPost", pagedListPost);
         modelMap.addAttribute("pagedListNumber", pagedListNumber);
         modelMap.addAttribute("keywords", keywords);
-        List<Category> listOfCategories = categoryServices.getCategories();
+        List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
-        List<Post> mostViewed = postServices.getTheMostViewedPost();
+        List<PostDTO> mostViewed = postServices.getTop3ViewedPost();
         modelMap.addAttribute("mostViewed", mostViewed);
         return "search-site";
     }
