@@ -4,6 +4,7 @@ package vkhanhqui.myblog.models.dtos;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import vkhanhqui.myblog.models.User;
 
 import java.util.Date;
 
@@ -27,4 +28,5 @@ public class PostDTO {
 
     private Long views;
 
+    private User user;
 }

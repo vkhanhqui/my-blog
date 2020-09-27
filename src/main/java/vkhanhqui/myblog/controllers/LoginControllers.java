@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 import vkhanhqui.myblog.models.User;
+import vkhanhqui.myblog.models.dtos.UserDTO;
 import vkhanhqui.myblog.models.dtos.UserDetailsDTO;
 
 import javax.servlet.http.HttpSession;
@@ -38,9 +39,8 @@ public class LoginControllers {
     public void postLogin(Model model, HttpSession session) {
         UsernamePasswordAuthenticationToken authentication
                 = (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
-
         validatePrinciple(authentication.getPrincipal());
-        User loggedInUser = ((UserDetailsDTO) authentication.getPrincipal()).getUser();
+        UserDTO loggedInUser = ((UserDetailsDTO) authentication.getPrincipal()).getUserDTO();
         model.addAttribute("currentUser", loggedInUser.getUsername());
         session.setAttribute("userId", loggedInUser.getUsername());
 

@@ -35,7 +35,6 @@ public class AdminControllers {
         modelMap.addAttribute("username", username);
         List<PostDTO> posts = postServices.getAllPosts();
         modelMap.addAttribute("posts", posts);
-
         return "admin/posts/index";
     }
 
@@ -43,7 +42,6 @@ public class AdminControllers {
     public String getCreatingPostSite(ModelMap modelMap, HttpSession httpSession) {
         String username = httpSession.getAttribute("username").toString();
         modelMap.addAttribute("username", username);
-
         List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
         modelMap.addAttribute("post", new Post());

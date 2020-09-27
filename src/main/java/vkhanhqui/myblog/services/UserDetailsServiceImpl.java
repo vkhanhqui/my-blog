@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import vkhanhqui.myblog.models.User;
+import vkhanhqui.myblog.models.dtos.UserDTO;
 import vkhanhqui.myblog.models.dtos.UserDetailsDTO;
 import vkhanhqui.myblog.models.repositories.UserRepositories;
 
@@ -18,9 +19,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = new User();
-        if (userRepositories.findById(username).isPresent())
-            user = userRepositories.findById(username).get();
-        return new UserDetailsDTO(user);
+        User user = userRepositories.findById(username).get();
+        UserDTO userDTO = new UserDTO(user.getUsername(),user.getPassword()
+                ,user.getEmail(), user.isEnabled(),user.getRoles());
+        return new UserDetailsDTO(userDTO);
     }
 }

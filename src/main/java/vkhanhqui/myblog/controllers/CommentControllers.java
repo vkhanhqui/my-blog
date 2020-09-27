@@ -7,13 +7,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import vkhanhqui.myblog.models.Comment;
 import vkhanhqui.myblog.services.CommentServices;
-import vkhanhqui.myblog.services.PostServices;
 
 @Controller
 @RequestMapping("detail/comments")
 public class CommentControllers {
-    @Autowired
-    PostServices postServices;
     @Autowired
     CommentServices commentServices;
 
@@ -25,11 +22,11 @@ public class CommentControllers {
         return "reply";
     }
 
-//    @PostMapping("/{postId}")
-//    public String saveComment(@PathVariable long postId, @ModelAttribute("comment") Comment comment) {
-//        commentServices.saveAComment(postServices.getPost(postId), comment);
-//        return "redirect:/detail/" + postId;
-//    }
+    @PostMapping("/{postId}")
+    public String saveComment(@PathVariable long postId, @ModelAttribute("comment") Comment comment) {
+        commentServices.saveAComment(postId, comment);
+        return "redirect:/detail/" + postId;
+    }
 
     @PostMapping("/reply/{parentId}")
     public String saveReply(@PathVariable long parentId, @ModelAttribute("comment") Comment comment) {

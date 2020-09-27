@@ -78,7 +78,12 @@ public class PostServices {
     }
 
     public PostDTO getPost(long id) {
-        return postRepositories.findByIdToDTO(id);
+        Post post = postRepositories.findById(id).get();
+        post.setViews(post.getViews()+1);
+        postRepositories.save(post);
+        return new PostDTO(post.getId(),post.getTitle(),post.getDescription()
+                ,post.getContent(),post.getDate(),post.getReading_time(),post.getThumbnail(),post.getViews(),post.getUser()
+        );
     }
 
     public void deletePost(long id) {

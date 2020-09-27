@@ -18,5 +18,8 @@ public class Role {
     private String authority;
 
     @ManyToMany(mappedBy = "roles", cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private List<User> user;
 }
