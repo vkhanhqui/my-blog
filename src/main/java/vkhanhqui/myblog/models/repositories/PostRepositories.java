@@ -30,6 +30,16 @@ public interface PostRepositories extends JpaRepository<Post, Long> {
             "from Post ORDER BY views DESC")
     List<PostDTO> findTop5ByOrderByViewsDesc(Pageable pageable);
 
+    @Query(value = "select new vkhanhqui.myblog.models.dtos.PostDTO(p.id, p.title, p.description" +
+            ", p.content, p.date, p.reading_time, p.thumbnail, p.views) " +
+            "from Post p where p.category.name like ?1")
+    List<PostDTO> findAllByCategoryName(String nameOfCategory);
+
+    @Query(value = "select new vkhanhqui.myblog.models.dtos.PostDTO(p.id, p.title, p.description" +
+            ", p.content, p.date, p.reading_time, p.thumbnail, p.views) " +
+            "from Post p where p.id = ?1")
+    PostDTO findByIdToDTO(long id);
+
     Optional<List<Post>> findAllByTitleContaining(String keyword);
 
     Optional<List<Post>> findAllByUserUsername(String username);

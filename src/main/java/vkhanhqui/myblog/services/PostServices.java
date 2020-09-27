@@ -3,7 +3,6 @@ package vkhanhqui.myblog.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
@@ -78,11 +77,8 @@ public class PostServices {
         return message;
     }
 
-    public Post getPost(long id) {
-        Post post = postRepositories.findById(id).get();
-        post.setViews(post.getViews() + 1);
-        postRepositories.save(post);
-        return post;
+    public PostDTO getPost(long id) {
+        return postRepositories.findByIdToDTO(id);
     }
 
     public void deletePost(long id) {
@@ -106,11 +102,15 @@ public class PostServices {
     }
 
     public List<PostDTO> getTop3ViewedPost() {
-        return postRepositories.findTop3ByOrderByViewsDesc(PageRequest.of(0,3));
+        return postRepositories.findTop3ByOrderByViewsDesc(PageRequest.of(0, 3));
     }
 
     public List<PostDTO> getTop5ViewedPost() {
-        return postRepositories.findTop5ByOrderByViewsDesc(PageRequest.of(0,5));
+        return postRepositories.findTop5ByOrderByViewsDesc(PageRequest.of(0, 5));
+    }
+
+    public List<PostDTO> getAllPostsByNameOfCategory(String nameOfCategory) {
+        return postRepositories.findAllByCategoryName(nameOfCategory);
     }
 
     public List<Post> getPostsByRelatedWords(String keyword) {

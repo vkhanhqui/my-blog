@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import vkhanhqui.myblog.models.Category;
 import vkhanhqui.myblog.models.dtos.CategoryDTO;
+import vkhanhqui.myblog.models.dtos.PostDTO;
 
 import java.util.List;
 
@@ -14,6 +15,4 @@ public interface CategoryRepositories extends JpaRepository<Category, Long> {
     @Query(value = "select new vkhanhqui.myblog.models.dtos.CategoryDTO(id, name) " +
             "from Category")
     List<CategoryDTO> findAllCategories();
-
-    Category findByName(String nameCategory);
 }

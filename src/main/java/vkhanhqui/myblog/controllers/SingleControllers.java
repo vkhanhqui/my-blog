@@ -32,14 +32,12 @@ public class SingleControllers {
 
     @GetMapping("/{id}")
     public String getDetailSite(@PathVariable long id, ModelMap modelMap
-            , Principal principal, HttpSession httpSession) {
-        if (principal != null) {
-            String username = principal.getName();
+            , HttpSession httpSession) {
+        if (httpSession.getAttribute("username") != null) {
+            String username = httpSession.getAttribute("username").toString();
             modelMap.addAttribute("username", username);
-            String role = httpSession.getAttribute("role").toString();
-            modelMap.addAttribute("role", role);
         }
-        Post post = postServices.getPost(id);
+        PostDTO post = postServices.getPost(id);
         modelMap.addAttribute("post", post);
         List<Comment> comments = commentServices.getParentComment(post.getId());
         modelMap.addAttribute("comments", comments);

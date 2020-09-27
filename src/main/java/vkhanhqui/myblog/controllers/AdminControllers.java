@@ -4,8 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-
-import vkhanhqui.myblog.models.*;
+import vkhanhqui.myblog.models.MyUploadForm;
+import vkhanhqui.myblog.models.Post;
+import vkhanhqui.myblog.models.User;
 import vkhanhqui.myblog.models.dtos.CategoryDTO;
 import vkhanhqui.myblog.models.dtos.PostDTO;
 import vkhanhqui.myblog.services.CategoryServices;
@@ -13,7 +14,6 @@ import vkhanhqui.myblog.services.PostServices;
 import vkhanhqui.myblog.services.UserServices;
 
 import javax.servlet.http.HttpSession;
-import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -25,42 +25,42 @@ public class AdminControllers {
 
     @Autowired
     PostServices postServices;
-    
+
     @Autowired
     CategoryServices categoryServices;
 
     @GetMapping("posts/index")
-    public String getPostManagementSite(ModelMap modelMap, Principal principal) {
-        if (principal != null) {
-            String username = principal.getName();
-            modelMap.addAttribute("username", username);
-            List<PostDTO> posts = postServices.getAllPosts();
-            modelMap.addAttribute("posts", posts);
-        }
+    public String getPostManagementSite(ModelMap modelMap, HttpSession httpSession) {
+        String username = httpSession.getAttribute("username").toString();
+        modelMap.addAttribute("username", username);
+        List<PostDTO> posts = postServices.getAllPosts();
+        modelMap.addAttribute("posts", posts);
+
         return "admin/posts/index";
     }
 
     @GetMapping("posts/create")
-    public String getCreatingPostSite(ModelMap modelMap, Principal principal) {
-        String username = principal.getName();
+    public String getCreatingPostSite(ModelMap modelMap, HttpSession httpSession) {
+        String username = httpSession.getAttribute("username").toString();
         modelMap.addAttribute("username", username);
+
         List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
         modelMap.addAttribute("post", new Post());
-        String message =  "";
+        String message = "";
         modelMap.addAttribute("message", message);
         modelMap.addAttribute("myUploadForm", new MyUploadForm());
-        modelMap.addAttribute("thumbnail",null);
+        modelMap.addAttribute("thumbnail", null);
         return "admin/posts/create";
     }
-    
+
     @PostMapping("posts/create")
-    public String createPost(ModelMap modelMap, Principal principal
+    public String createPost(ModelMap modelMap
             , @ModelAttribute("post") Post post
-    		, @RequestParam long categoryId
+            , @RequestParam long categoryId
             , HttpSession httpSession) {
         String thumbnail = httpSession.getAttribute("thumbnail").toString();
-        String username = principal.getName();
+        String username = httpSession.getAttribute("username").toString();
         String message = postServices.savePost(username, post, categoryId, thumbnail);
         modelMap.addAttribute("message", message);
         httpSession.removeAttribute("thumbnail");
@@ -68,18 +68,18 @@ public class AdminControllers {
     }
 
     @GetMapping("posts/edit/{postId}")
-    public String getUpdatingPostSite(ModelMap modelMap, Principal principal
+    public String getUpdatingPostSite(ModelMap modelMap, HttpSession httpSession
             , @PathVariable long postId) {
-        String username = principal.getName();
+        String username = httpSession.getAttribute("username").toString();
         modelMap.addAttribute("username", username);
         List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
-        String message =  "";
+        String message = "";
         modelMap.addAttribute("message", message);
         modelMap.addAttribute("post", new Post());
         modelMap.addAttribute("postId", postId);
         modelMap.addAttribute("myUploadForm", new MyUploadForm());
-        modelMap.addAttribute("thumbnail",null);
+        modelMap.addAttribute("thumbnail", null);
         return "admin/posts/edit";
     }
 
@@ -97,22 +97,18 @@ public class AdminControllers {
     }
 
     @GetMapping("users/index")
-    public String getUserManagementSite(ModelMap modelMap, Principal principal) {
-        if (principal != null) {
-            String username = principal.getName();
-            modelMap.addAttribute("username", username);
-            List<User> users = userServices.getAllUsersExceptCurrentUser(username);
-            modelMap.addAttribute("users", users);
-        }
+    public String getUserManagementSite(ModelMap modelMap, HttpSession httpSession) {
+        String username = httpSession.getAttribute("username").toString();
+        modelMap.addAttribute("username", username);
+        List<User> users = userServices.getAllUsersExceptCurrentUser(username);
+        modelMap.addAttribute("users", users);
         return "admin/users/index";
     }
 
     @GetMapping("users/create")
-    public String getCreatingUserSite(ModelMap modelMap, Principal principal) {
-        if (principal != null) {
-            String username = principal.getName();
-            modelMap.addAttribute("username", username);
-        }
+    public String getCreatingUserSite(ModelMap modelMap, HttpSession httpSession) {
+        String username = httpSession.getAttribute("username").toString();
+        modelMap.addAttribute("username", username);
         String message = "";
         modelMap.addAttribute("message", message);
         return "admin/users/create";
@@ -132,11 +128,9 @@ public class AdminControllers {
 
     @GetMapping("users/alter/{userId}")
     public String getAlternativeUserSite(@PathVariable String userId
-            , ModelMap modelMap, Principal principal) {
-        if (principal != null) {
-            String username = principal.getName();
-            modelMap.addAttribute("username", username);
-        }
+            , ModelMap modelMap, HttpSession httpSession) {
+        String username = httpSession.getAttribute("username").toString();
+        modelMap.addAttribute("username", username);
         modelMap.addAttribute("userId", userId);
         String message = "";
         modelMap.addAttribute("message", message);

@@ -68,12 +68,10 @@ public class HomeControllers {
 
     @GetMapping("/{currentPage}")
     public String getPagingHomeSite(@PathVariable int currentPage, ModelMap modelMap
-            , Principal principal, HttpSession httpSession) {
-        if (principal != null) {
-            String username = principal.getName();
+            , HttpSession httpSession) {
+        if(httpSession.getAttribute("username")!=null){
+            String username = httpSession.getAttribute("username").toString();
             modelMap.addAttribute("username", username);
-            String role = httpSession.getAttribute("role").toString();
-            modelMap.addAttribute("role", role);
         }
         List<PostDTO> posts = postServices.getAllPosts();
         PagedListHolder pagedListPost = new PagedListHolder(posts);

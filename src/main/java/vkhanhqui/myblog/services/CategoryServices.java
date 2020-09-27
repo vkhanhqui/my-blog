@@ -17,12 +17,8 @@ public class CategoryServices {
     @Autowired
     CategoryRepositories categoryRepositories;
 
-    public List<PostDTO> getPosts(String nameOfCategory) {
-        Category category = categoryRepositories.findByName(nameOfCategory);
-        return category.getPosts();
-    }
-
     public List<CategoryDTO> getCategories() {
         return categoryRepositories.findAllCategories();
     }
+
 }

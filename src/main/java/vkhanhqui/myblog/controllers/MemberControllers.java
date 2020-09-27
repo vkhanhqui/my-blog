@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import vkhanhqui.myblog.models.Category;
 import vkhanhqui.myblog.models.MyUploadForm;
 import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.models.dtos.CategoryDTO;
@@ -27,8 +26,8 @@ public class MemberControllers {
     CategoryServices categoryServices;
 
     @GetMapping("posts/index")
-    public String getPostManagementSite(ModelMap modelMap, Principal principal) {
-        String username = principal.getName();
+    public String getPostManagementSite(ModelMap modelMap, HttpSession httpSession) {
+        String username = httpSession.getAttribute("username").toString();
         modelMap.addAttribute("username", username);
         List<Post> posts = postServices.getAllPostsOfCurrentUser(username);
         modelMap.addAttribute("posts", posts);
@@ -36,8 +35,8 @@ public class MemberControllers {
     }
 
     @GetMapping("posts/create")
-    public String getCreatingPostSite(ModelMap modelMap, Principal principal, HttpSession httpSession) {
-        String username = principal.getName();
+    public String getCreatingPostSite(ModelMap modelMap, HttpSession httpSession) {
+        String username = httpSession.getAttribute("username").toString();
         modelMap.addAttribute("username", username);
         List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
@@ -63,9 +62,9 @@ public class MemberControllers {
     }
 
     @GetMapping("posts/edit/{postId}")
-    public String getUpdatingPostSite(ModelMap modelMap, Principal principal
+    public String getUpdatingPostSite(ModelMap modelMap, HttpSession httpSession
             , @PathVariable long postId) {
-        String username = principal.getName();
+        String username = httpSession.getAttribute("username").toString();
         modelMap.addAttribute("username", username);
         List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
