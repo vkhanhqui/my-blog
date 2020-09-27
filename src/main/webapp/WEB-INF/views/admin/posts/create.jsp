@@ -30,17 +30,17 @@
 <header>
     <div class="logo">
         <h1 class="logo-text">
-            <a href="/vkhanhqui_myblog_war_exploded/"><span>Khanh</span>Qui</a>
+            <a href="/"><span>Khanh</span>Qui</a>
         </h1>
     </div>
     <i class="fa fa-bars menu-toggle"></i>
     <ul class="nav">
-        <li><a href="/vkhanhqui_myblog_war_exploded/">Home</a></li>
-        <li><a href="/vkhanhqui_myblog_war_exploded/list/1">Posts</a></li>
-        <li><a href="/vkhanhqui_myblog_war_exploded/contact">About</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/list/1">Posts</a></li>
+        <li><a href="/contact">About</a></li>
         <c:choose>
             <c:when test="${username==null}">
-                <li><a href="/vkhanhqui_myblog_war_exploded/sign-in">Sign in/Sign
+                <li><a href="/sign-in">Sign in/Sign
                     up</a></li>
             </c:when>
             <c:otherwise>
@@ -48,8 +48,8 @@
                         class="fa fa-chevron-down" style="font-size: .8em;"></i>
                 </a>
                     <ul>
-                        <li><a href="/vkhanhqui_myblog_war_exploded/admin/posts/index">Dashboard</a></li>
-                        <li><a href="/vkhanhqui_myblog_war_exploded/sign-in/logout"
+                        <li><a href="/admin/posts/index">Dashboard</a></li>
+                        <li><a href="/sign-in/logout"
                                class="logout">Logout</a></li>
                     </ul>
                 </li>
@@ -62,18 +62,18 @@
 <div class="admin-wrapper">
     <div class="left-sidebar">
         <ul>
-            <li><a href="/vkhanhqui_myblog_war_exploded/admin/posts/index">Manage
+            <li><a href="/admin/posts/index">Manage
                 Posts</a></li>
-            <li><a href="/vkhanhqui_myblog_war_exploded/admin/users/index">Manage
+            <li><a href="/admin/users/index">Manage
                 Users</a></li>
         </ul>
     </div>
 
     <div class="admin-content">
         <div class="button-group">
-            <a href="/vkhanhqui_myblog_war_exploded/admin/posts/create"
+            <a href="/admin/posts/create"
                class="btn btn-big">Add Post</a> <a
-                href="/vkhanhqui_myblog_war_exploded/admin/posts/index" class="btn btn-big">Manage
+                href="/admin/posts/index" class="btn btn-big">Manage
             Posts</a>
         </div>
 
@@ -83,7 +83,7 @@
             <c:choose>
                 <c:when test="${thumbnail==null}">
                     <form:form modelAttribute="myUploadForm" method="post"
-                               action="/vkhanhqui_myblog_war_exploded/file/uploadFile"
+                               action="/file/uploadFile"
                                enctype="multipart/form-data">
                         <div>
                             <label>Thumbnail</label> <br>
@@ -95,7 +95,7 @@
                     </form:form>
                 </c:when>
                 <c:otherwise>
-                    <form:form action="/vkhanhqui_myblog_war_exploded/admin/posts/create"
+                    <form:form action="/admin/posts/create"
                                method="post" modelAttribute="post">
                         <div>
                             <label>Title</label>

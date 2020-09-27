@@ -32,17 +32,17 @@
 	<header>
 		<div class="logo">
 			<h1 class="logo-text">
-				<a href="/vkhanhqui_myblog_war_exploded/"><span>Khanh</span>Qui</a>
+				<a href="/"><span>Khanh</span>Qui</a>
 			</h1>
 		</div>
 		<i class="fa fa-bars menu-toggle"></i>
 		<ul class="nav">
-			<li><a href="/vkhanhqui_myblog_war_exploded/">Home</a></li>
-			<li><a href="/vkhanhqui_myblog_war_exploded/list/1">Posts</a></li>
-			<li><a href="/vkhanhqui_myblog_war_exploded/contact">About</a></li>
+			<li><a href="/">Home</a></li>
+			<li><a href="/list/1">Posts</a></li>
+			<li><a href="/contact">About</a></li>
 			<c:choose>
 				<c:when test="${username==null}">
-					<li><a href="/vkhanhqui_myblog_war_exploded/sign-in">Sign in/Sign
+					<li><a href="/sign-in">Sign in/Sign
 							up</a></li>
 				</c:when>
 				<c:otherwise>
@@ -50,8 +50,8 @@
 							class="fa fa-chevron-down" style="font-size: .8em;"></i>
 					</a>
 						<ul>
-							<li><a href="/vkhanhqui_myblog_war_exploded/${role}/posts/index">Dashboard</a></li>
-							<li><a href="/vkhanhqui_myblog_war_exploded/sign-in/logout"
+							<li><a href="/${role}/posts/index">Dashboard</a></li>
+							<li><a href="/sign-in/logout"
 								class="logout">Logout</a></li>
 						</ul></li>
 				</c:otherwise>
@@ -74,7 +74,7 @@
 			<div class="sidebar single">
 				<div class="section">
 					<h2 class="section-title">Search</h2>
-					<form action="/vkhanhqui_myblog_war_exploded/keywords/" method="post">
+					<form action="/keywords/" method="post">
 
 						<input type="text" class="text-input" name="keywords"
 							placeholder="Search..." />
@@ -88,9 +88,9 @@
 					<h2 class="section-title">Popular</h2>
 					<c:forEach var="one" items="${mostViewed}">
 						<div class="post clearfix">
-							<a href="/vkhanhqui_myblog_war_exploded/single/${one.id}"> <img
+							<a href="/single/${one.id}"> <img
 								src="<c:url value="${one.thumbnail}"/>" alt="" class="post-image">
-							</a> <a href="/vkhanhqui_myblog_war_exploded/single/${one.id}" class="title"><h4>${one.description}</h4></a>
+							</a> <a href="/single/${one.id}" class="title"><h4>${one.description}</h4></a>
 						</div>
 					</c:forEach>
 				</div>
@@ -99,7 +99,7 @@
 					<h2 class="section-title">Categories</h2>
 					<ul>
 						<c:forEach var="one" items="${listOfCategories}">
-							<li><a href="/vkhanhqui_myblog_war_exploded/categories/${one.name}/1">${one.name}</a></li>
+							<li><a href="/categories/${one.name}/1">${one.name}</a></li>
 						</c:forEach>
 					</ul>
 				</div>
