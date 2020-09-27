@@ -39,17 +39,6 @@ public class HomeControllers {
     @Autowired
     UserServices userServices;
 
-    @ExceptionHandler(ResourceNotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public String handleResourceNotFoundException(ModelMap modelMap
-            , HttpSession httpSession) {
-        if(httpSession.getAttribute("username")!=null){
-            String username = httpSession.getAttribute("username").toString();
-            modelMap.addAttribute("username", username);
-        }
-        return "notfound";
-    }
-
     @GetMapping
     public String getHomeSite(ModelMap modelMap, Principal principal) {
 //        postServices.deleteAllPosts();
