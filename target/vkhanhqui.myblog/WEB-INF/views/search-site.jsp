@@ -245,11 +245,6 @@
 <!-- jquery -->
 <script
         src="<c:url value="/resources/js/jquery-3.2.1.min.js"/>"></script>
-<!-- slick -->
-<script
-        src="<c:url value="/resources/js/slick.min.js"/>"></script>
-<!-- custom js -->
-<script src="<c:url value="/resources/js/custom.js"/>"></script>
 <!-- back to top -->
 <script
         src="<c:url value="/resources/js/backtotop.js"/>"></script>

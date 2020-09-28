@@ -135,7 +135,7 @@
 <script src="<c:url value="/resources/js/jquery-3.2.1.min.js"/>"></script>
 <script src="<c:url value="/resources/ckeditor/ckeditor.js"/>"></script>
 <!-- custom js -->
-<script src="<c:url value="/resources/js/custom.js"/>"></script>
+<script src="<c:url value="/resources/js/customCkeditor.js"/>"></script>
 
 </body>
 

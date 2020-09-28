@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import vkhanhqui.myblog.models.Role;
 import vkhanhqui.myblog.models.User;
+import vkhanhqui.myblog.models.dtos.UserDTO;
 import vkhanhqui.myblog.models.repositories.UserRepositories;
 
 import java.util.HashSet;
@@ -47,7 +48,7 @@ public class UserServices {
         userRepositories.customDeletingUserByUsername(username);
     }
 
-    public List<User> getAllUsersExceptCurrentUser(String username) {
+    public List<UserDTO> getAllUsersExceptCurrentUser(String username) {
         return userRepositories.findAllByUsernameNotIn(username);
     }
 

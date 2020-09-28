@@ -65,10 +65,6 @@
     </form>
 </div>
 
-<!-- jquery -->
-<script src="<c:url value="/resources/js/jquery-3.2.1.min.js"/>"></script>
-<!-- custom js -->
-<script src="<c:url value="/resources/js/custom.js"/>"></script>
 </body>
 
 </html>

@@ -40,9 +40,6 @@ public class User {
 
     @OneToMany(cascade = CascadeType.ALL,
             mappedBy = "user", orphanRemoval = true)
-    @LazyCollection(LazyCollectionOption.FALSE)
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
     private List<Post> posts = new ArrayList<>();
 
 }

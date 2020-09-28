@@ -88,7 +88,7 @@
 							<tr>
 								<td>${one.id}</td>
 								<td>${one.title}</td>
-								<td>${one.user.username}</td>
+								<td>${one.username}</td>
 								<td><a href="/admin/posts/edit/${one.id}" class="edit">edit</a></td>
 								<td><a
 									href="/manage/delete-post/${one.id}"
@@ -103,10 +103,6 @@
 	<!-- /admin page wrapper -->
 
 
-	<!-- jquery -->
-	<script src="<c:url value="/resources/js/jquery-3.2.1.min.js"/>"></script>
-	<!-- custom js -->
-	<script src="<c:url value="/resources/js/custom.js"/>"></script>
 </body>
 
 </html>

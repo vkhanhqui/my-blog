@@ -80,7 +80,7 @@
             <c:choose>
                 <c:when test="${thumbnail==null}">
                     <form:form modelAttribute="myUploadForm" method="post"
-                               action="/file/uploadOneFile"
+                               action="/file/uploadFile"
                                enctype="multipart/form-data">
                         <div>
                             <label>Thumbnail</label> <br>
@@ -131,7 +131,7 @@
 <script src="<c:url value="/resources/js/jquery-3.2.1.min.js"/>"></script>
 <script src="<c:url value="/resources/ckeditor/ckeditor.js"/>"></script>
 <!-- custom js -->
-<script src="<c:url value="/resources/js/custom.js"/>"></script>
+<script src="<c:url value="/resources/js/customCkeditor.js"/>"></script>
 
 </body>
 

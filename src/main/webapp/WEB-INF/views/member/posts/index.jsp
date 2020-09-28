@@ -75,15 +75,13 @@
 					<thead>
 						<th>ID</th>
 						<th>Title</th>
-						<th>Creator</th>
-						<th colspan="3">Action</th>
+						<th colspan="2">Action</th>
 					</thead>
 					<tbody>
 						<c:forEach var="one" items="${posts}">
 							<tr>
 								<td>${one.id}</td>
 								<td>${one.title}</td>
-								<td>${one.user.username}</td>
 								<td><a href="/member/posts/edit/${one.id}" class="edit">edit</a></td>
 								<td><a
 									href="/manage/delete-post/${one.id}"
@@ -98,10 +96,6 @@
 <!-- /admin page wrapper -->
 
 
-	<!-- jquery -->
-	<script src="<c:url value="/resources/js/jquery-3.2.1.min.js"/>"></script>
-	<!-- custom js -->
-	<script src="<c:url value="/resources/js/custom.js"/>"></script>
 </body>
 
 </html>

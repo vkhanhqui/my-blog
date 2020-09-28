@@ -39,14 +39,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/**", "/resource/**").permitAll()
-                .antMatchers("/member/posts/index"
-                        , "/member/posts/create")
+                .antMatchers("/member/**")
                 .hasRole("MEMBER")
-                .antMatchers("/admin/posts/index"
-                        , "/admin/posts/create"
-                        , "/admin/users/index"
-                        , "/admin/users/create"
-                        , "/manage/delete-user/**")
+                .antMatchers("/admin/**")
                 .hasRole("ADMIN")
                 .antMatchers("/manage/delete-post/**")
                 .hasAnyRole("MEMBER", "ADMIN")

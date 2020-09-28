@@ -67,7 +67,7 @@
 			<div class="main-content single">
 				<h1 class="post-title">${post.title}</h1>
 
-				<div class="post-content">${post.content}</div>
+				<div class="post-content">${post.description}</div>
 			</div>
 			<!-- /main content -->
 			<!-- sidebar -->
@@ -163,8 +163,6 @@
 
 	<!-- jquery -->
 	<script src="<c:url value="/resources/js/jquery-3.2.1.min.js"/>"></script>
-	<!-- custom js -->
-	<script src="<c:url value="/resources/js/custom.js"/>"></script>
 	<!-- back to top -->
 	<script src="<c:url value="/resources/js/backtotop.js"/>"></script>
 

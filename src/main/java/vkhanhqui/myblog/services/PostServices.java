@@ -82,7 +82,7 @@ public class PostServices {
         Post post = postRepositories.findById(id).get();
         post.setViews(post.getViews()+1);
         postRepositories.save(post);
-        return new PostDTO(post.getId(),post.getTitle(),post.getDescription()
+        return new PostDTO(post.getId(),post.getTitle(),post.getContent()
                 ,post.getDate(),post.getReading_time(),post.getThumbnail(),post.getViews()
         );
     }
@@ -123,19 +123,12 @@ public class PostServices {
         return postRepositories.findAllByCategoryName(nameOfCategory);
     }
 
-    public List<Post> getPostsByRelatedWords(String keyword) {
-        List<Post> posts = new ArrayList<>();
-        Optional<List<Post>> optionalPosts = postRepositories.findAllByTitleContaining(keyword);
-        if (optionalPosts.isPresent())
-            posts = optionalPosts.get();
-        return posts;
+    public List<PostDTO> getPostsByRelatedWords(String keyword) {
+        return postRepositories.findAllByTitleContaining(keyword);
     }
 
-    public List<Post> getAllPostsOfCurrentUser(String username) {
-        List<Post> posts = new ArrayList<Post>();
-        if (postRepositories.findAllByUserUsername(username).isPresent())
-            posts = postRepositories.findAllByUserUsername(username).get();
-        return posts;
+    public List<PostDTO> getAllPostsOfCurrentUser(String username) {
+            return postRepositories.findAllByUserUsername(username);
     }
 
     public String uploadFile(MyUploadForm myUploadForm) {

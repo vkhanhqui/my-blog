@@ -36,13 +36,19 @@ public interface PostRepositories extends JpaRepository<Post, Long> {
             "from Post p where p.category.name like ?1")
     List<PostDTO> findAllByCategoryName(String nameOfCategory);
 
-    @Query(value = "select new vkhanhqui.myblog.models.dtos.PostAdminSiteDTO(id, title, user) " +
-            "from Post")
+    @Query(value = "select new vkhanhqui.myblog.models.dtos.PostAdminSiteDTO(p.id, p.title, p.user.username) " +
+            "from Post p")
     List<PostAdminSiteDTO> findAllPostsAdminSite();
 
-    Optional<List<Post>> findAllByTitleContaining(String keyword);
+    @Query(value = "select new vkhanhqui.myblog.models.dtos.PostDTO(p.id, p.title, p.description" +
+            ", p.date, p.reading_time, p.thumbnail, p.views) " +
+            "from Post p where p.title like %?1%")
+    List<PostDTO> findAllByTitleContaining(String keyword);
 
-    Optional<List<Post>> findAllByUserUsername(String username);
+    @Query(value = "select new vkhanhqui.myblog.models.dtos.PostDTO(p.id, p.title, p.description" +
+            ", p.date, p.reading_time, p.thumbnail, p.views) " +
+            "from Post p where p.user.username like ?1")
+    List<PostDTO> findAllByUserUsername(String username);
 
     @Modifying
     @Query(value = "delete from post where id = ?1", nativeQuery = true)

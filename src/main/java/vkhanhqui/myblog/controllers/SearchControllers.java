@@ -5,13 +5,12 @@ import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.models.dtos.CategoryDTO;
 import vkhanhqui.myblog.models.dtos.PostDTO;
 import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.PostServices;
 
-import javax.servlet.http.HttpSession;
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -29,12 +28,12 @@ public class SearchControllers {
 
     @GetMapping("/{keywords}/{currentPage}")
     public String getKeywordSite(@PathVariable String keywords, @PathVariable int currentPage
-            , ModelMap modelMap, HttpSession httpSession) {
-        if (httpSession.getAttribute("username") != null) {
-            String username = httpSession.getAttribute("username").toString();
+            , ModelMap modelMap, Principal principal) {
+        if (principal != null) {
+            String username = principal.getName();
             modelMap.addAttribute("username", username);
         }
-        List<Post> posts = postServices.getPostsByRelatedWords(keywords);
+        List<PostDTO> posts = postServices.getPostsByRelatedWords(keywords);
         PagedListHolder pagedListPost = new PagedListHolder(posts);
         pagedListPost.setPageSize(6);
         PagedListHolder pagedListNumber = postServices.getPagingSite(currentPage, pagedListPost);
