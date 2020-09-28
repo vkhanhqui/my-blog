@@ -2,19 +2,13 @@ package vkhanhqui.myblog.controllers;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.servlet.NoHandlerFoundException;
+import org.springframework.web.servlet.ModelAndView;
 
 @ControllerAdvice
 public class ControllerAdvisor {
 
-    @ExceptionHandler(NoHandlerFoundException.class)
-    public String handle() {
-        return "redirect:/404";
-    }
-
-    @GetMapping("/404")
-    public String NotFoudPage() {
-        return "notfound";
+    @ExceptionHandler(Exception.class)
+    public ModelAndView CanNotReachPage() {
+        return new ModelAndView("notfound");
     }
 }

@@ -1,6 +1,9 @@
 $(document).ready(function(){
 
-
+	var editor = "";
+		$(document).ready(function() {
+			editor = CKEDITOR.replace('content');
+		});
 	
 	$('.menu-toggle').on('click', function(){
 		$('.nav').toggleClass('showing');
