@@ -67,7 +67,7 @@
 			<div class="main-content single">
 				<h1 class="post-title">${post.title}</h1>
 
-				<div class="post-content">${post.content}</div>
+				<div class="post-content">${post.description}</div>
 			</div>
 			<!-- /main content -->
 			<!-- sidebar -->

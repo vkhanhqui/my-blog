@@ -2,25 +2,25 @@ package vkhanhqui.myblog.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.support.PagedListHolder;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import vkhanhqui.myblog.models.Category;
 import vkhanhqui.myblog.models.MyUploadForm;
 import vkhanhqui.myblog.models.Post;
+import vkhanhqui.myblog.models.dtos.PostAdminSiteDTO;
+import vkhanhqui.myblog.models.dtos.PostDTO;
 import vkhanhqui.myblog.models.repositories.CategoryRepositories;
 import vkhanhqui.myblog.models.repositories.PostRepositories;
 import vkhanhqui.myblog.models.repositories.UserRepositories;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 
 @Transactional
@@ -33,8 +33,8 @@ public class PostServices {
     @Autowired
     private PostRepositories postRepositories;
 
-    public List<Post> getAllPosts() {
-        return postRepositories.findAll();
+    public List<PostDTO> getAllPosts() {
+        return postRepositories.findAllPosts();
     }
 
     public String savePost(String username, Post post, long categoryId, String thumbnail) {
@@ -44,22 +44,21 @@ public class PostServices {
         post.setDate(new Date());
         post.setThumbnail(thumbnail);
         post.setUser(userRepositories.findById(username).get());
-        post.setReading("12 min read");
+        post.setReading_time("12 min read");
         post.setViews((long) 0);
-        String message ="<div class=\"msg success\">\r\n" + "               <li>Successfully</li>\r\n"
+        String message = "<div class=\"msg success\">\r\n" + "               <li>Successfully</li>\r\n"
                 + "           </div>";
         try {
             postRepositories.save(post);
-        }
-        catch (Exception e){
-            message= "<div class=\"msg error\">\r\n" + "               <li>Something is incorrect</li>\r\n"
+        } catch (Exception e) {
+            message = "<div class=\"msg error\">\r\n" + "               <li>Something is incorrect</li>\r\n"
                     + "           </div>";
         }
         return message;
     }
 
     public String editPost(long id, Post post, long categoryId, String thumbnail) {
-        Post postNeedToUpdate= postRepositories.findById(id).get();
+        Post postNeedToUpdate = postRepositories.findById(id).get();
         Category category = categoryRepositories.findById(categoryId).get();
         postNeedToUpdate.setCategory(category);
         postNeedToUpdate.setDate(new Date());
@@ -67,31 +66,32 @@ public class PostServices {
         postNeedToUpdate.setTitle(post.getTitle());
         postNeedToUpdate.setContent(post.getContent());
         postNeedToUpdate.setDescription(post.getDescription());
-        String message ="<div class=\"msg success\">\r\n" + "               <li>Successfully</li>\r\n"
+        String message = "<div class=\"msg success\">\r\n" + "               <li>Successfully</li>\r\n"
                 + "           </div>";
         try {
             postRepositories.save(postNeedToUpdate);
-        }
-        catch (Exception e){
-            message= "<div class=\"msg error\">\r\n" + "               <li>Something is incorrect</li>\r\n"
+        } catch (Exception e) {
+            message = "<div class=\"msg error\">\r\n" + "               <li>Something is incorrect</li>\r\n"
                     + "           </div>";
         }
         return message;
     }
 
-    public Post getPost(long id) {
+    public PostDTO getPost(long id) {
         Post post = postRepositories.findById(id).get();
         post.setViews(post.getViews() + 1);
         postRepositories.save(post);
-        return post;
+        return new PostDTO(post.getId(), post.getTitle(), post.getContent()
+                , post.getDate(), post.getReading_time(), post.getThumbnail(), post.getViews()
+        );
+    }
+
+    public List<PostAdminSiteDTO> getAllPostsAdminSite() {
+        return postRepositories.findAllPostsAdminSite();
     }
 
     public void deletePost(long id) {
         postRepositories.customDeletingPostById(id);
-    }
-
-    public void deleteAllPosts() {
-        postRepositories.deleteAll();
     }
 
     public PagedListHolder getPagingSite(int currentPage
@@ -110,39 +110,24 @@ public class PostServices {
         return pagedListNumber;
     }
 
-    public List<Post> getTheMostViewedPost() {
-        List<Post> posts = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            Optional<List<Post>> optionalPosts = postRepositories.findAllByOrderByViewsDesc();
-            if (optionalPosts.isPresent())
-                posts.add(i, optionalPosts.get().get(i));
-        }
-        return posts;
+    public List<PostDTO> getTop3ViewedPost() {
+        return postRepositories.findTop3ByOrderByViewsDesc(PageRequest.of(0, 3));
     }
 
-    public List<Post> getTopFiveViewedPost() {
-        List<Post> posts = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            Optional<List<Post>> optionalPosts = postRepositories.findAllByOrderByViewsDesc();
-            if (optionalPosts.isPresent())
-                posts.add(i, optionalPosts.get().get(i));
-        }
-        return posts;
+    public List<PostDTO> getTop5ViewedPost() {
+        return postRepositories.findTop5ByOrderByViewsDesc(PageRequest.of(0, 5));
     }
 
-    public List<Post> getPostsByRelatedWords(String keyword) {
-        List<Post> posts = new ArrayList<>();
-        Optional<List<Post>> optionalPosts = postRepositories.findAllByTitleContaining(keyword);
-        if (optionalPosts.isPresent())
-            posts = optionalPosts.get();
-        return posts;
+    public List<PostDTO> getAllPostsByNameOfCategory(String nameOfCategory) {
+        return postRepositories.findAllByCategoryName(nameOfCategory);
     }
 
-    public List<Post> getAllPostsOfCurrentUser(String username) {
-        List<Post> posts = new ArrayList<Post>();
-        if (postRepositories.findAllByUserUsername(username).isPresent())
-            posts = postRepositories.findAllByUserUsername(username).get();
-        return posts;
+    public List<PostDTO> getPostsByRelatedWords(String keyword) {
+        return postRepositories.findAllByTitleContaining(keyword);
+    }
+
+    public List<PostDTO> getAllPostsOfCurrentUser(String username) {
+        return postRepositories.findAllByUserUsername(username);
     }
 
     public String uploadFile(MyUploadForm myUploadForm) {
@@ -163,7 +148,7 @@ public class PostServices {
                     System.out.println("Error Write file: " + name);
                 }
             }
-            name = "/resources/images/"+name;
+            name = "/resources/images/" + name;
         }
         return name;
     }

@@ -4,9 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import vkhanhqui.myblog.models.Category;
 import vkhanhqui.myblog.models.MyUploadForm;
 import vkhanhqui.myblog.models.Post;
+import vkhanhqui.myblog.models.dtos.CategoryDTO;
+import vkhanhqui.myblog.models.dtos.PostDTO;
 import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.PostServices;
 
@@ -29,16 +30,16 @@ public class MemberControllers {
     public String getPostManagementSite(ModelMap modelMap, Principal principal) {
         String username = principal.getName();
         modelMap.addAttribute("username", username);
-        List<Post> posts = postServices.getAllPostsOfCurrentUser(username);
+        List<PostDTO> posts = postServices.getAllPostsOfCurrentUser(username);
         modelMap.addAttribute("posts", posts);
         return "member/posts/index";
     }
 
     @GetMapping("posts/create")
-    public String getCreatingPostSite(ModelMap modelMap, Principal principal, HttpSession httpSession) {
+    public String getCreatingPostSite(ModelMap modelMap, Principal principal) {
         String username = principal.getName();
         modelMap.addAttribute("username", username);
-        List<Category> listOfCategories = categoryServices.getCategories();
+        List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
         modelMap.addAttribute("post", new Post());
         String message = "";
@@ -55,6 +56,7 @@ public class MemberControllers {
             , HttpSession httpSession) {
         String thumbnail = httpSession.getAttribute("thumbnail").toString();
         String username = principal.getName();
+        modelMap.addAttribute("username", username);
         String message = postServices.savePost(username, post, categoryId, thumbnail);
         modelMap.addAttribute("message", message);
         httpSession.removeAttribute("thumbnail");
@@ -66,7 +68,7 @@ public class MemberControllers {
             , @PathVariable long postId) {
         String username = principal.getName();
         modelMap.addAttribute("username", username);
-        List<Category> listOfCategories = categoryServices.getCategories();
+        List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
         String message = "";
         modelMap.addAttribute("message", message);
@@ -80,7 +82,9 @@ public class MemberControllers {
     @PostMapping("posts/edit")
     public String updatePost(ModelMap modelMap, @ModelAttribute("post") Post post
             , @RequestParam long categoryId
-            , HttpSession httpSession) {
+            , HttpSession httpSession, Principal principal) {
+        String username = principal.getName();
+        modelMap.addAttribute("username", username);
         String thumbnail = httpSession.getAttribute("thumbnail").toString();
         long postId = (long) httpSession.getAttribute("postId");
         String message = postServices.editPost(postId, post, categoryId, thumbnail);

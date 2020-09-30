@@ -38,14 +38,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests()
-                .antMatchers("/vkhanhqui_myblog_war_exploded/**", "/resource/**").permitAll()
-                .antMatchers("/member/posts/index"
-                        , "/member/posts/create")
+                .antMatchers("/member/**")
                 .hasRole("MEMBER")
-                .antMatchers("/admin/posts/index"
-                        , "/admin/posts/create"
-                        , "/admin/users/index"
-                        , "/admin/users/create"
+                .antMatchers("/admin/**"
                         , "/manage/delete-user/**")
                 .hasRole("ADMIN")
                 .antMatchers("/manage/delete-post/**")
@@ -66,6 +61,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/sign-in/logout").permitAll()
                 .and()
                 .csrf()
-                .disable();
+                .disable()
+                .headers().httpStrictTransportSecurity().disable();
     }
 }

@@ -29,21 +29,15 @@ public class Comment {
     @Column(name = "date")
     private Date date;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id")
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
     private Comment parent;
 
-    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
     @OrderBy("date ASC")
     private List<Comment> children;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id")
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
     private Post post;
 }

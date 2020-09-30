@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import vkhanhqui.myblog.models.Comment;
 import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.models.repositories.CommentRepositories;
+import vkhanhqui.myblog.models.repositories.PostRepositories;
 
 import java.util.Date;
 import java.util.List;
@@ -14,17 +15,17 @@ import java.util.List;
 @Service
 public class CommentServices {
     @Autowired
-    PostServices postServices;
-    @Autowired
     CommentRepositories commentRepositories;
+    @Autowired
+    PostRepositories postRepositories;
 
     public Comment getAComment(long id) {
         return commentRepositories.findById(id).get();
     }
 
-    public void saveAComment(Post post, Comment comment) {
+    public void saveAComment(long postId, Comment comment) {
         comment.setReplyTo(null);
-        comment.setPost(post);
+        comment.setPost(postRepositories.findById(postId).get());
         comment.setDate(new Date());
         comment.setParent(null);
         commentRepositories.save(comment);
