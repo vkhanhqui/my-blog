@@ -12,8 +12,7 @@ import java.util.Optional;
 
 @Repository("userRepository")
 public interface UserRepositories extends JpaRepository<User, String> {
-    @Query(value = "select new vkhanhqui.myblog.models.dtos.UserDTO(username, password, email, enabled, roles) from User")
-    List<UserDTO> findAllByUsernameNotIn(String username);
+    List<User> findAllByUsernameNotIn(String username);
 
     @Modifying
     @Query(value = "delete p, u, ur from post p\r\n" + 
