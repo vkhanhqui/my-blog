@@ -191,7 +191,7 @@ header ul li a:hover {
     margin: 30px auto;
 }
 
-.post-slider .next {
+.post-slider .nextt {
     position: absolute;
     top: 50%;
     right: 30px;
@@ -200,7 +200,7 @@ header ul li a:hover {
     cursor: pointer;
 }
 
-.post-slider .prev {
+.post-slider .prevv {
     position: absolute;
     top: 50%;
     left: 30px;
@@ -638,11 +638,11 @@ header ul li a:hover {
         text-align: center;
     }
 
-    .post-slider .next {
+    .post-slider .nextt {
         right: 10px;
     }
 
-    .post-slider .prev {
+    .post-slider .prevv {
         left: 10px;
     }
 }

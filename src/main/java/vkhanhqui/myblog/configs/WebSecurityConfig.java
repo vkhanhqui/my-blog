@@ -38,8 +38,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests()
-                .antMatchers("/**", "/resource/**").permitAll()
-                .antMatchers("/member/**")
+                .antMatchers("/member/posts/index"
+                        , "/member/posts/create")
                 .hasRole("MEMBER")
                 .antMatchers("/admin/**"
                         ,"/manage/delete-user/**")
