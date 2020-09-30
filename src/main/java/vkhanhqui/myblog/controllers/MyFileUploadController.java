@@ -34,9 +34,13 @@ public class MyFileUploadController {
             , ModelMap modelMap, HttpSession httpSession) {
         String thumbnail = postServices.uploadFile(myUploadForm);
         modelMap.addAttribute("thumbnail", thumbnail);
-        String address = "redirect:/admin/posts/create";
+        String address = "redirect:/"
+                +httpSession.getAttribute("role")
+                +"/posts/create";
         if(httpSession.getAttribute("postId")!=null){
-            address = "redirect:/admin/posts/edit/"+httpSession.getAttribute("postId").toString();
+            address = "redirect:/"+httpSession.getAttribute("role")
+                    +"/posts/edit/"
+                    +httpSession.getAttribute("postId").toString();
         }
         return address;
     }
