@@ -13,6 +13,7 @@ import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.PostServices;
 
 import javax.servlet.http.HttpSession;
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -25,9 +26,9 @@ public class CategoryControllers {
 
     @GetMapping("/{nameOfCategory}/{currentPage}")
     public String getCategorySite(@PathVariable String nameOfCategory, @PathVariable int currentPage
-            , ModelMap modelMap, HttpSession httpSession) {
-        if(httpSession.getAttribute("username")!=null){
-            String username = httpSession.getAttribute("username").toString();
+            , ModelMap modelMap, Principal principal) {
+        if (principal != null) {
+            String username = principal.getName();
             modelMap.addAttribute("username", username);
         }
         List<PostDTO> posts = postServices.getAllPostsByNameOfCategory(nameOfCategory);

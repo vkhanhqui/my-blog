@@ -9,6 +9,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import vkhanhqui.myblog.models.Category;
 import vkhanhqui.myblog.models.MyUploadForm;
 import vkhanhqui.myblog.models.Post;
+import vkhanhqui.myblog.models.dtos.PostAdminSiteDTO;
 import vkhanhqui.myblog.models.dtos.PostDTO;
 import vkhanhqui.myblog.models.repositories.CategoryRepositories;
 import vkhanhqui.myblog.models.repositories.PostRepositories;
@@ -20,7 +21,6 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 
 @Transactional
@@ -79,11 +79,15 @@ public class PostServices {
 
     public PostDTO getPost(long id) {
         Post post = postRepositories.findById(id).get();
-        post.setViews(post.getViews()+1);
+        post.setViews(post.getViews() + 1);
         postRepositories.save(post);
-        return new PostDTO(post.getId(),post.getTitle(),post.getDescription()
-                ,post.getContent(),post.getDate(),post.getReading_time(),post.getThumbnail(),post.getViews(),post.getUser()
+        return new PostDTO(post.getId(), post.getTitle(), post.getContent()
+                , post.getDate(), post.getReading_time(), post.getThumbnail(), post.getViews()
         );
+    }
+
+    public List<PostAdminSiteDTO> getAllPostsAdminSite() {
+        return postRepositories.findAllPostsAdminSite();
     }
 
     public void deletePost(long id) {
@@ -118,19 +122,12 @@ public class PostServices {
         return postRepositories.findAllByCategoryName(nameOfCategory);
     }
 
-    public List<Post> getPostsByRelatedWords(String keyword) {
-        List<Post> posts = new ArrayList<>();
-        Optional<List<Post>> optionalPosts = postRepositories.findAllByTitleContaining(keyword);
-        if (optionalPosts.isPresent())
-            posts = optionalPosts.get();
-        return posts;
+    public List<PostDTO> getPostsByRelatedWords(String keyword) {
+        return postRepositories.findAllByTitleContaining(keyword);
     }
 
-    public List<Post> getAllPostsOfCurrentUser(String username) {
-        List<Post> posts = new ArrayList<Post>();
-        if (postRepositories.findAllByUserUsername(username).isPresent())
-            posts = postRepositories.findAllByUserUsername(username).get();
-        return posts;
+    public List<PostDTO> getAllPostsOfCurrentUser(String username) {
+        return postRepositories.findAllByUserUsername(username);
     }
 
     public String uploadFile(MyUploadForm myUploadForm) {

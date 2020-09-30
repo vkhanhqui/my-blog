@@ -6,12 +6,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import vkhanhqui.myblog.models.Role;
 import vkhanhqui.myblog.models.User;
+import vkhanhqui.myblog.models.dtos.UserDTO;
 import vkhanhqui.myblog.models.repositories.UserRepositories;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Service
 @Transactional
@@ -47,8 +45,14 @@ public class UserServices {
         userRepositories.customDeletingUserByUsername(username);
     }
 
-    public List<User> getAllUsersExceptCurrentUser(String username) {
-        return userRepositories.findAllByUsernameNotIn(username);
+    public List<UserDTO> getAllUsersExceptCurrentUser(String username) {
+        List<User> users = userRepositories.findAllByUsernameNotIn(username);
+        List<UserDTO> userDTOS = new ArrayList<>();
+        for(int i=0; i<users.size(); i++){
+            userDTOS.add(i,new UserDTO(users.get(i).getUsername(),null
+            ,null,users.get(i).isEnabled(),null));
+        }
+        return userDTOS;
     }
 
     public void createUser(String username, String email, String password, String roleName) {

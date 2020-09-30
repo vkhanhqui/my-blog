@@ -65,8 +65,8 @@
 		<div class="post-slider">
 
 			<h1 class="slider-title">Trending Posts</h1>
-			<i class="fas fa-chevron-left prev"></i> <i
-				class="fas fa-chevron-right next"></i>
+			<i class="fas fa-chevron-left prevv"></i> <i
+				class="fas fa-chevron-right nextt"></i>
 
 			<div class="post-wrapper">
 				<c:forEach var="one" items="${topFiveViewedPost}">

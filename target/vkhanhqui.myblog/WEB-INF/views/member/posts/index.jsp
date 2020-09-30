@@ -75,15 +75,13 @@
 					<thead>
 						<th>ID</th>
 						<th>Title</th>
-						<th>Creator</th>
-						<th colspan="3">Action</th>
+						<th colspan="2">Action</th>
 					</thead>
 					<tbody>
 						<c:forEach var="one" items="${posts}">
 							<tr>
 								<td>${one.id}</td>
 								<td>${one.title}</td>
-								<td>${one.user.username}</td>
 								<td><a href="/vkhanhqui_myblog_war_exploded/member/posts/edit/${one.id}" class="edit">edit</a></td>
 								<td><a
 									href="/vkhanhqui_myblog_war_exploded/manage/delete-post/${one.id}"

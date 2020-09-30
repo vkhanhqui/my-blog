@@ -8,12 +8,14 @@ import vkhanhqui.myblog.models.MyUploadForm;
 import vkhanhqui.myblog.models.Post;
 import vkhanhqui.myblog.models.User;
 import vkhanhqui.myblog.models.dtos.CategoryDTO;
-import vkhanhqui.myblog.models.dtos.PostDTO;
+import vkhanhqui.myblog.models.dtos.PostAdminSiteDTO;
+import vkhanhqui.myblog.models.dtos.UserDTO;
 import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.PostServices;
 import vkhanhqui.myblog.services.UserServices;
 
 import javax.servlet.http.HttpSession;
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -30,17 +32,17 @@ public class AdminControllers {
     CategoryServices categoryServices;
 
     @GetMapping("posts/index")
-    public String getPostManagementSite(ModelMap modelMap, HttpSession httpSession) {
-        String username = httpSession.getAttribute("username").toString();
+    public String getPostManagementSite(ModelMap modelMap, Principal principal) {
+        String username = principal.getName();
         modelMap.addAttribute("username", username);
-        List<PostDTO> posts = postServices.getAllPosts();
+        List<PostAdminSiteDTO> posts = postServices.getAllPostsAdminSite();
         modelMap.addAttribute("posts", posts);
         return "admin/posts/index";
     }
 
     @GetMapping("posts/create")
-    public String getCreatingPostSite(ModelMap modelMap, HttpSession httpSession) {
-        String username = httpSession.getAttribute("username").toString();
+    public String getCreatingPostSite(ModelMap modelMap, Principal principal) {
+        String username = principal.getName();
         modelMap.addAttribute("username", username);
         List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
@@ -95,17 +97,17 @@ public class AdminControllers {
     }
 
     @GetMapping("users/index")
-    public String getUserManagementSite(ModelMap modelMap, HttpSession httpSession) {
-        String username = httpSession.getAttribute("username").toString();
+    public String getUserManagementSite(ModelMap modelMap, Principal principal) {
+        String username = principal.getName();
         modelMap.addAttribute("username", username);
-        List<User> users = userServices.getAllUsersExceptCurrentUser(username);
+        List<UserDTO> users = userServices.getAllUsersExceptCurrentUser(username);
         modelMap.addAttribute("users", users);
         return "admin/users/index";
     }
 
     @GetMapping("users/create")
-    public String getCreatingUserSite(ModelMap modelMap, HttpSession httpSession) {
-        String username = httpSession.getAttribute("username").toString();
+    public String getCreatingUserSite(ModelMap modelMap, Principal principal) {
+        String username = principal.getName();
         modelMap.addAttribute("username", username);
         String message = "";
         modelMap.addAttribute("message", message);
@@ -126,8 +128,8 @@ public class AdminControllers {
 
     @GetMapping("users/alter/{userId}")
     public String getAlternativeUserSite(@PathVariable String userId
-            , ModelMap modelMap, HttpSession httpSession) {
-        String username = httpSession.getAttribute("username").toString();
+            , ModelMap modelMap, Principal principal) {
+        String username = principal.getName();
         modelMap.addAttribute("username", username);
         modelMap.addAttribute("userId", userId);
         String message = "";

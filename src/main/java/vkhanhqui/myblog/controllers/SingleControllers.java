@@ -32,9 +32,9 @@ public class SingleControllers {
 
     @GetMapping("/{id}")
     public String getDetailSite(@PathVariable long id, ModelMap modelMap
-            , HttpSession httpSession) {
-        if (httpSession.getAttribute("username") != null) {
-            String username = httpSession.getAttribute("username").toString();
+            , Principal principal) {
+        if (principal != null) {
+            String username = principal.getName();
             modelMap.addAttribute("username", username);
         }
         PostDTO post = postServices.getPost(id);
