@@ -5,6 +5,7 @@ import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import vkhanhqui.myblog.models.dtos.PostDTO;
 import vkhanhqui.myblog.models.entities.Category;
 import vkhanhqui.myblog.models.entities.MyUploadForm;
 import vkhanhqui.myblog.models.entities.Post;
@@ -31,8 +32,17 @@ public class PostServices {
     @Autowired
     private PostRepositories postRepositories;
 
-    public List<Post> getAllPosts() {
-        return postRepositories.findAll();
+    public List<PostDTO> getAllPosts() {
+        List<Post> posts = postRepositories.findAll();
+        List<PostDTO> postDTOS = new ArrayList<>();
+        for (int i = 0; i < posts.size(); i++) {
+            Post post = posts.get(i);
+            postDTOS.add(i, new PostDTO(post.getId(),post.getTitle()
+                    ,post.getDescription(), post.getContent(), post.getDate()
+                    , post.getReading(), post.getThumbnail(),post.getViews()
+            ));
+        }
+        return postDTOS;
     }
 
     public String savePost(String username, Post post, long categoryId, String thumbnail) {
@@ -77,11 +87,15 @@ public class PostServices {
         return message;
     }
 
-    public Post getPost(long id) {
+    public PostDTO getPost(long id) {
         Post post = postRepositories.findById(id).get();
+        PostDTO postDTO = new PostDTO(post.getId(),post.getTitle()
+                ,post.getDescription(), post.getContent(), post.getDate()
+                , post.getReading(), post.getThumbnail(),post.getViews()
+        );
         post.setViews(post.getViews() + 1);
         postRepositories.save(post);
-        return post;
+        return postDTO;
     }
 
     public void deletePost(long id) {
@@ -108,39 +122,71 @@ public class PostServices {
         return pagedListNumber;
     }
 
-    public List<Post> getTheMostViewedPost() {
+    public List<PostDTO> getTheMostViewedPost() {
         List<Post> posts = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             Optional<List<Post>> optionalPosts = postRepositories.findAllByOrderByViewsDesc();
             if (optionalPosts.isPresent())
                 posts.add(i, optionalPosts.get().get(i));
         }
-        return posts;
+        List<PostDTO> postDTOS = new ArrayList<>();
+        for (int i = 0; i < posts.size(); i++) {
+            Post post = posts.get(i);
+            postDTOS.add(i, new PostDTO(post.getId(),post.getTitle()
+                    ,post.getDescription(), post.getContent(), post.getDate()
+                    , post.getReading(), post.getThumbnail(),post.getViews()
+            ));
+        }
+        return postDTOS;
     }
 
-    public List<Post> getTopFiveViewedPost() {
+    public List<PostDTO> getTopFiveViewedPost() {
         List<Post> posts = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             Optional<List<Post>> optionalPosts = postRepositories.findAllByOrderByViewsDesc();
             if (optionalPosts.isPresent())
                 posts.add(i, optionalPosts.get().get(i));
         }
-        return posts;
+        List<PostDTO> postDTOS = new ArrayList<>();
+        for (int i = 0; i < posts.size(); i++) {
+            Post post = posts.get(i);
+            postDTOS.add(i, new PostDTO(post.getId(),post.getTitle()
+                    ,post.getDescription(), post.getContent(), post.getDate()
+                    , post.getReading(), post.getThumbnail(),post.getViews()
+            ));
+        }
+        return postDTOS;
     }
 
-    public List<Post> getPostsByRelatedWords(String keyword) {
+    public List<PostDTO> getPostsByRelatedWords(String keyword) {
         List<Post> posts = new ArrayList<>();
         Optional<List<Post>> optionalPosts = postRepositories.findAllByTitleContaining(keyword);
         if (optionalPosts.isPresent())
             posts = optionalPosts.get();
-        return posts;
+        List<PostDTO> postDTOS = new ArrayList<>();
+        for (int i = 0; i < posts.size(); i++) {
+            Post post = posts.get(i);
+            postDTOS.add(i, new PostDTO(post.getId(),post.getTitle()
+                    ,post.getDescription(), post.getContent(), post.getDate()
+                    , post.getReading(), post.getThumbnail(),post.getViews()
+            ));
+        }
+        return postDTOS;
     }
 
-    public List<Post> getAllPostsOfCurrentUser(String username) {
+    public List<PostDTO> getAllPostsOfCurrentUser(String username) {
         List<Post> posts = new ArrayList<Post>();
         if (postRepositories.findAllByUserUsername(username).isPresent())
             posts = postRepositories.findAllByUserUsername(username).get();
-        return posts;
+        List<PostDTO> postDTOS = new ArrayList<>();
+        for (int i = 0; i < posts.size(); i++) {
+            Post post = posts.get(i);
+            postDTOS.add(i, new PostDTO(post.getId(),post.getTitle()
+                    ,post.getDescription(), post.getContent(), post.getDate()
+                    , post.getReading(), post.getThumbnail(),post.getViews()
+            ));
+        }
+        return postDTOS;
     }
 
     public String uploadFile(MyUploadForm myUploadForm) {

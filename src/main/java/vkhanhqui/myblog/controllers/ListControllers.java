@@ -7,6 +7,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import vkhanhqui.myblog.models.dtos.PostDTO;
 import vkhanhqui.myblog.models.entities.Post;
 import vkhanhqui.myblog.services.PostServices;
 
@@ -20,7 +21,7 @@ public class ListControllers {
 
     @GetMapping("/{currentPage}")
     public String getListSite(@PathVariable int currentPage, ModelMap modelMap) {
-        List<Post> posts = postServices.getAllPosts();
+        List<PostDTO> posts = postServices.getAllPosts();
         PagedListHolder pagedListPost = new PagedListHolder(posts);
         pagedListPost.setPageSize(6);
         PagedListHolder pagedListNumber = postServices.getPagingSite(currentPage, pagedListPost);

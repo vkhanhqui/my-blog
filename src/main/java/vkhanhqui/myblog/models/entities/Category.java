@@ -19,8 +19,6 @@ public class Category {
     @Column(name = "name", unique = true)
     private String name;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private List<Post> posts;
 }

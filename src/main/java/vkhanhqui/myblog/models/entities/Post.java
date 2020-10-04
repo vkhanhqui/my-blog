@@ -39,10 +39,8 @@ public class Post {
     @OrderBy("views ASC")
     private Long views;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
     private Category category;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.EAGER)

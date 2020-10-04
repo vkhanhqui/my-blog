@@ -6,6 +6,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import vkhanhqui.myblog.models.dtos.CategoryDTO;
+import vkhanhqui.myblog.models.dtos.PostDTO;
 import vkhanhqui.myblog.models.entities.Category;
 import vkhanhqui.myblog.models.entities.Comment;
 import vkhanhqui.myblog.models.entities.Post;
@@ -37,14 +39,14 @@ public class SingleControllers {
             String role = httpSession.getAttribute("role").toString();
             modelMap.addAttribute("role", role);
         }
-        Post post = postServices.getPost(id);
+        PostDTO post = postServices.getPost(id);
         modelMap.addAttribute("post", post);
         List<Comment> comments = commentServices.getParentComment(post.getId());
         modelMap.addAttribute("comments", comments);
         modelMap.addAttribute("comment", new Comment());
-        List<Post> mostViewed = postServices.getTheMostViewedPost();
+        List<PostDTO> mostViewed = postServices.getTheMostViewedPost();
         modelMap.addAttribute("mostViewed", mostViewed);
-        List<Category> listOfCategories = categoryServices.getCategories();
+        List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
         return "single";
     }

@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import vkhanhqui.myblog.models.dtos.CategoryDTO;
+import vkhanhqui.myblog.models.dtos.PostDTO;
 import vkhanhqui.myblog.models.entities.Category;
 import vkhanhqui.myblog.models.entities.MyUploadForm;
 import vkhanhqui.myblog.models.entities.Post;
@@ -34,7 +36,7 @@ public class AdminControllers {
         if (principal != null) {
             String username = principal.getName();
             modelMap.addAttribute("username", username);
-            List<Post> posts = postServices.getAllPosts();
+            List<PostDTO> posts = postServices.getAllPosts();
             modelMap.addAttribute("posts", posts);
         }
         return "admin/posts/index";
@@ -44,7 +46,7 @@ public class AdminControllers {
     public String getCreatingPostSite(ModelMap modelMap, Principal principal) {
         String username = principal.getName();
         modelMap.addAttribute("username", username);
-        List<Category> listOfCategories = categoryServices.getCategories();
+        List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
         modelMap.addAttribute("post", new Post());
         String message =  "";
@@ -72,7 +74,7 @@ public class AdminControllers {
             , @PathVariable long postId) {
         String username = principal.getName();
         modelMap.addAttribute("username", username);
-        List<Category> listOfCategories = categoryServices.getCategories();
+        List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
         String message =  "";
         modelMap.addAttribute("message", message);

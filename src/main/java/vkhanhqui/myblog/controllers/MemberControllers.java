@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import vkhanhqui.myblog.models.dtos.CategoryDTO;
+import vkhanhqui.myblog.models.dtos.PostDTO;
 import vkhanhqui.myblog.models.entities.Category;
 import vkhanhqui.myblog.models.entities.MyUploadForm;
 import vkhanhqui.myblog.models.entities.Post;
@@ -29,7 +31,7 @@ public class MemberControllers {
     public String getPostManagementSite(ModelMap modelMap, Principal principal) {
         String username = principal.getName();
         modelMap.addAttribute("username", username);
-        List<Post> posts = postServices.getAllPostsOfCurrentUser(username);
+        List<PostDTO> posts = postServices.getAllPostsOfCurrentUser(username);
         modelMap.addAttribute("posts", posts);
         return "member/posts/index";
     }
@@ -38,7 +40,7 @@ public class MemberControllers {
     public String getCreatingPostSite(ModelMap modelMap, Principal principal, HttpSession httpSession) {
         String username = principal.getName();
         modelMap.addAttribute("username", username);
-        List<Category> listOfCategories = categoryServices.getCategories();
+        List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
         modelMap.addAttribute("post", new Post());
         String message = "";
@@ -66,7 +68,7 @@ public class MemberControllers {
             , @PathVariable long postId) {
         String username = principal.getName();
         modelMap.addAttribute("username", username);
-        List<Category> listOfCategories = categoryServices.getCategories();
+        List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
         String message = "";
         modelMap.addAttribute("message", message);
