@@ -25,4 +25,6 @@ public class PostDTO {
     private String thumbnail;
 
     private Long views;
+
+    private String username;
 }

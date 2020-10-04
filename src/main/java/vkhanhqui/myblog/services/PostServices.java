@@ -37,9 +37,9 @@ public class PostServices {
         List<PostDTO> postDTOS = new ArrayList<>();
         for (int i = 0; i < posts.size(); i++) {
             Post post = posts.get(i);
-            postDTOS.add(i, new PostDTO(post.getId(),post.getTitle()
-                    ,post.getDescription(), post.getContent(), post.getDate()
-                    , post.getReading(), post.getThumbnail(),post.getViews()
+            postDTOS.add(i, new PostDTO(post.getId(), post.getTitle()
+                    , post.getDescription(), null, post.getDate()
+                    , post.getReading(), post.getThumbnail(), null, post.getUser().getUsername()
             ));
         }
         return postDTOS;
@@ -47,41 +47,36 @@ public class PostServices {
 
     public String savePost(String username, Post post, long categoryId, String thumbnail) {
         Category category = categoryRepositories.findById(categoryId).get();
-        post.setCategory(category);
-        post.setComments(null);
-        post.setDate(new Date());
-        post.setThumbnail(thumbnail);
-        post.setUser(userRepositories.findById(username).get());
-        post.setReading("12 min read");
-        post.setViews((long) 0);
-        String message ="<div class=\"msg success\">\r\n" + "               <li>Successfully</li>\r\n"
+        Post newPost = new Post(post.getId(), post.getTitle(), post.getDescription()
+                , post.getContent(), new Date(), "12 min read", thumbnail
+                , (long) 0, category, null
+                , userRepositories.findById(username).get()
+        );
+        String message = "<div class=\"msg success\">\r\n" + "               <li>Successfully</li>\r\n"
                 + "           </div>";
         try {
-            postRepositories.save(post);
-        }
-        catch (Exception e){
-            message= "<div class=\"msg error\">\r\n" + "               <li>Something is incorrect</li>\r\n"
+            postRepositories.save(newPost);
+        } catch (Exception e) {
+            message = "<div class=\"msg error\">\r\n" + "               <li>Something is incorrect</li>\r\n"
                     + "           </div>";
         }
         return message;
     }
 
     public String editPost(long id, Post post, long categoryId, String thumbnail) {
-        Post postNeedToUpdate= postRepositories.findById(id).get();
+        Post postNeedToUpdate = postRepositories.findById(id).get();
         Category category = categoryRepositories.findById(categoryId).get();
-        postNeedToUpdate.setCategory(category);
-        postNeedToUpdate.setDate(new Date());
-        postNeedToUpdate.setThumbnail(thumbnail);
-        postNeedToUpdate.setTitle(post.getTitle());
-        postNeedToUpdate.setContent(post.getContent());
-        postNeedToUpdate.setDescription(post.getDescription());
-        String message ="<div class=\"msg success\">\r\n" + "               <li>Successfully</li>\r\n"
+        Post newPost = new Post(id, post.getTitle(), post.getDescription()
+                , post.getContent(), new Date(), "12 min read", thumbnail
+                , (long) 0, category, postNeedToUpdate.getComments()
+                , postNeedToUpdate.getUser()
+        );
+        String message = "<div class=\"msg success\">\r\n" + "               <li>Successfully</li>\r\n"
                 + "           </div>";
         try {
-            postRepositories.save(postNeedToUpdate);
-        }
-        catch (Exception e){
-            message= "<div class=\"msg error\">\r\n" + "               <li>Something is incorrect</li>\r\n"
+            postRepositories.save(newPost);
+        } catch (Exception e) {
+            message = "<div class=\"msg error\">\r\n" + "               <li>Something is incorrect</li>\r\n"
                     + "           </div>";
         }
         return message;
@@ -89,9 +84,9 @@ public class PostServices {
 
     public PostDTO getPost(long id) {
         Post post = postRepositories.findById(id).get();
-        PostDTO postDTO = new PostDTO(post.getId(),post.getTitle()
-                ,post.getDescription(), post.getContent(), post.getDate()
-                , post.getReading(), post.getThumbnail(),post.getViews()
+        PostDTO postDTO = new PostDTO(post.getId(), post.getTitle()
+                , post.getDescription(), post.getContent(), post.getDate()
+                , post.getReading(), post.getThumbnail(), post.getViews(), post.getUser().getUsername()
         );
         post.setViews(post.getViews() + 1);
         postRepositories.save(post);
@@ -132,9 +127,9 @@ public class PostServices {
         List<PostDTO> postDTOS = new ArrayList<>();
         for (int i = 0; i < posts.size(); i++) {
             Post post = posts.get(i);
-            postDTOS.add(i, new PostDTO(post.getId(),post.getTitle()
-                    ,post.getDescription(), post.getContent(), post.getDate()
-                    , post.getReading(), post.getThumbnail(),post.getViews()
+            postDTOS.add(i, new PostDTO(post.getId(), post.getTitle()
+                    , null, null, null
+                    ,null, post.getThumbnail(), null, null
             ));
         }
         return postDTOS;
@@ -150,9 +145,9 @@ public class PostServices {
         List<PostDTO> postDTOS = new ArrayList<>();
         for (int i = 0; i < posts.size(); i++) {
             Post post = posts.get(i);
-            postDTOS.add(i, new PostDTO(post.getId(),post.getTitle()
-                    ,post.getDescription(), post.getContent(), post.getDate()
-                    , post.getReading(), post.getThumbnail(),post.getViews()
+            postDTOS.add(i, new PostDTO(post.getId(), post.getTitle()
+                    , null, null, post.getDate()
+                    , null, post.getThumbnail(), null, post.getUser().getUsername()
             ));
         }
         return postDTOS;
@@ -166,9 +161,9 @@ public class PostServices {
         List<PostDTO> postDTOS = new ArrayList<>();
         for (int i = 0; i < posts.size(); i++) {
             Post post = posts.get(i);
-            postDTOS.add(i, new PostDTO(post.getId(),post.getTitle()
-                    ,post.getDescription(), post.getContent(), post.getDate()
-                    , post.getReading(), post.getThumbnail(),post.getViews()
+            postDTOS.add(i, new PostDTO(post.getId(), post.getTitle()
+                    , post.getDescription(), post.getContent(), post.getDate()
+                    , post.getReading(), post.getThumbnail(), post.getViews(), post.getUser().getUsername()
             ));
         }
         return postDTOS;
@@ -181,9 +176,9 @@ public class PostServices {
         List<PostDTO> postDTOS = new ArrayList<>();
         for (int i = 0; i < posts.size(); i++) {
             Post post = posts.get(i);
-            postDTOS.add(i, new PostDTO(post.getId(),post.getTitle()
-                    ,post.getDescription(), post.getContent(), post.getDate()
-                    , post.getReading(), post.getThumbnail(),post.getViews()
+            postDTOS.add(i, new PostDTO(post.getId(), post.getTitle()
+                    , post.getDescription(), post.getContent(), post.getDate()
+                    , post.getReading(), post.getThumbnail(), post.getViews(), post.getUser().getUsername()
             ));
         }
         return postDTOS;
@@ -207,7 +202,7 @@ public class PostServices {
                     System.out.println("Error Write file: " + name);
                 }
             }
-            name = "/resources/images/"+name;
+            name = "/resources/images/" + name;
         }
         return name;
     }

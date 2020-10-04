@@ -26,7 +26,7 @@ public class CategoryServices {
             Post post = posts.get(i);
             postDTOS.add(i, new PostDTO(post.getId(),post.getTitle()
                     ,post.getDescription(), post.getContent(), post.getDate()
-                    , post.getReading(), post.getThumbnail(),post.getViews()
+                    , post.getReading(), post.getThumbnail(),post.getViews(), post.getUser().getUsername()
             ));
         }
         return postDTOS;

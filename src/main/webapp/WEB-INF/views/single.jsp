@@ -175,7 +175,7 @@
 						<div class="post clearfix">
 							<a href="/vkhanhqui_myblog_war_exploded/single/${one.id}"> <img
 								src="<c:url value="${one.thumbnail}"/>" alt="" class="post-image">
-							</a> <a href="/vkhanhqui_myblog_war_exploded/single/${one.id}" class="title"><h4>${one.description}</h4></a>
+							</a> <a href="/vkhanhqui_myblog_war_exploded/single/${one.id}" class="title"><h4>${one.title}</h4></a>
 						</div>
 					</c:forEach>
 				</div>
