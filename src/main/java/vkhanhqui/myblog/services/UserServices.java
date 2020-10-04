@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import vkhanhqui.myblog.models.Role;
-import vkhanhqui.myblog.models.User;
+import vkhanhqui.myblog.models.entities.Role;
+import vkhanhqui.myblog.models.entities.User;
 import vkhanhqui.myblog.models.repositories.UserRepositories;
 
 import java.util.HashSet;

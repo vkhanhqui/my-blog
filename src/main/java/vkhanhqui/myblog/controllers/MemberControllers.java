@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import vkhanhqui.myblog.models.Category;
-import vkhanhqui.myblog.models.MyUploadForm;
-import vkhanhqui.myblog.models.Post;
+import vkhanhqui.myblog.models.entities.Category;
+import vkhanhqui.myblog.models.entities.MyUploadForm;
+import vkhanhqui.myblog.models.entities.Post;
 import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.PostServices;
 

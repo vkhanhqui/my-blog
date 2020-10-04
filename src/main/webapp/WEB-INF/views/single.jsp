@@ -68,6 +68,91 @@
 				<h1 class="post-title">${post.title}</h1>
 
 				<div class="post-content">${post.content}</div>
+				<div class="articlePostCommentContain">
+					<h4 class="headTitle">Comments</h4>
+					<div class="articleComments">
+						<div class="articleComment">
+							<div class="articleCommentContain">
+								<div class="articleCommentImg">
+									<img src="<c:url value="/resources/images/user.png"/>" alt="articleCommentImg">
+								</div>
+								<div class="articleCommentBody">
+									<h4 class="articleCommentName">John</h4>
+									<h6 class="articleCommentTime">
+										<i class="fa fa-clock-o"></i>
+										13 March, 2020
+									</h6>
+									<p class="articleCommentContent">This is very Good!!!</p>
+								</div>
+								<div class="articleReplayBtn">
+									<i class="fa fa-reply"></i>
+								</div>
+							</div>
+							<div class="articleSubComments">
+								<div class="articleSubComment">
+									<div class="articleCommentImg">
+										<img src="<c:url value="/resources/images/user.png"/>" alt="articleCommentImg">
+									</div>
+									<div class="articleCommentBody">
+										<h4 class="articleCommentName">John</h4>
+										<h6 class="articleCommentTime">
+											<i class="fa fa-clock-o"></i>
+											13 March, 2020
+										</h6>
+										<p class="articleCommentContent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam debitis ipsam deleniti, aperiam maxime pariatur vero cupiditate perspiciatis iste eos quod, obcaecati, rerum earum illum rem expedita quasi cumque voluptatum!</p>
+									</div>
+									<div class="articleReplayBtn">
+										<i class="fa fa-reply"></i>
+									</div>
+								</div>
+							</div>
+							<div class="articleSubComments">
+								<div class="articleSubComment">
+									<div class="articleCommentImg">
+										<img src="<c:url value="/resources/images/user.png"/>" alt="articleCommentImg">
+									</div>
+									<div class="articleCommentBody">
+										<h4 class="articleCommentName">John</h4>
+										<h6 class="articleCommentTime">
+											<i class="fa fa-clock-o"></i>
+											13 March, 2020
+										</h6>
+										<p class="articleCommentContent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam debitis ipsam deleniti, aperiam maxime pariatur vero cupiditate perspiciatis iste eos quod, obcaecati, rerum earum illum rem expedita quasi cumque voluptatum!</p>
+									</div>
+									<div class="articleReplayBtn">
+										<i class="fa fa-reply"></i>
+									</div>
+								</div>
+							</div>
+							<div class="articleCommentContain">
+								<div class="articleCommentImg">
+									<img src="<c:url value="/resources/images/user.png"/>" alt="articleCommentImg">
+								</div>
+								<div class="articleCommentBody">
+									<h4 class="articleCommentName">John</h4>
+									<h6 class="articleCommentTime">
+										<i class="fa fa-clock-o"></i>
+										13 March, 2020
+									</h6>
+									<p class="articleCommentContent">This is very Good!!!</p>
+								</div>
+								<div class="articleReplayBtn">
+									<i class="fa fa-reply"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="articlePostCommentForm">
+					<h4>Comment Form</h4>
+					<form action="" class="formComment">
+						<input type="text" name="name" class="txtInp" placeholder="Name">
+						<textarea class="txtInp" name="message" cols="30" rows="10" placeholder="Message">
+
+                            </textarea>
+						<button class="btnComment"><i class="fas fa-comment"></i> Comment</button>
+					</form>
+				</div>
 			</div>
 			<!-- /main content -->
 			<!-- sidebar -->

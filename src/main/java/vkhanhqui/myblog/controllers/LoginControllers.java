@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
-import vkhanhqui.myblog.models.User;
-import vkhanhqui.myblog.models.UserDetailsDTO;
+import vkhanhqui.myblog.models.dtos.UserDetailsDTO;
+import vkhanhqui.myblog.models.entities.User;
 
 import javax.servlet.http.HttpSession;
 import java.security.Principal;

@@ -6,7 +6,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
-import vkhanhqui.myblog.models.MyUploadForm;
+import vkhanhqui.myblog.models.entities.MyUploadForm;
 import vkhanhqui.myblog.services.PostServices;
 
 import javax.servlet.http.HttpSession;

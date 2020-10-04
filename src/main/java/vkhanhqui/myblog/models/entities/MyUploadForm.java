@@ -1,4 +1,4 @@
-package vkhanhqui.myblog.models;
+package vkhanhqui.myblog.models.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

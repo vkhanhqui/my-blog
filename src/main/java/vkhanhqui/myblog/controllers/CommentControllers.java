@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import vkhanhqui.myblog.models.Comment;
+import vkhanhqui.myblog.models.entities.Comment;
 import vkhanhqui.myblog.services.CommentServices;
 import vkhanhqui.myblog.services.PostServices;
 
