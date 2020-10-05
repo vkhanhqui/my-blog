@@ -19,10 +19,10 @@ public class Comment {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "creator")
+    @Column(name = "creator", columnDefinition = "CHAR(20) NOT NULL")
     private String creator;
 
-    @Column(name = "replay_to")
+    @Column(name = "replay_to", columnDefinition = "CHAR(20) NOT NULL")
     private String replyTo;
 
     @Column(name = "content", columnDefinition = "text")

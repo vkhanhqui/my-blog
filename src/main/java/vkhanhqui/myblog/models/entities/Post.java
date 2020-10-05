@@ -19,10 +19,10 @@ public class Post {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "title")
+    @Column(name = "title", columnDefinition = "VARCHAR(50) NOT NULL")
     private String title;
 
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "VARCHAR(100) NOT NULL")
     private String description;
 
     @Column(name = "content", columnDefinition = "text")
@@ -31,10 +31,7 @@ public class Post {
     @Column(name = "date")
     private Date date;
 
-    @Column(name = "reading_time")
-    private String reading;
-
-    @Column(name = "thumbnail", columnDefinition = "text")
+    @Column(name = "thumbnail", columnDefinition = "CHAR(100) NOT NULL")
     private String thumbnail;
 
     @Column(name = "views")

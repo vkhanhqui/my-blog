@@ -41,10 +41,10 @@ public class SingleControllers {
         }
         PostDTO post = postServices.getPost(id);
         modelMap.addAttribute("post", post);
-        List<Comment> comments = commentServices.getParentComment(post.getId());
+        List<Comment> comments = commentServices.getParentComment(id);
         modelMap.addAttribute("comments", comments);
         modelMap.addAttribute("comment", new Comment());
-        List<PostDTO> mostViewed = postServices.getTheMostViewedPost();
+        List<PostDTO> mostViewed = postServices.getTop3Post();
         modelMap.addAttribute("mostViewed", mostViewed);
         List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);

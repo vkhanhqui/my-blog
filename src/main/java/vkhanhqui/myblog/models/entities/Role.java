@@ -1,8 +1,8 @@
 package vkhanhqui.myblog.models.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,9 +14,12 @@ import java.util.List;
 @NoArgsConstructor
 public class Role {
     @Id
-    @Column(name = "authority", columnDefinition = "VARCHAR(20) NOT NULL")
+    @Column(name = "authority", columnDefinition = "CHAR(20) NOT NULL")
     private String authority;
 
     @ManyToMany(mappedBy = "roles", cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private List<User> user;
 }

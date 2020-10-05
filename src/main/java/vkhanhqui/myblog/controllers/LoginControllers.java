@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
+import vkhanhqui.myblog.models.dtos.UserDTO;
 import vkhanhqui.myblog.models.dtos.UserDetailsDTO;
 import vkhanhqui.myblog.models.entities.User;
 
@@ -40,7 +41,7 @@ public class LoginControllers {
                 = (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
 
         validatePrinciple(authentication.getPrincipal());
-        User loggedInUser = ((UserDetailsDTO) authentication.getPrincipal()).getUser();
+        UserDTO loggedInUser = ((UserDetailsDTO) authentication.getPrincipal()).getUserDTO();
         model.addAttribute("currentUser", loggedInUser.getUsername());
         session.setAttribute("userId", loggedInUser.getUsername());
 

@@ -184,7 +184,7 @@
 					<h2 class="section-title">Categories</h2>
 					<ul>
 						<c:forEach var="one" items="${listOfCategories}">
-							<li><a href="/vkhanhqui_myblog_war_exploded/categories/${one.name}/1">${one.name}</a></li>
+							<li><a href="/vkhanhqui_myblog_war_exploded/categories/${one.id}/1">${one.name}</a></li>
 						</c:forEach>
 					</ul>
 				</div>

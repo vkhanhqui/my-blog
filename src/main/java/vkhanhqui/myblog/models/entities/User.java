@@ -1,8 +1,8 @@
 package vkhanhqui.myblog.models.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -17,13 +17,13 @@ import java.util.Set;
 @NoArgsConstructor
 public class User {
     @Id
-    @Column(name = "username", columnDefinition = "VARCHAR(20) NOT NULL")
+    @Column(name = "username", columnDefinition = "CHAR(20) NOT NULL")
     private String username;
 
-    @Column(name = "password")
+    @Column(name = "password", columnDefinition = "CHAR(100) NOT NULL")
     private String password;
 
-    @Column(name = "email", unique = true)
+    @Column(name = "email", unique = true, columnDefinition = "CHAR(50) NOT NULL")
     private String email;
 
     @Column(name = "enabled")
@@ -33,6 +33,9 @@ public class User {
     @JoinTable(name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private Set<Role> roles = new HashSet<Role>();
 
     @OneToMany(cascade = CascadeType.ALL,

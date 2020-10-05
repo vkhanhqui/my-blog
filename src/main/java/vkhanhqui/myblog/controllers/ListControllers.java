@@ -21,7 +21,7 @@ public class ListControllers {
 
     @GetMapping("/{currentPage}")
     public String getListSite(@PathVariable int currentPage, ModelMap modelMap) {
-        List<PostDTO> posts = postServices.getAllPosts();
+        List<PostDTO> posts = postServices.getAllPostsForHome();
         PagedListHolder pagedListPost = new PagedListHolder(posts);
         pagedListPost.setPageSize(6);
         PagedListHolder pagedListNumber = postServices.getPagingSite(currentPage, pagedListPost);

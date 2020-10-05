@@ -18,7 +18,7 @@ public class Category {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name", unique = true)
+    @Column(name = "name", unique = true, columnDefinition = "CHAR(20) NOT NULL")
     private String name;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)

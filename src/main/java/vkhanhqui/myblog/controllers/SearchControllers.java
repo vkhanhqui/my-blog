@@ -48,7 +48,7 @@ public class SearchControllers {
         modelMap.addAttribute("keywords", keywords);
         List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
-        List<PostDTO> mostViewed = postServices.getTheMostViewedPost();
+        List<PostDTO> mostViewed = postServices.getTop3Post();
         modelMap.addAttribute("mostViewed", mostViewed);
         return "search-site";
     }
