@@ -20,6 +20,7 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 
 @Transactional
@@ -40,25 +41,17 @@ public class PostServices {
         return postRepositories.findAllPostsForAdminSite();
     }
 
-    public String savePost(String username, Post post, long categoryId, String thumbnail) {
+    public void createPost(String username, Post post, long categoryId, String thumbnail) {
         Category category = categoryRepositories.findById(categoryId).get();
-        Post newPost = new Post(post.getId(), post.getTitle(), post.getDescription()
+        Post newPost = new Post(new Random().nextLong(), post.getTitle(), post.getDescription()
                 , post.getContent(), new Date(), thumbnail
                 , (long) 0, category, null
                 , userRepositories.findById(username).get()
         );
-        String message = "<div class=\"msg success\">\r\n" + "               <li>Successfully</li>\r\n"
-                + "           </div>";
-        try {
-            postRepositories.save(newPost);
-        } catch (Exception e) {
-            message = "<div class=\"msg error\">\r\n" + "               <li>Something is incorrect</li>\r\n"
-                    + "           </div>";
-        }
-        return message;
+        postRepositories.save(newPost);
     }
 
-    public String editPost(long id, Post post, long categoryId, String thumbnail) {
+    public void editPost(long id, Post post, long categoryId, String thumbnail) {
         Post postNeedToUpdate = postRepositories.findById(id).get();
         Category category = categoryRepositories.findById(categoryId).get();
         Post newPost = new Post(id, post.getTitle(), post.getDescription()
@@ -66,15 +59,7 @@ public class PostServices {
                 , (long) 0, category, postNeedToUpdate.getComments()
                 , postNeedToUpdate.getUser()
         );
-        String message = "<div class=\"msg success\">\r\n" + "               <li>Successfully</li>\r\n"
-                + "           </div>";
-        try {
             postRepositories.save(newPost);
-        } catch (Exception e) {
-            message = "<div class=\"msg error\">\r\n" + "               <li>Something is incorrect</li>\r\n"
-                    + "           </div>";
-        }
-        return message;
     }
 
     public PostDTO getPost(long id) {

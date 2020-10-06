@@ -19,7 +19,6 @@ import java.util.List;
 
 @Controller
 @RequestMapping("admin")
-@SessionAttributes({"postId"})
 public class AdminControllers {
     @Autowired
     UserServices userServices;
@@ -48,35 +47,31 @@ public class AdminControllers {
         List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
         modelMap.addAttribute("post", new Post());
-        String message = "";
-        modelMap.addAttribute("message", message);
         modelMap.addAttribute("myUploadForm", new MyUploadForm());
         modelMap.addAttribute("thumbnail", null);
         return "admin/posts/create";
     }
 
     @PostMapping("posts/create")
-    public String createPost(ModelMap modelMap, Principal principal
+    public String createPost(Principal principal
             , @ModelAttribute("post") Post post
             , @RequestParam long categoryId
             , HttpSession httpSession) {
         String thumbnail = httpSession.getAttribute("thumbnail").toString();
         String username = principal.getName();
-        String message = postServices.savePost(username, post, categoryId, thumbnail);
-        modelMap.addAttribute("message", message);
+        postServices.createPost(username, post, categoryId, thumbnail);
         httpSession.removeAttribute("thumbnail");
         return "redirect:/admin/posts/index";
     }
 
     @GetMapping("posts/edit/{postId}")
-    public String getUpdatingPostSite(ModelMap modelMap, Principal principal
+    public String getUpdatingPostSite(ModelMap modelMap
+            , Principal principal
             , @PathVariable long postId) {
         String username = principal.getName();
         modelMap.addAttribute("username", username);
         List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
-        String message = "";
-        modelMap.addAttribute("message", message);
         modelMap.addAttribute("post", new Post());
         modelMap.addAttribute("postId", postId);
         modelMap.addAttribute("myUploadForm", new MyUploadForm());
@@ -84,16 +79,14 @@ public class AdminControllers {
         return "admin/posts/edit";
     }
 
-    @PostMapping("posts/edit")
-    public String updatePost(ModelMap modelMap, @ModelAttribute("post") Post post
+    @PostMapping("posts/edit/{postId}")
+    public String updatePost(@PathVariable long postId
+            ,@ModelAttribute("post") Post post
             , @RequestParam long categoryId
             , HttpSession httpSession) {
         String thumbnail = httpSession.getAttribute("thumbnail").toString();
-        long postId = (long) httpSession.getAttribute("postId");
-        String message = postServices.editPost(postId, post, categoryId, thumbnail);
-        modelMap.addAttribute("message", message);
+        postServices.editPost(postId, post, categoryId, thumbnail);
         httpSession.removeAttribute("thumbnail");
-        httpSession.removeAttribute("postId");
         return "redirect:/admin/posts/index";
     }
 

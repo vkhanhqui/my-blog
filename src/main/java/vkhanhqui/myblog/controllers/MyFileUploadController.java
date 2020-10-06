@@ -30,18 +30,25 @@ public class MyFileUploadController {
     }
 
     @PostMapping("uploadFile")
-    public String uploadFile(@ModelAttribute("myUploadForm") MyUploadForm myUploadForm
-            , ModelMap modelMap, HttpSession httpSession) {
+    public String uploadFileToCreatePost(@ModelAttribute("myUploadForm") MyUploadForm myUploadForm
+            , ModelMap modelMap
+            , HttpSession httpSession) {
         String thumbnail = postServices.uploadFile(myUploadForm);
         modelMap.addAttribute("thumbnail", thumbnail);
-        String address = "redirect:/"
+        return "redirect:/"
                 +httpSession.getAttribute("role")
                 +"/posts/create";
-        if(httpSession.getAttribute("postId")!=null){
-            address = "redirect:/"+httpSession.getAttribute("role")
-                    +"/posts/edit/"
-                    +httpSession.getAttribute("postId").toString();
-        }
-        return address;
+    }
+
+    @PostMapping("{post_id}/uploadFile")
+    public String uploadFileToEditPost( @PathVariable String post_id
+            ,@ModelAttribute("myUploadForm") MyUploadForm myUploadForm
+            , ModelMap modelMap
+            , HttpSession httpSession) {
+        String thumbnail = postServices.uploadFile(myUploadForm);
+        modelMap.addAttribute("thumbnail", thumbnail);
+        return "redirect:/"+httpSession.getAttribute("role")
+                +"/posts/edit/"
+                +post_id;
     }
 }
