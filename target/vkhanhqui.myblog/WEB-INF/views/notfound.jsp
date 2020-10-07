@@ -11,19 +11,12 @@
     <!-- icon -->
     <link rel="icon" type="image/png"
           href="<c:url value="/resources/images/icons/fox.ico" />">
-    <!-- custom style -->
-    <link rel="stylesheet" href="<c:url value="/resources/css/style.css" />">
-
     <title>Not Found</title>
     <%@ page isELIgnored="false"%>
 </head>
 
 <body>
-<!-- page wrapper -->
-<div class="page-wrapper">
     <img
-            src="<c:url value="/resources/images/notfound.jpg"/>" alt="" class="post-image">
-</div>
-<!-- /page wrapper -->
+            src="<c:url value="/resources/images/notfound.jpg"/>" alt="">
 </body>
 </html>
