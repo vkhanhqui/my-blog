@@ -81,8 +81,8 @@ public class PostDTO {
         this.views=(long) 0;
     }
 
-    public PostDTO(String title, String content){
-        this.id=(long) 0;
+    public PostDTO(String title, long id, String content){
+        this.id=id;
         this.title=title;
         this.description="";
         this.date=null;

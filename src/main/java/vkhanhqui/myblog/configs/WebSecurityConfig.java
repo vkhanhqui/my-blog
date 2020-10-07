@@ -48,7 +48,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         , "/admin/users/create"
                         , "/manage/delete-user/**")
                 .hasRole("ADMIN")
-                .antMatchers("/manage/delete-post/**")
+                .antMatchers("/manage/delete-post/**"
+                        ,"/comments/**")
                 .hasAnyRole("MEMBER", "ADMIN")
                 .and()
                 .formLogin()

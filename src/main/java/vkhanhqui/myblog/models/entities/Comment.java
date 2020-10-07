@@ -1,8 +1,8 @@
 package vkhanhqui.myblog.models.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -22,7 +22,7 @@ public class Comment {
     @Column(name = "creator", columnDefinition = "CHAR(20) NOT NULL")
     private String creator;
 
-    @Column(name = "replay_to", columnDefinition = "CHAR(20) NOT NULL")
+    @Column(name = "reply_to", columnDefinition = "CHAR(20)")
     private String replyTo;
 
     @Column(name = "content", columnDefinition = "text")
@@ -37,9 +37,14 @@ public class Comment {
 
     @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
     @OrderBy("date ASC")
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private List<Comment> children;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "post_id")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private Post post;
 }

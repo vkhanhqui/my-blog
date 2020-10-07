@@ -3,8 +3,10 @@ package vkhanhqui.myblog.models.dtos;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import vkhanhqui.myblog.models.entities.Comment;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -19,4 +21,8 @@ public class CommentDTO {
     private String content;
 
     private Date date;
+
+    private Comment parent;
+
+    private List<Comment> children;
 }

@@ -325,9 +325,10 @@ header ul li a:hover {
     border-left: 3px solid #006669;
 }
 
-.articleReplayBtn {
+.articleReplyBtn {
     flex-grow: 1;
     text-align: right;
+    cursor: pointer;
 }
 
 .articleCommentImg img {

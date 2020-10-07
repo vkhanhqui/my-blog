@@ -3,37 +3,32 @@ package vkhanhqui.myblog.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
-import vkhanhqui.myblog.models.entities.Comment;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import vkhanhqui.myblog.services.CommentServices;
-import vkhanhqui.myblog.services.PostServices;
+
+import java.security.Principal;
 
 @Controller
-@RequestMapping("detail/comments")
+@RequestMapping("comments")
 public class CommentControllers {
-    @Autowired
-    PostServices postServices;
     @Autowired
     CommentServices commentServices;
 
-    @GetMapping("/reply/{parentId}")
-    public String getDetailSite(@PathVariable long parentId, ModelMap modelMap) {
-        Comment parent = commentServices.getAComment(parentId);
-        modelMap.addAttribute("parent", parent);
-        modelMap.addAttribute("reply", new Comment());
-        return "reply";
+    @PostMapping("{post_Id}")
+    public String createComment(@PathVariable long post_Id, @RequestParam String comment, Principal principal) {
+        commentServices.saveAComment(post_Id, comment, principal.getName());
+        return "redirect:/single/" + post_Id;
     }
 
-//    @PostMapping("/{postId}")
-//    public String saveComment(@PathVariable long postId, @ModelAttribute("comment") Comment comment) {
-//        commentServices.saveAComment(postServices.getPost(postId), comment);
-//        return "redirect:/detail/" + postId;
-//    }
-
-    @PostMapping("/reply/{parentId}")
-    public String saveReply(@PathVariable long parentId, @ModelAttribute("comment") Comment comment) {
-        commentServices.saveAReply(parentId, comment);
-        return "redirect:/detail/" + comment.getPost().getId();
+    @PostMapping("{post_Id}/{parentId}/reply")
+    public String createReply(@PathVariable long post_Id,
+                              @PathVariable long parentId,
+                              @RequestParam String reply,
+                              Principal principal) {
+        commentServices.saveAReply(post_Id, parentId, reply, principal.getName());
+        return "redirect:/single/" + post_Id;
     }
 }

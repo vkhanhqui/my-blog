@@ -42,7 +42,7 @@ public interface PostRepositories extends JpaRepository<Post, Long> {
             "from Post where user.username like ?1")
     List<PostDTO> findAllByUserUsername(String username);
 
-    @Query(value = "select new vkhanhqui.myblog.models.dtos.PostDTO(title, content) " +
+    @Query(value = "select new vkhanhqui.myblog.models.dtos.PostDTO(title, id, content) " +
             "from Post where id = ?1")
     PostDTO findPostById(Long id);
 

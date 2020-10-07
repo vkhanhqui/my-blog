@@ -243,7 +243,7 @@
 					<input type="email" name="email" class="text-input contact-input"
 						placeholder="Your email address...">
 					<textarea name="message" class="text-input contact-input"
-						placeholder="Your message..."></textarea>
+						placeholder="Your message..." style="resize: none;"></textarea>
 					<button type="submit" class="btn btn-big">
 						<i class="fas fa-envelope"></i> Send
 					</button>
