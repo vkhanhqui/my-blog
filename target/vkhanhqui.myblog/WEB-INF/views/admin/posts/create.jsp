@@ -79,7 +79,6 @@
 
         <div class="content">
             <h2 class="page-title">Create Post</h2>
-            ${message}
             <c:choose>
                 <c:when test="${thumbnail==null}">
                     <form:form modelAttribute="myUploadForm" method="post"

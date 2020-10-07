@@ -79,11 +79,10 @@
 
         <div class="content">
             <h2 class="page-title">Edit Post</h2>
-            ${message}
             <c:choose>
                 <c:when test="${thumbnail==null}">
                     <form:form modelAttribute="myUploadForm" method="post"
-                               action="/vkhanhqui_myblog_war_exploded/file/uploadFile"
+                               action="/vkhanhqui_myblog_war_exploded/file/${postId}/uploadFile"
                                enctype="multipart/form-data">
                         <div>
                             <label>Thumbnail</label> <br>
@@ -95,7 +94,7 @@
                     </form:form>
                 </c:when>
                 <c:otherwise>
-                    <form:form action="/vkhanhqui_myblog_war_exploded/admin/posts/edit/"
+                    <form:form action="/vkhanhqui_myblog_war_exploded/admin/posts/edit/${postId}"
                                method="post" modelAttribute="post">
                         <div>
                             <label>Title</label>
@@ -120,7 +119,7 @@
                             <form:textarea name="content" id="content" path="content"/>
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-big">Add post</button>
+                            <button type="submit" class="btn btn-big">Edit post</button>
                         </div>
                     </form:form>
                 </c:otherwise>

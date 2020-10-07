@@ -65,8 +65,8 @@
 		<div class="post-slider">
 
 			<h1 class="slider-title">Trending Posts</h1>
-			<i class="fas fa-chevron-left prev"></i> <i
-				class="fas fa-chevron-right next"></i>
+			<i class="fas fa-chevron-left prevv"></i> <i
+				class="fas fa-chevron-right nextt"></i>
 
 			<div class="post-wrapper">
 				<c:forEach var="one" items="${topFiveViewedPost}">
@@ -77,7 +77,7 @@
 							<h4>
 								<a href="/vkhanhqui_myblog_war_exploded/single/${one.id}">${one.title}</a>
 							</h4>
-							<i class="far fa-user">Khanh Qui</i> &nbsp; <i
+							<i class="far fa-user">${one.username}</i> &nbsp; <i
 								class="far fa-calendar">Sep 13, 2020</i>
 						</div>
 					</div>
@@ -126,7 +126,7 @@
 							<h2>
 								<a href="/vkhanhqui_myblog_war_exploded/single/${one.id}">${one.title}</a>
 							</h2>
-							<i class="far fa-user">Khanh Qui</i> &nbsp; <i
+							<i class="far fa-user">${one.username}</i> &nbsp; <i
 								class="far calendar">Sep 13, 2020</i>
 							<p class="preview-text">${one.description}</p>
 							<a href="/vkhanhqui_myblog_war_exploded/single/${one.id}"
@@ -183,7 +183,7 @@
 						<div class="post clearfix">
 							<a href="/vkhanhqui_myblog_war_exploded/single/${one.id}"> <img
 								src="<c:url value="${one.thumbnail}"/>" alt="" class="post-image">
-							</a> <a href="/vkhanhqui_myblog_war_exploded/single/${one.id}" class="title"><h4>${one.description}</h4>
+							</a> <a href="/vkhanhqui_myblog_war_exploded/single/${one.id}" class="title"><h4>${one.title}</h4>
 							</a>
 						</div>
 					</c:forEach>
@@ -193,7 +193,7 @@
 					<h2 class="section-title">Categories</h2>
 					<ul>
 						<c:forEach var="one" items="${listOfCategories}">
-							<li><a href="/vkhanhqui_myblog_war_exploded/categories/${one.name}/1">${one.name}</a></li>
+							<li><a href="/vkhanhqui_myblog_war_exploded/categories/${one.id}/1">${one.name}</a></li>
 						</c:forEach>
 					</ul>
 				</div>
@@ -243,7 +243,7 @@
 					<input type="email" name="email" class="text-input contact-input"
 						placeholder="Your email address...">
 					<textarea name="message" class="text-input contact-input"
-						placeholder="Your message..."></textarea>
+						placeholder="Your message..." style="resize: none;"></textarea>
 					<button type="submit" class="btn btn-big">
 						<i class="fas fa-envelope"></i> Send
 					</button>

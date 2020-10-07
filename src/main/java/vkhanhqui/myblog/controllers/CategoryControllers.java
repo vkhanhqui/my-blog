@@ -7,8 +7,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import vkhanhqui.myblog.models.Category;
-import vkhanhqui.myblog.models.Post;
+import vkhanhqui.myblog.models.dtos.CategoryDTO;
+import vkhanhqui.myblog.models.dtos.PostDTO;
 import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.PostServices;
 
@@ -24,8 +24,8 @@ public class CategoryControllers {
     @Autowired
     private PostServices postServices;
 
-    @GetMapping("/{nameOfCategory}/{currentPage}")
-    public String getCategorySite(@PathVariable String nameOfCategory, @PathVariable int currentPage
+    @GetMapping("/{category_id}/{currentPage}")
+    public String getCategorySite(@PathVariable Long category_id, @PathVariable int currentPage
             , ModelMap modelMap, Principal principal, HttpSession httpSession) {
         if (principal != null) {
             String username = principal.getName();
@@ -33,17 +33,17 @@ public class CategoryControllers {
             String role = httpSession.getAttribute("role").toString();
             modelMap.addAttribute("role", role);
         }
-        List<Post> posts = categoryServices.getPosts(nameOfCategory);
+        List<PostDTO> posts = postServices.getPostsByCategory(category_id);
         PagedListHolder pagedListPost = new PagedListHolder(posts);
         pagedListPost.setPageSize(6);
         PagedListHolder pagedListNumber = postServices.getPagingSite(currentPage, pagedListPost);
         modelMap.addAttribute("currentPage", pagedListPost.getPage() + 1);
         modelMap.addAttribute("pagedListPost", pagedListPost);
         modelMap.addAttribute("pagedListNumber", pagedListNumber);
-        modelMap.addAttribute("nameOfCategory", nameOfCategory);
-        List<Category> listOfCategories = categoryServices.getCategories();
+        modelMap.addAttribute("category_id", category_id);
+        List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
-        List<Post> mostViewed = postServices.getTheMostViewedPost();
+        List<PostDTO> mostViewed = postServices.getTop3Post();
         modelMap.addAttribute("mostViewed", mostViewed);
         return "category-site";
     }

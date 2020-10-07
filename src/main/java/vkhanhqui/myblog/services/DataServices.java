@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import vkhanhqui.myblog.models.Category;
-import vkhanhqui.myblog.models.Post;
-import vkhanhqui.myblog.models.Role;
-import vkhanhqui.myblog.models.User;
+import vkhanhqui.myblog.models.entities.Category;
+import vkhanhqui.myblog.models.entities.Post;
+import vkhanhqui.myblog.models.entities.Role;
+import vkhanhqui.myblog.models.entities.User;
 import vkhanhqui.myblog.models.repositories.CategoryRepositories;
 import vkhanhqui.myblog.models.repositories.PostRepositories;
 import vkhanhqui.myblog.models.repositories.UserRepositories;
@@ -139,7 +139,7 @@ public class DataServices {
                             "                    reprehenderit. Error provident, pariatur cupiditate soluta\n" +
                             "                    doloremque aut ratione. Harum voluptates mollitia illo minus\n" +
                             "                    praesentium, rerum ipsa debitis, inventore?</p>"
-                    , new Date(), "12 min read"
+                    , new Date()
                     , "/resources/images/image_1.jpg", (long) 0
                     , category1, null, user3));
         }
@@ -194,7 +194,7 @@ public class DataServices {
                             "                    reprehenderit. Error provident, pariatur cupiditate soluta\n" +
                             "                    doloremque aut ratione. Harum voluptates mollitia illo minus\n" +
                             "                    praesentium, rerum ipsa debitis, inventore?</p>"
-                    , new Date(), "12 min read"
+                    , new Date()
                     , "/resources/images/image_2.jpg", (long) 0
                     , category2, null, user1));
         }
@@ -250,7 +250,7 @@ public class DataServices {
                             "                    reprehenderit. Error provident, pariatur cupiditate soluta\n" +
                             "                    doloremque aut ratione. Harum voluptates mollitia illo minus\n" +
                             "                    praesentium, rerum ipsa debitis, inventore?</p>"
-                    , new Date(), "12 min read"
+                    , new Date()
                     , "/resources/images/image_3.jpg", (long) 0
                     , category3, null, user1));
         }
@@ -307,7 +307,7 @@ public class DataServices {
                             "                    reprehenderit. Error provident, pariatur cupiditate soluta\n" +
                             "                    doloremque aut ratione. Harum voluptates mollitia illo minus\n" +
                             "                    praesentium, rerum ipsa debitis, inventore?</p>"
-                    , new Date(), "12 min read"
+                    , new Date()
                     , "/resources/images/image_4.jpg", (long) 0
                     , category4, null, user1));
         }
@@ -363,7 +363,7 @@ public class DataServices {
                             "                    reprehenderit. Error provident, pariatur cupiditate soluta\n" +
                             "                    doloremque aut ratione. Harum voluptates mollitia illo minus\n" +
                             "                    praesentium, rerum ipsa debitis, inventore?</p>"
-                    , new Date(), "12 min read"
+                    , new Date()
                     , "/resources/images/image_5.jpg", (long) 0
                     , category5, null, user1));
         }

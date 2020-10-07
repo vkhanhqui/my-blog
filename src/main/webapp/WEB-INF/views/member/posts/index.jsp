@@ -83,7 +83,6 @@
 							<tr>
 								<td>${one.id}</td>
 								<td>${one.title}</td>
-								<td>${one.user.username}</td>
 								<td><a href="/vkhanhqui_myblog_war_exploded/member/posts/edit/${one.id}" class="edit">edit</a></td>
 								<td><a
 									href="/vkhanhqui_myblog_war_exploded/manage/delete-post/${one.id}"

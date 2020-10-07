@@ -5,8 +5,10 @@ import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import vkhanhqui.myblog.models.Category;
-import vkhanhqui.myblog.models.Post;
+import vkhanhqui.myblog.models.dtos.CategoryDTO;
+import vkhanhqui.myblog.models.dtos.PostDTO;
+import vkhanhqui.myblog.models.entities.Category;
+import vkhanhqui.myblog.models.entities.Post;
 import vkhanhqui.myblog.services.CategoryServices;
 import vkhanhqui.myblog.services.PostServices;
 
@@ -36,7 +38,7 @@ public class SearchControllers {
             String role = httpSession.getAttribute("role").toString();
             modelMap.addAttribute("role", role);
         }
-        List<Post> posts = postServices.getPostsByRelatedWords(keywords);
+        List<PostDTO> posts = postServices.getPostsByRelatedWords(keywords);
         PagedListHolder pagedListPost = new PagedListHolder(posts);
         pagedListPost.setPageSize(6);
         PagedListHolder pagedListNumber = postServices.getPagingSite(currentPage, pagedListPost);
@@ -44,9 +46,9 @@ public class SearchControllers {
         modelMap.addAttribute("pagedListPost", pagedListPost);
         modelMap.addAttribute("pagedListNumber", pagedListNumber);
         modelMap.addAttribute("keywords", keywords);
-        List<Category> listOfCategories = categoryServices.getCategories();
+        List<CategoryDTO> listOfCategories = categoryServices.getCategories();
         modelMap.addAttribute("listOfCategories", listOfCategories);
-        List<Post> mostViewed = postServices.getTheMostViewedPost();
+        List<PostDTO> mostViewed = postServices.getTop3Post();
         modelMap.addAttribute("mostViewed", mostViewed);
         return "search-site";
     }

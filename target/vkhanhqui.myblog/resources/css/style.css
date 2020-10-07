@@ -191,7 +191,7 @@ header ul li a:hover {
     margin: 30px auto;
 }
 
-.post-slider .next {
+.post-slider .nextt {
     position: absolute;
     top: 50%;
     right: 30px;
@@ -200,7 +200,7 @@ header ul li a:hover {
     cursor: pointer;
 }
 
-.post-slider .prev {
+.post-slider .prevv {
     position: absolute;
     top: 50%;
     left: 30px;
@@ -290,6 +290,77 @@ header ul li a:hover {
 .content .main-content.single .post-title {
     text-align: center;
     margin-bottom: 40px;
+}
+
+.articlePostCommentContain{
+    background: #ffffff;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.articlePostCommentForm {
+    background: #ffffff;
+    padding: 20px;
+    padding-right: 500px;
+    margin-top: 20px;
+}
+
+.articleComments {
+    margin-top: 20px;
+}
+
+.articleCommentContain, .articleSubComment {
+    display: flex;
+    padding: 10px 0px;
+}
+.articleCommentContain{
+    margin-top: 20px;
+}
+.articleSubComment {
+    margin-left: 30px;
+}
+
+.articleSubComment {
+    padding-left: 10px;
+    border-left: 3px solid #006669;
+}
+
+.articleReplyBtn {
+    flex-grow: 1;
+    text-align: right;
+    cursor: pointer;
+}
+
+.articleCommentImg img {
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+.articleCommentTime {
+    color: #c4c4c4;
+}
+
+.articleCommentContent {
+    margin-top: 10px;
+}
+
+.txtInp {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    font-weight: 400;
+    resize: none;
+}
+
+.btnComment {
+    padding: 10px;
+    background: #006669;
+    border: 1px solid #e4e4e4;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
 }
 
 .content .main-content .post {
