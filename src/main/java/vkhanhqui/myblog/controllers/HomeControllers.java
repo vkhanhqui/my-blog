@@ -31,8 +31,8 @@ public class HomeControllers {
     UserServices userServices;
     @Autowired
     private PostServices postServices;
-    @Autowired
-    private DataServices dataServices;
+//    @Autowired
+//    private DataServices dataServices;
 
     @GetMapping
     public String getHomeSite(ModelMap modelMap, Principal principal) {
