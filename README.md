@@ -1,5 +1,4 @@
 # Blog System Using Spring MVC, Hibernate, JPA in Maven 🍀
-visit-me: https://vkhanhqui-myblog.herokuapp.com/
 
 # My own system with some additional features like:
  User Validation  
